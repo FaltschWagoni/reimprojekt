@@ -18,7 +18,17 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Segoe UI', system-ui, sans-serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; padding: 20px 15px; }
     .container { max-width: 900px; margin: 0 auto; }
-    header { text-align: center; margin-bottom: 30px; padding: 20px 0; border-bottom: 1px solid var(--border-color); }
+    header { text-align: left; margin-bottom: 30px; padding: 20px 0; border-bottom: 1px solid var(--border-color); }
+    .header-row { display: flex; align-items: center; justify-content: flex-start; gap: 18px; }
+    .header-logo { display: block; flex: 0 0 auto; width: 90px; max-width: 90px; height: auto; margin: 0; }
+    .header-text { min-width: 0; }
+    .header-text h1 { margin-bottom: 4px; }
+    .header-text p { margin: 0; }
+    @media (max-width: 520px) {
+      .header-row { gap: 12px; }
+      .header-logo { width: 68px; max-width: 68px; }
+      header h1 { font-size: 1.7rem; }
+    }
     header h1 { font-size: 2.2rem; color: var(--primary-color); margin-bottom: 8px; }
     header p { color: var(--text-muted); font-size: 1.05rem; }
     .search-section { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; margin-bottom: 30px; }
@@ -130,9 +140,13 @@
 <body>
   <div class="container">
     <header>
-<img src="https://imgur.com/oYc2rIO.jpeg" alt="Logo" style="display: block; margin: 0 auto 15px auto; max-width: 90px; height: auto;">
-      <h1>Online-Reimlexikon</h1>
-      <p>Finde reine und unreine Reime für Gedichte & Songtexte</p>
+      <div class="header-row">
+        <img src="https://imgur.com/oYc2rIO.jpeg" alt="Faltsch Wagoni Logo" class="header-logo">
+        <div class="header-text">
+          <h1>Online-Reimlexikon</h1>
+          <p>Finde reine und unreine Reime für Gedichte & Songtexte</p>
+        </div>
+      </div>
     </header>
 
     <div class="search-section">
@@ -156,7 +170,7 @@
     <div id="resultsContainer">
       <div class="empty-state">Gib oben einen Reim oder ein Wort ein.</div>
     </div>
-    <footer>Reimlexikon – Version 2.06<br>© Faltsch Wagoni 2026</footer>
+    <footer>Reimlexikon – Version 2.07<br>© Faltsch Wagoni 2026</footer>
   </div>
 
   <script>
