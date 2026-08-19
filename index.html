@@ -242,7 +242,35 @@
     }
 
     .rhyme-quote { margin-top: 7px !important; font-size: 0.82rem; line-height: 1.35; font-style: italic; color: #dc6666 !important; }
-  .header-actions{display:flex;gap:10px;margin-left:auto}.info-button{padding:10px 16px;border:3px solid var(--border-color);border-radius:8px;background:transparent;color:var(--text-main);font-weight:700;cursor:pointer}.info-overlay{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.68);display:flex;align-items:center;justify-content:center;padding:20px}.info-overlay[hidden]{display:none}.info-dialog{position:relative;width:min(680px,100%);max-height:85vh;overflow:auto;background:var(--card-bg);border:1px solid var(--border-color);border-radius:12px;padding:26px;text-align:left}.info-dialog h2{color:var(--primary-color);margin-bottom:14px}.info-dialog p{margin-bottom:14px}.info-dialog ul{margin:0 0 16px 22px}.info-dialog li{margin-bottom:12px}.info-x{position:absolute;right:12px;top:9px;border:0;background:transparent;color:var(--text-muted);font-size:1.8rem;cursor:pointer}.info-close{padding:10px 16px;border:0;border-radius:7px;background:var(--primary-hover);color:white;font-weight:700;cursor:pointer}.search-input-wrap{position:relative;flex:1 1 auto}.search-input-wrap #searchInput{width:100%;padding-right:42px}.search-clear{position:absolute;right:10px;top:50%;transform:translateY(-50%);border:0;background:transparent;color:var(--text-muted);font-size:1.45rem;cursor:pointer}@media(max-width:700px){.header-actions{margin-left:0;flex-wrap:wrap}}</style>
+  .header-actions{display:flex;gap:10px;margin-left:auto}.info-button{padding:10px 16px;border:3px solid var(--border-color);border-radius:8px;background:transparent;color:var(--text-main);font-weight:700;cursor:pointer}.info-overlay{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.68);display:flex;align-items:center;justify-content:center;padding:20px}.info-overlay[hidden]{display:none}.info-dialog{position:relative;width:min(680px,100%);max-height:85vh;overflow:auto;background:var(--card-bg);border:1px solid var(--border-color);border-radius:12px;padding:26px;text-align:left}.info-dialog h2{color:var(--primary-color);margin-bottom:14px}.info-dialog p{margin-bottom:14px}.info-dialog ul{margin:0 0 16px 22px}.info-dialog li{margin-bottom:12px}.info-x{position:absolute;right:12px;top:9px;border:0;background:transparent;color:var(--text-muted);font-size:1.8rem;cursor:pointer}.info-close{padding:10px 16px;border:0;border-radius:7px;background:var(--primary-hover);color:white;font-weight:700;cursor:pointer}.search-input-wrap{position:relative;flex:1 1 auto}.search-input-wrap #searchInput{width:100%;padding-right:42px}.search-clear{position:absolute;right:10px;top:50%;transform:translateY(-50%);border:0;background:transparent;color:var(--text-muted);font-size:1.45rem;cursor:pointer}@media(max-width:700px){.header-actions{margin-left:0;flex-wrap:wrap}}.browse-button{padding:10px 16px;border:1px solid var(--primary-color);border-radius:8px;background:transparent;color:var(--primary-color);font-weight:700;cursor:pointer}.browse-panel{margin-top:18px;padding:18px;background:var(--card-bg);border:1px solid var(--border-color);border-radius:10px;text-align:left}.browse-panel[hidden]{display:none}.browse-head{display:flex;justify-content:space-between;gap:12px;margin-bottom:14px}.browse-letters,.browse-groups{display:flex;flex-wrap:wrap;gap:7px}.browse-letters{margin-bottom:14px}.browse-letter,.browse-group,.browse-head button{border:1px solid var(--border-color);border-radius:7px;background:#0f172a;color:var(--text-main);padding:7px 10px;cursor:pointer}.browse-letter.active{border-color:var(--primary-color);color:var(--primary-color)}.browse-nav{display:flex;justify-content:space-between;gap:12px;margin:18px 0 8px}.browse-nav button{padding:9px 13px;border:1px solid var(--border-color);border-radius:7px;background:var(--card-bg);color:var(--text-main);cursor:pointer}.browse-nav button:disabled{opacity:.35}
+    .header-actions .browse-button,
+    .header-actions .info-button,
+    .header-actions .feedback-button {
+      width: 100px;
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .header-actions .browse-button,
+    .header-actions .info-button {
+      border-color: var(--primary-color);
+      color: var(--primary-color);
+      background: transparent;
+      cursor: pointer;
+      transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+    }
+
+    .header-actions .browse-button:hover,
+    .header-actions .info-button:hover {
+      background: var(--primary-color);
+      color: var(--bg-color);
+      border-color: var(--primary-color);
+    }
+
+</style>
 </head>
 <body>
   <div class="container">
@@ -254,10 +282,10 @@
           <p>Finde reine und unreine Reime für Gedichte & Songtexte</p>
           <p class="rhyme-quote">Auf Teufel reimt sich nur der Zweifel<br>meint Goethe – er vergaß die Eifel</p>
         </div>
-        <div class="header-actions"><button type="button" class="info-button" id="infoButton">über den Reimfinder</button><button type="button" class="feedback-button" id="feedbackButton">Feedback</button></div>
+        <div class="header-actions"><button type="button" class="browse-button" id="browseButton">Reime entdecken</button><button type="button" class="info-button" id="infoButton">über den Reimfinder</button><button type="button" class="feedback-button" id="feedbackButton">Feedback</button></div>
       </div>
 
-      <div class="info-overlay" id="infoOverlay" hidden><div class="info-dialog" role="dialog" aria-modal="true"><button type="button" class="info-x" id="infoX">×</button><h2>Über den Online-Reimfinder</h2><p>Der Online-Reimfinder von Faltsch Wagoni hilft bei der Suche nach reinen und unreinen Reimen für Gedichte und Songtexte.</p><ul><li>Dieser Reimfinder sucht Reime <strong>nicht nach gleicher Schreibweise, sondern nach Klang</strong>. Beispiel: „selig“ reimt sich auf „ölig“, auf „unzählig“ oder „mehlig“.</li><li>Je nach Aussprache kann es für identisch geschriebene Wörter <strong>zwei oder mehr Reimfamilien</strong> geben. Zum Beispiel findet man zum Suchwort „selig“ Wörter mit den Endungen <strong>ELICH</strong> und <strong>ELIG</strong>; „Gang“ findet man unter <strong>ANG</strong> und englisch ausgesprochen unter <strong>ENG</strong>.</li><li>Es tauchen auch <strong>Wortkreationen auf, die in keinem Wörterbuch stehen</strong>, als dichterische Anregung zum phantasievollen Umgang mit der Sprache. Beispiele: „Leichenwasser“, „Bäumefäller“ oder „Gewitterschädel“.</li></ul><p>Großgeschriebene Wörter werden vor den kleingeschriebenen angezeigt. Fremdsprachige Aussprachehinweise stehen kursiv in Klammern.</p><p>Ein Klick auf ein Reimwort kopiert es in die Zwischenablage.</p><p>Fehler, fehlende Reime und Verbesserungsvorschläge können über den <strong>Feedback-Button</strong> mitgeteilt werden.</p><button type="button" class="info-close" id="infoClose">Schließen</button></div></div><div class="feedback-panel" id="feedbackPanel" hidden>
+      <div class="info-overlay" id="infoOverlay" hidden><div class="info-dialog" role="dialog" aria-modal="true"><button type="button" class="info-x" id="infoX">×</button><h2>Über den Online-Reimfinder</h2><p>Der Online-Reimfinder von Faltsch Wagoni hilft bei der Suche nach reinen und unreinen Reimen für Gedichte und Songtexte.</p><ul><li>Dieser Reimfinder sucht Reime <strong>nicht nach gleicher Schreibweise, sondern nach Klang</strong>. Beispiel: „selig“ reimt sich auf „ölig“, auf „unzählig“ oder „mehlig“.</li><li>Je nach Aussprache kann es für identisch geschriebene Wörter <strong>zwei oder mehr Reimfamilien</strong> geben. Zum Beispiel findet man zum Suchwort „selig“ Wörter mit den Endungen <strong>ELICH</strong> und <strong>ELIG</strong>; „Gang“ findet man unter <strong>ANG</strong> und englisch ausgesprochen unter <strong>ENG</strong>.</li><li>Es tauchen auch <strong>Wortkreationen auf, die in keinem Wörterbuch stehen</strong>, als dichterische Anregung zum phantasievollen Umgang mit der Sprache. Beispiele: „Leichenwasser“, „Bäumefäller“ oder „Gewitterschädel“.</li></ul><p>Großgeschriebene Wörter werden vor den kleingeschriebenen angezeigt. Fremdsprachige Aussprachehinweise stehen kursiv in Klammern.</p><p>Ein Klick auf ein Reimwort kopiert es in die Zwischenablage.</p><p>Fehler, fehlende Reime und Verbesserungsvorschläge können über den <strong>Feedback-Button</strong> mitgeteilt werden.</p><button type="button" class="info-close" id="infoClose">Schließen</button></div></div><div class="browse-panel" id="browsePanel" hidden><div class="browse-head"><strong>Reimgruppen entdecken</strong><button type="button" id="browseClose">Schließen</button></div><div class="browse-letters" id="browseLetters"></div><div class="browse-groups" id="browseGroups"></div></div><div class="feedback-panel" id="feedbackPanel" hidden>
         <form method="post"
               target="_blank"
               accept-charset="UTF-8"
@@ -302,7 +330,7 @@
     <div id="resultsContainer">
       <div class="empty-state">Gib oben einen Reim oder ein Wort ein.</div>
     </div>
-    <footer>Reimlexikon – Version 2.19<br>© Faltsch Wagoni 2026</footer>
+    <footer>Reimlexikon – Version 2.24<br>© Faltsch Wagoni 2026</footer>
   </div>
 
   <script>
@@ -1836,8 +1864,8 @@ INGTES;abgeschminktes;bedingtes;bedingt es;beringtes;beschwingtes;beschwingt es;
 INGUNG;Bedingung;Beringung;Bringung;Düngung;Erzwingung;Erringung;Schlingung;Schwingung;Überbringung;Umschlingung;Unterbringung;Verjüngung;Verschlingung
 INI;Bambini;Bikini;Houdini;Kini (bayr.);Martini;Sweenie;Teenie;Zucchini
 INIERE;diniere;koordiniere;eliminiere;examiniere;fasziniere;gratiniere;guillotiniere;imaginiere;laminiere;mariniere;optioniere;sinniere
-INIEREN;dinieren;koordinieren;eliminieren;examinieren;faszinieren;gratinieren;guillotinieren;imaginieren;laminieren;marinieren;optionieren;sinnieren
-INIEREND;dinierend;koordinierend;eliminierend;examinierend;faszinierend;gratinierend;guillotinierend;imaginierend;laminierend;marinierend;optionierend;sinnierend
+INIEREN;antizipieren;dinieren;eliminieren;emanzipieren;examinieren;faszinieren;gratinieren;guillotinieren;haluzinieren;imaginieren;konzipieren;koordinieren;laminieren;marinieren;optionieren;partizipieren;sinnieren
+INIEREND;antizipierend;dinierend;eliminierend;emanzipierend;examinierend;faszinierend;gratinierend;guillotinierend;haluzinierend;imaginierend;konzipierend;koordinierend;laminierend;marinierend;optionierend;partizipierend;sinnierend
 INISCH;abessinisch;albertinisch;alpinisch;apollinisch;appenninisch;argentinisch;augustinisch;byzantinisch;cherubinisch;dalmatinisch;darwinisch;florentinisch;jakobinisch;kalvinisch;konstantinisch;klinisch;ladinisch;latinisch;levantinisch;maskulinisch;medizinisch;montenegrinisch;philippinisch;rabbinisch;sanguinisch;sardinisch;transalpinisch;ukrainisch;zisalpinisch;zynisch
 INK;blink;flink;hink;ink;link;pink;schmink;sink;stink;trink;verlink;verschmink;versink;verzink;wink;Diestelfink;Drink;Fink;Link;Pink;Wink;Zink
 INKE;betrinke;blinke;ertrinke;flinke;hinke;pinke;schminke;sinke;stinke;trinke;übeschminke;verlinke;verschminke;versinke;verstinke;verzinke;winke;Linke;die Linke;Pinke
@@ -2481,11 +2509,7 @@ UUCHT;abgebucht;abgesucht;angeflucht;aufgesucht;ausgebucht;ausgeflucht;ausgesuch
 UUCHTEN;abgebuchten;abgesuchten;aufgesuchten;ausgebuchten;ausgefluchten;ausgesuchten;besuchten;betuchten;buchten;ersuchten;fluchten;gebuchten;gefluchten;gesuchten;suchten;überbuchten;umgebuchten;untersuchten;verbuchten;verfluchten;verruchten;versuchten;zurückgebuchten;zusammensuchten
 UUFT;abgestuft;behuft;gegroovt;gemovet;groovet;movet;kuft;ruft;stuft
 UZIEREN;induzieren;obduzieren;produzieren;reduzieren;reproduzieren
-UZIEREND;induzierend;obduzierend;produzierend;reduzierend;reproduzierend
-ZINIEREN;faszinieren;haluzinieren
-ZINIEREND;faszinierend;haluzinierend
-ZIPIEREN;antizipieren;emanzipieren;konzipieren;partizipieren
-ZIPIEREND;antizipierend;emanzipierend;konzipierend;partizipierend`;
+UZIEREND;induzierend;obduzierend;produzierend;reduzierend;reproduzierend`;
 
     let rhymeGroups = [];
     let uniqueWordSet = new Set();
@@ -2791,6 +2815,6 @@ ZIPIEREND;antizipierend;emanzipierend;konzipierend;partizipierend`;
       });
     }
 
-  const infoButton=document.getElementById('infoButton'),infoOverlay=document.getElementById('infoOverlay');function closeInfo(){if(infoOverlay)infoOverlay.hidden=true}if(infoButton&&infoOverlay)infoButton.addEventListener('click',()=>infoOverlay.hidden=false);document.getElementById('infoClose')?.addEventListener('click',closeInfo);document.getElementById('infoX')?.addEventListener('click',closeInfo);if(infoOverlay)infoOverlay.addEventListener('click',e=>{if(e.target===infoOverlay)closeInfo()});document.getElementById('searchClear')?.addEventListener('click',()=>{const i=document.getElementById('searchInput');i.value='';i.focus();searchRhymes();});</script>
+  const infoButton=document.getElementById('infoButton'),infoOverlay=document.getElementById('infoOverlay');function closeInfo(){if(infoOverlay)infoOverlay.hidden=true}if(infoButton&&infoOverlay)infoButton.addEventListener('click',()=>infoOverlay.hidden=false);document.getElementById('infoClose')?.addEventListener('click',closeInfo);document.getElementById('infoX')?.addEventListener('click',closeInfo);if(infoOverlay)infoOverlay.addEventListener('click',e=>{if(e.target===infoOverlay)closeInfo()});document.getElementById('searchClear')?.addEventListener('click',()=>{const i=document.getElementById('searchInput');i.value='';i.focus();searchRhymes();});const browseButton=document.getElementById('browseButton'),browsePanel=document.getElementById('browsePanel'),browseLetters=document.getElementById('browseLetters'),browseGroups=document.getElementById('browseGroups');let browseIndex=-1;function browseNames(){return rhymeGroups.map(g=>g.name).sort((a,b)=>a.localeCompare(b,'de',{sensitivity:'base'}))}function browseInitial(n){return(n||'').trim().charAt(0).toUpperCase()||'#'}function renderBrowseLetters(){const names=browseNames(),letters=[...new Set(names.map(browseInitial))];browseLetters.innerHTML='';letters.forEach(l=>{const x=document.createElement('button');x.type='button';x.className='browse-letter';x.textContent=l;x.onclick=()=>renderBrowseGroups(l,x);browseLetters.appendChild(x)});if(letters.length)renderBrowseGroups(letters[0],browseLetters.firstElementChild)}function renderBrowseGroups(l,a){[...browseLetters.children].forEach(x=>x.classList.remove('active'));if(a)a.classList.add('active');browseGroups.innerHTML='';browseNames().filter(n=>browseInitial(n)===l).forEach(n=>{const x=document.createElement('button');x.type='button';x.className='browse-group';x.textContent=n;x.onclick=()=>openBrowseGroup(n);browseGroups.appendChild(x)})}function openBrowseGroup(n){const names=browseNames();browseIndex=names.indexOf(n);const i=document.getElementById('searchInput');if(i){i.value=n;searchRhymes()}browsePanel.hidden=true;setTimeout(addBrowseNavigation,0)}function addBrowseNavigation(){document.getElementById('browseNav')?.remove();if(browseIndex<0)return;const names=browseNames(),r=document.getElementById('results');if(!r)return;const nav=document.createElement('div');nav.id='browseNav';nav.className='browse-nav';const p=document.createElement('button'),n=document.createElement('button');p.textContent='← vorherige Gruppe';n.textContent='nächste Gruppe →';p.disabled=browseIndex<=0;n.disabled=browseIndex>=names.length-1;p.onclick=()=>browseIndex>0&&openBrowseGroup(names[browseIndex-1]);n.onclick=()=>browseIndex<names.length-1&&openBrowseGroup(names[browseIndex+1]);nav.append(p,n);r.prepend(nav)}if(browseButton)browseButton.onclick=()=>{browsePanel.hidden=!browsePanel.hidden;if(!browsePanel.hidden)renderBrowseLetters()};document.getElementById('browseClose')?.addEventListener('click',()=>browsePanel.hidden=true);</script>
 </body>
 </html>
