@@ -1,0 +1,8 @@
+=A1&“d“
+fügt Buchstaben hinzu
+
+=LINKS(A1;LÄNGE(A1)-1)&"n"
+Dieser Befehl ändert den letzten Buchstaben in LibreOffice Wortliste
+
+=GROSS2(A2)
+macht den ersten Buchstaben groß
