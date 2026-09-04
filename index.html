@@ -335,7 +335,7 @@
     <div id="resultsContainer">
       <div class="empty-state">Gib oben einen Reim oder ein Wort ein.</div>
     </div>
-    <footer>Reimlexikon – Version 2.27<br>© Faltsch Wagoni 2026</footer>
+    <footer>Reimlexikon – Version 2.28<br>© Faltsch Wagoni 2026</footer>
   </div>
 
   <script>
@@ -2948,7 +2948,7 @@ UZIEREND;induzierend;obduzierend;produzierend;reduzierend;reproduzierend`;
       // 2. Falls kein Wort gefunden wurde: exakte Reimgruppe suchen.
       if (selectedGroups.length === 0) {
         selectedGroups = rhymeGroups.filter(group =>
-          normalizeWord(group.name, true) === normalizeWord(input, true)
+          normalizeWord(group.name, true) === normalizedWordInput
         );
       }
 
