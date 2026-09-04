@@ -270,6 +270,11 @@
       border-color: var(--primary-color);
     }
 
+
+.back-to-top{position:fixed;right:18px;bottom:18px;z-index:900;padding:10px 14px;border:1px solid var(--primary-color);border-radius:999px;background:var(--card-bg);color:var(--primary-color);font:inherit;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.25);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .18s ease,transform .18s ease,visibility .18s ease,background-color .15s ease,color .15s ease}
+.back-to-top.show{opacity:1;visibility:visible;transform:translateY(0)}
+.back-to-top:hover{background:var(--primary-color);color:var(--bg-color)}
+@media(max-width:620px){.back-to-top{right:12px;bottom:12px;padding:9px 12px;font-size:.86rem}}
 </style>
 </head>
 <body>
@@ -330,7 +335,7 @@
     <div id="resultsContainer">
       <div class="empty-state">Gib oben einen Reim oder ein Wort ein.</div>
     </div>
-    <footer>Reimlexikon – Version 2.24<br>© Faltsch Wagoni 2026</footer>
+    <footer>Reimlexikon – Version 2.26<br>© Faltsch Wagoni 2026</footer>
   </div>
 
   <script>
@@ -3146,6 +3151,20 @@ UZIEREND;induzierend;obduzierend;produzierend;reduzierend;reproduzierend`;
       });
     }
 
-  const infoButton=document.getElementById('infoButton'),infoOverlay=document.getElementById('infoOverlay');function closeInfo(){if(infoOverlay)infoOverlay.hidden=true}if(infoButton&&infoOverlay)infoButton.addEventListener('click',()=>infoOverlay.hidden=false);document.getElementById('infoClose')?.addEventListener('click',closeInfo);document.getElementById('infoX')?.addEventListener('click',closeInfo);if(infoOverlay)infoOverlay.addEventListener('click',e=>{if(e.target===infoOverlay)closeInfo()});document.getElementById('searchClear')?.addEventListener('click',()=>{const i=document.getElementById('searchInput');i.value='';i.focus();searchRhymes();});const browseButton=document.getElementById('browseButton'),browsePanel=document.getElementById('browsePanel'),browseLetters=document.getElementById('browseLetters'),browseGroups=document.getElementById('browseGroups');let browseIndex=-1;function browseNames(){return rhymeGroups.map(g=>g.name).sort((a,b)=>a.localeCompare(b,'de',{sensitivity:'base'}))}function browseInitial(n){return(n||'').trim().charAt(0).toUpperCase()||'#'}function renderBrowseLetters(){const names=browseNames(),letters=[...new Set(names.map(browseInitial))];browseLetters.innerHTML='';letters.forEach(l=>{const x=document.createElement('button');x.type='button';x.className='browse-letter';x.textContent=l;x.onclick=()=>renderBrowseGroups(l,x);browseLetters.appendChild(x)});if(letters.length)renderBrowseGroups(letters[0],browseLetters.firstElementChild)}function renderBrowseGroups(l,a){[...browseLetters.children].forEach(x=>x.classList.remove('active'));if(a)a.classList.add('active');browseGroups.innerHTML='';browseNames().filter(n=>browseInitial(n)===l).forEach(n=>{const x=document.createElement('button');x.type='button';x.className='browse-group';x.textContent=n;x.onclick=()=>openBrowseGroup(n);browseGroups.appendChild(x)})}function openBrowseGroup(n){const names=browseNames();browseIndex=names.indexOf(n);const i=document.getElementById('searchInput');if(i){i.value=n;searchRhymes()}browsePanel.hidden=true;setTimeout(addBrowseNavigation,0)}function addBrowseNavigation(){document.getElementById('browseNav')?.remove();if(browseIndex<0)return;const names=browseNames(),r=document.getElementById('results');if(!r)return;const nav=document.createElement('div');nav.id='browseNav';nav.className='browse-nav';const p=document.createElement('button'),n=document.createElement('button');p.textContent='← vorherige Gruppe';n.textContent='nächste Gruppe →';p.disabled=browseIndex<=0;n.disabled=browseIndex>=names.length-1;p.onclick=()=>browseIndex>0&&openBrowseGroup(names[browseIndex-1]);n.onclick=()=>browseIndex<names.length-1&&openBrowseGroup(names[browseIndex+1]);nav.append(p,n);r.prepend(nav)}if(browseButton)browseButton.onclick=()=>{browsePanel.hidden=!browsePanel.hidden;if(!browsePanel.hidden)renderBrowseLetters()};document.getElementById('browseClose')?.addEventListener('click',()=>browsePanel.hidden=true);</script>
+  const infoButton=document.getElementById('infoButton'),infoOverlay=document.getElementById('infoOverlay');function closeInfo(){if(infoOverlay)infoOverlay.hidden=true}if(infoButton&&infoOverlay)infoButton.addEventListener('click',()=>infoOverlay.hidden=false);document.getElementById('infoClose')?.addEventListener('click',closeInfo);document.getElementById('infoX')?.addEventListener('click',closeInfo);if(infoOverlay)infoOverlay.addEventListener('click',e=>{if(e.target===infoOverlay)closeInfo()});document.getElementById('searchClear')?.addEventListener('click',()=>{const i=document.getElementById('searchInput');i.value='';i.focus();searchRhymes();});const browseButton=document.getElementById('browseButton'),browsePanel=document.getElementById('browsePanel'),browseLetters=document.getElementById('browseLetters'),browseGroups=document.getElementById('browseGroups');let browseIndex=-1;function browseNames(){return rhymeGroups.map(g=>g.name).sort((a,b)=>a.localeCompare(b,'de',{sensitivity:'base'}))}function browseInitial(n){return(n||'').trim().charAt(0).toUpperCase()||'#'}function renderBrowseLetters(){const names=browseNames(),letters=[...new Set(names.map(browseInitial))];browseLetters.innerHTML='';letters.forEach(l=>{const x=document.createElement('button');x.type='button';x.className='browse-letter';x.textContent=l;x.onclick=()=>renderBrowseGroups(l,x);browseLetters.appendChild(x)});if(letters.length)renderBrowseGroups(letters[0],browseLetters.firstElementChild)}function renderBrowseGroups(l,a){[...browseLetters.children].forEach(x=>x.classList.remove('active'));if(a)a.classList.add('active');browseGroups.innerHTML='';browseNames().filter(n=>browseInitial(n)===l).forEach(n=>{const x=document.createElement('button');x.type='button';x.className='browse-group';x.textContent=n;x.onclick=()=>openBrowseGroup(n);browseGroups.appendChild(x)})}function openBrowseGroup(n){const names=browseNames();browseIndex=names.indexOf(n);const i=document.getElementById('searchInput');if(i){i.value=n;searchRhymes()}browsePanel.hidden=true;setTimeout(addBrowseNavigation,0)}function addBrowseNavigation(){document.getElementById('browseNav')?.remove();if(browseIndex<0)return;const names=browseNames(),r=document.getElementById('results');if(!r)return;const nav=document.createElement('div');nav.id='browseNav';nav.className='browse-nav';const p=document.createElement('button'),n=document.createElement('button');p.textContent='← vorherige Gruppe';n.textContent='nächste Gruppe →';p.disabled=browseIndex<=0;n.disabled=browseIndex>=names.length-1;p.onclick=()=>browseIndex>0&&openBrowseGroup(names[browseIndex-1]);n.onclick=()=>browseIndex<names.length-1&&openBrowseGroup(names[browseIndex+1]);nav.append(p,n);r.prepend(nav)}if(browseButton)browseButton.onclick=()=>{browsePanel.hidden=!browsePanel.hidden;if(!browsePanel.hidden)renderBrowseLetters()};document.getElementById('browseClose')?.addEventListener('click',()=>browsePanel.hidden=true);
+document.addEventListener('DOMContentLoaded',function(){
+  const backToTop=document.getElementById('backToTop');
+  if(!backToTop)return;
+  function updateBackToTop(){
+    backToTop.classList.toggle('show',window.scrollY>250);
+  }
+  backToTop.addEventListener('click',function(){
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+  window.addEventListener('scroll',updateBackToTop,{passive:true});
+  updateBackToTop();
+});
+</script>
+<button type="button" id="backToTop" class="back-to-top" aria-label="Nach oben" title="Nach oben">↑ nach oben</button>
 </body>
 </html>
