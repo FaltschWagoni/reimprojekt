@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Deutsches Online-Reimlexikon</title>
+  <title>Online-Reimfinder – deutsche Reime | Faltsch Wagoni</title>
+  <meta name="description" content="Kostenloser Online-Reimfinder von Faltsch Wagoni: Finde reine und unreine deutsche Reime nach Klang für Gedichte, Songtexte und andere Texte.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://faltschwagoni.github.io/reimprojekt/">
+  <meta name="author" content="Faltsch Wagoni">
   <style>
     :root {
       --bg-color: #0f172a;
@@ -19,7 +23,7 @@
     body { font-family: 'Segoe UI', system-ui, sans-serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; padding: 20px 15px; }
     .container { max-width: 900px; margin: 0 auto; }
     header { text-align: left; margin-bottom: 30px; padding: 20px 0; border-bottom: 1px solid var(--border-color); }
-    .header-row { display: flex; align-items: center; justify-content: flex-start; gap: 18px; }
+    .header-row { display: flex; align-items: center; justify-content: flex-start; gap: 26px; }
     .header-logo { display: block; flex: 0 0 auto; width: 120px; max-width: 120px; height: auto; margin: 0; }
     .header-text { min-width: 0; }
     .header-text h1 { margin-bottom: 4px; }
@@ -241,7 +245,7 @@
       }
     }
 
-    .rhyme-quote { margin-top: 7px !important; font-size: 0.82rem; line-height: 1.35; font-style: italic; color: #dc6666 !important; }
+    .rhyme-quote { margin-top: 7px !important; font-size: 0.92rem; line-height: 1.45; font-style: italic; color: #dc6666 !important; }
   .header-actions{display:flex;gap:10px;margin-left:auto}.info-button{padding:10px 16px;border:3px solid var(--border-color);border-radius:8px;background:transparent;color:var(--text-main);font-weight:700;cursor:pointer}.info-overlay{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.68);display:flex;align-items:center;justify-content:center;padding:20px}.info-overlay[hidden]{display:none}.info-dialog{position:relative;width:min(680px,100%);max-height:85vh;overflow:auto;background:var(--card-bg);border:1px solid var(--border-color);border-radius:12px;padding:26px;text-align:left}.info-dialog h2{color:var(--primary-color);margin-bottom:14px}.info-dialog p{margin-bottom:14px}.info-dialog ul{margin:0 0 16px 22px}.info-dialog li{margin-bottom:12px}.info-x{position:absolute;right:12px;top:9px;border:0;background:transparent;color:var(--text-muted);font-size:1.8rem;cursor:pointer}.info-close{padding:10px 16px;border:0;border-radius:7px;background:var(--primary-hover);color:white;font-weight:700;cursor:pointer}.search-input-wrap{position:relative;flex:1 1 auto}.search-input-wrap #searchInput{width:100%;padding-right:42px}.search-clear{position:absolute;right:10px;top:50%;transform:translateY(-50%);border:0;background:transparent;color:var(--text-muted);font-size:1.45rem;cursor:pointer}@media(max-width:700px){.header-actions{margin-left:0;flex-wrap:wrap}}.browse-button{padding:10px 16px;border:1px solid var(--primary-color);border-radius:8px;background:transparent;color:var(--primary-color);font-weight:700;cursor:pointer}.browse-panel{margin-top:18px;padding:18px;background:var(--card-bg);border:1px solid var(--border-color);border-radius:10px;text-align:left}.browse-panel[hidden]{display:none}.browse-head{display:flex;justify-content:space-between;gap:12px;margin-bottom:14px}.browse-letters,.browse-groups{display:flex;flex-wrap:wrap;gap:7px}.browse-letters{margin-bottom:14px}.browse-letter,.browse-group,.browse-head button{border:1px solid var(--border-color);border-radius:7px;background:#0f172a;color:var(--text-main);padding:7px 10px;cursor:pointer}.browse-letter.active{border-color:var(--primary-color);color:var(--primary-color)}.browse-nav{display:flex;justify-content:space-between;gap:12px;margin:18px 0 8px}.browse-nav button{padding:9px 13px;border:1px solid var(--border-color);border-radius:7px;background:var(--card-bg);color:var(--text-main);cursor:pointer}.browse-nav button:disabled{opacity:.35}
     .header-actions .browse-button,
     .header-actions .info-button,
@@ -275,16 +279,37 @@
 .back-to-top.show{opacity:1;visibility:visible;transform:translateY(0)}
 .back-to-top:hover{background:var(--primary-color);color:var(--bg-color)}
 @media(max-width:620px){.back-to-top{right:12px;bottom:12px;padding:9px 12px;font-size:.86rem}}
+  .wide-intro {
+      text-align: center;
+      width: 100%;
+      margin: 0 0 18px;
+      padding: 0 0 18px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .wide-intro h1 {
+      margin: 0 0 6px;
+      color: var(--primary-color);
+      font-size: 2.2rem;
+      line-height: 1.2;
+    }
+    .wide-intro p {
+      margin: 0;
+      color: #ffffff;
+      font-size: 1.05rem;
+      line-height: 1.55;
+    }
+    @media (max-width: 620px) {
+      .wide-intro h1 { font-size: 1.7rem; }
+      .wide-intro p { font-size: 0.98rem; }
+    }
 </style>
 </head>
 <body>
   <div class="container">
-    <header>
+<header>
       <div class="header-row">
         <a href="https://www.faltsch-wagoni.de/" target="_top" aria-label="Zur Faltsch-Wagoni-Hauptseite"><img src="https://imgur.com/oYc2rIO.jpeg" alt="Faltsch Wagoni Logo" class="header-logo"></a>
         <div class="header-text">
-          <h1>Online-Reimfinder</h1>
-          <p>Finde reine und unreine Reime für Gedichte & Songtexte</p>
           <p class="rhyme-quote">Auf Teufel reimt sich nur der Zweifel<br>meint Goethe – er vergaß die Eifel</p>
         </div>
         <div class="header-actions"><button type="button" class="browse-button" id="browseButton">Reime entdecken</button><button type="button" class="info-button" id="infoButton">über den Reimfinder</button><button type="button" class="feedback-button" id="feedbackButton">Feedback</button></div>
@@ -313,6 +338,12 @@
         </form>
       </div>
     </header>
+
+    <section class="wide-intro">
+      <h1>Online-Reimfinder für deutsche Reime</h1>
+      <p>Finde reine und unreine Reime für Gedichte, Songtexte und andere kreative Texte. Der Reimfinder von Faltsch Wagoni orientiert sich am Klang der Wörter und bietet auch ungewöhnliche Reimverbindungen und Wortkombinationen.</p>
+    </section>
+
 
     <div class="search-section">
       <div class="search-box">
