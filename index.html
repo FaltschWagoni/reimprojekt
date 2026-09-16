@@ -328,31 +328,28 @@
 
 
 <style>
-/* "über den Reimfinder": oben im sichtbaren Bereich beginnen und immer scrollbar bleiben */
+/* Popup "über den Reimfinder": als Ganzes nach oben */
 .info-overlay {
   align-items: flex-start !important;
   overflow-y: auto !important;
-  padding-top: 16px !important;
-  padding-bottom: 16px !important;
+  padding: 8px 16px 16px !important;
+  box-sizing: border-box !important;
 }
-
 .info-dialog {
   margin: 0 auto !important;
-  max-height: calc(100vh - 32px) !important;
+  max-height: calc(100vh - 24px) !important;
   overflow-y: auto !important;
   -webkit-overflow-scrolling: touch;
-  box-sizing: border-box;
+  box-sizing: border-box !important;
 }
-
 @media (max-width: 600px) {
   .info-overlay {
-    padding: 8px !important;
+    padding: 4px 8px 8px !important;
   }
-
   .info-dialog {
-    width: 100% !important;
-    max-height: calc(100vh - 16px) !important;
-    padding: 18px 16px !important;
+    margin-top: 0 !important;
+    max-height: calc(100vh - 12px) !important;
+    overflow-y: auto !important;
   }
 }
 </style>
