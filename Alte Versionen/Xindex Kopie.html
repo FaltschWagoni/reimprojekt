@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Deutsches Online-Reimlexikon</title>
+  <title>Online-Reimfinder – deutsche Reime | Faltsch Wagoni</title>
+  <meta name="description" content="Kostenloser Online-Reimfinder von Faltsch Wagoni: Finde reine und unreine deutsche Reime nach Klang für Gedichte, Songtexte und andere Texte.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://faltschwagoni.github.io/reimprojekt/">
+  <meta name="author" content="Faltsch Wagoni">
   <style>
     :root {
       --bg-color: #0f172a;
@@ -275,16 +279,41 @@
 .back-to-top.show{opacity:1;visibility:visible;transform:translateY(0)}
 .back-to-top:hover{background:var(--primary-color);color:var(--bg-color)}
 @media(max-width:620px){.back-to-top{right:12px;bottom:12px;padding:9px 12px;font-size:.86rem}}
+  .wide-intro {
+      width: 100%;
+      margin: 0 0 18px;
+      padding: 0 0 18px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .wide-intro h1 {
+      margin: 0 0 6px;
+      color: var(--primary-color);
+      font-size: 2.2rem;
+      line-height: 1.2;
+    }
+    .wide-intro p {
+      margin: 0;
+      color: var(--text-main);
+      font-size: 1.05rem;
+      line-height: 1.55;
+    }
+    @media (max-width: 620px) {
+      .wide-intro h1 { font-size: 1.7rem; }
+      .wide-intro p { font-size: 0.98rem; }
+    }
 </style>
 </head>
 <body>
   <div class="container">
+    <section class="wide-intro">
+      <h1>Online-Reimfinder für deutsche Reime</h1>
+      <p>Finde reine und unreine Reime für Gedichte, Songtexte und andere kreative Texte. Der Reimfinder von Faltsch Wagoni orientiert sich am Klang der Wörter und bietet auch ungewöhnliche Reimverbindungen und Wortkombinationen.</p>
+    </section>
+
     <header>
       <div class="header-row">
         <a href="https://www.faltsch-wagoni.de/" target="_top" aria-label="Zur Faltsch-Wagoni-Hauptseite"><img src="https://imgur.com/oYc2rIO.jpeg" alt="Faltsch Wagoni Logo" class="header-logo"></a>
         <div class="header-text">
-          <h1>Online-Reimfinder</h1>
-          <p>Finde reine und unreine Reime für Gedichte & Songtexte</p>
           <p class="rhyme-quote">Auf Teufel reimt sich nur der Zweifel<br>meint Goethe – er vergaß die Eifel</p>
         </div>
         <div class="header-actions"><button type="button" class="browse-button" id="browseButton">Reime entdecken</button><button type="button" class="info-button" id="infoButton">über den Reimfinder</button><button type="button" class="feedback-button" id="feedbackButton">Feedback</button></div>
@@ -343,35 +372,7 @@
     // DIREKTE REIM-DATENBANK (KEINE EXTERNE CSV MEHR NÖTIG!)
     // Jede Zeile steht für eine Reim-Gruppe (mit Semikolon getrennt).
     // =========================================================================
-    const csvData = `ERKELN;merkeln;werkeln;Ferkeln
-OLPERN;holpern;stolpern
-ALLERN;ballern;schallern (bayr.);Bad Reichenhallern;Heckenstallern;Knallern;Wallern
-ELFER;Elfer;Flüchtlingshelfer;Helfer
-ICHTEL;Schichtl;Süchtel;Wichtel
-ÖRTERN;erörtern;härter’n;Härtern;Wärtern;Wörtern
-AUSGEBEN;ausgeben;rausgeben;Applaus geben
-ANGEBEN;angeben;drangeben;kann geben
-ERKERN;ärgern;sehr gern;verärgern;Erkern
-APSEN;knapsen;schnapsen;tapsen;trapsen
-ÜPFER;Hüpfer;Schlüpfer
-UPFER;Deckellupfer;Hupfer;Kieselkupfer;Kokaschnupfer;Kupfer;Lupfer;Ofenschlupfer;Sahnetupfer;Schlupfer;Schnurrbartzupfer;Schnupfer;Stupfer;Tabakschnupfer;Zwiebelzupfer
-IPFEL;tüpfel;Gipfel;Wipfel
-AGUNG;Befragung;Entsagung;Tagung;Übertragung;Unterschlagung;Vertagung;Zerschlagung
-ERNUNG;Entfernung;Entkernung;Körnung
-IRRUNG;Entwirrung;Irrung;Verwirrung;Wirrung
-ERRUNG;Sperrung;Verzerrung;Zerrung
-ÜLICH;deal ich;fühl ich;gefühlig;kühl ich;schiel ich;spiel ich;wühl ich;Jülich
-URBEL;kurbel;schwurbel;Kurbel
-ERKEL;werkel;Ferkel;Merkel
-ÄNKEL;kränkel;Enkel;Geplänkel;Henkel;Schenkel;Senkel
-ORREN;dorren;schnorren;verdorren;verworren
-APFER;tapfer;Stapfer;Zapfer
-ANICH;bahn ich;-bahnig;mahn ich;sahnig;schwanig;tranig;zahnig;Kranich
-ARFEN;bewarfen;entlarfen;entwarfen;scharfen;überwarfen;unterwarfen;Bedarfen;Harfen;Larven;Solar-Fan;Star-Fan
-ÜRFEN;dürfen;schlürfen;schürfen;verwürfen;würfen;Würfen
-URVEN;Hulturfan;Kurven;Naturfan;schlurfen
-EIRAT;Beirat;Dreirad;Heirat;Leihrad;Zweirad
-UMMUNG;Verdummung;Vermummung;Verstummung
+    const csvData = `UMMUNG;Verdummung;Vermummung;Verstummung
 EPPUNG;Verschleppung;Versteppung
 APPUNG;Berappung;Kappung;Überlappung;Verkappung;Verknappung
 ERNUNG;Entfernung;Entkernung;Erlernung;Körnung
@@ -839,7 +840,6 @@ ANGT;abgedankt;anbelangt;angelangt;angepunkt;angeschwankt;aufgetankt;bangt;bedan
 ÄNGTS;bedenkt's;denkt’s;hängt’s;mengt’s;schenkt’s;schwenkt’s;senkt’s;überdenkt's;verdenkt's;vermengt's;verschenkt's;versenkt's
 ANIEN;Albanien;Aquitanien;Balkanien;Bethanien;Geranien;Germanien;Großbritanien;Jordanien;Kastanien;Katalanien;Mauretanien;Molwanien;Okzitanien;Oranien;Ozeanien;Spanien;Tasmanien;Transsilvanien
 ANIEREN;flanieren;generalsanieren;onanieren;panieren;planieren;sanieren;schikanieren;totalsanieren;Manieren;Tischmanieren
-ANI;Arghani;Armani;Biryani
 ANIK;-bahnig;sahnig;schwanig;tranig;zahnig;Botanik;Mechanik;Panik;Romanik;Titanic
 ANISCH;afghanisch;afrikanisch;albanisch;amerlikanisch;andorranisch;anglikanisch;anorganisch;bhutanisch;bolivianisch;botanisch;brasilianisch;birmanisch;brahmanisch;burmanisch;deutsch-amerikanisch;dominikanisch;elektrogalvanisch;friderizianisch;galvanisch;germanisch;grgorianisch;hegelianisch;honduranisch;indianisch;indogermanisch;iranisch;jamaikanisch;japanisch;javanisch;kambodschanisch;katalanisch;koreanisch;kostarikanisch;lateinamerikanisch;liberianisch;manisch;mauretanisch;mechanisch;megapanisch;muselmanisch;neapoletanisch;nigerianisch;nordafrikanisch;nordamerikanisch;nordkoreanisch;nymphomanisch;organisch;orkanisch;osmanisch;ostafrikanisch;ozeanisch;pakistanisch;panisch;pensylvanisch;peruanisch;puritanisch;republikanisch;romanisch;samoanisch;satanisch;spanisch;spartanisch;südafrikanisch;südamerikanisch;südkoreanisch;taiwanisch;titanisch;trojanisch;veganisch;venezianisch;vulkanisch;westafrikanisch;zentralafrikanisch;zyankalisch
 ÄNISCH;armenisch;athenisch;chilenisch;dänisch;eugenisch;hellenisch;höhnisch;hondurenisch;hygienisch;italienisch;neurasthenisch;ökumenisch;rumänisch;salvadorenisch;saraszenisch;slowenisch;szenisch;turkmenisch;tyrrhenisch;unhygienisch
@@ -899,7 +899,7 @@ APERN;hapern;kapern;tapern;Kapern
 APERND;hapernd;kapernd;tapernd
 APERNS;Haperns;Kaperns;Taperns
 APERT;hapert;kapert;tapert
-APF;stapf;zapf;Zapf
+APF;stapfe;zapf;Zapf
 APFE;stapfe;verzapfe;Futternapf;Krapf;Napf;Zapf
 APFEN;stapfen;verzapfen;zapfen;Krapfen;Zapfen
 APFEND;stapfend;verzapfend;zapfend
@@ -945,7 +945,7 @@ ARIEREND;austarierend;deklarierend;havarierend;konterkarierend;parierend;präpar
 ARIG;dunkelhaarig;fahrig;haarig;paarig;Wahrig
 ARIS;gar is (bayr.);wahr is (bayr.);Haarriss;Larifaris;Paris;Plexus Solaris
 ARISCH;agrarisch;alttestamentarisch;antiquarisch;apothekarisch;arisch;awarisch;bajuwarisch;balearisch;barbarisch;bibliothekarisch;binarisch;bulgarisch;cäsarisch;diätarisch;dinarisch;disziplinarisch;dokumentarisch;elementarisch;exemplarisch;fragmentarisch;husarisch;kommissarisch;konsularisch;kulinarisch;magyarisch;literarisch;lunarisch;madjarisch;magyarisch;parlamentarisch;proletarisch;protokollarisch;pupillarisch;reglementarisch;sansibarisch;solidarisch;statuarisch;summarisch;tabellarisch;tatarisch;testamentarisch;trinitarisch;tumultuarisch;ungarisch;vegetarisch
-ARK;arg;autark;bärenstark;barg;dark (engl.);erstark;hark;karg;park;stark;verarg;verbarg;Dänemark;Einkaufspark;Europapark;Freizeitpark;Knochenmark;Mark;Park;Quark;Quittenquark;Sarg;Technopark;Telemark;Tomatenmark;Uckermark
+ARK;arg;autark;barg;dark (engl.);erstark;hark;karg;park;stark;verarg;verbarg;Dänemark;Einkaufspark;Europapark;Freizeitpark;Knochenmark;Mark;Park;Quark;Quittenquark;Sarg;Technopark;Telemark;Tomatenmark;Uckermark
 ARKE;autarke;beharke;erstarke;harke;parke;starke;Automarke;Barke;Essensmarke;Harke;Marke
 ARKEN;autarken;beharken;erstarken;harken;parken;starken;Automarken;Barken;Essensmarken;Harken;Marken
 ARKEND;beharkend;erstarkend;harkend;parkend;verargend
@@ -1198,7 +1198,7 @@ AUSIG;grausig;lausig;mausig;zausig
 ÄUSSER;äußer;entäußer;greiser;heiser;heißer;leiser;sei's er;verscheißer;weiser;weißer;weiß er;Bauernhäuser;Beißer;Fetenschmeißer;Häuser;Hosenscheißer;Kaiser;Kartenabreißer;Karthäuser;Kläuser;Neusser;Nikoläuser;Paradeiser;Possenreißer;Preiser;Reiser;Reißer;Scheißer;Schmeißer;Schweißer;Sträußer;Wadenbeißer;Weiser;Weißer
 ÄUSSERN;äußern;eisern;entäußern;heiser'n;leiser'n;veräußern;verscheißern;weiser'n;weißer'n;Beißern;Häusern;Hosenscheißern;Kaisern;Karthäusern;Kläusern;Neussern;Possenreißern;Reisern;Reißern;Scheißern;Schmeißern;Schweißern;Wadenbeißern;Weisern;Weißern
 ÄUSSERND;äußernd;entäußernd;veräußernd;verscheißernd
-AUST;abgebraust;abgepaust;angebraust;angesaust;aufgebraust;ausgehaust;baust;beschaust;behaust;beklaust;blaust;braust;flaust;gebraust;genaust;gesaust;getraust;graust;haust;kaust;klaust;laust;maust;most (engl.);paust;raust;saust;schaust;schlaust;schmaust;staust;taust;traust;überschaust;verbaust;verdaust;vergraust;verhaust;verlaust;zerkaust;zerzaust;Aust;Faust;Holocaust
+AUST;abgebraust;abgepaust;angebraust;angesaust;aufgebraust;ausgehaust;baust;beschaust;behaust;beklaust;blaust;braust;flaust;gebraust;genaust;gesaust;getraust;graust;haust;kaust;klaust;laust;maust;paust;raust;saust;schaust;schlaust;schmaust;staust;taust;traust;überschaust;verbaust;verdaust;vergraust;verhaust;verlaust;zerkaust;zerzaust;Aust;Faust;Holocaust
 AUSTEN;abgebrausten;abgepausten;angebrausten;aufgebrausten;ausgehausten;baust'n;beschaust'n;behausten;beklaust'n;blausten;braust'n;flausten;gebrausten;genausten;gesausten;grausten;hausten;kaust'n;klaust'n;laust'n;mausten;pausten;rausten;sausten;schaust'n;schlausten;schmausten;staust'n;taust'n;traust'n;überschaust'n;verbaust'n;verdaust'n;vergraust'n;verhaust'n;verlausten;zerkaust'n;zerzausten
 AUSTISCH;faustisch;kaustisch
 AUT;abgebaut;abgeflaut;abgehaut;abgeschaut;abgetaut;about;angebaut;angehaut;angeschaut;angestaut;angetaut;aufgebaut;aufgeraut;aufgeschaut;aufgetaut;ausgebaut;ausgeschaut;baut;bebaut;behaut;beklaut;beschaut;betraut;blaut;braut;durchgekaut;durchschaut;eingebaut;eingesaut;ergraut;flaut;gebaut;geblaut;gebraut;gehaut;gekaut;geklaut;geschaut;gestaut;getraut;graut;haut;herüberschaut;herunterschaut;klaut;laut;loud;miaut;misstraut;nachgeschaut;no doubt (engl.);out (engl.);raut;saut;schaut;taut;traut;umgebaut;umgehaut;überlaut;überschaut;unterbaut;verbaut;verdaut;verhaut;versaut;verschaut;verstaut;vertraut;zersaut;zurückgebaut;zurückgehaut;zurückgeschaut;zusammenbraut;zusammenhaut;zusammenklaut;Aeronaut;Argonaut;Astronaut;Außenhaut;Bindehaut;Blindenbraut;Braut;Cargonaut;Edeltraut;Elektronaut;Gänsehaut;Haut;Kifferkraut;Kosmonaut;Kraut;Laut;Maut;Orangenhaut;Rinderhaut;roundabout;Sauerkraut;Scout (engl.);Ziegenhaut
@@ -1273,7 +1273,7 @@ ECKE;bedecke;beflecke;belecke;bezwecke;derblecke;checke;ecke;entdecke;erschrecke
 ECKEN;abzuchecken;abzudecken;abzulecken;abzuschlecken;abzuschmecken;abzuschrecken;abzuspecken;abzustecken;anzuecken;anzustecken;aufzudecken;aufzuschrecken;aufzuwecken;auszuchecken;auszuhecken;auszulecken;auszuschlecken;bedecken;beflecken;bezwecken;checken;decken;eggen;einzudecken;einzustecken;einzuwecken;entdecken;erschrecken;erschröcken;erwecken;hecken;kecken;löcken;necken;recken;schlecken;schmecken;schrecken;specken;stecken;strecken;trekken;überdecken;überstrecken;umzudecken;umzustecken;verdrecken;verrecken;verschrecken;verstecken;vollstrecken;vorzustrecken;wecken;wegzustecken;zwecken;zusammenstecken;zuzudecken;zuzustecken;Becken;Bestecken;Blöcken;Blumenstöcken;Böcken;Decken;Ecken;Eggen;Flecken;Fräcken;Fußballecken;Gecken;Gedecken;Hecken;Jecken;Pflöcken;Recken;Röcken;Rosenstöcken;Säcken;Schnecken;Schrecken;Stecken;Stöcken;Straßenecken;Strecken;Wecken;Zecken;Zimmerecken;Zwecken;Zuckerschlecken
 ECKEND;bedeckend;befleckend;bezweckend;checkend;deckend;eggend;entdeckend;erschreckend;erweckend;heckend;löckend;neckend;reckend;schleckend;schmeckend;schreckend;steckend;streckend;trekkend;überdeckend;überstreckend;verdreckend;verreckend;verschreckend;versteckend;weckend;zwecken;zusammenstecken;zuzudecken;zuzustecken;Becken;Bestecken;Blöcken;Blumenstöcken;Böcken;Decken;Ecken;Eggen;Flecken;Fräcken;Fußballecken;Gecken;Gedecken;Hecken;Jecken;Pflöcken;Recken;Röcken;Rosenstöcken;Säcken;Schnecken;Schrecken;Stecken;Stöcken;Straßenecken;Strecken;Wecken;Zecken;Zimmerecken;Zwecken;Zuckerschlecken
 ECKENS;Bedeckens;Befleckens;Bezweckens;Checkens;Deckens;Eggens;Beckens;Deckens;Entdeckens;Erschreckens;Erweckens;Heckens;Löckens;Neckens;Reckens;Schleckens;Schmeckens;Schreckens;Steckens;Trekkens;Überdecknes;Überstreckens;Verdreckens;Verreckens;Verschreckens;Versteckens;Vollstreckens;Weckens;Zweckens;Zusammensteckens
-ECKER;jecker;kecker;lecker;mecker;Äcker;Bäcker;Bedecker;Beflecker;Bezwecker;Checker;Decker;Derblecker (bayr.);Doppeldecker;Ecker;Entdecker;Erwecker;Gemecker;Gekecker;Geklecker;Geschmäcker;Hacker;Höcker;Jagger;Schlecker;Stecker;Trecker;Trekker;Verdrecker;Vollstrecker;Wecker
+ECKER;jecker;kecker;lecker;mecker;Äcker;Bäcker;Bedecker;Beflecker;Bezwecker;Checker;Decker;Derblecker (bayr.);Doppeldecker;Ecker;Entdecker;Erwecker;Gemecker;Gekecker;Geklecker;Geschmäcker;Hacker;Jagger;Schlecker;Stecker;Trecker;Trekker;Verdrecker;Vollstrecker;Wecker
 ECKERN;keckern;kleckern;meckern;treckern;Äckern;Bäckern;Bedeckern;Befleckern;Bezweckern;Checkern;Deckern;Derbleckern (bayr.);Doppeldeckern;Eckern;Entdeckern;Erweckern;Hackern;Schleckern;Steckern;Treckern;Trekkern;Verdreckern;Vollstreckern;Weckern
 ECKERND;keckernd;kleckernd;meckernd;treckernd
 ECKERNS;Keckerns;Kleckerns;Meckerns;Treckerns
@@ -1402,7 +1402,7 @@ EHST;abgefräst;abgelöst;angepest;äst;aufeinanderstehst;aufgelöst;auseinander
 EHSTEN;abgefrästen;abgelösten;angepesten;anzumästen;ästen;aufgelösten;ausgefrästen;ausgelösten;auszutesten;begehst'n;benässten;bestehst'n;besten;blähst'n;bläst'n;dösten;drehst'n;ehsten;eingeflößten;eingefrästen;eingenässten;entblößten;entgehst'n;entstressten;erflehst'n;ergehst'n;erlösten;erpressten;erstehst'n;festen;flößten;frästen;fresst den;geästen;gedösten;geflößten;gefrästen;gehst’n;gelösten;genesten;gepesten;gestehst;gestressten;größten;hintergehst'n;jähsten;kästen;lösten;mähst'n;mästen;meesten;nähst'n;nässten;pesten;pressten;rösten;schmähst'n;stehst'n;stößt'n;spähst'n;stressten;testen;trösten;umgehst'n;verdösten;verdrehst'n;vergesst den;vernähst'n;verpesten;verschmähst'n;verstehst'n;verstößt'n;vertrösten;verwesten;vorgefrästen;zähsten;zerstößt'n;Ästen;Attesten;Dresden;Esten;Festen;Frösten;Gästen;Geästen;Gesten;Geesten;Inzesten;Kästen;Knästen;Manifesten;Palästen;Podesten;Protesten;Resten;Westen
 EHT;abgedreht;aneinandergerät;angedreht;angefleht;angesät;angeweht;aufgebläht;aufgedreht;aufgenäht;auseinandergeht;ausgedreht;ausgesät;ausgespäht;begeht;beieinandersteht;belädt;berät;bered;beredt;besteht;betret;bläht;blöd;brät;diskret;dreht;eingedreht;eingesät;entgeht;entlädt;enträt;entsteht;erblöd;erfleht;ergeht;erhöht;errät;erröt;erspäht;ersteht;fleht;flöt;gebläht;gedreht;gefleht;geht;gekräht;gemäht;genäht;gerät;gesät;geschmäht;gespäht;gesteht;geweht;herüberspäht;herüberweht;herunterspäht;herunterweht;hinübergeht;hinüberweht;jät;jed;knet;konkret;kräht;lädt;löt;mäht;näht;obsolet;öd;querbeet;rät;red;sät;schmäht;schnöd;späht;spät;spröd;tät;töt;tret;tröt;überbrät;überdreht;übergeht;übersät;übersteht;umgeht;umgemäht;umgeweht;untergeht;untersteht;verblöd;verbrät;verdreht;vergeht;verlädt;vernäht;verschmäht;verspät;versteht;verweht;vorgedreht;vorübergeht;weht;zergeht;zerred;zugedreht;zugenäht;zugeweht;zurückgedreht;zusammendreht;zusammengeht;zusammensteht;Admiralität;Affinität;Aktivität;Alphabet;Asket;Athlet;Autorität;Beet;Bestialität;Bled;Bret;Diät;Elektrizität;Fakultät;Finalität;Fleet;Gebet;Genialität;Gerät;Humanität;Integrität;Intensität;Komet;Konformität;Magnet;Majestät;Met;Modalität;Modernität;Naivität;Normalität;Paket;Pamphlet;Parität;Pietät;Planet;Plazet;Poet;Popularität;Porträt;Prolet;Rarität;Schwed;Sekret;Smörrebröd;Solidarität;Solidität;Tapet;Tibet;Valet
 EHTES;begeht es;belädt es;berät es;beredtes;bered es;beseht es;besteht es;betret es;bläht es;böt es;brät es;dreht es;erböt es;errät es;erfleht es;entgeht es;entsteht es;fleht es;geblähtes;gedrehtes;geht es;gemähtes;gerät es;geschmähtes;gesteht es;jät es;kräht es;löt es;näht es;sät es;schmäht es;steht es;tät es;töt es;trät es;tret es;überdrehtes;übergeht es;übersätes;verböt es;verdreht es;vernäht es;verrät es;verschmähtes;verschmäht es;versteht es;vertät es;verweht es;weht es;Alphabetes;Beetes;Diabetes;Gebetes;Gerätes;Goethes;Paketes
-EI;ahoi;angedeih;allerlei;arbeitsscheu;befrei;befreu;bei;beleih;bereu;beschnei;beschrei;bespei;bestreu;bläu;betreu;buy (engl.);bye-bye;dabei;dräu;drei;ei;eijeijei;einerlei;einwandfrei;entleih;entweih;entzwei;erfreu;fehlerfrei;fei (südd.);feuerscheu;fligh (engl.);frei;freu;gedeih;gereu;getreu;glaubenstreu;glutenfrei;gottgetreu;herbei;high;hunderterlei;juchhei;jugendfrei;kastei;keinerlei;kostenfrei;leih;mancherlei;mehrerlei;menschenscheu;nagelneu;neu;oi;pflichtgetreu;reu;scheu;schnei;schrei;schwindelfrei;sei;seih;shy (engl.);solcherlei;sorgenfrei;spei;steuerfrei;streu;tausenderlei;toitoitoi;treu;try;überschrei;unfallfrei;verleih;verschnei;verschrei;verstreu;verzeih;vielerlei;vogelfrei;vorbei;wasserscheu;wortgetreu;why;wiederkäu;wobei;zeih;zerkäu;zerstreu;zuckerfrei;zusammenschrei;zusammensei;zwei;zweierlei;Aaselei;Abtei;Ackerei;Adabei;Änderungsfleischerei;Allerlei;Angelei;Ansiedelei;Arschgeweih;Arzenei;Arznei;Autobahnmeisterei;Bäckerei;Barbarei;Bastelei;-bauerei;Beistellerei;Bergverleih;Bimmelei;Blei;Bohei;Boy;Brauerei;Bräu;Brei;Brennerei;Buckelei;Büffelei;Buhlerei;Bullerei;Bummelei;Butterfly;Detail;Druckerei;Effekthascherei;Ei;Eifersüchtelei;Einerlei;Einsiedelei;Erbschleicherei;Eselei;Faktorei;Färberei;Fälscherei;Feierei;Fischerei;Fleischerei;Fresserei;Frömmelei;Fummelei;Furzerei;Gängelei;Gärtnerei;Gäu;Gaunerei;Gebräu;Gedeih;Geheimhudelei;Geigerei;Geheimniskrämerei;Gerberei;Geschrei;Geweih;Gießerei;Glasbläserei;Grübelei;Gurkerei;Guy;Haferbrei;Hai;Hakelei;Hammerhai;Hefebrei;Hehlerei;Herausstecherei;Herbeischwanerei;Heu;Heuchelei;Heulerei;Hudelei;Joy;Kabbelei;Kai;Kanzlei;Kartoffelbrei;Keilerei;Kellerei;Ketzerei;Kinderei;Klauberei;Kleingeisterei;Klüngelei;Knallerei;Knauserei;Koi;Kokserei;Konditorei;Konterfei;Krämerei;Kriecherei;Krittelei;Kümmerei;Kungelei;Kuppelei;Lakei;Länderei;Lästerei;Leckerei;Leu;Liebelei;Liebhaberei;Litanei;Lumpanei;Mai;Mäkelei;Männertreu;Malerei;Mandschurei;Mauerei;Mauschelei;Meierei;Meisterei;Melodei;Metzgerei;Meuchelei;Meuterei;Molkerei;Narretei;Osterei;Packerei;Papagei;Partei;Paukerei;Patzerei;Pfarrei;Plauderei;Polizei;Prellerei;Prollizei;Prügelei;Quai;Quasselei;RAI;Rai;Rei;Reih;Reimerei;Reiterei;Roy;Samurai;Säu;Sauerei;Scheißerei;Scheu;Schießerei;Schinderei;Schlägerei;Schlepperei;Schmuserei;Schneiderei;Schnitzerei;Schrei;Schreierei;Schreinerei;Schummelei;Schwanerei;Schwärmerei;Schweinerei;Schwindelei;Segelei;Spiegelei;Spreu;Stickerei;Thai;Tümelei;verletzter Schrei;Völlerei;Walachei;Wäscherei;Weberei;Weizenspreu;Windbeutelei;Zappelei;Zauberei;Zauderei;Zechprellerei;Zurücksteherei
+EI;ahoi;angedeih;allerlei;arbeitsscheu;befrei;befreu;bei;beleih;bereu;beschnei;beschrei;bespei;bestreu;bläu;betreu;buy (engl.);bye-bye;dabei;dräu;drei;ei;eijeijei;einerlei;einwandfrei;entleih;entweih;entzwei;erfreu;fehlerfrei;fei (südd.);feuerscheu;fligh (engl.);frei;freu;gedeih;gereu;getreu;glaubenstreu;glutenfrei;gottgetreu;herbei;high;hunderterlei;juchhei;jugendfrei;kastei;keinerlei;kostenfrei;leih;mancherlei;mehrerlei;menschenscheu;nagelneu;neu;oi;pflichtgetreu;reu;scheu;schnei;schrei;schwindelfrei;sei;seih;shy (engl.);solcherlei;sorgenfrei;spei;steuerfrei;streu;tausenderlei;toitoitoi;treu;try;überschrei;unfallfrei;verleih;verschnei;verschrei;verstreu;verzeih;vielerlei;vogelfrei;vorbei;wasserscheu;wortgetreu;why;wiederkäu;wobei;zeih;zerkäu;zerstreu;zuckerfrei;zusammenschrei;zusammensei;zwei;zweierlei;Aaselei;Abtei;Ackerei;Adabei;Änderungsfleischerei;Allerlei;Angelei;Ansiedelei;Arschgeweih;Arzenei;Arznei;Autobahnmeisterei;Bäckerei;Barbarei;-bauerei;Beistellerei;Bergverleih;Bimmelei;Blei;Bohei;Boy;Brauerei;Bräu;Brei;Brennerei;Buckelei;Büffelei;Buhlerei;Bullerei;Bummelei;Butterfly;Detail;Druckerei;Effekthascherei;Ei;Eifersüchtelei;Einerlei;Einsiedelei;Erbschleicherei;Eselei;Faktorei;Färberei;Fälscherei;Feierei;Fischerei;Fleischerei;Fresserei;Frömmelei;Fummelei;Furzerei;Gängelei;Gärtnerei;Gäu;Gaunerei;Gebräu;Gedeih;Geheimhudelei;Geigerei;Geheimniskrämerei;Gerberei;Geschrei;Geweih;Gießerei;Glasbläserei;Grübelei;Gurkerei;Guy;Haferbrei;Hai;Hakelei;Hammerhai;Hefebrei;Hehlerei;Herausstecherei;Herbeischwanerei;Heu;Heuchelei;Heulerei;Hudelei;Joy;Kabbelei;Kai;Kanzlei;Keilerei;Kellerei;Ketzerei;Kinderei;Klauberei;Kleingeisterei;Klüngelei;Knallerei;Knauserei;Koi;Kokserei;Konditorei;Konterfei;Krämerei;Kriecherei;Krittelei;Kümmerei;Kungelei;Kuppelei;Lakei;Länderei;Lästerei;Leckerei;Leu;Liebelei;Liebhaberei;Litanei;Lumpanei;Mai;Mäkelei;Männertreu;Malerei;Mandschurei;Mauerei;Mauschelei;Meierei;Meisterei;Melodei;Metzgerei;Meuchelei;Meuterei;Molkerei;Narretei;Osterei;Packerei;Papagei;Partei;Paukerei;Patzerei;Pfarrei;Plauderei;Polizei;Prellerei;Prollizei;Prügelei;Quai;Quasselei;RAI;Rai;Rei;Reih;Reimerei;Reiterei;Roy;Samurai;Säu;Sauerei;Scheißerei;Scheu;Schießerei;Schinderei;Schlägerei;Schlepperei;Schmuserei;Schneiderei;Schnitzerei;Schrei;Schreierei;Schreinerei;Schummelei;Schwanerei;Schwärmerei;Schweinerei;Schwindelei;Segelei;Spreu;Stickerei;Thai;Tümelei;verletzter Schrei;Völlerei;Walachei;Wäscherei;Weberei;Weizenspreu;Windbeutelei;Zappelei;Zauberei;Zauderei;Zechprellerei;Zurücksteherei
 EIB;aneinanderreib;auseinanderbleib;auseinanderschreib;auseinandertreib;beschreib;betreib;bleib;entleib;hintertreib;reib;schreib;treib;überschreib;übertreib;unterbleib;unterschreib;untertreib;verbleib;verreib;verschreib;vertreib;zerreib;zusammenbleib;zusammenschreib;zusammentreib;Laib;Leib;Hype;Kneipp;Verbleib;Weib;Zeitvertreib
 EIBCHEN;Häubchen;Leibchen;Scheibchen;Stäubchen;Täubchen;Träubchen;Weibchen
 EIBE;aneinanderreibe;aufeinanderbleibe;auseinanderbleibe;auseinanderschreibe;auseinandertreibe;beileibe;beschreibe;bestäube;betäube;betreibe;bleibe;einverleibe;entleibe;hintertreibe;hype;kneippe;reibe;schreibe;treibe;überschreibe;übertreibe;umschreibe;unterbleibe;unterschreibe;verbleibe;verreibe;verschreibe;zerreibe;zerstäube;zuleibe;zusammenbleibe;zusammenschreibe;zusammetreibe;Bleibe;Eibe;Kneipe;Laibe;Leibe;Scheibe;Schreibe;Weibe
@@ -1698,7 +1698,7 @@ ENTCHEN;Bändchen;Entchen;Fragmentchen;Händchen;Ländchen;Momentchen;Ornamentch
 ENTE;abgetrennte;absente;abstinente;adstringente;al;dente;ambivalente;aufgetrennte;ausgepennte;dekadente;demente;dezente;differente;effiziente;eloquente;eminente;evidente;exzellente;getrennte;indolente;immanente;impotente;indifferente;ineffiziente;inkontinente;insolvente;intelligente;intransparente;kohärente;kongruente;könnte;konsequente;konsistente;kontinente;korpulente;latente;nennte;omnipotente;opponente;opulente;patente;pennte;permanente;potente;präsente;präpotente;renitente;rennte;resiliente;resistente;rezente;solvente;stringente;transparente;transzendente;trennte;turbulente;vehemente;verpennte;violente;virulente;zertrennte;Akzente;Alimente;Argumente;Delinquente;Departemente;Dokumente;Dolce Farniente;Elemente;Ente;Exkremente;Expediente;Experimente;Exponente;Fragmente;Gänsehautmomente;Gegenargumente;Glücksmomente;Instrumente;Komplimente;Komponente;Kontinente;Momente;Monumente;Ornamente;Parlamente;Patente;Pigmente;Polente;Postamente;Präsente;Produzente;Prominente;Prozente;Regimente;Reisedokumente;Rente;Rudimente;Sakramente;Sedimente;Segmente;Sortimente;Spurenelemente;Sukulente;Talente;Tangente;Testamente;Transparente;Transzendente;Valente;Zemente
 ENTEN;abgetrennten;absenten;abstinenten;ambivalenten;aufgetrennten;ausgepennten;dekadenten;dezenten;eingepennten;eloquenten;eminenten;evidenten;exzellenten;getrennten;gönnten;indifferenten;inkontinenten;intelligenten;kohärenten;könnten;konsequenten;korpulenten;opulenten;pennten;permanenten;präsenten;renitenten;stringenten;transparenten;trennten;vergönnten;verpennten;virulenten;zertrennten;Abiturienten;Akzenten;Alimenten;Argumenten;Delinquenten;Dokumenten;Elementen;Enten;Expedienten;Experimenten;Exponenten;Fisimatenten;Fragmenten;Instrumenten;Komplimenten;Komponenten;Kontinenten;Momenten;Monumenten;Ornamenten;Parlamenten;Patenten;Pigmenten;Postamenten;Präsenten;Produzenten;Prominenten;Prozenten;Regimenten;Renten;Sakramenten;Segmenten;Sortimenten;Talenten;Transparenten;Testamenten
 ENTER;abstinenter;brennt er;dekadenter;eloquenter;eminenter;enter;evidenter;kennt er;kenter;latenter;nennt er;pennt er;permanenter;rennt er;umkenter;Center
-ENTERN;entern;kentern;Centern
+ENTERN;entern;kentern;umkentern;Centern
 ENTERND;enternd;kenternd;umkenternd
 ENTERNS;Enterns;Kenterns;Umkenterns
 ENTERT;entert;geentert;gekentert;kentert;umgekentert;umkentert
@@ -1749,7 +1749,7 @@ ERFLICH;nervlich;schärflich;verwerflich
 ERFT;angenervt;angeschärft;bewerft;eingeschärft;entnervt;entschärft;genervt;geschärft;gesurft;nervt;schärft;surft;verschärft;verwerft;werft;zusammenwerft;Werft
 ERG;berg;bemerk;bestärk;merk;stärk;verberg;vermerk;verstärk;verzwerg;werk;Augenmerk;Berg;Björg;Erg;Guttenberg;Gutenberg;Jörg;Vermerk;Werg;Werk;Work;Zwerg
 ERGE;berge;verberge;verzwerge;Berge;Herberge;Latwerge;Särge;Scherge;Zwerge
-ERGEN;bergen;hinterhergehn;hin-;und;hergehn;schwergehn;umhergehn;verbergen;verzwergen;Bergen;Särgen;Schergen;Zwergen
+ERGEN;bergen;hinterhergehn;hin-;und;hergehn;schwergehn;umhergehn;verbergen;verzwergen;Bergen;Herbergen;Särgen;Schergen;Zwergen
 ERGEND;bergend;verbergend;verzwergend
 ERGISCH;allegisch;antiallegisch;bergisch;energisch;württemberisch
 ERGO;Albergo;ergo
@@ -1790,7 +1790,7 @@ ERRTE;abgesperrte;alerte;aufgesperrte;ausgesperrte;dörrte;eingesperrte;entsperr
 ERST;angehörst;aufbegehrst;beehrst;befährst;begehrst;bekehrst;belehrst;berst;bescherst;beschwerst;beschwörst;betörst;ehrst;entehrst;entgegenfährst;entleerst;erfährst;erklärst;ernährst;erst;fährst;first;gärst;gehörst;hörst;klärst;leerst;lehrst;mehrst;nährst;ordinärst;populärst;querst;scherst;schwerst;schwörst;störst;teerst;totalitärst;überfährst;überhörst;überquerst;umfährst;unfairst;unterquerst;verehrst;verfährst;verheerst;verhörst;verkehrst;verklärst;vermehrst;verstörst;vorerst;vulgärst;währst;wärst;wehrst;zehrst;zuerst;zusammenfährst;zusammenkehrst
 ERSTE;beehrste;begehrste;bekehrste;belehrste;berste;bescherste;beschwerste;beschwörste;betörste;ehrste;entehrste;entleerste;erfährste;erklärste;ernährste;erste;fährste;fairste;gehörste;hörste;klärste;leerste;lehrste;mehrste;nährste;ordinärste;populärste;querste;scherste;schwerste;schwörste;störste;teerste;totalitärste;überfährste;überhörste;überquerste;umfährste;unfairste;unterquerste;verehrste;verfährste;verheerste;verhörste;verkehrste;verklärste;vermehrste;verstörste;vorerste;vulgärste;wärste;zehrste;Gerste;Werste
 ERSTEN;bersten;ersten;fairsten;eersten;ordinärsten;populärsten;quersten;schwersten;totalitärsten;unfairsten;vulgärsten;Gersten
-ERSTER;erster;fairster;leerster;ordinärster;populärster;schwerster;totalitärster;unfairster;vulgärster;Allererster;Autoritärster;Elitärster;Erster;Extraordinärster;Fairster;Familiärster;Förster;Humanitärster;Konträrster;Leerster;Legendärster;Muskulärster;Ordinärster;Populärster;Prekärster;Regulärster;Revolutionärster;Schwerster;Singulärster;Spektakulärster;Totalitärster;Unfairster;Ungefährster;Unpopulärster;Verquerster;Vulgärster
+ERSTER;erster;fairster;leerster;ordinärster;populärster;schwerster;totalitärster;unfairster;vulgärster;Allererster;Autoritärster;Elitärster;Erster;Extraordinärster;Fairster;Familiärster;Förster;Heerster;Humanitärster;Konträrster;Leerster;Legendärster;Muskulärster;Ordinärster;Populärster;Prekärster;Regulärster;Revolutionärster;Schwerster;Singulärster;Spektakulärster;Totalitärster;Unfairster;Ungefährster;Unpopulärster;Verquerster;Vulgärster
 ERTEN;alerten;dörrten;eingesperrten;entsperrten;entzerrten;genärrten;gesperrten;gezerrten;härten;närrten;plärrten;sperrten;verhärten;versperrten;verzerrten;zerrten;Experten;Gärten;Gerten;Härten;Konzerten;Offerten
 ERTIG;bärtig;erhärt ich;fertig;gegenwärtig;gewärtig;minderwertig;närrt dich;verfertig;werd ich;wertig;widerwärtig;zerrt dich
 ERY;carry (engl.);hurry (engl.);merry (engl.);very (engl.);Beri-Beri;Curry;Jerry;Ferry;Geri;Harry;Larry;Queri;Sherry
@@ -2298,7 +2298,7 @@ ISKIEREN;brüskieren;riskieren
 ISMA;Prisma;Schisma;Wismar
 ISMEN;Anfglizismen;Aphorismen;Automatismen;Egoismen;Euphorismen;Exorzismen;Extremismen;Fanatismen;Ismen;Manierismen;Mechanismen;Nationalismen;Organismen;Prismen;Schismen
 ISMUS;Aktivismus;Alarmismus;Alkoholismus;Alpinismus;Altruismus;Anarchismus;Antiamerikanismus;Antifaschismus;Antikapitalismus;Antirassismus;Antisemitismus;Autismus;Automatismus;Brahmaismus;Brutalismus;Buddhismus;Bürokratismus;Dadaismus;Dilletantismus;Dogmatismus;Egoismus;Euphemismus;Evangelismus;Expressionismus;Extremismus;Faschismus;Fatalismus;Feminismus;Föderalismus;Fundamentalismus;Germanismus;Hedonismus;Hinduismus;Historismus;Humanismus;Imperialismus;Impressionismus;Internationalismus;Islamismus;Journalismus;Kannibalismus;Kapitalismus;Katholizismus;Klassizismus;Kolonialismus;Kommunismus;Kubismus;Leninismus;Liberalismus;Linksextremismus;Lobbyismus;Manierismus;Masochismus;Marxismus;Massentourismus;Materialismus;Mechanismus;Militarismus;Minimalismus;Moralismus;Nationalismus;Nationalsozialismus;Nazismus;Nihilismus;Optimismus;Organismus;Parlamentarismus;Patriotismus;Pazifismus;Pessimismus;Pluralismus;Pointilismus;Populismus;Pragmatismus;Protektionismus;Protestantismus;Rassismus;Realismus;Rechtsextremismus;Revisionismus;Sadismus;Sado-Masochismus;Schutzmechanismus;Semitismus;Sexismus;Sozialismus;Stalinismus;Surrealismus;Terrorismus;Tourismus;Universalismus;Vandalismus;Voyeurismus;Vulkanismus;Zionismus;Zynismus
-ISS;bepiss;bemiss;beschiss;bis;biss;diss;friss;gewiss;hiss;is;iss;küss;miss;müss;piss;schiss;schmiss;ungewiss;verbiss;vergiss;vermiss;verpiss;verschiss;verschliss;verschmiss;zerbiss;zusammenbiss;zusammenschiss;Akropolis;Ärgernis;Beschiss;Biss;Canabis;Cis;Chassis;Dis;Düsternis;Erfordernis;Finsternis;Fis;Gebiss;Genesis;Gin Fizz;Gis;Hindernis;Kiss;Klitoris;Kompromis;Kreuzbandriss;Kris;Kümmernis;Matisse;Muskelfaserriss;Nemesis;Pastis;Quiz;Riss;Sch'tis;Schiss;Schmiss;Schnellimbiss;Servis;Sonnenfinsternis;Suisse;Swiss;Synthesis;Syphillis;Tripolis;Überbiss;Unterbiss;Vorkommnis;Zeckenbiss
+ISS;bepiss;bemiss;beschiss;bis;biss;diss;friss;gewiss;hiss;is;iss;küss;miss;müss;piss;schiss;schmiss;ungewiss;verbiss;vergiss;vermiss;verpiss;verschiss;verschliss;verschmiss;zerbiss;zusammenbiss;zusammenschiss;Akropolis;Ärgernis;Beschiss;Biss;Canabis;Cis;Chassis;Dis;Düsternis;Erfordernis;Finsternis;Fis;Gebiss;Genesis;Gin Fizz;Gis;Hindernis;Kiss;Klitoris;Kompromis;Kreuzbandriss;Kris;Matisse;Muskelfaserriss;Nemesis;Pastis;Quiz;Riss;Sch'tis;Schiss;Schmiss;Schnellimbiss;Servis;Sonnenfinsternis;Suisse;Swiss;Synthesis;Syphillis;Tripolis;Überbiss;Unterbiss;Vorkommnis;Zeckenbiss
 ISSCHEN;bisschen;Bisschen;Flüsschen;Güsschen;Küsschen;Nüsschen;Leckerbisschen;Narzisschen;Regengüsschen;Risschen;Schisschen;Schmisschen;Schüsschen
 ISSE;bepisse;beschisse;disse;entriss se;friss se;gewisse;hisse;hiss se;isse;iss se;küsse;küss se;misse;müsse;schisse;schmisse;ungewisse;verbisse;vergiss se;vermisse;vermiss se;verrisse;verschisse;verschmisse;zerbisse;zusammenbisse;zusammenschisse;Ägernisse;Beschisse;Beschlüsse;Bisse;Bitternisse;Blutergüsse;Diakonisse;Drohkulisse;Düsternisse;Erfordernisse;Ergüsse;Flüsse;Gebisse;Genüsse;Güsse;Haselnüsse;Hindernisse;Hornisse;Kokosnüsse;Kompromisse;Kreuzbandrisse;Kulisse;Küsse;Melisse;Muskelfaserrisse;Narzisse;Nisse;Nüsse;Pisse;Prämisse;Quize;Risse;Schisse;Schnellimbisse;Schmisse;Schokoküsse;Schüsse;Selbstbildnisse;Sonnenfinsternisse;Überbisse;Ulysse;Unterbisse;Verrisse;Verschlüsse;Vorkommnisse;Wahlbündnisse;Zeckenbisse;Zweckbündnisse
 ISSEN;abgebissen;abgerissen;angebissen;angerissen;angeschissen;anzupissen;aufgebissen;aufgerissen;aufgeschmissen;ausgebissen;ausgerissen;ausgeschissen;beflissen;bepissen;beschissen;beschmissen;dissen;eingebissen;eingerissen;eingeschmissen;entrissen;gebissen;gedissen;gerissen;geschissen;geschmissen;gesplissen;gewissen;heruntermüssen;herunterrissen;hingeschmissen;hinzumüssen;hissen;küssen;missen;müssen;pissen;rissen;schissen;schmissen;splissen;überrissen;umgerissen;umgeschmissen;ungewissen;verbissen;vermissen;verpissen;verschissen;verschlissen;wegzumüssen;wissen;zerbissen;zerschmissen;zugebissen;zugeschissen;zusammengeschissen;Ärgernissen;Beschlüssen;Bissen;Blutergüssen;Diakonissen;Drohkulissen;Ergüssen;Flüssen;Gebissen;Genüssen;Gewissen;Güssen;Haselnüssen;Hindernissen;Hornissen;Illertissen;Killertissen;Kirschkernkissen;Kissen;Kokosnüssen;Kompromissen;Kreuzbandrissen;Kulissen;Kürbissen;Küssen;Melissen;Muskelfaserrissen;Nadelkissen;Narrzissen;Narzissen;Nissen;Nüssen;Outsiderwissen;Prämissen;Rissen;Ruhekissen;Schissen;Schlüssen;Schmissen;Schnellimbissen;Schokoküssen;Schulterschlüssen;Schüssen;Selbstbildnissen;Sonnenfinsternissen;Thyssen;Verrissen;Zeckenbissen;Zufallsgewissen;Zusammenschlüssen
@@ -2735,8 +2735,8 @@ UCKENS;Druckens;Duckens;Gluckens;Herunterkuckens;Juckens;Kuckens;Muckens;Ruckens
 UCKER;schmucker;Kucker;Brucker;Drucker;Ducker;Fugger;Gucker;Lucca;Rucker;Schlucker;Unterzucker;Zucker
 ÜCKLICH;ausdrücklich;dicklich;erquicklich;glücklich;picklig;pricklig;schicklich;unerquicklich
 UCKS;bedruck's;bekuck's;drucks;ertrug's;flugs;frug's;glucks;verdrucks;verfug's;vertrug's;Betrugs;Bewuchs;Bezugs;Blumenschmucks;Bugs;Bruggs;Bux;Cooks;Ducks;Flugs;Fuchs;Fürstenfeldbrucks;Jux;Krugs;Krux;Luchs;Mucks;Pucks;Riesenwuchs;Rucks;Schlucks;Stucks;Suks;Verzugs;Vollzugs;Wuchs;Wüstenfuchs;Zucks;Zugs;Zwergenwuchs
-UCKT;abgedruckt;abgekuckt;angekuckt;angespuckt;aufgedruckt;aufgemuckt;ausgedruckt;ausgeschluckt;ausgespuckt;beschuckt;druckt;duckt;eingedruckt;gedruckt;geduckt;gejuckt;gekuckt;geschluckt;geschuckt;gespuckt;gezuckt;gluckt;herunterkuckt;juckt;kuckt;lugt;muckt;ruckt;schluckt;spuckt;spukt;überdruckt;umgekuckt;verdruckt;verfuckt;verkuckt;verschluckt;zuckt;zusammenzuckt;Aquädukt;Konstrukt;Produkt;Viadukt
-UCKTE;abgedruckte;abgekuckte;angekuckte;angespuckte;aufgedruckte;aufgemuckte;ausgedruckte;ausgespuckte;bedruckte;duckte;eingedruckte;geschuckte;gluckte;herunterkuckte;juckte;kuckte;lugte;muckte;ruckte;schluckte;spuckte;spukte;verdruckte;verkuckte;verschluckte;zuckte;zusammenzuckte;Aquädukte;Geschuckte;Kleingedruckte;Konstrukte;Produkte;Viadukte
+UCKT;abgedruckt;abgekuckt;angekuckt;angespuckt;aufgedruckt;aufgemuckt;ausgedruckt;ausgeschluckt;ausgespuckt;beschuckt;druckt;duckt;eingedruckt;gedruckt;geduckt;gejuckt;gekuckt;geschluckt;geschuckt;gespuckt;gezuckt;gluckt;herunterkuckt;juckt;kuckt;muckt;ruckt;spuckt;schluckt;überdruckt;umgekuckt;verdruckt;verfuckt;verkuckt;verschluckt;zuckt;zusammenzuckt;Aquädukt;Produkt;Viadukt
+UCKTE;abgedruckte;abgekuckte;angekuckte;angespuckte;aufgedruckte;aufgemuckte;ausgedruckte;ausgespuckte;bedruckte;duckte;eingedruckte;geschuckte;gluckte;herunterkuckte;juckte;kuckte;muckte;verdruckte;verkuckte;verschluckte;zuckte;zusammenzuckte;Aquädukte;Kleingedruckte;Produkte;Viadukte
 UCKUCK;Kuckuck;ruckzuck;zukuck
 UDE;krude;Bude;Buxtehude;Drude;Jude;Lude;Trude;Ude
 UDEL;hudel;nudel;sudel;verhudel;Nudel;Pudel;Rudel
@@ -2877,13 +2877,13 @@ UNDERN;bewundern;runder’n;verwundern;wundern;Flundern;Hollundern;Pollundern;Wu
 UNDERND;bewundernd;verwundernd;wundernd
 UNDERNS;Bewunderns;Verwunderns;Wunderns
 UNDERT;bewundert;hundert;verwundert;wundert;Hundert
-UNDIG;aktenkundig;kundig;offenkundig;pfundig;schrundig;mundig;Grundig
+UNDIG;aktenkundig;kundig;offenkundig;pfundig;schrundig;vollmundig;Grundig
 UNDLICH;rundlich;völkerkundlich
 UNDS;brunz;funz;grunz;schlunz;tun’s;uns;verhunz;Befunds;Bunds;Funds;Gabuns;Gottseibeiuns;Grunds;Hinz und Kunz;Huhns;Hunds;Kameruns;Lunds;Monsuns;Munds;Muttermunds;Pfunds;Schlunds;Schunds;Schweinehunds;Schwunds;Spunds;Sunds;Taifuns;Verbunds;Vertuns
 UNER;una (ital.);Autotuner;Kameruner;Kapruner;Luna;Poona;Thuner;Tuner
 UNFT;Brunft;Narrenzunft;Niederkunft;Unterkunft;Unvernunft;Vernunft;Zunft;Zusammenkunft
 ÜNFTIG;grundvernünftig;künftig;unvernünftig;vernünftig;zünftig
-UNG;jung;Ängstigung;Ängstesprung;Äußerung;Ausstellung;Bändigung;Beendigung;Beerdigung;Befähigung;Befestigung;Befeuerung;Befriedigung;Begeisterung;Beglaubigung;Begnadigung;Begradigung;Begünstigung;Behelligung;Bekräftigung;Bekrittelung;Belästigung;Beleidigung;Belieferung;Belustigung;Bemächtigung;Bemäntelung;Berechtigung;Berichtigung;Beruhigung;Besänftigung;Beschädigung;Beschäftigung;Bescheinigung;Beschilderung;Beschleunigung;Beschönigung;Beschwindelung;Beseitigung;Besichtigung;Bespitzelung;Besserung;Bestätigung;Besudelung;Betätigung;Beteiligung;Betitelung;Bevölkerung;Bewältigung;Bewässerung;Bewilligung;Bewunderung;Billigung;Darstellung;Doppelung;Drosselung;Dübelung;Dung;Einigung;Einrichtung;Einschätzung;Einstufung;Endigung;Entfesselung;Entmündigung;Entnabelung;Enträtselung;Entriegelung;Entsäuerung;Entschädigung;Entschleierung;Entschleunigung;Entschlüsselung;Entschuldigung;Entschwefelung;Entsiegelung;Entwässerung;Entwurzelung;Entwürdigung;Erdrosselung;Erheiterung;Erinnerung;Erkundigung;Erledigung;Ermächtigung;Ermäßigung;Ermutigung;Erneuerung;Erniedrigung;Ernüchterung;Eroberung;Ertüchtigung;Erweiterung;Fertigung;Forderung;Förderung;Fortsetzung;Gabelung;Geißelung;Genehmigung;Halterung;Huldigung;Jung;Kaperung;Knebelung;Kräftigung;Kündigung;Lieferung;Linderung;Lockerung;Mäßigung;Meisterung;Missbilligung;Mittelung;Musterung;Nibelung;Nötigung;Regelung;Reinigung;Sättigung;Schädigung;Schilderung;Schwung;Selbstertüchtigung;Selbstverstümmelung;Spiegelung;Sprung;Staffelung;Steigerung;Steinigung;Steuerung;Täfelung;Überforderung;Übersättigung;Übersiedelung;Übertölpelung;Überwältigung;Unterforderung;Untertunnelung;Veränderung;Veräppelung;Verästelung;Verbesserung;Verbilligung;Verbitterung;Verdächtigung;Vereidigung;Vereinbarung;Vereinigung;Vereitelung;Verfertigung;Verfeinerung;Verfestigung;Verflüchtigung;Verflüssigung;Vergeistigung;Vergewaltigung;Verhinderung;Verkabelung;Verkindlichung;Verkleinerung;Verkörperung;Verköstigung;Verkümmerung;Verkündigung;Verlängerung;Vernebelung;Verriegelung;Verschandelung;Verschachtelung;Verschleierung;Verschlimmerung;Versicherung;Verständigung;Verstetigung;Verstümmelung;Versündigung;Vertäfelung;Verteidigung;Verteuerung;Verübelung;Verwässerung;Verweigerung;Verwitterung;Verwurzelung;Verzettelung;Vollbeschäftigung;Voraussetzung;Wässerung;Weigerung;Witterung;Würdigung;Züchtigung;Zügelung
+UNG;jung;Ängstigung;Ängstesprung;Äußerung;Ausstellung;Bändigung;Beendigung;Beerdigung;Befähigung;Befestigung;Befeuerung;Befriedigung;Begeisterung;Beglaubigung;Begnadigung;Begradigung;Begünstigung;Behelligung;Bekräftigung;Bekrittelung;Belästigung;Beleidigung;Belieferung;Belustigung;Bemächtigung;Bemäntelung;Berechtigung;Berichtigung;Beruhigung;Besänftigung;Beschädigung;Beschäftigung;Bescheinigung;Beschilderung;Beschleunigung;Beschönigung;Beschwindelung;Beseitigung;Besichtigung;Bespitzelung;Besserung;Bestätigung;Besudelung;Betätigung;Beteiligung;Betitelung;Bevölkerung;Bewältigung;Bewässerung;Bewilligung;Bewunderung;Billigung;Darstellung;Doppelung;Drosselung;Dübelung;Dung;Einigung;Einrichtung;Einschätzung;Einstufung;Endigung;Entfesselung;Entmündigung;Entnabelung;Enträtselung;Entriegelung;Entsäuerung;Entschädigung;Entschleierung;Entschleunigung;Entschlüsselung;Entschuldigung;Entschwefelung;Entsiegelung;Entwässerung;Entwurzelung;Entwürdigung;Erdrosselung;Erheiterung;Erinnerung;Erkundigung;Erledigung;Ermächtigung;Ermäßigung;Ermutigung;Erniedrigung;Ernüchterung;Eroberung;Ertüchtigung;Erweiterung;Fertigung;Forderung;Förderung;Fortsetzung;Gabelung;Geißelung;Genehmigung;Huldigung;Jung;Kaperung;Knebelung;Kräftigung;Kündigung;Lieferung;Linderung;Lockerung;Mäßigung;Meisterung;Missbilligung;Mittelung;Musterung;Nibelung;Nötigung;Regelung;Reinigung;Sättigung;Schädigung;Schilderung;Schwung;Selbstertüchtigung;Selbstverstümmelung;Spiegelung;Sprung;Staffelung;Steigerung;Steinigung;Täfelung;Überforderung;Übersättigung;Übersiedelung;Übertölpelung;Überwältigung;Unterforderung;Untertunnelung;Veränderung;Veräppelung;Verästelung;Verbesserung;Verbilligung;Verbitterung;Verdächtigung;Vereidigung;Vereinbarung;Vereinigung;Vereitelung;Verfertigung;Verfeinerung;Verfestigung;Verflüchtigung;Verflüssigung;Vergeistigung;Vergewaltigung;Verhinderung;Verkabelung;Verkindlichung;Verkleinerung;Verkörperung;Verköstigung;Verkümmerung;Verkündigung;Verlängerung;Vernebelung;Verriegelung;Verschandelung;Verschachtelung;Verschlimmerung;Versicherung;Verständigung;Verstetigung;Verstümmelung;Versündigung;Vertäfelung;Verteidigung;Verteuerung;Verübelung;Verwässerung;Verweigerung;Verwitterung;Verwurzelung;Verzettelung;Vollbeschäftigung;Voraussetzung;Wässerung;Weigerung;Witterung;Würdigung;Züchtigung;Zügelung
 UNGE;junge;Dunge;Junge;Lunge;Schwunge;Zunge
 UNGEN;abgeklungen;abgerungen;abgeschwungen;angeklungen;aufgezwungen;ausbedungen;ausgeklungen;ausgerungen;besungen;bezwungen;eingedrungen;entrungen;erzwungen;fortgeschwungen;gedrungen;gedungen;geklungen;gelungen;gerungen;geschwungen;gesungen;gezwungen;jungen;mitgesungen;mitgeschwungen;sungen;umgeschwungen;umschlungen;verklungen;versungen;verzwungen;Belästigungen;Beleidigungen;Beschädigungen;Bescheinigungen;Beseitigungen;Besserungen;Betätigungen;Bevölkerungen;Darstellungen;Entwurzelungen;Erinnerungen;Erweiterungen;Jungen;Lungen;Maserungen;Mitwirkungen;Sicherungen;Speicherungen;Verkabelungen;Verschandelungen;Verschönerungen;Verstümmelungen;Verteuerungen;Zungen
 UNGER;hunger;junger;lunger;verhunger;Bärenhunger;Hunger;Junger
@@ -2894,11 +2894,11 @@ UNGERT;hungert;lungert;verhungert
 UNGS;Dungs;Jungs;Schwungs;Sprungs;Stabhochsprungs;Überschwungs
 UNK;funk;prunk;tunk;unk;Funk;Geprunk;Munck;Prunk;Strunk;Stunk;Trunk
 UNKE;funke;prunke;tunke;unke;Dschunke;Funke;Halunke;Spelunke;Stunke;Trunke;Tunke;Unke
-UNKEL;dunkel;funkel;munkel;schunkel;verdunkel;Dunkel;Furunkel
-UNKELN;dunkeln;funkeln;munkeln;schunkeln;verdunkeln;Dunkeln;Furunkeln
-UNKELND;dunkelnd;funkelnd;munkelnd;schunkelnd;verdunkelnd
-UNKELNS;Dunkelns;Funkelns;Munkelns;Schunkelns;Verdunkelns
-UNKELT;dunkelt;gedunkelt;gefunkelt;gemunkelt;geschunkelt;munkelt;schunkelt;verdunkelt
+UNKEL;dunkel;munkel;schunkel;verdunkel;Dunkel;Furunkel
+UNKELN;dunkeln;munkeln;schunkeln;verdunkeln;Dunkeln;Furunkeln
+UNKELND;dunkelnd;munkelnd;schunkelnd;verdunkelnd
+UNKELNS;Dunkelns;Munkelns;Schunkelns;Verdunkelns
+UNKELT;dunkelt;gedunkelt;gemunkelt;geschunkelt;munkelt;schunkelt;verdunkelt
 UNKEN;abgestunken;abgesunken;abgewunken;angestunken;angetrunken;ausgestunken;ausgetrunken;betrunken;eingesunken;erstunken;funken;gesunken;gestunken;gewunken;hingesunken;prunken;sunken;stunken;trunken;tunken;umgesunken;unken;verstunken;versunken;wunken;zugewunken;Dschunken;Funken;Halunken;Spelunken;Unken
 UNKEND;funkend;prunkend;tunkend;unkend
 UNKENS;Funkens;Prunkens;Tunkens;Unkens
