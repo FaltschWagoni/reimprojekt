@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Deutsches Online-Reimlexikon</title>
+  <title>Online-Reimfinder – deutsche Reime | Faltsch Wagoni</title>
+  <meta name="description" content="Kostenloser Online-Reimfinder von Faltsch Wagoni: Finde reine und unreine deutsche Reime nach Klang für Gedichte, Songtexte und andere Texte.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://faltschwagoni.github.io/reimprojekt/">
+  <meta name="author" content="Faltsch Wagoni">
   <style>
     :root {
       --bg-color: #0f172a;
@@ -275,16 +279,41 @@
 .back-to-top.show{opacity:1;visibility:visible;transform:translateY(0)}
 .back-to-top:hover{background:var(--primary-color);color:var(--bg-color)}
 @media(max-width:620px){.back-to-top{right:12px;bottom:12px;padding:9px 12px;font-size:.86rem}}
+  .wide-intro {
+      width: 100%;
+      margin: 0 0 18px;
+      padding: 0 0 18px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .wide-intro h1 {
+      margin: 0 0 6px;
+      color: var(--primary-color);
+      font-size: 2.2rem;
+      line-height: 1.2;
+    }
+    .wide-intro p {
+      margin: 0;
+      color: var(--text-main);
+      font-size: 1.05rem;
+      line-height: 1.55;
+    }
+    @media (max-width: 620px) {
+      .wide-intro h1 { font-size: 1.7rem; }
+      .wide-intro p { font-size: 0.98rem; }
+    }
 </style>
 </head>
 <body>
   <div class="container">
+    <section class="wide-intro">
+      <h1>Online-Reimfinder für deutsche Reime</h1>
+      <p>Finde reine und unreine Reime für Gedichte, Songtexte und andere kreative Texte. Der Reimfinder von Faltsch Wagoni orientiert sich am Klang der Wörter und bietet auch ungewöhnliche Reimverbindungen und Wortkombinationen.</p>
+    </section>
+
     <header>
       <div class="header-row">
         <a href="https://www.faltsch-wagoni.de/" target="_top" aria-label="Zur Faltsch-Wagoni-Hauptseite"><img src="https://imgur.com/oYc2rIO.jpeg" alt="Faltsch Wagoni Logo" class="header-logo"></a>
         <div class="header-text">
-          <h1>Online-Reimfinder</h1>
-          <p>Finde reine und unreine Reime für Gedichte & Songtexte</p>
           <p class="rhyme-quote">Auf Teufel reimt sich nur der Zweifel<br>meint Goethe – er vergaß die Eifel</p>
         </div>
         <div class="header-actions"><button type="button" class="browse-button" id="browseButton">Reime entdecken</button><button type="button" class="info-button" id="infoButton">über den Reimfinder</button><button type="button" class="feedback-button" id="feedbackButton">Feedback</button></div>
