@@ -343,32 +343,17 @@
     // DIREKTE REIM-DATENBANK (KEINE EXTERNE CSV MEHR NÖTIG!)
     // Jede Zeile steht für eine Reim-Gruppe (mit Semikolon getrennt).
     // =========================================================================
-    const csvData = `ORDISCH;gordisch;nordisch
-ARDISCH;bardisch;lombardisch;sardisch
-ODISCH;antipodisch;aperiodisch;episodisch;melodisch;methodisch;modisch;periodsich;rhapsodisch;unmelodisch;unmethodisch
-EIBISCH;abergläubisch;weibisch;Eibisch
-ILCH;Bilch;Buttermilch;Eselmilch;Gartenbilch;Knilch;Kokosmilch;Magermilch;Mandelmilch;Milch;Muttermilch;Sauermilch;Stutenmilch;Trockenmilch;Ziegenmilch
-ANZLICH;erstinstanzlich;instanzlich;pflanzlich
-IESTERN;begrüßt er’n;düster’n;erschießt er’n;grüßt er’n;riestern;verbiestern;verdüstern;Biestern;Priestern
-ERBLICH;erblich;gastgewerblich;gewerblich;sterblich;unsterblich;unverderblich;verderblich;vererblich
-ALTLOS;bald los;gehaltlos;haltlos;knallt los;waldlos
-ITLICH;appetitlich;profitlich;sittlich;unerbittlich
-ISSLICH;genüsslich;gewisslich;grisslig;misslich
-ASSLICH;fasslich;passlich
-ÜNLICH;dienlich;grünlich
-ENKLICH;bedenklich;erdenklich;kränklich;unausdenklich;unbedenklich
-URNEN;herumturnen;turnen;Abstimmungsurnen;Bodenturnen;Urnen
-ÖLKT;bewölkt;entwölkt;gewölkt;stirnumwölkt;umwölkt;unbewölkt;unverwelkt;welkt
-A;ah;aha;da;et cetera;falleri und fallera;geschah;haha;halleluja;heisassa;hopsala;hopsassa;ja;juchheisassa;na;nah;na ja;papperla;qua;sah;tja;trallala;Adria;Ägina;Afrika;Alaba;Alexandria;Algebra;Allotria;Altona;Amalia;Ambrosia;Amerika;Andromeda;Angela;Angelika;Ankara;Antibiotika;Arnika;Attika;Austria;Barbara;Basilika;Batavia;Bavaria;BH;Blablabla;Bogota;Cha-Cha-Cha;Charakteristika;Charisma;Cholera;Cinema;Claudia;Córdoba;Cornelia;Diaspora;Dilemmata;Domina;Doria;Edeka;Eklat;Elena;Enzyklika;Examina;Fatima;Florida;Fra;Gambia;Generika;Genua;Gerbera;Germania;Gisela;Golgatha;Großmama;Großpapa;Gundula;Halleluja;Helena;Herzegowina;Hiroshima;Hurra;Ibiza;Ilona;Ischia;Iswestija;Italia;Joshua;Josua;Jessica;Judika;Judoka;Julia;Kamera;Kanada;Kenia;Klimata;Kordula;Korsika;Laterna Macica;Lufthansa;Lydia;Mafia;Malaga;Malaria;Malaysia;Mamà;Maskera;Matala;Media;Modena;Monika;Musica (ital.);Namibia;Nicaragua;Nigeria;Nikola;Nokia;Nutria;Opera;Olivia;Olympia;Ostia;Ottawa;Panama;Papa;Paprika;Papua;Patina;Perestroika;Pergola;Pharmaka;Philadelphia;Philippika;Praktika;Prostata;Quechua;Razzia;Republika;Ricola;Rucola;Sambia;Saskia;Schah;Schemata;Sepia;Sofia;Sömmerda;Stevia;Stiefmama;Stiefpapa;Sylvia;Tempera;Themata;Tombola;Tonika;Tralala;Trara;Traumata;Troika;Tunika;Uppsala;Ursula;USA;Utopia;Valencia;Venezia;Veronika;Viktoria;Virginia;Vitamin A;Wikipedia;Wonderbra (engl.)
+    const csvData = `A;ah;aha;da;et cetera;falleri und fallera;geschah;haha;halleluja;heisassa;hopsala;hopsassa;ja;juchheisassa;na;nah;na ja;papperla;qua;sah;tja;trallala;Adria;Ägina;Afrika;Alaba;Alexandria;Algebra;Allotria;Altona;Amalia;Ambrosia;Amerika;Andromeda;Angela;Angelika;Ankara;Antibiotika;Arnika;Attika;Austria;Barbara;Basilika;Batavia;Bavaria;BH;Blablabla;Bogota;Cha-Cha-Cha;Charakteristika;Charisma;Cholera;Cinema;Claudia;Córdoba;Cornelia;Diaspora;Dilemmata;Domina;Doria;Edeka;Eklat;Elena;Enzyklika;Examina;Fatima;Florida;Fra;Gambia;Generika;Genua;Gerbera;Germania;Gisela;Golgatha;Großmama;Großpapa;Gundula;Halleluja;Helena;Herzegowina;Hiroshima;Hurra;Ibiza;Ilona;Ischia;Iswestija;Italia;Joshua;Josua;Jessica;Judika;Judoka;Julia;Kamera;Kanada;Kenia;Klimata;Kordula;Korsika;Laterna Macica;Lufthansa;Lydia;Mafia;Malaga;Malaria;Malaysia;Mamà;Maskera;Matala;Media;Modena;Monika;Musica (ital.);Namibia;Nicaragua;Nigeria;Nikola;Nokia;Nutria;Opera;Olivia;Olympia;Ostia;Ottawa;Panama;Papa;Paprika;Papua;Patina;Perestroika;Pergola;Pharmaka;Philadelphia;Philippika;Praktika;Prostata;Quechua;Razzia;Republika;Ricola;Rucola;Sambia;Saskia;Schah;Schemata;Sepia;Sofia;Sömmerda;Stevia;Stiefmama;Stiefpapa;Sylvia;Tempera;Themata;Tombola;Tonika;Tralala;Trara;Traumata;Troika;Tunika;Uppsala;Ursula;USA;Utopia;Valencia;Venezia;Veronika;Viktoria;Virginia;Vitamin A;Wikipedia;Wonderbra (engl.)
 A_ISCH;algebraisch;altaisch;archaisch;ghanaisch;keniaisch;mosaisch;obervoltaisch;panamaisch;paraguayisch;prosaisch;savoyisch;uruguayisch
-Ä_ISCH;ägäisch;aramäisch;chaldäisch;elysäisch;eritreisch;europäisch;galiläisch;gesamteuropäisch;hebräisch;indoeuropäisch;kanaanäisch;mitteleuropäisch;nordeuropäisch;pharisäisch;ptolomäisch;pygmäisch;pyrenäisch;südeuropäisch;trochäisch
+Ä_ISCH;ägäisch;aramäisch;chaldäisch;elysäisch;eritreisch;europäisch;galiläisch;gesamteuropäisch;hebräisch;indoeuropäisch;kanaanäisch;mitteleuropäisch;nordeuropäisch;pharisäisch;ptolomäisch;pygmäisch;pyrenäisch;südeuropäisch;trochäisch;überseeisch;unterseeisch
 AAB;begab;begrab;ergab;hab;gab;gehab;grab;lab;schab;trab;übergab;überhab;umgab;untergrab;vergab;Grab;Indianertrab;Lab;Naab;Rab;Stab;Trab;Zauberstab
 AACH;auseinanderbrach;besprach;bestach;brach;demnach;entsprach;erbrach;gebrach;gemach;hernach;hintennach;nach;sonach;stach;unterbrach;verbrach;versprach;wonach;zerbrach;zerstach;zusammenstach;Gemach;Schlafgemach;Schmach;Sprach-;Ungemach
 ÄÄCH;bräch;spräch;Gespräch;Dienstgespräch;Ferngespräch;Ortsgespräch;Telefongespräch;Selbstgespräch;Stadtgespräch;Streitgespräch;Tagesgespräch;Tischgespräch;Vorgespräch;Zwiegespräch
-AACHE;Brache;Sprache;Bildersprache;Bühnensprache;Körpersprache;Landessprache;Metasprache;Muttersprache;Umgangssprache;Zeichensprache
+AACHE;Brache;Bildersprache;Bühnensprache;Jugendsprache;Körpersprache;Landessprache;Metasprache;Muttersprache;Sprache;Umgangssprache;Zeichensprache
 ÄÄCHE;bräche;spräche;Dienstgespräche;Ferngespräche;Gespräche;Ortsgespräche;Telefongespräche;Selbstgespräche;Stadtgespräche;Streitgespräche;Tischgespräche;Vorgespräche;Zwiegespräche
-AACHEN;auseinanderbrachen;besprachen;bestachen;brachen;erbrachen;erstachen;sprachen;unterbrachen;verbrachen;zerbrachen;zusammenbrachen
-ÄÄCHEN;brächen;sprächen
+AACHEN;auseinanderbrachen;besprachen;bestachen;brachen;erbrachen;erstachen;herunterbrachen;sprachen;unterbrachen;verbrachen;zerbrachen;zerstachen;zusammenbrachen;Brachen;Handelssprachen;Jugendsprachen;Muttersprachen;Sprachen
+ÄÄCHEN;auseinanderbrächen;besprächen;brächen;entsprächen;erbrächen;erstächen;herunterbrächen;sprächen;unterbrächen;versprächen;zerbrächen;zerstächen;zusammenbrächen;Flöhchen;Klöchen;Rehchen;Seechen;Wehwehchen;Zehchen
+AAKT;abgehakt;bequakt;gehakt;gequakt;quakt;verhakt
 AARTEN;abgesparten;angesparten;aufbewahrten;aufgebahrten;aufgeklarten;aufgesparten;ausgegarten;ausgesparten;behaarten;bejahrten;bewahrten;eingesparten;entarten;garten;gebahrten;gegarten;geklarten;gepaarten;gescharten;gesparten;gewahrten;haarten;klarten;offenbarten;paarten;scharten;smarten;vergarten;verklarten;verwahrten;wahrten;ungepaarten;zarten;zusammensparten;Arten;Autofahrten;Barten;Butterfahrten;Eigenarten;Fahrradfahrten;Fahrten;Geisterfahrten;Motoradfahrten;Shoppingfahrten;Sonderfahrten;Überfahrten
 AASCH;Camouflage (franz.);Courage (franz.);Courtage (franz.);Equipage (franz.);Eremitage (franz.);Poussage (franz.)
 AASCHE;Apanage;Bagage;Bandage;Blamage;Collage;Demontage;Drainage;Etage;Frisurblamage;Gage;Garage;Karambolage;Kartonage;Klopfmassage;Kopfmassage;Korsage;Kropfmassage;Massage;Menage;Montage;Page;Plantage;Passage;Persiflage;Poussage;Rage;Reportage;Sabotage;Spionage;Staffage;Stellage;Takelage;Tonnage;Traumgarage;Visage
@@ -522,6 +507,7 @@ AFFT;abgeschafft;abgeschlafft;angeblafft;angegafft;angeschafft;aufgerafft;begaff
 ÄFFTE;äffte;bläffte;bluffte;gebluffte;gereffte;kläffte;reffte;töffte;Geschäfte;Hefte;Körpersäfte;Kräfte;Lebenssäfte;Mammutkräfte;Säfte;Schäfte
 AFFUNG;Begaffung;Beschaffung;Erschaffung;Erschlaffung;Neuanschaffung;Raffung
 ÄFICH;träf ich;Käfig
+AFISCH;autobiografisch;biografisch;choreografisch;computergrafisch;demografisch;ethnografisch;fotografisch;geografisch;grafisch;hagiografisch;holografisch;ikonografisch;kalligrafisch;kartografisch;kriminalgeografisch;kryptografisch;orthografisch;pornografisch;quantenkryptografisch;seismografisch;soziodemografisch;szenografisch;telegrafisch;thermografisch;topografisch;typografisch;videografisch
 ÄFLICH;brävlich;frevlich;gräflich;höflich;sträflich
 AFT;abgestraft;bestraft;betraft;gestraft;schlaft;straft;traft;überschlaft;ungestraft;verschlaft
 AFTIG;leibhaftig;saftig;teilhaftig;wahrhaftig
@@ -597,6 +583,7 @@ AHRUNG;Aufbewahrung;Befahrung;Behaarung;Bewahrung;Enthaarung;Erfahrung;Ergänzun
 ÄHUNG;Begehung;Blähung;Drehung;Erhöhung;Flurbegehung;Hintergehung;Schmähung;Spähung;Überdrehung;Übergehung;Umdrehung;Umgehung;Verdrehung;Verschmähung;Versehung
 AIFISCH;Beifisch;Bleifisch;Haifisch;Maifisch;Papageifisch
 ÄIK;Break;Fake;Lake;make;Shake;Take;wake
+AILÄNDISCH;mailändisch;thailändisch
 ÄISCHEN;Generation (engl.);Location (engl.);Nation (engl.);Occation (engl.);Presentation (engl.);Sensation (engl.)
 ÄISI;crazy;Daisy;lacy;Resi;Sambesi;seh sie;versteh sie
 AKE;hake;verhake;Cloakenlake;Krickelkrake;Pastinake
@@ -607,7 +594,6 @@ AKELNS;Hakelns;Kakelns;Makelns;Orakelns;Quakelns;Takelns
 AKELT;hakelt;kakelt;krakelt;makelt;quakelt;takelt;verhakelt
 AKEN;bequaken;erschraken;opaken;quaken;staken;verschraken;zusammenschraken;Baken;Haken;Interlaken;Kakerlaken;Kraken;Laken;Schnaken
 AKISCH;heliakisch;irakisch;kosakisch;kulakisch;slowakisch;thrakisch;tschechoslowakisch
-AAKT;abgehakt;bequakt;gehakt;gequakt;quakt;verhakt
 AKTEN;abgehackten;abgepackten;abgesackten;abgeschmackten;abstrakten;angekackten;angepackten;aufgehackten;aufgeknackten;ausgepackten;bekackten;bepackten;eingepackten;eingesackten;exakten;flaggten;flackten;geflaggten;gehackten;gekackten;geknackten;gelackten;gepackten;gezackten;hackten;intakten;kackten;klackten;knackten;kompakten;lackten;nackten;packten;sackten;schnackten;verkackten;verknackten;versackten;verschlackten;vertrackten;zackten;Akten;Artefakten;Autodidakten;Didakten;Kontakten;Kontrakten;Pakten;Takten;Trakten
 AKTIEREN;aktieren;kontraktieren;paktieren;rumtaktieren;taktieren;traktieren
 AKTIEREND;aktierend;kontraktierend;paktierend;rumtaktierend;taktierend;traktierend
@@ -664,6 +650,7 @@ ALTER;alter;ballt er;behalt er;beschallt er;hallt er;gallt er;geballter;geschnal
 ALTES;altes;behalt es;galt es;geballtes;halt es;kaltes;knallt es;krallt es;prallt es;schallt es;schnallt es;uraltes;verknalltes;Altes;Geballtes;Gehaltes;Kaltes;Uraltes;Verhalltes
 ALTET;anbehaltet;aufbehaltet;ausgeschaltet;balltet;behaltet;eingefaltet;entgegenhaltet;entfaltet;enthaltet;erhaltet;erkaltet;faltet;geschaltet;gestaltet;haltet;schaltet;spaltet;umgestaltet;unterhaltet;veraltet;verwaltet;zusammenhaltet
 ALTIG;allgewaltig;asphaltig;baldig;basaltig;eisenhaltig;faltig;gestaltig;gewaltig;missgestaltig;schwefelhaltig;spaltig;ungestaltig;vergewaltig;vielgestaltig;waldig;wohlgestaltig
+ALTLOS;bald los;gehaltlos;haltlos;knallt los;waldlos
 ALTUNG;Ausgestaltung;Entfaltung;Enthaltung;Erhaltung;Erkaltung;Faltung;Gestaltung;Haltung;Neugestaltung;Schaltung;Spaltung;Umgestaltung;Unterhaltung;Verwaltung
 ALVE;Ehrensalve;Malve;Salve
 ALZ;abehalt’s;galt's;hallt’s;knallt's;krallt’s;lallt's;prallt’s;schallt's;schnallt's;schnalz;sobald's;walz;Alkoholgehalts;Asphalts;Alts;Aufenthalts;Balz;Basalts;Falz;Gebalz;Gehalts;Grundgehalts;Halts;Hinterhalts;Kaiserpfalz;Malz;Oberpfalz;Pfalz;Rechtsanwalts;Regenwalds;Rheinland-Pfalz;Sachverhalts;Salz;Salzgehalts;Schmalz;Spalts;Staatsanwalts;Unterhalts;Walds;Walz;Zusammenhalts
@@ -857,6 +844,7 @@ ANZEND;auftanzend;bepflanzend;herumtanzend;pflanzend;stanzend;tanzend;verpflanze
 ANZER;ganzer;Bonanza;Danzer;Hansa;Landser;Panzer;Pflanzer
 ANZES;ganzes;pflanz es;stanz es;tanz es;verpflanz es;vertanz es;Firlefanzes;Ganzes;Kranzes;Mummenschanzes;Regentanzes;Schwanzes;Tanzes
 ANZIG;band sich;befand sich;bekannt’ sich;entmannt sich;entspannt sich;erfand sich;erkannt’ sich;fand sich;pflanzt sich;ranzig;schanzig;spannt sich;stand sich;tanz ich;überwand sich;verspannt sich;verstand sich;verwandt sich;wand sich;wanzig;zwanzig;Danzig
+ANZLICH;erstinstanzlich;instanzlich;pflanzlich
 ÄNZLICH;brenzlig;ergänzlich;gänzlich;kredenzlich;unbegrenzlich
 ANZT;aufgetanzt;bepflanzt;gepflanzt;gestanzt;herumgetanzt;getanzt;pflanzt;stanzt;tanzt;verpflanzt;vertanzt
 AOS;Bilbaos;Chaos;Laos;Maos;Menelaos;Taos
@@ -871,6 +859,7 @@ APFEN;stapfen;verzapfen;zapfen;Krapfen;Zapfen
 APFEND;stapfend;verzapfend;zapfend
 APFER;tapfer;Stapfer;Zapfer
 APFT;abgezapft;angezapft;gestapft;gezapft;hingestapft;stapft;verzapft;weggestapft;zapft
+APHISCH;autobiographisch;bibliographisch;biographisch;choreographisch;demographisch;geographisch;graphisch;holographisch;ikonographisch;kryptographisch;orthographisch;pornographisch;stratigraphisch;topographisch;typographisch
 APIEREN;drapieren;kapieren;papieren;therapieren;Fahrzeugpapieren;Papieren;Rapieren
 APIEREND;drapierend;kapierend;papierend;therapierend
 APP;ab;bachab;baut ab;berapp;bergab;brennt ab;bricht ab;dreht ab;ertapp;fährt ab;fernab;fliegt ab;flussab;geht ab;gibt ab;haut ab;hebt ab;herab;hinab;kapp;klapp;klipp-klapp;knapp;landab;läuft ab;nimmt ab;papp;papperlapapp;räumt ab;rauscht ab;sagt ab;saugt ab;schlapp;schnapp;schnippschnapp;schwapp;sperrt ab;steht ab;treppab;treibt ab;überlapp;überschnapp;überschwapp;verklapp;verknapp;vorab;zapzerap;zieht ab;Äskulap;Baobab;Étappe;Film ab;Kap;Kapp;Kebab;Papp;Trab
@@ -892,14 +881,15 @@ ARA;Ara;Carbonara (ital.);Guevara;Lara;Niagara;Sahara;Tamara;Tara;Tiara
 ARBE;darbe;vernarbe;Barbe;Farbe;Garbe;Modefarbe;Narbe;Pockennarbe
 ARBEN;bewarben;darben;starben;umwarben;verdarben;verstarben;vernarben;warben;Barben;Farben;Garben;Karben;Narben;Pockennarben
 ARBIG;farbig;narbig
-ÄRCHE;pferche;Lärche;Lerche;Störche
 ARCH;schnarch;verschnarch;Exarch;Firmenpatriarch;Geschnarch;Monarch;Oligarch;Patriarch;Plutarch
+ÄRCHE;pferche;Lärche;Lerche;Störche
 ARCHEN;schnarche;verschnarche;Arche;Geschnarche
 ARCHEN;schnarchen;verschnarchen;Archen;Schnarchen
 ÄRCHEN;pferchen;Altärchen;Amateurchen;Bärchen;Chörchen;Clairchen;Frisörchen;Gummibärchen;Härchen;Herrchen;Ingenieurchen;Lärchen;Lerchen;Likörchen;Malheurchen;Märchen;Möhrchen;Monteurchen;Öhrchen;Pärchen;Röhrchen;Störchen;Törchen
 ARCHISCH;anarchisch;hierarchisch;monarchisch;oligarchisch
 ARDE;Avantgarde;Barde;Bastarde;Billiarde;Bomparde;Bussarde;Garde;Geparde;Hellebarde;Kommunarde;Lombarde;Mansarde;Milliarde;Petarde;Poularde;Sarde;Trilliarde
 ARDEN;Abermilliarden;Avantgarden;Barden;Bastarden;Billiarden;Bomparden;Bussarden;Garden (engl.);Geparden;Hellebarden;Kommunarden;Leoparden;Lombarden;Madison Square Garden;Mansarden;Milliarden;Petarden;Poularden;Puttgarden;Revolutionsgarden;Sarden;Steuermilliarden;Trilliarden
+ARDISCH;bardisch;lombardisch;sardisch
 ARES;bewahr es;erfahr es;erspar es;gebar es;gewahr es;spar es;verwahr es;Bares;Benares;Formulares;Gares;Haares;Jahres;Jubeljahres;Klares;Nukleares;Rares;Seminares;Singulares;Sonderbares;Stares;Undankbares;Wahres
 ARF;darf;scharf;warf;Harf’
 ARFE;scharfe;Harfe
@@ -1005,6 +995,7 @@ ASSI;Assi;Gassi;Lassi
 ASSIEREN;abkassieren;einkassieren;einkassieren;fantasieren;glacieren;grassieren;kassieren;lasieren;passieren;phrasieren;rasieren;terrassieren;trassieren
 ASSIG;bassig;massig;rassig;spaßig;-trassig;Klassik
 ASSISCH;jurassisch;klassisch;madagassisch;malagassisch;monegassisch;rassisch;triassisch
+ASSLICH;fasslich;passlich
 ÄSSLICH;hässlich;grässlich;lässlich;nässlich;unermesslich;unpässlich;unvergesslich;vergesslich;verlässlich
 ASSO;basso (ital.);grasso (ital.);inkasso;passo (ital.);Asso;Hasso;Lasso
 AST;abgefasst;abgepasst;angefasst;angepasst;aufgefasst;aufgepasst;befasst;belasst;eingefasst;eingepasst;entlasst;erblasst;erfasst;fasst;fast;gefasst;gehasst;gepasst;geprasst;geschasst;hasst;hast;herunterlasst;lasst;passt;prasst;umfasst;unangepasst;verblasst;verfasst;verhasst;verpasst;verprasst;vorgefasst;zusammenfasst;zusammenpasst;Ast;Ballast;Bombast;Damast;Dynast;Enthusiast;Gast;Gymnasiast;Gymnast;Hast;Kontrast;Knast;Last;Leukoplast;Mast;Morast;Quast;Oblast;Päderast;Palast;Phantast;Rast;Seidelbast;Trust;Zentnerlast
@@ -1388,6 +1379,7 @@ EIBEND;bestäubend;bleibend;entleibend;ohrenbetäubend;reibend;schreibend;treibe
 EIBER;räuber;säuber;Bestäuber;Kleiber;Leiber;Räuber;Schreiber;Sitzenbleiber;Stoiber;Treiber;Vertreiber;Weiber;Zerstäuber
 EIBERN;auszuräubern;räubern;säubern;Bestäubern;Kleibern;Leibern;Räubern;Schreibern;Sitzenbleibern;Treibern;Vertreibern;Weibern;Zerstäubern
 EIBES;reib es;bleib es;schreib es;treib es;Laibes;Leibes;Weibes
+EIBISCH;abergläubisch;weibisch;Eibisch
 EIBLICH;leiblich;unausbleiblich;unbeschreiblich;weiblich
 EIBT;aneinanderreibt;auseinandertreibt;beleibt;beschreibt;bestäubt;betäubt;betreibt;beweibt;bleibt;einverleibt;entleibt;gehypet;gekneippt;gekneipt;geschnäubt;gestäubt;hintertreibt;hypet;kneippt;kneipt;reibt;schnäubt;schreibt;treibt;überschreibt;übertreibt;umschreibt;unbeweibt;unterschreibt;untertreibt;verbleibt;verreibt;verschreibt;vertreibt;zerreibt;zusammenschreibt;zusammentreibt
 EIBUNG;Arztverschreibung;Beschreibung;Betäubung;Bestäubung;Einverleibung;Entleibung;Hintertreibung;Lastenabschreibung;Naturbeschreibung;Reibung;Schreibung;Übertreibung;Umschreibung;Untertreibung;Verschreibung;Vertreibung
@@ -1658,6 +1650,7 @@ ENKEND;bedenkend;beschenkend;beschränkend;denkend;eingedenkend;erdenkend;erträ
 ENKENS;Angedenkens;Bedenkens;Beschränkens;Denkens;Gedenkens;Henkens;Lenkens;Renkens;Schenkens;Schwenkens;Senkens;Tränkens;Verdenkens;Verrenkens;Verschenkens;Versenkens
 ENKER;fränker;kränker;schlenker;stänker;Anchor (engl.);Banker (engl.);Cognac-Schwenker;Denker;Gestänker;Henker;Lenker;Schenker;Schlenker;Schwenker;Trenker (Louis);Verrenker;Versenker;Wanker (engl.);Zänker
 ENKERN;schlenkern;stänkern;Bankern;Denkern;Gestänkern;Henkern;Lenkern;Schenkern;Schlenkern;Schwenkern;Verrenkern;Versenkern;Zänkern
+ENKLICH;bedenklich;erdenklich;kränklich;unausdenklich;unbedenklich
 ENKT;abgedrängt;abgelenkt;abgesenkt;angehängt;angesengt;angestrengt;aufgedrängt;aufgehängt;aufgezwängt;ausgehängt;ausgerenkt;ausgeschenkt;ausgeschwenkt;bedenkt;bedrängt;behängt;beschenkt;beschränkt;blutgetränkt;denkt;drängt;eingeengt;eingelenkt;eingerenkt;eingeschenkt;eingeschwenkt;eingezwängt;engt;erdenkt;ertränkt;fängt;gedenkt;gedrängt;gehängt;gehenkt;gekränkt;gelenkt;gemengt;gerenkt;geschenkt;geschwenkt;gesenkt;gesprengt;getränkt;gezwängt;hängt;herabgesenkt;herüberschwenkt;herunterhängt;hingelenkt;henkt;kränkt;lenkt;mengt;renkt;schenkt;schränkt;schwenkt;sengt;senkt;tränkt;überdenkt;umgehängt;umgelenkt;umgeschwenkt;unbeschränkt;unterfängt;untermengt;verdenkt;verdrängt;verengt;verfängt;verlenkt;vermengt;verrenkt;verschenkt;verschränkt;versengt;versenkt;vorgedrängt;zugehängt;zueinanderdrängt;zusammendrängt;zusammenhängt
 ENN;aberkenn;anerkenn;auseinanderrenn;bekenn;benenn;brenn;brenn'n;denn;entbrenn;erkenn;flenn;gönn;gönn'n;herunterrenn;kenn;kenn'n;könn'n;nenn;nenn'n;penn;penn'n;renn;renn'n;ten;trenn;trenn'n;überrenn;verbrenn;vergönn;verkenn;verpenn;verrenn;wenn;zertrenn;Amazon;Big Ben;Caravan (engl.);Clan;Geflenn’;Gerenn’;Glen;Henn’;Hooligan;Ken;Kukluxklan;Man (engl.);Renn'n;Senn;Stan;Van (engl.);Zen
 ENNE;aberkenne;anerkenne;bekenne;benenne;brenne;entbrenne;erkenne;flenne;gönne;kenne;könne;nenne;penne;renne;trenne;überrenne;verbrenne;vergönne;verkenne;verpenne;verrenne;vorüberrenne;zertrenne;Antenne;Geflenne;Henne;Männe;Penne;Tenne
@@ -1713,6 +1706,7 @@ ERBEN;beerben;enterben;entfärben;erben;ererben;färben;herben;gerben;kerben;ste
 ERBEND;beerbend;enterbend;entfärbend;erbend;ererbend;färbend;gerbend;kerbend;sterbend;umwerbend;verderbend;verfärbend;werbend
 ERBENS;Beerbens;Enterbens;Entfärbens;Erbens;Ererbens;Färbens;Gerbens;Kerbens;Sterbens;Umwerbens;Verderbens;Verfärbens;Werbens
 ERBER;derber;herber;Berber;Bewerber;Erber;Färber;Gerber;Kerber;Sperber;Spielverderber;Sterber;Verderber;Werber
+ERBLICH;erblich;gastgewerblich;gewerblich;sterblich;unsterblich;unverderblich;verderblich;vererblich
 ERBLICH;erblich;gewerblich;sterblich;teilgewerblich;unsterblich;unverderblich;verderblich;werblich;wettbewerblich
 ERBST;beerbst;derbst;enterbst;erbst;ererbst;färbst;gerbst;herbst;kerbst;süperbst;Herbst
 ERBT;beerbt;bewerbt;enterbt;entfärbt;erbt;erwerbt;färbt;geerbt;gefärbt;gegerbt;gekerbt;gerbt;kerbt;sterbt;verderbt;verfärbt;versterbt;werbt
@@ -1735,7 +1729,7 @@ ERG;berg;bemerk;bestärk;merk;stärk;verberg;vermerk;verstärk;verzwerg;werk;Aug
 ERGE;berge;verberge;verzwerge;Berge;Herberge;Latwerge;Särge;Scherge;Zwerge
 ERGEN;bergen;hinterhergehn;hin-;und;hergehn;schwergehn;umhergehn;verbergen;verzwergen;Bergen;Särgen;Schergen;Zwergen
 ERGEND;bergend;verbergend;verzwergend
-ERGISCH;allegisch;antiallegisch;bergisch;energisch;württemberisch
+ERGISCH;allegisch;antiallegisch;bergisch;energisch;märkisch;württemberisch
 ERGO;Albergo;ergo
 ERICH;begehr ich;-chörig;der ich;entbehr ich;gelehrig;hör ich;hörig;kehr ich;klär ich;schwör ich;teerig;verehr ich;verzehr ich;wär ich;zehr ich;Erich
 ERIE;Arterie;Fernsehserie;Materie;Serie
@@ -1837,6 +1831,7 @@ ESTIGEND;befestigend;beköstigend;belästigend;festigend;verfestigend;verköstig
 ESTIGT;befestigt;beköstigt;belästigt;festigt;gefestigt;verfestigt;verköstigt
 ESTIK;Cabaret-Stück;Drehstück;Filetstück;Gestik;Klischee-Stück;Rehstück;Schmähstück;Seestück;Tournee-Stück
 ESTISCH;estisch;gestisch;Esstisch;Fresstisch;Messtisch;Presstisch
+ESTLÄNDISCH;estländisch;festländisch
 ESTO;questo (ital.);presto (ital.);resto (ital.);sesto (ital.);Pesto
 ESTUNG;Bonzenfestung;Festung;Mästung;Piratenfestung;Verpestung
 ESUS;Krösus;Jesus;Rhesus
@@ -2055,6 +2050,7 @@ IEST;abgedüst;angefiest;angeniest;aufgefliest;aufgespießt;auseinanderfließt;b
 IESTE;begrüßte;beknieste;bemühste;besprühste;beziehste;büßte;düste;entfliehste;ergießte;erglühste;erkieste;fliehste;frühste;gebüßte;gedüste;genießte;gegrüßte;grüßte;kieste;knieste;lieste;mühste;nieste;schießte;schrieste;siehste;spießte;sprühste;verblühste;verbüßte;vergießte;vermieste;ziehste;Büste;Wüste
 IESTEN;abgeküssten;abzurüsten;angepissten;aufgehissten;abgebüßten;aufgespießten;auszumisten;begrüßten;bepissten;büßten;dissten;düsten;einzunisten;entrüsten;erkiesten;fiesten;frühsten;gebüßten;gedissten;gedüsten;gegrüßten;geküssten;geleasten;gespießten;gesprießten;grüßten;hissten;kiesten;küssten;leasten;miesten;missten;misten;müssten;niesten;nisten;pissten;rüsten;spießten;tristen;twisten;verbüßten;vermiesten;vermissten;verpissten;versüßten;wüssten;Amethysten;Brüsten;Büsten;Christen;Fristen;Gelüsten;Gerüsten;Humanisten;Humoristen;Internisten;Kabarettisten;Kisten;Küsten;Listen;Lüsten;Pisten;Polizisten;Spezialisten;Touristen;Wüsten;Zysten;Zwisten
 IESTER;begießt er;büßt er;düster;düst er;entschließt er;erschießt er;genießt er;gießt er;liest er;niest er;schießt er;schließt er;verbüßt er;vergießt er;vermiest er;Biester;Priester;Riester
+IESTERN;begrüßt er’n;düster’n;erschießt er’n;grüßt er’n;riestern;verbiestern;verdüstern;Biestern;Priestern
 IESTERN;begießt er’n;begrüßt er’n;düster’n;erschießt er’n;genießt er’n;gießt er’n;grüßt er’n;liest er’n;schließt er’n;vergießt er’n;vermiest er’n;Biestern;Priestern
 IESTERT;geriestert;riestert;verbiestert;verdüstert
 IESTES;begießt es;büßt es;entschließt es;erschießt es;genießt es;gießt es;liest es;schießt er;schließt es;siehst es;verbüßt es;vergießt es;vermiest es;versüßt es;Biestes
@@ -2086,6 +2082,7 @@ IIN;abzumühn;abzuziehn;affin;alpin;angespien;anzudien;anzusprühn;anzuziehn;and
 IKE;antike;büke;kieke (berlin.);pike;quieke;schnieke (berlin.);Antike;Katholike;Mendrike;Musike;Pike;Rike;Ulrike
 IKER;gütiger;-minütiger;Analytiker;Außenpolitiker;Bundestagspolitiker;Gütiger;Kritiker;Politiker;Psychoanalytiker
 ILBE;gilbe;vergilbe;Milbe;Silbe
+ILCH;Bilch;Buttermilch;Eselmilch;Gartenbilch;Knilch;Kokosmilch;Magermilch;Mandelmilch;Milch;Muttermilch;Sauermilch;Stutenmilch;Trockenmilch;Ziegenmilch
 ILDER;bebilder;beschilder;milder;schilder;wilder;Bilder;Dildo;Filder;Hilda;Mathilda
 ILDERN;bebildern;beschildern;mildern;schildern;wildern;Bildern;Fildern
 ILDERS;Bebilderns;Beschilderns;Milderns;Schilderns;Wilderns
@@ -2197,6 +2194,7 @@ INKENS;Betrinkens;Blinkens;Dünkens;Ertrinkens;Hinkens;Linkens;Schminkens;Sinken
 INKER;blinker;flinker;linker;pinker;Blinker;Blinker;Hinker;Klinker;Linker;Stinker;Trinker;Winker;Zinker
 INKT;betrinkt;blinkt;dünkt;ertrinkt;hinkt;geblinkt;gedünkt;gelinkt;geschminkt;gewinkt;gezinkt;linkt;schminkt;sinkt;stinkt;trinkt;überschminkt;verlinkt;verschminkt;versinkt;verstinkt;verzinkt;winkt;zusammenwinkt
 INKUNG;Ertrinkung;Klinkung;Verzinkung
+INLÄNDISCH;finnländisch;inländisch
 INNE;beginne;besinne;drinne;dünne;entrinne;entsinne;entspinne;gerinne;gewinne;hinne;inne;pinne;rinne;spinne;umspinne;verdünne;verrinne;verspinne;Finne;Gespinne;Gewinne;Kinne;Minne;Regenrinne;Rinne;Pinne;Sinne;Spinne;Zinne
 INNEN;abgewinnen;anzupinnen;auszuspinnen;beginnen;besinnen;binnen;darinnen;drinnen;dünnen;einzuspinnen;entrinnen;entsinnen;entspinnen;ersinnen;gerinnen;gewinnen;hinnen;innen;-innen;rinnen;pinnen;sinnen;spinnen;verdünnen;verrinnen;verspinnen;vorzuspinnen;zusammenpinnen;Bäckerinnen;Finnen;Gewinnen;Herrscherinnen;Inderinnen;Kinnen;Königinnen;Lehrerinnen;Linnen;Minnen;Mörderinnen;Rinnen;Sinnen;Spinnen;Zinnen
 INNEND;abgewinnend;beginnend;besinnend;entrinnend;entsinnend;entspinnend;ersinnend;gerinnend;gewinnend;hinnend;rinnend;pinnend;sinnend;spinnend;verdünnend;verrinnend;verspinnend;zusammenpinnend
@@ -2294,6 +2292,7 @@ ISI;easy (engl.);Assisi;Gysi;Risibisi
 ISIEREN;akademisieren;akklimatisieren;aktualisieren;alkoholisieren;amerikanisieren;amortisieren;analysieren;analogisieren;anglisieren;anivisieren;anonymisieren;antagonisieren;anthropomorphisieren;anvisieren;anzuvisieren;aromatisieren;ästhetisieren;atomisieren;auskristallisieren;automatisieren;autorisieren;avisieren;bagatellisieren;banalisieren;biologisieren;brutalisieren;bürokratisieren;chaotisieren;charakterisieren;christianisieren;containerisieren;dämonisieren;de-anonymisieren;deanonymisieren;decarbonisieren;defossilisieren;dehumanisieren;deindustrialisieren;dekarbonisieren;dekolonialisieren;dekolonisieren;demilitarisieren;demobilisieren;demokratisieren;demoralisieren;denuklearisieren;depriorisieren;deradikalisieren;desensibilisieren;destabilisieren;destablisieren;dezentralisieren;diabolisieren;dialogisieren;digitalisieren;dogmatisieren;dollarisieren;dramatisieren;durchdigitalisieren;durchorganisieren;dynamisieren;egalisieren;einzukategorisieren;elektrisieren;emotionalisieren;empathisieren;entalkoholisieren;entbürokratisieren;entdämonisieren;entdiabolisieren;entdollarisieren;entdramatisieren;entemotionalisieren;entideologisieren;entindividualisieren;entkolonialisieren;entkolonisieren;entkriminalisieren;entmaterialisieren;entmilitarisieren;entmythologisieren;entnormalisieren;entpersonalisieren;entpolarisieren;entpolitisieren;entradikalisieren;entsexualisieren;entsolidarisieren;entstigmatisieren;enttabuisieren;erotisieren;euphorisieren;europäisieren;evangelisieren;eventisieren;exotisieren;externalisieren;fadisieren;faktorisieren;favorisieren;feminisieren;fetischisieren;fiktionalisieren;finalisieren;flexibilisieren;föderalisieren;formalisieren;fraternisieren;frisieren;funktionalisieren;generalisieren;geometrisieren;globalisieren;habitualisieren;harmonisieren;herauskristallisieren;herauszukristallisieren;heroisieren;herumkritisieren;hierarchisieren;hochstilisieren;hochzustilisieren;homogenisieren;hospitalisieren;humanisieren;hybridisieren;hydratisieren;hypnotisieren;hypersensibilisieren;idealisieren;ideologisieren;immobilisieren;immunisieren;improvisieren;individualisieren;industrialisieren;initialisieren;institutionalisieren;instrumentalisieren;intellektualisieren;internalisieren;internationalisieren;inthronisieren;inventarisieren;ionisieren;ironisieren;islamisieren;japanisieren;kampagnisieren;kanalisieren;kannibalisieren;kanonisieren;kapitalisieren;karamellisieren;karbonisieren;katalogisieren;katastrophisieren;kategorisieren;klimatisieren;kolonialisieren;kolonisieren;kommerzialisieren;kommunalisieren;konkretisieren;kontextualisieren;konzeptualisieren;kriminalisieren;kristallisieren;kritisieren;laisieren;legalisieren;liberalisieren;lokalisieren;magnetisieren;marginalisieren;maskulinisieren;materialisieren;mentalisieren;militarisieren;mineralisieren;mitorganisieren;mitzuorganisieren;mobilisieren;modernisieren;monetarisieren;monetisieren;monopolisieren;moralisieren;motorisieren;musealisieren;musikalisieren;mythologisieren;narkotisieren;nationalisieren;naturalisieren;neutralisieren;normalisieren;ökologisieren;ökonomisieren;operationalisieren;organisieren;parallelisieren;pasteurisieren;pathologisieren;pauschalisieren;pazifisieren;periodisieren;personalisieren;plausibilisieren;poetisieren;polarisieren;polemisieren;politisieren;pönalisieren;popularisieren;prädikatisieren;pragmatisieren;präzisieren;priorisieren;privatisieren;problematisieren;professionalisieren;prototypisieren;pseudonymisieren;psychologisieren;pulverisieren;quantisieren;radikalisieren;rationalisieren;re-industrialisieren;realisieren;regionalisieren;reindustrialisieren;rekapitalisieren;rekommunalisieren;remineralisieren;reorganisieren;reprivatisieren;resozialisieren;retraumatisieren;revitalisieren;rhythmisieren;ritualisieren;rivalisieren;romanisieren;romantisieren;sakralisieren;säkularisieren;schubladisieren;sensationalisieren;sensibilisieren;serialisieren;sexualisieren;signalisieren;skandalisieren;solidarisieren;sozialisieren;spezialisieren;spiralisieren;stabilisieren;standardisieren;stereotypisieren;sterilisieren;stigmatisieren;stilisieren;symbolisieren;sympathisieren;synchronisieren;synthetisieren;systematisieren;tabuisieren;technisieren;terrorisieren;thematisieren;theoretisieren;traumatisieren;trivialisieren;trumpisieren;typisieren;tyrannisieren;überdramatisieren;umorganisieren;umzuorganisieren;urbanisieren;valorisieren;veganisieren;verbalisieren;verbürokratisieren;verdünnisieren;verpolitisieren;virtualisieren;visieren;visualisieren;vitalisieren;vokalisieren;weaponisieren;wegautomatisieren;wegdigitalisieren;wegorganisieren;wegrationalisieren;wegsozialisieren;wegzurationalisieren;zentralisieren;zivilisieren;zwangsmobilisieren;zwangssterilisieren
 ISIEREND;akademisierend;akklimatisierend;aktualisierend;alkoholisierend;amerikanisierend;amortisierend;analogisierend;analysieerend;anglisierend;anivisierend;anonymisierend;antagonisierend;anthropomorphisierend;anvisierend;aromatisierend;ästhetisierend;atomisierend;auskristallisierend;automatisierend;autorisierend;avisierend;bagatellisierend;banalisierend;biologisierend;brutalisierend;bürokratisierend;chaotisierend;charakterisierend;christianisierend;containerisierend;dämonisierend;de-anonymisierend;deanonymisierend;decarbonisierend;defossilisierend;dehumanisierend;deindustrialisierend;dekarbonisierend;dekolonialisierend;dekolonisierend;demilitarisierend;demobilisierend;demokratisierend;demoralisierend;denuklearisierend;depriorisierend;deradikalisierend;desensibilisierend;destabilisierend;destablisierend;dezentralisierend;diabolisierend;dialogisierend;digitalisierend;dogmatisierend;dollarisierend;dramatisierend;durchdigitalisierend;durchorganisierend;dynamisierend;egalisierend;elektrisierend;emotionalisierend;empathisierend;entalkoholisierend;entbürokratisierend;entdämonisierend;entdiabolisierend;entdollarisierend;entdramatisierend;entemotionalisierend;entideologisierend;entindividualisierend;entkolonialisierend;entkolonisierend;entkriminalisierend;entmaterialisierend;entmilitarisierend;entmythologisierend;entnormalisierend;entpersonalisierend;entpolarisierend;entpolitisierend;entradikalisierend;entsexualisierend;entsolidarisierend;entstigmatisierend;enttabuisierend;erotisierend;euphorisierend;europäisierend;evangelisierend;eventisierend;exotisierend;externalisierend;fadisierend;faktorisierend;favorisierend;feminisierend;fetischisierend;fiktionalisierend;finalisierend;flexibilisierend;föderalisierend;formalisierend;fraternisierend;frisierend;funktionalisierend;generalisierend;geometrisierend;globalisierend;habitualisierend;harmonisierend;herauskristallisierend;heroisierend;herumkritisierend;hierarchisierend;hochstilisierend;homogenisierend;hospitalisierend;humanisierend;hybridisierend;hydratisierend;hypnotisierend;hypersensibilisierend;idealisierend;ideologisierend;immobilisierend;immunisierend;improvisierend;individualisierend;industrialisierend;Initialisierend;institutionalisierend;instrumentalisierend;intellektualisierend;internalisierend;internationalisierend;inthronisierend;inventarisierend;ionisierend;ironisierend;islamisierend;japanisierend;kampagnisierend;kanalisierend;kannibalisierend;kanonisierend;kapitalisierend;karamellisierend;karbonisierend;katalogisierend;katastrophisierend;kategorisierend;klimatisierend;kolonialisierend;kolonisierend;kommerzialisierend;kommunalisierend;konkretisierend;kontextualisierend;konzeptualisierend;kriminalisierend;kristallisierend;kritisierend;laisierend;legalisierend;liberalisierend;lokalisierend;magnetisierend;marginalisierend;maskulinisierend;materialisierend;mentalisierend;militarisierend;mineralisierend;mitorganisierend;mobilisierend;modernisierend;monetarisierend;monetisierend;monopolisierend;moralisierend;motorisierend;musealisierend;musikalisierend;mythologisierend;narkotisierend;nationalisierend;naturalisierend;neutralisierend;normalisierend;ökologisierend;ökonomisierend;operationalisierend;organisierend;parallelisierend;pasteurisierend;pathologisierend;pauschalisierend;pazifisierend;periodisierend;personalisierend;plausibilisierend;poetisierend;polarisierend;polemisierend;politisierend;pönalisierend;popularisierend;prädikatisierend;pragmatisierend;präzisierend;priorisierend;privatisierend;problematisierend;professionalisierend;prototypisierend;pseudonymisierend;psychologisierend;pulverisierend;quantisierend;radikalisierend;rationalisierend;re-industrialisierend;realisierend;regionalisierend;reindustrialisierend;rekapitalisierend;rekommunalisierend;remineralisierend;reorganisierend;reprivatisierend;resozialisierend;retraumatisierend;revitalisierend;rhythmisierend;ritualisierend;rivalisierend;romanisierend;romantisierend;sakralisierend;säkularisierend;schubladisierend;sensationalisierend;sensibilisierend;serialisierend;sexualisierend;signalisierend;skandalisierend;solidarisierend;sozialisierend;spezialisierend;spiralisierend;stabilisierend;standardisierend;stereotypisierend;sterilisierend;stigmatisierend;stilisierend;symbolisierend;sympathisierend;synchronisierend;synthetisierend;systematisierend;tabuisierend;technisierend;terrorisierend;thematisierend;theoretisierend;traumatisierend;trivialisierend;trumpisierend;typisierend;tyrannisierend;überdramatisierend;umorganisierend;urbanisierend;valorisierend;veganisierend;verbalisierend;verbürokratisierend;verdünnisierend;verpolitisierend;virtualisierend;visierend;visualisierend;vitalisierend;vokalisierend;weaponisierend;wegautomatisierend;wegdigitalisierend;wegorganisierend;wegrationalisierend;wegsozialisierend;zentralisierend;zivilisierend;zwangsmobilisierend;zwangssterilisierend
 ISKIEREN;brüskieren;riskieren
+ISLÄNDISCH;friesländisch;isländisch
 ISMA;Prisma;Schisma;Wismar
 ISMEN;Anfglizismen;Aphorismen;Automatismen;Egoismen;Euphorismen;Exorzismen;Extremismen;Fanatismen;Ismen;Manierismen;Mechanismen;Nationalismen;Organismen;Prismen;Schismen
 ISMUS;Aktivismus;Alarmismus;Alkoholismus;Alpinismus;Altruismus;Anarchismus;Antiamerikanismus;Antifaschismus;Antikapitalismus;Antirassismus;Antisemitismus;Autismus;Automatismus;Brahmaismus;Brutalismus;Buddhismus;Bürokratismus;Dadaismus;Dilletantismus;Dogmatismus;Egoismus;Euphemismus;Evangelismus;Expressionismus;Extremismus;Faschismus;Fatalismus;Feminismus;Föderalismus;Fundamentalismus;Germanismus;Hedonismus;Hinduismus;Historismus;Humanismus;Imperialismus;Impressionismus;Internationalismus;Islamismus;Journalismus;Kannibalismus;Kapitalismus;Katholizismus;Klassizismus;Kolonialismus;Kommunismus;Kubismus;Leninismus;Liberalismus;Linksextremismus;Lobbyismus;Manierismus;Masochismus;Marxismus;Massentourismus;Materialismus;Mechanismus;Militarismus;Minimalismus;Moralismus;Nationalismus;Nationalsozialismus;Nazismus;Nihilismus;Optimismus;Organismus;Parlamentarismus;Patriotismus;Pazifismus;Pessimismus;Pluralismus;Pointilismus;Populismus;Pragmatismus;Protektionismus;Protestantismus;Rassismus;Realismus;Rechtsextremismus;Revisionismus;Sadismus;Sado-Masochismus;Schutzmechanismus;Semitismus;Sexismus;Sozialismus;Stalinismus;Surrealismus;Terrorismus;Tourismus;Universalismus;Vandalismus;Voyeurismus;Vulkanismus;Zionismus;Zynismus
@@ -2304,6 +2303,7 @@ ISSEN;abgebissen;abgerissen;angebissen;angerissen;angeschissen;anzupissen;aufgeb
 ISSEND;bepissend;dissend;hissend;küssend;müssend;pissend;wissend
 ISSENS;Bissens;des Dissens;Gewissens;Kissens;Küssens;Müssens;Splissens;Thyssens;Vermissens;Verpissens;Wissens
 ISSIMO;altissimo;barissimo;bellissimo;benissimo;bravissimo;buonissimo;cremissimo;Dauerfortissimo;direttissimo;finissimo;fortissimo;Fortissimo;gelatissimo;Generalissimo;grandissimo;pianissimo;piccolissimo;realissimo;schwulissimo;semplicissimo;velocissimo;violinissimo;vokalissimo
+ISSLICH;genüsslich;gewisslich;grisslig;misslich
 IST;abgeküsst;angepisst;aufgehisst;aufgesplisst;ausgepisst;bepisst;bemisst;bist;brüst;disst;durchmisst;entrüst;ermisst;frisst;gedisst;gehisst;geküsst;gepisst;hisst;isst;ist;küsst;misst;müsst;pisst;splisst;trist;überlist;vergisst;vermisst;wisst;wüsst;zerfrisst;zusammenbist;Aktivist;Altist;Amethyst;Anarchist;Anglizist;Annalyst;Antichrist;Artist;Atheist;Baptist;Bassist;Bigamist;Bovist;Buddhist;Calvinist;Cellist;Christ;Chronist;Dentist;Determinist;Drittligist;Drogist;Egoist;Erstligist;Essayist;Evangelist;Existenzialist;Exorzist;Extremist;Fabulist;Fagottist;Faschist;Fatalist;Finalist;Florist;Flötist;Frist;Föderalist;Formalist;Fundamentalist;Galerist;Gardist;Gelüst;Generalist;Germanist;Gerüst;Gitarrist;Globulist;Grossist;Harfinist;Hornist;Humanist;Humorist;Idealist;Infanterist;Internist;Islamist;Jahresfrist;Journalist;Jurist;Kabarettist;Kabbalist;Kantonist;Kapitalist;Karikaturist;Klarinettist;Knofilist;Kolonialist;Kolumnist;Kommunist;Komponist;Konformist;Kopist;Kriminalist;Leibgardist;Librettist;Linguist;List;Liszt;Lobbyist;Maschinist;Masochist;Masturbist;Materialist;Minimalist;Mist;Modist;Monatsfrist;Monopolist;Moralist;Nationalist;Naturalist;Nonkonformist;Notist;Novellist;Okkultist;Onanist;Organist;Optimist;Oboist;Pantheist;Pazifist;Perfektionist;Pessimist;Pianist;Pietist;Pogoist;Pointilist;Polizist;Populist;Posaunist;Prokurist;Protagonist;Psalmist;Publizist;Purist;Rassist;Realist;Regionalist;Reservist;Rist;Sadist;Sandinist;Saxophonist;Scientist;Separatist;Sexist;Sozialist;Spezialist;Sportjournalist;Statist;Stilist;Strangulist;Tagesfrist;Terrorist;Tourist;Traditionalist;Twist;Wochenfrist;Zivilist;Zweitligist;Zwist
 ISTEL;hüstel;Christel;Distel;Fistel;Kistl (bayr.);Mistel
 ISTER;a prima vista;abgeküsster;angepisster;aufgehisster;bepisster;bepisst er;disst er;flüster;frisst er;gehisster;geküsster;gepisster;hisst er;isst er;ist er;knister;küsst er;misst er;müsst er;pisst er;sinister;trister;vergisst er;vermisster;vermisst er;verpisster;wüsst er;Befrister;Buenavista;Entrüster;Geflüster;Geknister;Geschwister;Kanister;Küster;Lüster;Magister;Minister;Mister;Nüster;Pfister;Philister;Register;Rüster;Sister;Sündenregister;Tornister;Überlister;Vermisster
@@ -2325,6 +2325,7 @@ ITIEREN;agitieren;akkreditieren;diskreditieren;editieren;imitieren;irritieren;ha
 ITIKER;Analytiker;Kritiker;Politiker
 ITIS;Abschließeritis;Anschleimeritis;Arthritis;Beschwerderitis;Bronchitis;Dermatitis;Dermitis;Elefantitis;Grafittis;Haitis;Hepatitis;Meningitis;Neurodermitis;Räusperitis;Rechthaberitis;Telefonitis;Verschieberitis;Verschlaferitis
 ITISCH;alevitisch;analytisch;antisemitisch;apolitisch;britisch;diakritisch;diphteritisch;granitisch;granulitisch;haitisch;hamitisch;hermaphroditisch;isrealitisch;jemenitisch;jesuitisch;jiddisch;jüdisch;kosmopolitisch;lydisch;kritisch;megalithisch;mefitisch;monolithisch;moskowitisch;mythisch;neolithisch;parasitisch;politisch;pythisch;rachitisch;schiitisch;semitisch;sodomitisch;sunnitisch;syphilitisch;unpolitisch;wahibitisch
+ITLICH;appetitlich;profitlich;sittlich;unerbittlich
 ITO;dito;finito;infinito;appetito;bonito;marito (ital.);Moskito;Quito;Tito;stai zitto (ital.)
 ITSCH;ditsch;glitsch;ritsch;rich (engl.);which (engl.);Bitch (engl.);Bridge (engl.);Fritsch;Kitsch;Milowitsch;Witch (engl.);Zarewitsch
 ITSCHE;ditsche;glitsche;switche;verkitsche;Cebiche;Ditsche;Kitsche;Klitsche;Nietzsche;Pritsche;Sebiche
@@ -2425,6 +2426,7 @@ ODER;loder;maroder;moder;oder;Decoder;Moder;Nowgoroder;Roder
 ODERN;lodern;marodern;modern;vermodern;Decodern;Nowgorodern
 ODERND;lodernd;moderns;vermodernd
 ODERNS;Loderns;Moderns;Vermoderns
+ODISCH;antipodisch;aperiodisch;episodisch;melodisch;methodisch;modisch;periodsich;rhapsodisch;unmelodisch;unmethodisch
 ÖDUNG;Unterredung;Verblödung;Verfehdung;Verödung
 OFF;besoff;hoff;troff;zoff;Bitterstoff;Davidov;Oblomov;Off;Prüfungsstoff;Sauerstoff;Stroganov;Stoff;Wasserstoff;Zoff
 ÖFFEL;löffel;scheffel;Hasenlöffel;Kaffeelöffel;Löffel;Scheffel
@@ -2495,6 +2497,7 @@ OLISCH;alkoholisch;anatolisch;apostolisch;bifolisch;bukolisch;diabolisch;hyperbo
 OLK;befolg;folg;molk;verfolg;Erfolg;Kolk;Volk
 OLKE;Darmdampfwolke;Molke;Kamelmilchmolke;Volke;Wolke
 ÖLKER;welker;Melker;Völker
+ÖLKT;bewölkt;entwölkt;gewölkt;stirnumwölkt;umwölkt;unbewölkt;unverwelkt;welkt
 OLL;anspruchsvoll;ausdrucksvoll;auseinanderroll;doll;eindrucksvoll;entroll;grauenvoll;hoffnungsvoll;liebestoll;liebevoll;menschenvoll;oll;quoll;reuevoll;roll;schmoll;schwoll;scroll;soll;sorgenvoll;sternenvoll;sternhagelvoll;toll;tränenvoll;troll;überquoll;überroll;übervoll;unschuldsvoll;verquoll;verscholl;verzoll;voll;vorwurfsvoll;wonnevoll;wundervoll;zoll;Aperol;Apoll;Atoll;Groll;Moll;Perwoll;Proll;Protokoll;Rock'n Roll;Soll;Troll;Zoll
 OLLE;ausdrucksvolle;dolle;eindrucksvolle;entrolle;grolle;liebestolle;liebevolle;rolle;schmolle;schwolle;scrolle;solle;sorgenvolle;tolle;trolle;überrolle;verzolle;volle;wolle;zusammenrolle;Ackerscholle;Atolle;Bolle;Gerolle;Getolle;Holle;Jolle;Kasserolle;Knolle;Kontrolle;Molle;Nebenrolle;Olle;Polle;Prolle;Protokolle;Rolle;Rumgeprolle;Rumgetolle;Scholle;Tolle;Trolle;Wolle
 OLLEN;abgeschwollen;angeschwollen;aufzurollen;ausdrucksvollen;auseinanderrollen;auszurollen;dollen;eindrucksvollen;entrollen;geschwollen;grollen;liebestollen;liebevollen;ollen;quollen;rollen;schmollen;schwollen;zusammenrollen;scrollen;sollen;sorgenvollen;tollen;trollen;überquollen;übervollen;verquollen;verschollen;verzollen;vollen;vorzuscrollen;wollen;zollen;Atollen;Bollen;Grollen;Jollen;Knollen;Ollen;Pollen;Prollen;Protokollen;Rollen;Schollen;Stollen;Tollen;Trollen;Wollen
@@ -2586,6 +2589,7 @@ OPFT;abgeklopft;abgetropft;angeklopft;aufgepfropft;ausgeklopft;ausgestopft;einge
 ÖPFT;knöpft;köpft;schöpft;schröpft
 OPFUNG;Betropfung;Pfropfung;Verkopfung;Verstopfung;Verzopfung;Zerklopfung
 ÖPFUNG;Erschöpfung;Köpfung;Knöpfung;Kröpfung;Schöpfung;Schröpfung
+OPHISCH;anthroposophisch;fußballphilosophisch;hochphilosophisch;hypertrophisch;philosophisch;pseudophilosophisch;sozialphilosophisch;strophisch;theosophisch
 OPPE;floppe;foppe;hoppe;jobbe;kloppe;mobbe;poppe;ploppe;robbe;shoppe;stoppe;toppe;verkloppe;Hoppe;Joppe;Koppe;Noppe
 OPPEL;doppel;hoppel;koppel;verdoppel;Doppel;Gehoppel;Goppel;Koppel;Moppel;Stoppel
 OPPELN;doppeln;hoppeln;koppeln;verdoppeln;Doppeln;Gehoppeln;Koppeln;Moppeln;Stoppeln
@@ -2611,6 +2615,7 @@ ORDERN;anzufordern;beordern;fordern;ordern;überfordern;unterfordern;Außenborde
 ORDERND;beordernd;fordernd;ordernd;überfordernd;unterfordernd
 ORDERNS;Beorderns;Forderns;Orderns;Überforderns;Unterforderns
 ORDERT;beordert;fordert;gefordert;geordert;ordert;überfordert;unterfordert
+ORDISCH;gordisch;nordisch
 ORES;beschwor es;bohr es;erkor es;fror es;gefror es;gor es;schmor es;schor es;schwor es;vergor es;verlor es;verschwor es;Amores (span.);Chores;Chlores;Dottores;Flores;Kokolores;Monitores;Mohres;Moores;Mores;Ohres;Rohres;Stores;Tenores;Tores;Zores
 ORF;amorph;Dorf;Düsseldorf;Orff;Schorf;Torf
 ORGEN;auszuborgen;besorgen;borgen;entsorgen;geborgen;morgen;sorgen;übermorgen;verborgen;versorgen;vorzusorgen;Borgen;Forken;Korken;Morgen;Sorgen;St. Georgen
@@ -2930,6 +2935,7 @@ UNKS;Funks;Prunks;Punks;Strunks;Stunks;Trunks
 UNKST;funkst;prunkst;tunkst;unkst;untertunkst
 UNKT;angefunkt;eingetunkt;funkt;gefunkt;geprunkt;getunkt;geunkt;prunkt;tunkt;unkt;untergetunkt;Adjunkt;Angelpunkt;Anklagepunkt;Ansatzpunkt;Ausgangspunkt;Doppelpunkt;Gipfelpunkt;Haltepunkt;Hauptstützpunkt;Höhepunkt;Kontrapunkt;Kostenpunkt;Landepunkt;Mittelpunkt;Punkt;Sammelpunkt;Scheitelpunkt;Wendepunkt
 UNKTEN;funkten;gefunkten;getunkten;prunkten;punkten;tunkten;unkten;Punkten
+ÜNLICH;dienlich;grünlich
 UNNEN;Brunnen;Hunnen;Mineralwasserbrunnen;Schwefelbrunnen
 UNSCH;Eierpunsch;Flunsch;Geburtstagswunsch;Herzenswunsch;Kinderpunsch;Kinderwunsch;Neujahrswunsch;Punsch;Weihnachtswunsch;Wunsch
 UNST;angebrunzt;bebrunzt;brunzt;funzt;gebrunzt;gefunzt;hunzt;verdunst;verhunzt;Brunst;Dunst;Feuersbrunst;Kunst
@@ -2985,6 +2991,7 @@ URIS;obskur is;stur is;Fury's;Huris;Kultur;is;Schluris;Touris
 URM;Regenwurm;Sturm;Tatensturm;Tatzelwurm;Turm;Wurm
 URN;herumturn;turn;Saturn;Solothurn
 URNE;herumturnen;turne;Geturne;Urne
+URNEN;herumturnen;turnen;Abstimmungsurnen;Bodenturnen;Urnen
 URNIEREN;furnieren;retournieren;Hallenturnieren;Turnieren
 URNIEREND;furnierend;retournierend
 URREN;gurren;knurren;murren;Schnurren;schnurren;zurren
