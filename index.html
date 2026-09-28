@@ -368,6 +368,34 @@
 </style>
 
 
+
+<style>
+#reimNachOben {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 99999;
+  width: 64px;
+  height: 64px;
+  padding: 5px;
+  border: 1px solid #38bdf8;
+  border-radius: 50%;
+  background: #1e293b;
+  color: #38bdf8;
+  font: inherit;
+  font-size: .78rem;
+  font-weight: 700;
+  line-height: 1.05;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+}
+#reimNachOben:hover { background:#38bdf8; color:#0f172a; }
+@media (max-width:600px) {
+  #reimNachOben { right:10px; bottom:12px; width:58px; height:58px; }
+}
+</style>
+
 </head>
 <body>
   <div class="container">
@@ -3725,6 +3753,22 @@ window.addEventListener('message', function(event) {
     document.body.scrollTop = 0;
   }
 });
+</script>
+
+
+<button type="button" id="reimNachOben" aria-label="Nach oben" title="Nach oben">↑<br>nach<br>oben</button>
+<script>
+(function(){
+  const b=document.getElementById('reimNachOben');
+  if (b) {
+    b.addEventListener('click', function(){
+      window.scrollTo({top:0,left:0,behavior:'smooth'});
+      document.documentElement.scrollTop=0;
+      document.body.scrollTop=0;
+      try { window.parent.scrollTo({top:0,left:0,behavior:'smooth'}); } catch(e) {}
+    });
+  }
+})();
 </script>
 
 </body>
