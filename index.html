@@ -464,12 +464,21 @@ Das würde ich auch gern mal sehn!
     // DIREKTE REIM-DATENBANK (KEINE EXTERNE CSV MEHR NÖTIG!)
     // Jede Zeile steht für eine Reim-Gruppe (mit Semikolon getrennt).
     // =========================================================================
-    const csvData = `ÄTZUNG;Armverletzung;Beinverletzung;Benetzung;Beschwätzung;Besetzung;Blutzersetzung;Ehrverletzung;Entsetzung;Ernteschätzung;Farbenätzung;Fußverletzung;Grenzverletzung;Handverletzung;Hausbesetzung;Hautverätzung;Hirnverletzung;Kommasetzung;Kopfverletzung;Linienätzung;Pflichtverletzung;Preisfestsetzung;Rasterätzung;Rechtsverletzung;Schadensschätzung;Schätzung;Schußverletzung;Selbstüberschätzung;Starbesetzung;Stichverletzung;Strafversetzung;Überschätzung;Übersetzung;Unterschätzung;Verätzung;Vergrätzung;Verhetzung;Verletzung;Vernetzung;Verpetzung;Verschätzung;Versetzung;Volksverhetzung;Zeichensetzung;Zersetzung;Zurückversetzung;Zusammensetzung
+    const csvData = `URG;Brandenburg;Chirurg;Demiurg;Dramaturg;Engelsburg;Felsenburg;Götterburg;Handchirurg;Herrenburg;Kaiserburg;Königsburg;Luxemburg;Magdeburg;Merseburg;Metallurg;Ritterburg;Transplantationschirurg;Wasserburg
+UTZUNG;Benutzung;Bodennutzung;Mitbenutzung;Nutzung;Stutzung
+ERRLICH;herrlich;Kerl ich
+EHWEG;Gehweg;Schneeweg;Seeweg
+AUPLATZ;Bauplatz;Schauplatz
+ISKEN;bisken (dial.);Außenmenisken;Basilisken;Fisken;Hibisken;Innenmenisken;Menisken;Morisken;Obelisken;Odalisken;Staudenhibisken;Tamarisken;Zimmerhibisken
+ISKE;Odaliske;Tamariske
+ISK;Basilisk;Disk;Floppy Disk;Obelisk;Risk (engl.)
+ISKUS;Außenmeniskus;Diskus;Fiskus;Franziskus;Hibiskus;Innenmeniskus;Meniskus;Sankt Franziskus;Staudenhibiskus;Zimmerhibiskus
+ÄTZUNG;Armverletzung;Beinverletzung;Benetzung;Beschwätzung;Besetzung;Blutzersetzung;Ehrverletzung;Entsetzung;Ergötzung;Ernteschätzung;Farbenätzung;Fußverletzung;Grenzverletzung;Handverletzung;Hausbesetzung;Hautverätzung;Hirnverletzung;Kommasetzung;Kopfverletzung;Linienätzung;Pflichtverletzung;Preisfestsetzung;Rasterätzung;Rechtsverletzung;Schadensschätzung;Schätzung;Schußverletzung;Selbstüberschätzung;Starbesetzung;Stichverletzung;Strafversetzung;Überschätzung;Übersetzung;Unterschätzung;Verätzung;Vergrätzung;Verhetzung;Verletzung;Vernetzung;Verpetzung;Verschätzung;Versetzung;Volksverhetzung;Zeichensetzung;Zersetzung;Zurückversetzung;Zusammensetzung
 ATZUNG;Atzung;Besatzung;Beschwatzung;Bootsbesatzung;Satzung;Schiffsbesatzung
 ANZUNG;Baumwollpflanzung;Bepflanzung;Entwanzung;Erdverschanzung;Gemüsepflanzung;Obstanpflanzung;Pflanzung;Sojapflanzung;Tabakpflanzung;Überpflanzung;Weizenpflanzung;Verpflanzung;Verschanzung
 ELZUNG;Eisenschmelzung;Gletscherschmelzung;Schmelzung;Staatsumwälzung;Stelzung;Verschmelzung;Wälzung
 ALZUNG;Entsalzung;Falzung;Salzung;Versalzung
-EIZUNG;Beizung;Etagenheitung;Heißwasserheizung;Heizung;Kohleheizung;Nervenreizung;Ofenheizung;Reizung;Spreizung;Überreizung;Verspreizung;Warmwasserheizung;Wasserheizung
+EIZUNG;Ampelkreuzung;Beizung;Doppelkreuzung;Eisenbahnkreuzung;Etagenheizung;Fahrradkreuzung;Hauptverkehrskreuzung;Heißwasserheizung;Heizung;Kohleheizung;Kreuzung;Nervenreizung;Ofenheizung;Pflanzenkreuzung;Pistenkreuzung;Radlerkreuzung;Rassenkreuzung;Reizung;Spreizung;Stimmenkreuzung;Straßenkreuzung;Todeskreuzung;Überreizung;Unfallkreuzung;Verspreizung;Warmwasserheizung;Wasserheizung;Wegekreuzung
 AUUNG;Bebauung;Behauung;Beschauung;Bestandsbebauung;Blockbebauung;Eckbebauung;Erbauung;Fettverdauung;Fleischbeschauung;Hangbebauung;Kunstanschauung;Leichenbeschauung;Magenverdauung;Mischbebauung;Naturanschauung;Neubebauung;Nichtbebauung;Normalbebauung;Platzbebauung;Randbebauung;Selbsterbauung;Selbstverdauung;Stadtbebauung;Stauung;Strandbebauung;Straßenstauung;Teilbebauung;Trauung;Überbauung;Umbauung;Unterbauung;Vergrauung;Versauung;Verstauung;Vorkriegstrauung;Vorverdauung;Weltanschauung;Wohnbebauung
 UTUNG;Blutung;Flutung;Lungenblutung;Magenblutung;Monatsblutung;Mutung;Überflutung;Vermutung
 ITTUNG;Beschüttung;Gegenquittung;Gesittung;Gewinnausschüttung;Quittung;Nervenzerrüttung;Rückerbittung;Verhüttung;Verschüttung;Zerrüttung
@@ -1130,6 +1139,7 @@ ARES;bewahr es;erfahr es;erspar es;gebar es;gewahr es;spar es;verwahr es;Bares;B
 ARF;darf;scharf;warf;Harf’
 ARFE;scharfe;Harfe
 ARFEN;bewarfen;entlarfen;entwarfen;scharfen;überwarfen;unterwarfen;Bedarfen;Harfen;Larven;Solar-Fan;Star-Fan
+ARG;arg;karge;Eichensarg;Innensarg;Kindersarg;Marmorsarg;Sarg;Schneewittchensarg;Selbstbau-Sarg
 ARGE;arge;karge;Sarge;verarge;Zarge
 ARGEN;argen;bargen;kargen;verargen;verbargen;im Argen;Zargen
 ARGER;karger;verarg er;verbarg er
@@ -1971,7 +1981,7 @@ ERFLICH;dörflich;nervlich;verwerflich
 ERFLICH;nervlich;schärflich;verwerflich
 ERFT;angenervt;angeschärft;bewerft;eingeschärft;entnervt;entschärft;genervt;geschärft;gesurft;nervt;schärft;surft;verschärft;verwerft;werft;zusammenwerft;Werft
 ERFUNG;Entschärfung;Niederwerfung;Schärfung;Strafverschärfung;Überwerfung;Unterwerfung;Verschärfung;Verwerfung
-ERG;berg;bemerk;bestärk;merk;stärk;verberg;vermerk;verstärk;verzwerg;werk;Augenmerk;Berg;Björg;Erg;Guttenberg;Gutenberg;Jörg;Vermerk;Werg;Werk;Work;Zwerg
+ERG;berg;bemerk;bestärk;merk;stärk;verberg;vermerk;verstärk;verzwerg;werk;Augenmerk;Berg;Björg;Butterberg;Erg;Felsenberg;Festungsberg;Fußballzwerg;Galgenberg;Gartenzwerg;Gletscherberg;Götterberg;Guttenberg;Gutenberg;Handschwingwerg;Jörg;Liga-Zwerg;Musenberg;Riesenzwerg;Roboterzwerg;Schwarzer Zwerg;Speicherzwerg;Tafelberg;Trümmerberg;Venusberg;Vermerk;Wellenberg;Werg;Werk;Work;Zauberzwerg;Zwerg
 ERGE;berge;verberge;verzwerge;Berge;Herberge;Latwerge;Särge;Scherge;Zwerge
 ERGEN;bergen;hinterhergehn;hin-;und;hergehn;schwergehn;umhergehn;verbergen;verzwergen;Bergen;Särgen;Schergen;Zwergen
 ERGEND;bergend;verbergend;verzwergend
@@ -2103,8 +2113,8 @@ ETET;abgetötet;angebetet;angelötet;angeödet;angeredet;aufeinandertretet;aufge
 ETISCH;alphabetisch;apologetisch;arithmetisch;asketisch;ästhetisch;athletisch;diätisch;energetisch;ethisch;eyxegetisch;frenetisch;genetisch;gravitätisch;helvetisch;häretisch;hermetisch;hypothetisch;kinetisch;kosmetisch;kretisch;kybernetisch;luetisch;magnetisch;majestätisch;osetisch;parenthetisch;pathetisch;phonetisch;poetisch;prophetisch;sowjetisch;sudetisch;synergetisch;synthetisch;theoretisch;thetisch;tibetisch;uretisch;Drehtisch;Fetisch;Kaffetisch;Nähtisch;Teetisch
 ETO;Loreto;Rovereto;Soweto;Veto
 ETSCHER;dobre vecher (slaw.);plätscher;Catcher;Geplätscher;Gletscher;Thatcher
-ETT;adrett;bett;brünett;falsett;fett;forget;flat;get;hätt;honett;kett;kokett;komplett;let (engl.);nett;plätt;rat;rett;sött;spött;verkett;verwett;violett;wett;Amulett;Annett;Antoinette;AZ;Babett;Baguette;Bajonett;Ballett;Barett;Bett;Bilett;Brett;Brikett;BZ;Chansonette;Cigarette (franz.);Doppelbett;Dramolett;Duett;Esszett;Etikett;Exoskelett;Falsett;FAZ;Fensterbrett;Fett;Florett;Gespött;Hat;Himmelbett;Internet;Jackett;Jet;Kabarett;Kabinett;Kadett;Kamulet;Kinderbett;Klett;Klosett;Kornett;Korsett;Korvett;Kotelett;Krankenbett;KZ;Lafayette;Lazarett;Lünett;Menuett;Mett;Minarett;Musette;Nagelbett;Nagelbrett;Oktett;Omelett;Parkett;Quartett;Quintett;Raclette;Retraite (franz.);Roulette;Septett;Serviette (franz.);Set;Sextett;Skelett;Sonett;Spinett;Sterbebett;Tablett;Terzett;Toilette (franz.);Totenbett;Tourette;TZ;Wachsfigurenkabinett;Wochenbett;Zett;Ziegenfett
-ETTE;adrette;bette;brünette;chatte;entfette;errette;fette;hätte;honette;jette;kokette;nette;plätte;rette;verfette;verkette;verwette;violette;wette;zusammenkette;Amulette;Barette;Billette;Bulette;Chansonette;Doublette;Dramolette;Duette;Epaulette;Etikette;Facette;Fette;Gazette;Henriette;Hundekette;Kabinette;Kasette;Kastagnette;Kette;Klarinette;Klette;Kokette;Korsette;Kotelette;Lafette;Lazarette;Lieferkette;Limette;Manschette;Marionette;Minarette;Motette;Oktette;Omelette;Operette;Palette;Parkette;Pipette;Pirouette;Produktpalette;Quartette;Quintette;Raclette;Rosette;Schmonzette;Septette;Serviette;Sextette;Silhouette;Sonette;Soubrette;Spinette;Städte;Stafette;Stätte;Stiefelette;Tablette;Terzette;Toilette;Vignette;Zigarette
+ETT;adrett;bett;brünett;falsett;fett;forget;flat;get;hätt;honett;kett;kokett;komplett;let (engl.);nett;plätt;rat;rett;sött;spött;verkett;verwett;violett;wett;Amulett;Annett;Antoinette;AZ;Babett;Baguette;Bajonett;Ballett;Barett;Bett;Bilett;Brett;Brikett;BZ;Chansonette;Cigarette (franz.);Doppelbett;Dramolett;Duett;Esszett;Etikett;Exoskelett;Falsett;FAZ;Fensterbrett;Fett;Florett;Gespött;Hat;Himmelbett;Internet;Jackett;Jet;Kabarett;Kabinett;Kadett;Kamulet;Kinderbett;Klett;Klosett;Kornett;Korsett;Korvett;Kotelett;Krankenbett;KZ;Lafayette;Lazarett;Lünett;Menuett;Mett;Minarett;Musette (franz.);Nagelbett;Nagelbrett;Oktett;Omelett;Parkett;Quartett;Quintett;Raclette;Retraite (franz.);Roulette;Septett;Serviette (franz.);Set;Sextett;Skelett;Sonett;Spinett;Sterbebett;Tablett;Terzett;Toilette (franz.);Totenbett;Tourette;TZ;Wachsfigurenkabinett;Wochenbett;Zett;Ziegenfett
+ETTE;adrette;bette;brünette;chatte;entfette;errette;fette;hätte;honette;jette;kokette;nette;plätte;rette;verfette;verkette;verwette;violette;wette;zusammenkette;Amulette;Barette;Billette;Bulette;Chansonette;Diskette;Doublette;Dramolette;Duette;Epaulette;Etikette;Facette;Fette;Gazette;Henriette;Hundekette;Kabinette;Kasette;Kastagnette;Kette;Klarinette;Klette;Kokette;Korsette;Kotelette;Lafette;Lazarette;Lieferkette;Limette;Manschette;Marionette;Minarette;Motette;Oktette;Omelette;Operette;Palette;Parkette;Pipette;Pirouette;Produktpalette;Quartette;Quintette;Raclette;Rosette;Schmonzette;Septette;Serviette;Sextette;Silhouette;Sonette;Soubrette;Spinette;Städte;Stafette;Stätte;Stiefelette;Tablette;Terzette;Toilette;Vignette;Zigarette
 ETTEL;bettel;kettel;rattle (engl.);settle (engl.);verzettel;Battle (engl.);Bettel;Brettl;Brotzeitbrettl (bay.);Vettel;Gebettel;Kleinkunstbrettl;Metal;Heavy Metal;Sättel;Städtl;Vettel;Zettel
 ETTELN;betteln;ketteln;setteln;verzetteln;Vetteln
 ETTELND;bettelnd;kettelnd;settelnd;verzettelnd
@@ -2624,7 +2634,7 @@ ITZEND;aufeinandersitzend;aufzustützend;auseinanderspritzend;auszunützend;ausz
 ITZENS;Aufeinandersitzens;Aufzustützens;Auseinanderspritzens;Auszunützens;Auszuschwitzens;Benützens;Beschützens;Besitzens;Bespritzens;Blitzens;Erhitzens;Flitzens;Nützens;Ritzens;Schlitzens;Schnitzens;Schützens;Schwitzens;Sitzens;Spritzens;Stibitzens;Stützens;Überhitzens;Überspitzens;Unterstützens;Verschwitzens;Verspritzens;Zusammensitzens
 ITZER;glitzer;gnitzer;Bauchaufschlitzer;Benützer;Beschützer;Besitzer;Blitzer;Denkmalschützer;Erhitzer;Flitzer;Geglitzer;Grundbesitzer;Hausbesitzer;Personenschützer;Pizza;Nizza;Schützer;Siebensitzer;Sitzer;Umweltschützer;Unterstützer;Verfassungsschützer;Waffenbesitzer;Waldbesitzer;Wassererhitzer;Weihnachtsgeglitzer
 ITZT;abgeblitzt;abgeflitzt;abgenützt;abgestützt;angeblitzt;angeritzt;angeschlitzt;angeschnitzt;angespitzt;angespritzt;aufeinandersitzt;aufgeritzt;aufgeschlitzt;aufgespritzt;aufgestützt;ausgenützt;ausgeschwitzt;benützt;beschützt;besitzt;bespritzt;blitzt;eingeritzt;eingeschnitzt;erhitzt;flitzt;geblitzt;geflitzt;genützt;geritzt;geschlitzt;geschnitzt;geschützt;geschwitzt;gespitzt;gespritzt;gestützt;gewitzt;hereingeflitzt;herunterspritzt;hingespritzt;nützt;ritzt;schlitzt;schnitzt;schützt;schwitzt;sitzt;spitzt;spritzt;stützt;überhitzt;überspitzt;umgespritzt;ungenützt;ungeschützt;ungespitzt;unterstützt;verschwitzt;verspritzt;zugespitzt;zusammensitzt
-ITZUNG;Ausschusssitzung;Benützung;Besitzung;Direkteinspritzung;Erderhitzung;Karnervalssitzung;Klimaerhitzung;Sitzung;Spritzung;Überhitzung;Unterstützung
+ITZUNG;Abschlusssitzung;Arbeitssitzung;Ausschusssitzung;Benützung;Besitzung;Beschützung;Bespritzung;Börsensitzung;Bürositzung;Dauersitzung;Direkteinspritzung;Erderhitzung;Eröffnungssitzung;Jahressitzung;Karnervalssitzung;Klimaerhitzung;Landtagssitzung;Sitzung;Sondersitzung;Spritzung;Überhitzung;Überspitzung;Unterstützung;Vorstandssitzung
 IVIEREN;aktivieren;archivieren;attraktivieren;deaktivieren;demotivieren;inaktivieren;intensivieren;kollektivieren;kultivieren;motivieren;objektivieren;perpektivieren;reaktivieren;rekultivieren;relativieren
 IVIEREND;aktivierend;archivierend;attraktivierend;deaktivierend;demotivierend;inaktivierend;intensivierend;kollektivierend;kultivierend;motivierend;objektivierend;perpektivierend;reaktivierend;rekultivierend;relativierend
 IVISCH;ativisch;bolivisch;indikativisch;imperativisch;konjunktivisch;konvulsivisch;musivisch;perfektivisch;perspektivisch;substantivisch
@@ -2697,7 +2707,7 @@ OFFER;hoff er;schroffer;soff er;versoff er;Christopher;Hoffer;Koffer;Offer;Reise
 OFFES;hoff es;soff es;Office;Schroffes;Stoffes;Zoffes
 OFIEREN;echauffieren;hofieren
 OFT;gehofft;gezofft;hofft;oft;soft;sooft;supersoft;unverhofft;verhofft;zofft;Loft;Microsoft
-OG;analog;auseinanderzog;belog;betrog;bewog;bezog;bog;entflog;entzog;erlog;erzog;flog;herunterflog;log;pflog;trog;überflog;überwog;überzog;unterzog;verbog;verflog;vorüberflog;vorüberzog;wog;zog;zusammenzog;Epilog;Katalog;Monolog;Prolog
+OG;analog;auseinanderzog;belog;betrog;bewog;bezog;bog;entflog;entzog;erlog;erzog;flog;herunterflog;log;pflog;trog;überflog;überwog;überzog;unterzog;verbog;verflog;vorüberflog;vorüberzog;wog;zog;zusammenzog;Anthropolog;Apolog;Archäolog;Astrolog;Demagog;Dermatolog;Dialog;Epilog;Erzherzog;Etymolog;Futtertrog;Großherzog;Gynäkolog;Histolog;Ideolog;Insektolog;Katalog;Monolog;Mörteltrog;Nekrolog;Neolog;Neurolog;Philolog;Phrenolog;Prolog;Psycholog;Schweinetrog;Sinolog;Sog;Soziolog;Trog;Zoolog
 OGE;analoge;bewoge;woge;Anthologe;Archäologe;Astrologe;Biologe;Demagoge;Dermatologe;Dorfologe;Droge;Eloge;Epidemologe;Epiloge;Ethnologe;Geologe;Grantologe;Gustologe;Katologe;Konfiszologe;Krematologe;Monologe;Nekrologe;Nephrologe;Neurologe;Ornithologe;Pädagoge;Pathologe;Philologe;Pornitologe;Proktologe;Prologe;Psychologe;Technologe;Urologe;Woge;Zoologe
 OGEL;kokel;mogel;Vogel;Wasservogel
 OGELN;drogeln;kogeln;logeln;mogeln
@@ -3063,7 +3073,7 @@ UFTEN;abgestuften;behuften;gestuften;moveten;ruften;stuften
 UFTIG;Grufti;Mufti
 UFTIG;duftig;gruftig;kluftig;luftig;schuftig
 UFTLER;Buschenschuftler;Freizeitgruftler;Gruftler;Schuftler
-UG;befug;beschlug;betrug;erschlug;genug;klug;neunmalklug;schlug;überschlug;unterschlug;verschlug;zerschlug;zusammenschlug;Befug;Betrug;Bezug;Bug;Flug;Fug;Höhenflug;Krug;Lucky Luke;Lug und Trug;Luk;Moog;Pflug;Spuk;Verzug;Zug
+UG;befug;beschlug;betrug;erschlug;genug;gerneklug;klug;lebensklug;neunmalklug;schlug;superklug;überklug;überschlug;unterschlug;verschlug;zerschlug;zusammenschlug;Abendzug;Ackerpflug;Aschenkrug;Atemzug;Bartanflug;Bauaufzug;Befug;Betriebsausflug;Betrug;Bettbezug;Beutezug;Bezug;Bienenflug;Bug;Bummelzug;Dauerflug;Doppelpflug;Ehebetrug;Extrazug;Fackelzug;Festaufzug;Feuerpflug;Flaschenzug;Flug;Fug;Funkenflug;Gasabzug;Gehaltsabzug;Geistesflug;Gewichtsabzug;Grabenpflug;Gummizug;Haftvollzug;Henkelkrug;Hochzeitsflug;Höhenflug;Höhenzug;Honigkrug;Honorarabzug;Klingelzug;Korrekturabzug;Krug;Lohnabzug;Lucky Luke;Lug und Trug;Luk;Maschinenpflug;Massenbetrug;Moog;Münzbetrug;Pendelzug;Pflug;Probeflug;Rauchabzug;Reisezug;Rohabzug;Rostanflug;Scheibenpflug;Scheinrückzug;Schonbezug;Schulausflug;Segelflug;Selbstbetrug;Spuk;Strafvollzug;Traktorenpflug;Überflug;Überzug;Übungsflug;Verzug;Vogelflug;Vogelzug;Volksbetrug;Vorderbug;Wachaufzug;Wasserkrug;Wechselbetrug;Wendepflug;Winkelzug;Zielanflug;Zirkelzug;Zug
 UGEND;fugend;lugend;Fußballjugend;Jugend;Tugend
 UGENS;Fugens;Lugens;Jugends
 ÜGICH;besieg ich;bestieg ich;betrüg ich;bieg ich;entstieg ich;ertrüg ich;gefügig;krieg ich;lieg ich;lüg ich;schwieg ich;stieg ich;trüg ich;unterlieg ich;verbieg ich;verfüg ich;verschwieg ich;verstieg ich;vertrüg ich;ziegig;zügig
