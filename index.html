@@ -465,7 +465,10 @@ Das würde ich auch gern mal sehn!
     // DIREKTE REIM-DATENBANK (KEINE EXTERNE CSV MEHR NÖTIG!)
     // Jede Zeile steht für eine Reim-Gruppe (mit Semikolon getrennt).
     // =========================================================================
-    const csvData = `OFFEL;Backkartoffel;Bratkartoffel;Filzpantoffel;Folienkartoffel;Frühkartoffel;Grillkartoffel;Hauspantoffel;Holzpantoffel;Hybridkartoffel;Kartoffel;Kulturkartoffel;Pantoffel;Pflaumentoffel;Ofenkartoffel;Pellkartoffel;Salzkartoffel;Speisekartoffel;Stoffel;Süßkartoffel;Toffel;Tomoffel;Wildkartoffel
+    const csvData = `ECHSCHÄDEN;Blechschäden;Zechschäden
+UTZMANN;Putzmann;Schutzmann
+AUMEISTER;Aumeister;Baumeister;Braumeister
+OFFEL;Backkartoffel;Bratkartoffel;Filzpantoffel;Folienkartoffel;Frühkartoffel;Grillkartoffel;Hauspantoffel;Holzpantoffel;Hybridkartoffel;Kartoffel;Kulturkartoffel;Pantoffel;Pflaumentoffel;Ofenkartoffel;Pellkartoffel;Salzkartoffel;Speisekartoffel;Stoffel;Süßkartoffel;Toffel;Tomoffel;Wildkartoffel
 OFFELN;Backkartoffeln;Bratkartoffeln;Filzpantoffeln;Folienkartoffeln;Frühkartoffeln;Grillkartoffeln;Hauspantoffeln;Holzpantoffeln;Hybridkartoffeln;Kartoffeln;Kulturkartoffeln;Pantoffeln;Pflaumentoffeln;Ofenkartoffeln;Pellkartoffeln;Salzkartoffeln;Speisekartoffeln;Stoffeln;Süßkartoffeln;Toffeln;Tomoffeln;Wildkartoffeln
 AULUSTIG;baulustig;braulustig;haulustig;saulustig;schaulustig
 UNDLOCH;Grundloch;Mundloch;Spundloch
@@ -484,7 +487,6 @@ OCHERN;stochern;Kochern
 ORKELN;korkeln;torkeln
 ORLEONE;Corleone;Schorle ohne
 ETTERFROSCH;adretter Frosch;brünetter Frosch;fetter Frosch;koketter Frosch;netter Frosch;violetter Frosch;Kletterfrosch;Vetter Frosch;Wetterfrosch
-ANDSCHAFT;Alpenlandschaft;Bäderlandschaft;Bekanntschaft;Gartenlandschaft;Gesandtschaft;Hirnverwandtschaft;Hügellandschaft;Küstenlandschaft;Landschaft;Museumslandschaft;Parteienlandschaft;Saunalandschaft;Seelenverwandtschaft;Seenlandschaft;Steppenlandschaft;Theaterlandschaft;Trümmerlandschaft;Verwandtschaft;Winterlandschaft;Wüstenlandschaft
 ICHELN;picheln;sticheln;stricheln;Micheln;Sicheln
 ANDHEIZUNG;Standheizung;Standheizung;Wandheizung
 UNDFÄULE;Mundfäule;Wundfäule
@@ -549,7 +551,7 @@ EIZUNG;Ampelkreuzung;Beizung;Doppelkreuzung;Eisenbahnkreuzung;Etagenheizung;Fahr
 AUUNG;Bebauung;Behauung;Beschauung;Bestandsbebauung;Blockbebauung;Eckbebauung;Erbauung;Fettverdauung;Fleischbeschauung;Hangbebauung;Kunstanschauung;Leichenbeschauung;Magenverdauung;Mischbebauung;Naturanschauung;Neubebauung;Nichtbebauung;Normalbebauung;Platzbebauung;Randbebauung;Selbsterbauung;Selbstverdauung;Stadtbebauung;Stauung;Strandbebauung;Straßenstauung;Teilbebauung;Trauung;Überbauung;Umbauung;Unterbauung;Vergrauung;Versauung;Verstauung;Vorkriegstrauung;Vorverdauung;Weltanschauung;Wohnbebauung
 UTUNG;Blutung;Flutung;Lungenblutung;Magenblutung;Monatsblutung;Mutung;Überflutung;Vermutung
 ITTUNG;Beschüttung;Gegenquittung;Gesittung;Gewinnausschüttung;Quittung;Nervenzerrüttung;Rückerbittung;Verhüttung;Verschüttung;Zerrüttung
-OTTUNG;Bespottung;Entgottung;Verspottung;Verschrottung;Zsammenrottung
+OTTUNG;Bespottung;Entgottung;Verspottung;Verschrottung;Zusammenrottung
 UZI;benutz sie;beruht sie;lud sie;ruht sie;tut sie;zuzieh;Duzi Duzi;Fuzzy;Jacuzzi;Luzy;Mode-Fuzzy;Moto Guzzi;Putzi;Tootsie;Uzi (hebrä.)
 ETTCHEN;Annettchen;Bankettchen;Bettchen;Brettchen;Brotzeitbrettchen;Frettchen;Frühstücksbrettchen;Kabinettchen;Kettchen;Plättchen;Sonettchen;Städtchen
 UUTSCHER;Knutscher;Lutscher
@@ -562,7 +564,7 @@ EISTERUNG;Begeisterung;Meisterung
 EITERUNG;Eiterung;Erheiterung;Erweiterung;Machterweiterung;Marktverbreiterung;Netzerweiterung;Osterweiterung;Spurverbreiterung;Verbreiterung;Westerweiterung
 ESSERUNG;Besserung;Bewässerung;Bildverbesserung;Entwässerung;Produktverbesserung;Sprachverbesserung;Tropfbewässerung;Verbesserung;Verschlimmbesserung;Verwässerung;Wässerung;Weltverbesserung
 EINERUNG;Verfeinerung;Verkleinerung;Versteinerung
-IMMERUNG;Verkümmerung;Verschlimmerung
+IMMERUNG;Simmerung;Verkümmerung;Verschlimmerung
 EICHERUNG;Bereicherung;Räucherung;Speicherung
 EIGERUNG;Steigerung;Versteigerung;Verweigerung;Weigerung;Zwangsversteigerung
 INDERUNG;Linderung;Minderung;Verhinderung;Verminderung
@@ -582,10 +584,10 @@ AASTE;aaste;bespaßte;geaaste;gegraste;graste;raste;spaßte;vergaste
 UNDHEIT;Buntheit;Gesundheit;Rundheit
 UMA;Baby-Boomer;Boomer;Duma;Konsumer;Montezuma;Prosumer;Puma;Schiuma (ital.);Spuma (ital.);Zoomer
 UTO;Cornuto (ital.);Minuto (ital.);Pluto
-UTTO;brutto;tutto (itl.);Brutto;Prosciutto (ital.)
+UTTO;brutto;tutto (ital.);Brutto;Prosciutto (ital.)
 EHGEIGE;Au-weh-Geige;Drehgeige;Gehgeige;In-spe-Geige;Schneegeige;Stehgeige
 ALTMEISTER;Altmeister;Waldmeister
-ITZFIGUR;Schnitzfigur;Sizufigur;Witzfigur
+ITZFIGUR;Schnitzfigur;Sitzfigur;Witzfigur
 ACHTRAUM;Lachtraum;Prachtraum;Wachtraum
 AUDERER;Plauderer;Zauderer
 ÖPPELN;klöppeln;peppeln;seppeln;tröppeln;Klöppeln;Seppeln
@@ -630,11 +632,12 @@ IRSCHEN;anzupirschen;knirschen;heranzupirschen;pirschen;ranzupirschen;wirschen;H
 UBBERN;blubbern;grubbern;schnuppern;Clubbern;Schrubbern
 UBBERND;blubbernd;grubbernd;schnuppernd
 UBBERNS;Blubberns;Grubberns;Schnupperns
-UBBERT;blubbert;bubbert;grubbert;schnuppert
+UBERT;Hubert;Schubert
+UBBERT;blubbert;bubbert;geblubbert;gebubbert;gegrubbert;geschnuppert;grubbert;schnuppert
 URBO;furbo (ital.);Turbo
 AMMERL;Dammerl;Eierschwammerl;Kammerl;Schwammerl;Wammerl
 AKTER;abgehackter;abgepackter;abstrakter;angepackter;augfgehackter;ausgepackter;gehackter;eingepackter;exakter;gelackter;gepackter;hackt er;intakter;kompakter;nackter;pack ter;umgehackter;umgepackter;verpackter;zugepackter;zusammengepackter;Traktor
-ANDSCHAFT;Bekanntschaft;Dünenlandschaft;Gesandtschaft;Landschaft;Saunalandschaft;Trümmerlandschaft;Verwandtschaft
+ANDSCHAFT;Alpenlandschaft;Bäderlandschaft;Bekanntschaft;Dünenlandschaft;Gartenlandschaft;Gesandtschaft;Hirnverwandtschaft;Hügellandschaft;Küstenlandschaft;Landschaft;Museumslandschaft;Parteienlandschaft;Saunalandschaft;Seelenverwandtschaft;Seenlandschaft;Steppenlandschaft;Theaterlandschaft;Trümmerlandschaft;Verwandtschaft;Winterlandschaft;Wüstenlandschaft
 ALLSUCHT;Ballsucht;Fallsucht;Krallsucht;Krawallsucht;Verknallsucht
 INGLICH;dinglich;dringlich;erschwinglich;unerschwinglich;unwiederbringlich;ursprünglich;verdinglich
 ADENBROT;Fladenbrot;Gnadenbrot;Marmeladenbrot;Schokoladenbrot
@@ -644,9 +647,9 @@ AMAS;Alabamas;Bahamas;Diaramas;Dokudramas;Familiendramas;Fukuyamas;Geiseldramas;
 EISUNG;Bankanweisung;Bereisung;Bühnenaweisung;Dienstanweisung;Enteisung;Entgleisung;Erweisung;Gebrauchsanweisung;Geldanweisung;Honoraranweisung;Kreditanweisung;Platzanweisung;Postanweisung;Speisung;Überweisung;Umkreisung;Unterweisung;Vereisung;Vergreisung;Verwaisung;Verweisung;Weisung
 ASUNG;Beglasung;Durchgasung;Entgasung;Grasung;Veraasung;Vergasung;Verglasung;Überglasung
 AURUNG;Belaurung;Maurung;Vermaurung;Versaurung
-ARRUNG;Abdarrung;Beharrung;Darrung;Erstarrung;Verscharrung
+ARRUNG;Beharrung;Darrung;Erstarrung;Verscharrung
 ANKY;funky;punky;Chunky;Funky;Junky
-ANKIG;funkig;punkig
+ANKICH;bedank ich;dank ich;funkig;punkig;sank ich;schwank ich;stank ich;tank ich;trank ich;verdank ich;wank ich;zank ich
 ESTRICH;ewiggestrig;gestrig;vorvorgestrig;Estrich;Westrich
 ATTRIG;flattrig;knattrig;tattrig;Hattrick
 A;ah;aha;da;et cetera;falleri und fallera;geschah;haha;halleluja;heisassa;hopsala;hopsassa;ja;himmelnah;juchheisassa;küstennah;na;nah;na ja;papperla;qua;sah;tja;trallala;Adria;Ägina;Afrika;Alaba;Alexandria;Algebra;Allotria;Altona;Amalia;Ambrosia;Amerika;Andromeda;Angela;Angelika;Ankara;Antibiotika;Arnika;Attika;Austria;Barbara;Basilika;Batavia;Bavaria;BH;Blablabla;Bogota;Cha-Cha-Cha;Charakteristika;Charisma;Cholera;Cinema;Claudia;Córdoba;Cornelia;Diaspora;Dilemmata;Domina;Doria;Edeka;Eklat;Elena;Enzyklika;Examina;Fatima;Florida;Fra;Gambia;Generika;Genua;Gerbera;Germania;Gisela;Golgatha;Großmama;Großpapa;Gundula;Halleluja;Helena;Herzegowina;Hiroshima;Hurra;Ibiza;Ilona;Ischia;Iswestija;Italia;Joshua;Josua;Jessica;Judika;Judoka;Julia;Kamera;Kanada;Kenia;Klimata;Kordula;Korsika;Laterna Macica;Lufthansa;Lydia;Mafia;Malaga;Malaria;Malaysia;Mamà;Maskera;Matala;Media;Modena;Monika;Musica (ital.);Namibia;Nicaragua;Nigeria;Nikola;Nokia;Nutria;Opera;Olivia;Olympia;Ostia;Ottawa;Panama;Papa;Paprika;Papua;Patina;Perestroika;Pergola;Pharmaka;Philadelphia;Philippika;Praktika;Prostata;Quechua;Razzia;Republika;Ricola;Rucola;Sambia;Saskia;Schah;Schemata;Sepia;Sofia;Sömmerda;Stevia;Stiefmama;Stiefpapa;Sylvia;Tempera;Themata;Tombola;Tonika;Tralala;Trara;Traumata;Troika;Tunika;Uppsala;Ursula;USA;Utopia;Valencia;Venezia;Veronika;Viktoria;Virginia;Vitamin A;Wikipedia;Wonderbra (engl.)
@@ -774,7 +777,7 @@ ADELN;adeln;nadeln;radeln (bayr.);tadeln;Nadeln;Radeln (bayr.);Radln (bayr.);Sta
 ADELND;adelnd;nadelnd;radelnd (bayr.);tadelnd
 ADELNS;Adelns;Nadelns;Radelns;Tadelns
 ADELT;adelt;radelt (bayr.);tadelt
-ADEN;abgeladen;abzuladen;aufgeladen;aufzuladen;ausgeladen;auszuladen;baden;beladen;eingeladen;einzuladen;entladen;faden;geraden;heruntergeladen;herunterladen;laden;schaden;überladen;umgeladen;umzuladen;ungeraden;verladen;vorgeladen;vorzuladen;Baden;Baden-Baden;Balladen;Barrikaden;Bioladen;Doraden;Eskapaden;Faden;Fassaden;Gestaden;Gnaden;Hagelschaden;Harlekinaden;Hasstiraden;Kannonaden;Laden;Maden;Marinaden;Marmeladen;Monaden;Myriaden;Panaden;Paraden;Pfaden;Pomaden;Remouladen;Schaden;Schubladen;Schokoladen;Schwaden;Suaden;Tiraden;Waden;Zikaden;Zykladen
+ADEN;abgeladen;abzuladen;aufgeladen;aufzuladen;ausgeladen;auszuladen;baden;beladen;eingeladen;einzuladen;entladen;faden;geraden;heruntergeladen;herunterladen;laden;schaden;überladen;umgeladen;umzuladen;ungeraden;verladen;vorgeladen;vorzuladen;Baden;Baden-Baden;Balladen;Barrikaden;Bioladen;Diebstahlschaden;Doraden;Einbruchschaden;Eskapaden;Faden;Fassaden;Gebäudeschaden;Gesamtschaden;Gestaden;Gewitterschaden;Gnaden;Hagelschaden;Harlekinaden;Hasstiraden;Imageschaden;Kannonaden;Kollateralschaden;Laden;Maden;Marinaden;Marmeladen;Millionenschaden;Monaden;Motorschaden;Myriaden;Panaden;Paraden;Personenschaden;Pfaden;Pomaden;Reifenschaden;Remouladen;Schaden;Schubladen;Schokoladen;Schwaden;Suaden;Tiraden;Unfallschaden;Waden;Zikaden;Zykladen
 ADEND;badend;beladend;einladend;herunterladend;hineinladend;ladend;schadend;überladend;verladend;vorladend
 ADENS;Badens;Beladens;Einladens;FadenS;Herunterladens;Hineinladens;Ladens;Schadens;Überladens;Verladens;Vorladens
 ADER;ah der!;fader;gerader;hader;ja der!;ungerader;Ader;Andreas Baader;Bader;Beograder;Geschwader;Gschlader (österr.);Hader;Halsschlagader;Kader;Kaliningrader;Kampfgeschwader;Lader;Lebensader;Leningrader;Mannschaftskader;Pader;PaderProfikader;Petrograder;Quader;Schläfenader;Spielerkader;Turbolader;Vorderlader;Wader;Winterbader
@@ -1576,7 +1579,7 @@ EDELND;blödelnd;fädelnd;knödelnd;rödelnd;trödelnd;veredelnd;vertrödelnd;we
 EDELNS;Blödelns;Fädelns;Knödelns;Rödelnds;Trödelns;Veredelns;Vertrödelns;Wedelns
 EDELS;Blödels;Dödels;Geblödels;Geknödels;Getrödels;Gewedels;Knödels;Mädels;Schädels;Trödels;Wedels
 EDELT;blödelt;edelt;fädelt;knödelt;rödelt;trödelt;veredelt;vertrödelt;wedelt
-EDEN;bereden;blöden;entblöden;jeden;jedweden;öden;reden;schnöden;überreden;unterreden;verblöden;veröden;zerreden;Blumenläden;Böden;Eden;Fäden;Fehden;Fensterläden;Gummifäden;Käsefäden;Läden;Millionenschäden;Nervenschäden;Personenschäden;Plattenläden;Reifenschäden;Schäden;Schweden;Teppichböden;Überschwemmungsschäden;Wasserschäden
+EDEN;bereden;blöden;entblöden;jeden;jedweden;öden;reden;schnöden;überreden;unterreden;verblöden;veröden;zerreden;Blumenläden;Böden;Eden;Elementarschäden;Fäden;Fehden;Fensterläden;Gebäudeschäden;Gesundheitsschäden;Gewitterschäden;Gummifäden;Haltungsschäden;Hitzeschäden;Käsefäden;Klimaschäden;Läden;Leberschäden;Lungenschäden;Millionenschäden;Motorschäden;Nervenschäden;Nierenschäden;Personenschäden;Plattenläden;Reifenschäden;Schäden;Schweden;Straßenschäden;Teppichböden;Überschwemmungsschäden;Umweltschäden;Unfallschäden;Wasserschäden;Winterschäden
 EDEND;beredend;entblödend;redend;überredend;unterredend;verblödend;verödend;zerredend
 EDENS;Beredens;Entblödens;Redens;Überredens;Unterredens;Verblödens;Verödens;Zerredens
 EDER;blöder;entweder;heda;jeder;jedweder;öder;schnöder;spröder;weder;Ayurveda;Bäder;Castaneda;Feder;Fensterleder;Geäder;Köder;Leda;Leder;Nappaleder;Räder;Reeder;Schlangenleder;Schröder;Söder;Veleda;Vogelfeder;Zeder;Zeichenfeder;Ziegenleder
