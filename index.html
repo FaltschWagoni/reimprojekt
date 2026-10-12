@@ -482,7 +482,11 @@
 @media (max-width: 600px) {
   .header-row { gap: 12px !important; align-items: center !important; }
   .header-actions { margin-left: 0 !important; flex-wrap: wrap !important; gap: 8px !important; }
-  .rhyme-quote { flex: 1 1 100% !important; margin: 4px 0 0 !important; }
+  .rhyme-quote {
+    flex: 1 1 100% !important;
+    margin: 4px 0 0 86px !important;
+    text-align: left !important;
+  }
   .empty-state { display: none !important; }
 }
 </style>
@@ -506,11 +510,29 @@ header { position: static !important; top: auto !important; }
   .rhyme-quote .quote-first { grid-column: 1; justify-self: end; text-align: right; }
   .rhyme-quote .quote-second { grid-column: 3; justify-self: start; text-align: left; }
 }
+/* Die Suchanleitung und das leere Ergebnisfeld sind unnötig: Sucheingabe bleibt erhalten. */
+#statusMessage { display: none !important; }
+.empty-state { display: none !important; }
+#searchInput { }
 @media (max-width: 600px) {
   header { position: static !important; top: auto !important; }
   .empty-state { display: none !important; }
 }
 </style>
+
+/* Verbindliche letzte Layoutregeln für Desktop und Smartphone */
+@media (min-width: 601px) {
+  .header-row { display: grid !important; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr) !important; align-items: center !important; gap: 18px !important; }
+  .header-actions { grid-column: 2 !important; margin-left: 0 !important; }
+  .rhyme-quote { display: grid !important; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr) !important; gap: 18px !important; width: 100% !important; margin: 0 !important; }
+  .rhyme-quote .quote-first { grid-column: 1 !important; justify-self: end !important; text-align: right !important; }
+  .rhyme-quote .quote-second { grid-column: 3 !important; justify-self: start !important; text-align: left !important; }
+}
+@media (max-width: 600px) {
+  /* Etwas mehr Luft unter dem roten Goethe-Zitat auf dem Smartphone */
+  .rhyme-quote { margin: 12px 0 0 86px !important; text-align: left !important; }
+}
+
 </head>
 <body>
   <div class="container">
