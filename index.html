@@ -474,6 +474,17 @@
   .filter-options label:has(#ignoreCase) { display: none !important; }
   .wide-intro { display: none !important; }
 }
+
+/* Der feste Kopf mit Logo und Titel steht in Reimfinder.html. */
+.header-row > a,
+.header-row .header-text { display: none !important; }
+.info-button { border-width: 1px !important; }
+@media (max-width: 600px) {
+  .header-row { gap: 12px !important; align-items: center !important; }
+  .header-actions { margin-left: 0 !important; flex-wrap: wrap !important; gap: 8px !important; }
+  .rhyme-quote { flex: 1 1 100% !important; margin: 4px 0 0 !important; }
+  .empty-state { display: none !important; }
+}
 </style>
 
 </head>
@@ -537,9 +548,7 @@
       <span class="badge" id="wordCountBadge">0 Wörter geladen</span>
     </div>
 
-    <div id="resultsContainer">
-      <div class="empty-state" data-nosnippet>Gib oben einen Reim oder ein Wort ein.</div>
-    </div>
+    <div id="resultsContainer"></div>
     
 <div class="reimfinder-info-grid">
 <section class="reimfinder-suche" aria-labelledby="reimfinder-suche-titel">
@@ -3665,8 +3674,7 @@ UZIEREND;induzierend;obduzierend;produzierend;reduzierend;reproduzierend`;
 
       if (!rawInput) {
         status.innerText = 'Reim oder Wort suchen.';
-        container.innerHTML =
-          '<div class="empty-state">Gib oben einen Reim oder ein Wort ein.</div>';
+        container.innerHTML = '';
         return;
       }
 
