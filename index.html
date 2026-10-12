@@ -487,6 +487,30 @@
 }
 </style>
 
+
+<style>
+/* Der feste Kopf mit Logo und Titel liegt in Reimfinder.html.
+   In diesem iframe bleiben nur die Bedienknöpfe und das Zitat. */
+.header-row > a,
+.header-row .header-text { display: none !important; }
+header { position: static !important; top: auto !important; }
+.info-button { border-width: 1px !important; }
+.empty-state { display: none !important; }
+#statusMessage { display: none !important; }
+.rhyme-quote .quote-first,
+.rhyme-quote .quote-second { display: inline; }
+@media (min-width: 601px) {
+  .header-row { display: grid !important; grid-template-columns: 1fr auto 1fr; align-items: center !important; gap: 18px !important; }
+  .header-actions { grid-column: 2; margin-left: 0 !important; }
+  .rhyme-quote { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr auto 1fr; gap: 18px; margin: 0 !important; }
+  .rhyme-quote .quote-first { grid-column: 1; justify-self: end; text-align: right; }
+  .rhyme-quote .quote-second { grid-column: 3; justify-self: start; text-align: left; }
+}
+@media (max-width: 600px) {
+  header { position: static !important; top: auto !important; }
+  .empty-state { display: none !important; }
+}
+</style>
 </head>
 <body>
   <div class="container">
@@ -498,7 +522,7 @@
           <p class="mobile-slogan">Reim dich oder ich fress dich</p>
         </div>
         <div class="header-actions" data-nosnippet><button type="button" class="browse-button" id="browseButton">Reime entdecken</button><button type="button" class="info-button" id="infoButton">über den Reimfinder</button><button type="button" class="feedback-button" id="feedbackButton">Feedback</button></div>
-        <p class="rhyme-quote">Auf Teufel reimt sich nur der Zweifel<br>meint Goethe – er vergaß die Eifel</p>
+        <p class="rhyme-quote"><span class="quote-first">Auf Teufel reimt sich nur der Zweifel</span><br><span class="quote-second">meint Goethe – er vergaß die Eifel</span></p>
       </div>
 
       <div class="info-overlay" id="infoOverlay" data-nosnippet hidden><div class="info-dialog" role="dialog" aria-modal="true"><button type="button" class="info-x" id="infoX">×</button><h2>Über den Online-Reimfinder</h2><p>Der Online-Reimfinder von Faltsch Wagoni hilft bei der Suche nach reinen und unreinen Reimen für Gedichte und Songtexte.</p><ul><li>Dieser Reimfinder sucht Reime <strong>nicht nach gleicher Schreibweise, sondern nach Klang</strong>. Beispiel: „selig“ reimt sich auf „ölig“, auf „unzählig“ oder „mehlig“.</li><li>Je nach Aussprache kann es für identisch geschriebene Wörter <strong>zwei oder mehr Reimfamilien</strong> geben. Zum Beispiel findet man zum Suchwort „selig“ Wörter mit den Endungen <strong>ELICH</strong> und <strong>ELIG</strong>; „Gang“ findet man unter <strong>ANG</strong> und englisch ausgesprochen unter <strong>ENG</strong>.</li><li>Es tauchen auch <strong>Wortkreationen auf, die in keinem Wörterbuch stehen</strong>, als dichterische Anregung zum phantasievollen Umgang mit der Sprache. Beispiele: „Leichenwasser“, „Bäumefäller“ oder „Gewitterschädel“.</li></ul><p>Großgeschriebene Wörter werden vor den kleingeschriebenen angezeigt. Fremdsprachige Aussprachehinweise stehen kursiv in Klammern.</p><p>Ein Klick auf ein Reimwort kopiert es in die Zwischenablage.</p><p>Fehler, fehlende Reime und Verbesserungsvorschläge können über den <strong>Feedback-Button</strong> mitgeteilt werden.</p><button type="button" class="info-close" id="infoClose">Schließen</button></div></div><div class="browse-panel" id="browsePanel" hidden><div class="browse-head"><strong>Reimgruppen entdecken</strong><button type="button" id="browseClose">Schließen</button></div><div class="browse-letters" id="browseLetters"></div><div class="browse-groups" id="browseGroups"></div></div><div class="feedback-panel" id="feedbackPanel" hidden>
@@ -533,7 +557,7 @@
     <div class="search-section">
       <div class="search-box">
         <div class="input-wrapper">
-          <div class="search-input-wrap"><input type="text" id="searchInput" placeholder="Reim oder Wort suchen" autocomplete="off" onkeyup="if(event.key==='Enter') searchRhymes()"><button type="button" class="search-clear" id="searchClear" aria-label="Suchfeld löschen">×</button></div>
+          <div class="search-input-wrap"><input type="text" id="searchInput" placeholder="" autocomplete="off" onkeyup="if(event.key==='Enter') searchRhymes()"><button type="button" class="search-clear" id="searchClear" aria-label="Suchfeld löschen">×</button></div>
         </div>
         <button class="btn-search" onclick="searchRhymes()">Suchen</button>
       </div>
@@ -544,7 +568,7 @@
     </div>
 
     <div class="status-bar" data-nosnippet>
-      <span id="statusMessage">Reim oder Wort suchen.</span>
+      <span id="statusMessage" aria-live="polite"></span>
       <span class="badge" id="wordCountBadge">0 Wörter geladen</span>
     </div>
 
