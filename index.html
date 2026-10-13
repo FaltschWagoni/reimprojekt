@@ -4048,6 +4048,11 @@ window.addEventListener('message', function(event) {
     if (button) button.click();
   }
 });
+
+/* Dem äußeren Dokument melden, dass die Aktionssteuerung bereit ist. */
+if (window.parent && window.parent !== window) {
+  window.parent.postMessage({ type: 'reimfinder-ready' }, '*');
+}
 </script>
 
 
