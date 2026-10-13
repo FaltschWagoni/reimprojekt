@@ -369,446 +369,6 @@
 
 
 
-
-<style>
-/* Mobile: Suchmaske direkt unter den Kopf-Buttons anzeigen. */
-@media (max-width: 600px) {
-  .wide-intro { display: none !important; }
-  .search-section {
-    margin-top: 0 !important;
-    margin-bottom: 10px !important;
-    padding: 10px !important;
-  }
-  .search-box { gap: 7px !important; }
-  .input-wrapper { min-width: 0 !important; flex: 1 1 100% !important; }
-  .search-section input[type="text"] {
-    padding: 10px 38px 10px 12px !important;
-    font-size: 1rem !important;
-  }
-  button.btn-search { width: 100%; padding: 10px 14px !important; }
-  .filter-options {
-    gap: 8px !important;
-    flex-wrap: wrap !important;
-    margin-top: 8px !important;
-    padding-top: 8px !important;
-    font-size: .78rem !important;
-  }
-}
-</style>
-
-
-
-<style>
-/* Mobile Kopfbereich: Logo und Titel bleiben beim Scrollen der Reimliste sichtbar. */
-.mobile-title, .mobile-slogan { display: none; }
-@media (max-width: 600px) {
-  header {
-    position: sticky !important;
-    top: 0 !important;
-    z-index: 50 !important;
-    background: var(--bg-color, #0f172a) !important;
-    margin: 0 !important;
-    padding: 7px 0 8px !important;
-    border-bottom: 1px solid var(--border-color) !important;
-  }
-  .container { padding-left: 10px !important; padding-right: 10px !important; }
-  .header-row {
-    display: flex !important;
-    align-items: center !important;
-    flex-wrap: wrap !important;
-    gap: 5px 10px !important;
-  }
-  .header-logo { width: 76px !important; max-width: 76px !important; }
-  .header-text {
-    display: block !important;
-    flex: 1 1 calc(100% - 90px) !important;
-    min-width: 0 !important;
-  }
-  .mobile-title {
-    display: block !important;
-    margin: 0 0 2px !important;
-    color: var(--primary-color) !important;
-    font-size: 1.08rem !important;
-    line-height: 1.12 !important;
-    font-weight: 700 !important;
-  }
-  .mobile-title .title-small { font-size: .88rem; font-weight: 600; }
-  .mobile-slogan {
-    display: block !important;
-    margin: 2px 0 0 !important;
-    color: #dc6666 !important;
-    font-size: .76rem !important;
-    font-style: italic !important;
-    line-height: 1.15 !important;
-  }
-  .header-actions {
-    order: 3 !important;
-    display: flex !important;
-    flex: 1 1 100% !important;
-    width: 100% !important;
-    margin: 2px 0 0 !important;
-    gap: 6px !important;
-    flex-wrap: nowrap !important;
-  }
-  .header-actions .browse-button,
-  .header-actions .info-button,
-  .header-actions .feedback-button {
-    box-sizing: border-box !important;
-    width: auto !important;
-    min-width: 0 !important;
-    flex: 1 1 0 !important;
-    min-height: 38px !important;
-    padding: 5px 3px !important;
-    font-size: .72rem !important;
-    line-height: 1.1 !important;
-  }
-  .rhyme-quote {
-    order: 4 !important;
-    flex: 1 1 100% !important;
-    margin: 1px 0 0 86px !important;
-    font-size: .75rem !important;
-    line-height: 1.2 !important;
-    text-align: left !important;
-  }
-  .wide-intro { display: none !important; }
-}
-
-/* Der feste Kopf mit Logo und Titel steht in Reimfinder.html. */
-.header-row > a:not(.desktop-right-logo),
-.header-row .header-text { display: none !important; }
-.info-button { border-width: 1px !important; }
-@media (max-width: 600px) {
-  .header-row { gap: 12px !important; align-items: center !important; }
-  .header-actions { margin-left: 0 !important; flex-wrap: wrap !important; gap: 8px !important; }
-  .rhyme-quote {
-    flex: 1 1 100% !important;
-    margin: 4px 0 0 86px !important;
-    text-align: left !important;
-  }
-  .empty-state { display: none !important; }
-}
-</style>
-
-
-<style>
-/* Der feste Kopf mit Logo und Titel liegt in Reimfinder.html.
-   In diesem iframe bleiben nur die Bedienknöpfe und das Zitat. */
-.header-row > a:not(.desktop-right-logo),
-.header-row .header-text { display: none !important; }
-header { position: static !important; top: auto !important; }
-.info-button { border-width: 1px !important; }
-.empty-state { display: none !important; }
-#statusMessage { display: none !important; }
-.rhyme-quote .quote-first,
-.rhyme-quote .quote-second { display: inline; }
-@media (min-width: 601px) {
-  .header-row { display: grid !important; grid-template-columns: 1fr auto 1fr; align-items: center !important; gap: 18px !important; }
-  .header-actions { grid-column: 2; margin-left: 0 !important; }
-  .rhyme-quote { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr auto 1fr; gap: 18px; margin: 0 !important; }
-  .rhyme-quote .quote-first { grid-column: 1; justify-self: end; text-align: right; }
-  .rhyme-quote .quote-second { grid-column: 3; justify-self: start; text-align: left; }
-}
-/* Die Suchanleitung und das leere Ergebnisfeld sind unnötig: Sucheingabe bleibt erhalten. */
-#statusMessage { display: none !important; }
-.empty-state { display: none !important; }
-#searchInput { }
-@media (max-width: 600px) {
-  header { position: static !important; top: auto !important; }
-  .empty-state { display: none !important; }
-}
-</style>
-
-
-
-<style>
-/* Desktop: erstes Zitat links, Buttons mittig, zweite Zitatzeile rechts – auf einer Höhe. */
-@media (min-width: 601px) {
-  .header-row {
-    display: grid !important;
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) 88px !important;
-    align-items: center !important;
-    column-gap: 14px !important;
-    row-gap: 0 !important;
-  }
-  .header-row > a:not(.desktop-right-logo),
-  .header-row .header-text { display: none !important; }
-  .desktop-right-logo { display: block !important; grid-column: 4 !important; grid-row: 1 !important; width: 88px; align-self: center; }
-  .desktop-right-logo img { display: block; width: 100%; height: auto; }
-  .header-actions { grid-column: 2 !important; grid-row: 1 !important; margin: 0 !important; }
-  .rhyme-quote {
-    display: contents !important;
-    margin: 0 !important;
-  }
-  .rhyme-quote .quote-first {
-    display: block !important;
-    grid-column: 1 !important;
-    grid-row: 1 !important;
-    justify-self: end !important;
-    text-align: right !important;
-    white-space: nowrap;
-  }
-  .rhyme-quote .quote-second {
-    display: block !important;
-    grid-column: 3 !important;
-    grid-row: 1 !important;
-    justify-self: start !important;
-    text-align: left !important;
-    white-space: nowrap;
-  }
-}
-@media (max-width: 600px) {
-  .desktop-right-logo { display: none !important; }
-  .header-row { display: flex !important; flex-wrap: wrap !important; gap: 8px 6px !important; }
-  .header-actions { order: 3 !important; flex: 1 1 100% !important; margin: 0 !important; }
-  .rhyme-quote {
-    display: block !important;
-    order: 4 !important;
-    flex: 1 1 100% !important;
-    margin: 4px 0 0 86px !important;
-    padding: 0 !important;
-    text-align: left !important;
-    line-height: 1.0 !important;
-  }
-  .rhyme-quote .quote-first,
-  .rhyme-quote .quote-second { display: inline !important; line-height: 1.0 !important; margin: 0 !important; padding: 0 !important; }
-}
-</style>
-
-<style>
-/* Desktop: den Beschreibungstext näher an die Überschrift heranrücken */
-@media (min-width: 621px) {
-  header { margin-bottom: 12px !important; }
-  .wide-intro { margin-top: 0 !important; padding-top: 0 !important; }
-}
-</style>
-
-
-<style>
-/* Im eingebetteten Reimfinder keinen zweiten Kopfbereich reservieren.
-   Die Überschrift, Buttons und das Zitat stehen bereits in Reimfinder.html. */
-body { padding-top: 0 !important; }
-.container { padding-top: 0 !important; }
-header { margin-top: 0 !important; margin-bottom: 0 !important; padding-top: 0 !important; padding-bottom: 0 !important; border-bottom: 0 !important; }
-.header-row { display: none !important; }
-.search-section { margin-top: 0 !important; }
-</style>
-
-<style>
-/* Smartphone: auch mobil keinen zusätzlichen Leerraum über der Suchmaske lassen. */
-@media (max-width: 600px) {
-  /* Im iframe darf auf Smartphones kein Body-/Container-Rand vor der Suchmaske bleiben. */
-  html, body { margin: 0 !important; padding: 0 !important; }
-  .container { margin: 0 auto !important; padding: 0 10px !important; }
-  header { display: none !important; height: 0 !important; min-height: 0 !important; margin: 0 !important; padding: 0 !important; border: 0 !important; }
-  .wide-intro { display: none !important; height: 0 !important; margin: 0 !important; padding: 0 !important; border: 0 !important; }
-  .search-section { margin-top: 0 !important; padding-top: 0 !important; }
-}
-</style>
-
-
-<style>
-/* Die drei Werkzeuge und das rote Goethe-Zitat stehen jetzt in index.html.
-   Nur diese Elemente werden an die bisherige äußere Gestaltung angepasst. */
-.header-row { display: block !important; }
-.header-row > a:not(.desktop-right-logo),
-.header-row .header-text { display: none !important; }
-.desktop-right-logo { display: none !important; }
-.header-actions {
-  display: grid !important;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  gap: 18px !important;
-  align-items: center !important;
-  width: 100% !important;
-  margin: 0 !important;
-}
-.header-actions .browse-button,
-.header-actions .info-button,
-.header-actions .feedback-button {
-  box-sizing: border-box !important;
-  width: min(100%, 180px) !important;
-  min-width: 0 !important;
-  min-height: 36px !important;
-  padding: 7px 12px !important;
-  border: 1px solid #279acb !important;
-  border-radius: 7px !important;
-  background: transparent !important;
-  color: #279acb !important;
-  font: inherit !important;
-  font-size: .88rem !important;
-  font-weight: 700 !important;
-  line-height: 1.15 !important;
-  cursor: pointer !important;
-  justify-self: center !important;
-}
-.header-actions .browse-button:hover,
-.header-actions .info-button:hover,
-.header-actions .feedback-button:hover {
-  background: #279acb !important;
-  color: #0f172a !important;
-}
-.rhyme-quote {
-  display: block !important;
-  margin: 12px 0 0 !important;
-  color: #dc6666 !important;
-  font-size: .88rem !important;
-  line-height: 1.3 !important;
-  font-style: italic !important;
-  text-align: left !important;
-}
-.rhyme-quote .quote-first,
-.rhyme-quote .quote-second { display: block !important; }
-@media (max-width: 600px) {
-  .header-actions {
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 8px !important;
-  }
-  .header-actions .browse-button,
-  .header-actions .info-button,
-  .header-actions .feedback-button {
-    width: 100% !important;
-    max-width: 180px !important;
-    min-height: 32px !important;
-    padding: 5px 8px !important;
-    font-size: .68rem !important;
-    line-height: 1.15 !important;
-    white-space: normal !important;
-  }
-  .rhyme-quote {
-    margin: 14px 0 0 0 !important;
-    font-size: .72rem !important;
-    line-height: 1.25 !important;
-  }
-}
-</style>
-
-<style id="reimfinder-controls-visible-fix">
-/* Korrektur: Im iframe müssen die Bedienelemente sichtbar sein. */
-header { display: block !important; height: auto !important; min-height: 0 !important; margin: 0 0 8px !important; padding: 0 !important; border: 0 !important; }
-.header-row { display: grid !important; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) !important; align-items: center !important; gap: 12px !important; }
-.header-row > a:not(.desktop-right-logo),
-.header-row .header-text,
-.header-row .desktop-right-logo { display: none !important; }
-.header-actions { display: flex !important; visibility: visible !important; grid-column: 2 !important; grid-row: 1 !important; width: auto !important; margin: 0 !important; gap: 8px !important; flex-wrap: nowrap !important; }
-.header-actions button { display: inline-flex !important; visibility: visible !important; }
-.rhyme-quote { display: block !important; visibility: visible !important; grid-column: 1 / -1 !important; grid-row: 2 !important; margin: 4px 0 0 !important; text-align: center !important; color: #dc6666 !important; font-style: italic !important; }
-.rhyme-quote .quote-first,
-.rhyme-quote .quote-second { display: inline !important; white-space: normal !important; }
-@media (max-width: 600px) {
-  header { display: block !important; height: auto !important; margin: 0 0 8px !important; padding: 0 !important; }
-  .header-row { display: flex !important; flex-direction: column !important; align-items: stretch !important; gap: 5px !important; }
-  .header-actions { order: 1 !important; display: flex !important; width: 100% !important; gap: 6px !important; }
-  .header-actions button { flex: 1 1 0 !important; width: auto !important; min-width: 0 !important; min-height: 38px !important; padding: 5px 3px !important; font-size: .72rem !important; }
-  .rhyme-quote { order: 2 !important; display: block !important; width: 100% !important; margin: 2px 0 0 !important; text-align: center !important; font-size: .75rem !important; line-height: 1.25 !important; }
-  .rhyme-quote .quote-first, .rhyme-quote .quote-second { display: block !important; }
-}
-</style>
-
-<style id="rhyme-quote-tight-lines-fix">
-/* Jede Zitatzeile ist ein eigener Block; kein zusätzliches Pseudo-Zeilenende. */
-.rhyme-quote {
-  line-height: 1 !important;
-  margin: 2px 0 0 !important;
-  padding: 0 !important;
-}
-.rhyme-quote .quote-first,
-.rhyme-quote .quote-second {
-  display: block !important;
-  line-height: 1 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-.rhyme-quote .quote-second::before {
-  content: none !important;
-}
-</style>
-
-<style id="equal-spacing-before-quote-and-search">
-/* Gewünschter zusätzlicher Abstand vor dem roten Zitat und vor der Suchmaske: jeweils 8 px. */
-.rhyme-quote { margin-top: 8px !important; }
-.search-section { margin-top: 8px !important; }
-</style>
-
-
-<style id="more-space-after-red-quote">
-/* Etwas mehr Abstand zwischen dem roten Zitat und der Suchmaske. */
-.rhyme-quote { margin-bottom: 10px !important; }
-.search-section { margin-top: 10px !important; }
-</style>
-
-
-<style id="desktop-layout-final-correction">
-/* Desktop: drei gleich breite Buttons zwischen den beiden roten Zitatteilen.
-   Die Mobilansicht bleibt unverändert. */
-@media (min-width: 601px) {
-  .header-row {
-    display: grid !important;
-    grid-template-columns: minmax(0, 1fr) 510px minmax(0, 1fr) 88px !important;
-    column-gap: 14px !important;
-    row-gap: 0 !important;
-    align-items: center !important;
-  }
-  .header-actions {
-    grid-column: 2 !important;
-    grid-row: 1 !important;
-    display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 10px !important;
-    width: 510px !important;
-    margin: 0 !important;
-  }
-  .header-actions .browse-button,
-  .header-actions .info-button,
-  .header-actions .feedback-button {
-    box-sizing: border-box !important;
-    width: 100% !important;
-    min-width: 0 !important;
-    max-width: none !important;
-    min-height: 54px !important;
-    padding: 8px 10px !important;
-    margin: 0 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
-    white-space: normal !important;
-    line-height: 1.15 !important;
-  }
-  .rhyme-quote {
-    display: contents !important;
-    margin: 0 !important;
-  }
-  .rhyme-quote .quote-first {
-    grid-column: 1 !important;
-    grid-row: 1 !important;
-    justify-self: end !important;
-    text-align: right !important;
-    white-space: nowrap !important;
-  }
-  .rhyme-quote .quote-second {
-    grid-column: 3 !important;
-    grid-row: 1 !important;
-    justify-self: start !important;
-    text-align: left !important;
-    white-space: nowrap !important;
-  }
-}
-</style>
-
-
-<style id="desktop-buttons-compact-final">
-/* Desktop: Buttons kompakter, damit sie besser zwischen die roten Zitatteile passen. Mobil bleibt unverändert. */
-@media (min-width: 601px) {
-  .header-row { grid-template-columns: minmax(0, 1fr) 450px minmax(0, 1fr) 88px !important; }
-  .header-actions { width: 450px !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 8px !important; }
-  .header-actions .browse-button,
-  .header-actions .info-button,
-  .header-actions .feedback-button {
-    min-height: 36px !important; height: 36px !important; padding: 5px 7px !important;
-    font-size: .82rem !important; line-height: 1.1 !important;
-  }
-}
-</style>
-
 </head>
 <body>
   <div class="container">
@@ -816,12 +376,9 @@ header { display: block !important; height: auto !important; min-height: 0 !impo
       <div class="header-row">
         <a href="https://www.faltsch-wagoni.de/" target="_top" aria-label="Zur Faltsch-Wagoni-Hauptseite"><img src="https://imgur.com/oYc2rIO.jpeg" alt="Faltsch Wagoni Logo" class="header-logo"></a>
         <div class="header-text">
-          <h1 class="mobile-title"><span class="title-small">Reime finden mit dem</span><br><span>Online-Reimfinder</span><br><span>von Faltsch Wagoni</span></h1>
-          <p class="mobile-slogan">Reim dich oder ich fress dich</p>
+          <p class="rhyme-quote">Auf Teufel reimt sich nur der Zweifel<br>meint Goethe – er vergaß die Eifel</p>
         </div>
         <div class="header-actions" data-nosnippet><button type="button" class="browse-button" id="browseButton">Reime entdecken</button><button type="button" class="info-button" id="infoButton">über den Reimfinder</button><button type="button" class="feedback-button" id="feedbackButton">Feedback</button></div>
-        <p class="rhyme-quote"><span class="quote-first">Auf Teufel reimt sich nur der Zweifel</span><span class="quote-second">meint Goethe – er vergaß die Eifel</span></p>
-        <a class="desktop-right-logo" href="https://www.faltsch-wagoni.de/" target="_top" aria-label="Zur Faltsch-Wagoni-Hauptseite"><img src="https://imgur.com/oYc2rIO.jpeg" alt="Faltsch Wagoni Logo"></a>
       </div>
 
       <div class="info-overlay" id="infoOverlay" data-nosnippet hidden><div class="info-dialog" role="dialog" aria-modal="true"><button type="button" class="info-x" id="infoX">×</button><h2>Über den Online-Reimfinder</h2><p>Der Online-Reimfinder von Faltsch Wagoni hilft bei der Suche nach reinen und unreinen Reimen für Gedichte und Songtexte.</p><ul><li>Dieser Reimfinder sucht Reime <strong>nicht nach gleicher Schreibweise, sondern nach Klang</strong>. Beispiel: „selig“ reimt sich auf „ölig“, auf „unzählig“ oder „mehlig“.</li><li>Je nach Aussprache kann es für identisch geschriebene Wörter <strong>zwei oder mehr Reimfamilien</strong> geben. Zum Beispiel findet man zum Suchwort „selig“ Wörter mit den Endungen <strong>ELICH</strong> und <strong>ELIG</strong>; „Gang“ findet man unter <strong>ANG</strong> und englisch ausgesprochen unter <strong>ENG</strong>.</li><li>Es tauchen auch <strong>Wortkreationen auf, die in keinem Wörterbuch stehen</strong>, als dichterische Anregung zum phantasievollen Umgang mit der Sprache. Beispiele: „Leichenwasser“, „Bäumefäller“ oder „Gewitterschädel“.</li></ul><p>Großgeschriebene Wörter werden vor den kleingeschriebenen angezeigt. Fremdsprachige Aussprachehinweise stehen kursiv in Klammern.</p><p>Ein Klick auf ein Reimwort kopiert es in die Zwischenablage.</p><p>Fehler, fehlende Reime und Verbesserungsvorschläge können über den <strong>Feedback-Button</strong> mitgeteilt werden.</p><button type="button" class="info-close" id="infoClose">Schließen</button></div></div><div class="browse-panel" id="browsePanel" hidden><div class="browse-head"><strong>Reimgruppen entdecken</strong><button type="button" id="browseClose">Schließen</button></div><div class="browse-letters" id="browseLetters"></div><div class="browse-groups" id="browseGroups"></div></div><div class="feedback-panel" id="feedbackPanel" hidden>
@@ -856,21 +413,24 @@ header { display: block !important; height: auto !important; min-height: 0 !impo
     <div class="search-section">
       <div class="search-box">
         <div class="input-wrapper">
-          <div class="search-input-wrap"><input type="text" id="searchInput" placeholder="" autocomplete="off" onkeyup="if(event.key==='Enter') searchRhymes()"><button type="button" class="search-clear" id="searchClear" aria-label="Suchfeld löschen">×</button></div>
+          <div class="search-input-wrap"><input type="text" id="searchInput" placeholder="Reim oder Wort suchen" autocomplete="off" onkeyup="if(event.key==='Enter') searchRhymes()"><button type="button" class="search-clear" id="searchClear" aria-label="Suchfeld löschen">×</button></div>
         </div>
         <button class="btn-search" onclick="searchRhymes()">Suchen</button>
       </div>
       <div class="filter-options">
         <label><input type="checkbox" id="sortAlpha" onchange="searchRhymes()"> Nach Wortenden sortieren</label>
+        <label><input type="checkbox" id="ignoreCase" onchange="searchRhymes()"> Groß-/Kleinschreibung ignorieren</label>
       </div>
     </div>
 
     <div class="status-bar" data-nosnippet>
-      <span id="statusMessage" aria-live="polite"></span>
+      <span id="statusMessage">Reim oder Wort suchen.</span>
       <span class="badge" id="wordCountBadge">0 Wörter geladen</span>
     </div>
 
-    <div id="resultsContainer"></div>
+    <div id="resultsContainer">
+      <div class="empty-state" data-nosnippet>Gib oben einen Reim oder ein Wort ein.</div>
+    </div>
     
 <div class="reimfinder-info-grid">
 <section class="reimfinder-suche" aria-labelledby="reimfinder-suche-titel">
@@ -905,7 +465,22 @@ Das würde ich auch gern mal sehn!
     // DIREKTE REIM-DATENBANK (KEINE EXTERNE CSV MEHR NÖTIG!)
     // Jede Zeile steht für eine Reim-Gruppe (mit Semikolon getrennt).
     // =========================================================================
-    const csvData = `IDSCHI;Fidschi;Lichi;Ritschi
+    const csvData = `ITMISCH;mitmisch;rhythmisch
+ACHISCH;bacchisch;eustachisch;kasachisch;walachisch
+INGISCH;karolingisch;lothringisch;thüringisch
+AGISCH;hämorrhagisch;magisch;pelagisch;tragisch
+ALZFISCH;Salzfisch;Schmalzfisch
+UBISCH;arubisch;kubisch;nubisch;tubisch
+ASTLOCH;Astloch;Knastloch;Mastloch
+ÜNDLOCH;Windloch;Zündloch
+AUSTELLE;Baustelle;Staustelle
+AUFLAUNE;Kauflaune;Rauflaune;Sauflaune
+EINMACHEN;allein machen;einmachen;hineinmachen;kleinmachen;reinmachen;Wein machen
+EINSTELLEN;einstellen;hereinstellen;hineinstellen;reinstellen;Bein stellen
+AUSGEBEN;ausgeben;herausgeben;rausgeben;Applaus geben
+AUSMACHEN;ausmachen;rausmachen;Garaus machen;Kakaos machen
+AUSBAUEN;ausbauen;Haus bauen
+IDSCHI;Fidschi;Lichi;Ritschi
 IDSCHIS;Fidschis;Lichis
 UCKKASTEN;Guckkasten;Schmuckkasten
 OCKHAUS;Blockhaus;Brockhaus
@@ -1097,7 +672,7 @@ ANKICH;bedank ich;dank ich;funkig;punkig;sank ich;schwank ich;stank ich;tank ich
 ESTRICH;ewiggestrig;gestrig;vorvorgestrig;Estrich;Westrich
 ATTRIG;flattrig;knattrig;tattrig;Hattrick
 A;ah;aha;da;et cetera;falleri und fallera;geschah;haha;halleluja;heisassa;hopsala;hopsassa;ja;himmelnah;juchheisassa;küstennah;na;nah;na ja;papperla;qua;sah;tja;trallala;Adria;Ägina;Afrika;Alaba;Alexandria;Algebra;Allotria;Altona;Amalia;Ambrosia;Amerika;Andromeda;Angela;Angelika;Ankara;Antibiotika;Arnika;Attika;Austria;Barbara;Basilika;Batavia;Bavaria;BH;Blablabla;Bogota;Cha-Cha-Cha;Charakteristika;Charisma;Cholera;Cinema;Claudia;Córdoba;Cornelia;Diaspora;Dilemmata;Domina;Doria;Edeka;Eklat;Elena;Enzyklika;Examina;Fatima;Florida;Fra;Gambia;Generika;Genua;Gerbera;Germania;Gisela;Golgatha;Großmama;Großpapa;Gundula;Halleluja;Helena;Herzegowina;Hiroshima;Hurra;Ibiza;Ilona;Ischia;Iswestija;Italia;Joshua;Josua;Jessica;Judika;Judoka;Julia;Kamera;Kanada;Kenia;Klimata;Kordula;Korsika;Laterna Macica;Lufthansa;Lydia;Mafia;Malaga;Malaria;Malaysia;Mamà;Maskera;Matala;Media;Modena;Monika;Musica (ital.);Namibia;Nicaragua;Nigeria;Nikola;Nokia;Nutria;Opera;Olivia;Olympia;Ostia;Ottawa;Panama;Papa;Paprika;Papua;Patina;Perestroika;Pergola;Pharmaka;Philadelphia;Philippika;Praktika;Prostata;Quechua;Razzia;Republika;Ricola;Rucola;Sambia;Saskia;Schah;Schemata;Sepia;Sofia;Sömmerda;Stevia;Stiefmama;Stiefpapa;Sylvia;Tempera;Themata;Tombola;Tonika;Tralala;Trara;Traumata;Troika;Tunika;Uppsala;Ursula;USA;Utopia;Valencia;Venezia;Veronika;Viktoria;Virginia;Vitamin A;Wikipedia;Wonderbra (engl.)
-A_ISCH;algebraisch;altaisch;archaisch;ghanaisch;keniaisch;mosaisch;obervoltaisch;panamaisch;paraguayisch;prosaisch;savoyisch;uruguayisch
+A_ISCH;algebraisch;altaisch;archaisch;ghanaisch;keniaisch;mosaisch;obervoltaisch;panamaisch;paraguayisch;prosaisch;savoyisch;uruguayisch;voltaisch
 Ä_ISCH;ägäisch;aramäisch;chaldäisch;elysäisch;eritreisch;europäisch;galiläisch;gesamteuropäisch;hebräisch;indoeuropäisch;kanaanäisch;mitteleuropäisch;nordeuropäisch;pharisäisch;ptolomäisch;pygmäisch;pyrenäisch;südeuropäisch;trochäisch;überseeisch;unterseeisch
 AAB;begab;begrab;ergab;hab;gab;gehab;grab;lab;schab;trab;übergab;überhab;umgab;untergrab;vergab;Grab;Indianertrab;Lab;Naab;Rab;Stab;Trab;Zauberstab
 AACH;auseinanderbrach;besprach;bestach;brach;demnach;entsprach;erbrach;gach (bayr.);gebrach;gemach;hernach;hintennach;nach;sonach;stach;unterbrach;verbrach;versprach;wonach;zerbrach;zerstach;zusammenstach;Brautgemach;Almanach;Gemach;Prunkgemach;Schlafgemach;Schmach;Sprach-;Ungemach;Wohngemach
@@ -1349,7 +924,7 @@ AKELND;hakelnd;kakelnd;makelnd;orakelnd;quakelnd;takelnd
 AKELNS;Hakelns;Kakelns;Makelns;Orakelns;Quakelns;Takelns
 AKELT;hakelt;kakelt;krakelt;makelt;quakelt;takelt;verhakelt
 AKEN;bequaken;erschraken;opaken;quaken;staken;verschraken;zusammenschraken;Baken;Haken;Interlaken;Kakerlaken;Kraken;Laken;Schnaken
-AKISCH;heliakisch;irakisch;kosakisch;kulakisch;slowakisch;thrakisch;tschechoslowakisch
+AKISCH;heliakisch;irakisch;kosakisch;kulakisch;sarawakisch;slowakisch;thrakisch;tschechoslowakisch
 AKTEN;abgehackten;abgepackten;abgesackten;abgeschmackten;abstrakten;angekackten;angepackten;aufgehackten;aufgeknackten;ausgepackten;bekackten;bepackten;eingepackten;eingesackten;exakten;flaggten;flackten;geflaggten;gehackten;gekackten;geknackten;gelackten;gepackten;gezackten;hackten;intakten;kackten;klackten;knackten;kompakten;lackten;nackten;packten;sackten;schnackten;verkackten;verknackten;versackten;verschlackten;vertrackten;zackten;Akten;Artefakten;Autodidakten;Didakten;Kontakten;Kontrakten;Pakten;Takten;Trakten
 AKTIEREN;aktieren;kontraktieren;paktieren;rumtaktieren;taktieren;traktieren
 AKTIEREND;aktierend;kontraktierend;paktierend;rumtaktierend;taktierend;traktierend
@@ -1547,7 +1122,7 @@ ANICH;bahn ich;-bahnig;mahn ich;sahnig;schwanig;tranig;zahnig;Jungfernkranich;Ra
 ANIEN;Albanien;Aquitanien;Balkanien;Bethanien;Geranien;Germanien;Großbritanien;Jordanien;Kastanien;Katalanien;Mauretanien;Molwanien;Okzitanien;Oranien;Ozeanien;Spanien;Tasmanien;Transsilvanien
 ANIEREN;flanieren;generalsanieren;onanieren;panieren;planieren;sanieren;schikanieren;totalsanieren;Manieren;Tischmanieren
 ANIK;-bahnig;sahnig;schwanig;tranig;zahnig;Botanik;Mechanik;Panik;Romanik;Titanic
-ANISCH;afghanisch;afrikanisch;albanisch;amerlikanisch;andorranisch;anglikanisch;anorganisch;bhutanisch;bolivianisch;botanisch;brasilianisch;birmanisch;brahmanisch;burmanisch;deutsch-amerikanisch;dominikanisch;elektrogalvanisch;friderizianisch;galvanisch;germanisch;grgorianisch;hegelianisch;honduranisch;indianisch;indogermanisch;iranisch;jamaikanisch;japanisch;javanisch;kambodschanisch;katalanisch;koreanisch;kostarikanisch;lateinamerikanisch;liberianisch;manisch;mauretanisch;mechanisch;megapanisch;muselmanisch;neapoletanisch;nigerianisch;nordafrikanisch;nordamerikanisch;nordkoreanisch;nymphomanisch;organisch;orkanisch;osmanisch;ostafrikanisch;ozeanisch;pakistanisch;panisch;pensylvanisch;peruanisch;puritanisch;republikanisch;romanisch;samoanisch;satanisch;spanisch;spartanisch;südafrikanisch;südamerikanisch;südkoreanisch;taiwanisch;titanisch;trojanisch;veganisch;venezianisch;vulkanisch;westafrikanisch;zentralafrikanisch;zyankalisch
+ANISCH;afghanisch;afrikanisch;albanisch;amerlikanisch;andorranisch;anglikanisch;anorganisch;arubanisch;bhutanisch;bolivianisch;botanisch;brasilianisch;birmanisch;brahmanisch;burmanisch;deutsch-amerikanisch;dominikanisch;elektrogalvanisch;friderizianisch;galvanisch;germanisch;grgorianisch;hegelianisch;honduranisch;indianisch;indogermanisch;iranisch;jamaikanisch;japanisch;javanisch;kambodschanisch;katalanisch;koreanisch;kostarikanisch;lateinamerikanisch;liberianisch;manisch;mauretanisch;mechanisch;megapanisch;muselmanisch;neapoletanisch;nigerianisch;nordafrikanisch;nordamerikanisch;nordkoreanisch;nymphomanisch;organisch;orkanisch;osmanisch;ostafrikanisch;ozeanisch;pakistanisch;panisch;pensylvanisch;peruanisch;puritanisch;republikanisch;romanisch;samoanisch;satanisch;spanisch;spartanisch;südafrikanisch;südamerikanisch;südkoreanisch;taiwanisch;titanisch;trojanisch;veganisch;venezianisch;vulkanisch;westafrikanisch;zentralafrikanisch;zyankalisch
 ÄNISCH;armenisch;athenisch;chilenisch;dänisch;eugenisch;hellenisch;höhnisch;hondurenisch;hygienisch;italienisch;neurasthenisch;ökumenisch;rumänisch;salvadorenisch;saraszenisch;slowenisch;szenisch;turkmenisch;tyrrhenisch;unhygienisch
 ANK;bedank;betank;betrank;blank;dank;erkrank;flank;frank;krank;prank;rank;sank;schank;schlagerkrank;schlank;schwank;stank;tank;trank;umrank;verdank;versank;verschlank;verstank;verzank;wank;zank;Bank;Dank;Funk;Gestank;Punk;Schank;Schrank;Schwank;Tank;Trank;Zank
 ANKE;bedanke;betanke;blanke;danke;erkranke;flanke;kranke;ranke;schlanke;schwanke;tanke;verdanke;verschlanke;wanke;zanke;Bezahlschranke;Blut-Hirn-Schranke;Eisenbahnschranke;Flanke;Franke;Gedanke;Grundgedanke;Hintergedanke;Krumme Lanke;Parkplatzschranke;Planke;Pranke;Ranke;Schranke;Solidaritätsgedanke;Tanke;Wunschgedanke
@@ -1721,7 +1296,7 @@ ARZEND;entharzend;farzend;harzend;knarzend;quarzend
 ARZENS;Entharzens;Farzens;Harzens;Knarzens;Quarzens
 ARZT;gefarzt;geharzt;geknarzt;harzt;knarzt;quarzt;wartst;verwahrtst;Arzt
 AS;aß;aufeinandersaß;beieinandersaß;bemaß;besaß;blas;das;ebendas;fraß;genas;herunterlas;irgendwas;las;maß;saß;überfraß;überlas;vergas;vergaß;verglas;verlas;vermaß;was;zerfraß;zusammensaß;Aas;Allahs;Augenmaß;Biogas;Ebenmaß;Eisenfraß;Fraß;Gas;Glas;Gras;Habermas;Has';Hinterglas;Maß;Nas;Opernglas;Sassafras;Spaß;Topas;Übermaß
-ASCH;asch;hasch;kasch;lasch;nasch;rasch;überrasch;vernasch;verwasch;wasch;Hallimasch;Hasch;Pasch
+ASCH;asch;hasch;kasch;lasch;nasch;rasch;überrasch;vernasch;verwasch;wasch;Drasch;Hallimasch;Hasch;Pasch
 ASCHE;asche;erhasche;hasche;kasche;lasche;nasche;rasche;überrasche;vernasche;verwasche;wasche;Asche;Badetasche;Flasche;Lasche;Masche;Tasche
 ASCHEN;abzuwaschen;aschen;auszuwaschen;erhaschen;gewaschen;haschen;kaschen;naschen;raschen;überraschen;ungewaschen;vernaschen;verwaschen;vorzuwaschen;waschen;Aschen;Flaschen;Laschen;Maschen;Maultaschen;Taschen
 ASCHEND;aschend;erhaschend;haschend;kaschend;naschend;überraschend;vernaschend;waschend
@@ -1739,7 +1314,7 @@ ASI;Hasi;quasi
 ASISCH;basich;eurasisch;kaukasich
 ASISCH;abchasisch;basisch;eurasisch;kaukasisch
 ASKE;Atemmaske;Baske;Corona-Maske;Maske;Totenmaske
-ASKISCH;alaskisch;baskisch
+ASKISCH;alaskisch;baskisch;bergamaskisch
 ASMEN;Fantasmen;Miasmen;Mykoplasmen;Orgasmen;Spasmen
 ASMUS;Bronchospasmus;Enthusiasmus;Erasmus;Ikonoklasmus;Miniorgasmus;Neoplasmus;Orgasmus;Radfahrorgasmus;Rasmus;Sarkasmus;Spasmus;Superorgasmus
 ASPELN;haspeln;raspeln;Raspeln
@@ -2067,7 +1642,7 @@ EGER;dröger;höker;integer;mega;schäker;schmöker;schräger;träger;verhöker;
 EGERN;integern;zögern;verzögern;Bettvorlegern;Erregern;Fegern;Fehlbelegern;Geldanlegern;Krankenpflegern;Negern;Nordnorwegern;Pflegern;Rechtsauslegern;Trägern;Verlegern
 EGIEREN;delegieren;durchregieren;legieren;mitregieren;negieren;regieren
 EGIEREND;delegierend;durchregierend;legierend;mitregierend;negierend;regierend
-EGISCH;elegisch;machtstrategisch;norwegisch;strategisch
+EGISCH;elegisch;machtstrategisch;norwegisch;sakrilegisch;strategisch
 EGLICH;abträglich;alltäglich;beweglich;dienstäglich;donnerstäglich;eklig;erträglich;feiertäglich;größtmöglich;höchstmöglich;jeglich;kläglich;möglich;montäglich;nachträglich;pfleglich;samstäglich;schnellstmöglich;täglich;tagtäglich;umweltverträglich;unbeweglich;uneinträglich;unerträglich;unmöglich;unsäglich;unverträglich;unwiderleglich;unzuträglich;verträglich;wennmöglich;werktäglich;widerleglich;womöglich;zuträglich
 EGNEN;abzuregnen;abzusegnen;begegnen;entgegnen;geleg’nen;herunterregnen;regnen;segnen;unterleg’nen;verregnen
 EGNEND;begegnend;entgegnend;herunterregnend;regnend;segnend;verregnend
@@ -2199,7 +1774,7 @@ EIGNER;Eigner;Leugner
 EIGS;beäug's;beug's;besteig's;bestreik's;bezeug's;ersteig's;erzeug's;feix;geig's;neig's;säug's;übersteig's;vergeig's;verschweig's;zeig's;zeug's;Deix;Likes;Schweiks;Streiks;Teichs;Teigs;Zeugs
 EIGST;äugst;beäugst;beugst;entsteigst;ersteigst;feigst;feixt;geigst;neigst;säugst;schweigst;steigst;übersteigst;vergeigst;verneigst;versteigst;zeigst;zeugst
 EIGT;abgeneigt;abgezweigt;angebeugt;angezeigt;aufgezeigt;ausgegeigt;ausgestreikt;äugt;beäugt;besteigt;bestreikt;beugt;bezeugt;entgegenneigt;entsteigt;ersteigt;erzeugt;geäugt;gebeugt;gegeigt;geigt;geliket;geneigt;gesäugt;gezeigt;gezeugt;hergebeugt;hergeneigt;herunterbeugt;heruntersteigt;hergezeigt;liket;neigt;säugt;schweigt;steigt;streikt;übersteigt;überzeugt;vergeigt;verneigt;verschweigt;versteigt;vorgebeugt;vorgeneigt;vorgezeigt;zeigt;zeugt;zugeneigt
-EIISCH;bruneiisch;malaiisch;parteiisch
+EIISCH;bruneiisch;malaiisch;parteiisch;überparteiisch;unparteiisch
 EIKEL;heikel;recicel;cicle (engl.);Michael (engl.);Wanne-Eickel
 EIKEN;biken;hiken;liken;streiken;Icon;Suleiken
 EIL;beeil;beeul;beul;derweil;enteil;erteil;fäul;feil;geil;heil;heul;keil;keul;oberaffengeil;steil;verbeul;verheil;verkeil;verteil;verweil;weil;zerteil;Beil;Braille;Geheul;Greu'l;Heil;Keil;Knäu'l;oil;Seil;Style;Teil;Zeil
@@ -2217,7 +1792,7 @@ EILUNG;Arbeitsteilung;Beeilung;Buchabteilung;Enteilung;Gewaltenteilung;Gradeinte
 EIMER;Beimer;Eimer;Hildesheimer;Hymer;Keimer;Laimer;Leimer;Räumer;Reimer;Schäumer;Schleimer;Träumer;Weimar;Zäumer
 EIMT;abgefeimt;abgeräumt;angeleimt;angeschleimt;aufgebäumt;aufgeräumt;aufgeschäumt;aufgezäumt;ausgekeimt;ausgeräumt;ausgeschäumt;ausgeschleimt;ausgeträumt;bäumt;eingeräumt;eingesäumt;eingeschäumt;eingeschleimt;entkeimt;erträumt;gekeimt;geleimt;geräumt;gereimt;gesäumt;geschleimt;getimet;geträumt;gezäumt;hingereimt;keimt;leimt;räumt;reimt;säumt;schäumt;schleimt;träumt;timet;überschäumt;umgeräumt;ungereimt;ungesäumt;verleimt;verräumt;versäumt;verschleimt;verträumt;zäumt;zugeschleimt;zusammenleimt
 EIMUNG;Keimung;Leimung;Räumung;Reimung;Umsäumung;Verleimung;Verräumung;Versäumung;Verschleimung;Zäumung
-EIN;abzuseihn;allein;allgemein;anzulein'n;anzuschrein;anzusein;anzuspein;aufzureihn;aufzusein;auszuschrein;auszusein;auszustreun;beleihn;bereun;beschrein;betreun;bewein;bewein'n;bräun;dabeizusein;darein;dazusein;dein;drein;ein;einzureihn;einzuweihn;entgegenschrein;entleihn;entweihn;erfreun;erschein’n;fein;fei'n;frei'n;freun;gemein;grein'n;herein;herunterschrein;hinein;hinzustreun;irgendein;jein;kastein;käu'n;kein;klein;klein’n;leih'n;mein;mein’n;neun;neu'n;nine;obendrein;querfeldein;rein;reihn;rein’n;sein;schein'n;scheun;schrein;spein;streun;streun'n;überein;ungemein;vernein;vernein'n;verstreun;verzeihn;vornherein;weih'n;wein'n;wiederkäun;zeihn;zusammenschrein;zusammensein;zuzusein;Anderssein;Äugelein;Augenschein;Badgastein;Bein;Beisammensein;Blümelein;Brüderlein;Burgfräulein;Christkindlein;Eselei’n;Feuerstein;im;Frei'n;Führerschein;Gänseklein;Gänsewein;Gebein;Gesangsverein;Gestein;Grafenstein;Hain;Hasenklein;Hein;Hinkebein;Hinkelstein;Hinterbein;Hühnerbein;Hühnerklein;Kämmerlein;Kathrein;Kegelverein;Kinderlein;Latein;Lein;line;Mägdelein;Main;Mieterverein;mine;Moin;Mütterlein;Nachhinein;Pein;Partei'n;Rehzicklein;Rhein;Schatzilein;Schatzkästlein;Schein;Schlüsselbein;Schrein;Schwein;Schwesterlein;Sein;Sonnenschein;Stein;Stelldichein;Töchterlein;Überbein;Urgestein;Verein;Vögelein;Vorhandensein;Waffenschein;Warzenschwein;Wein;Zipperlein;Zusammensein
+EIN;abzuseihn;allein;allgemein;anzulein'n;anzuschrein;anzusein;anzuspein;aufzureihn;aufzusein;auszuschrein;auszusein;auszustreun;beleihn;bereun;beschrein;betreun;bewein;bewein'n;bräun;dabeizusein;darein;dazusein;dein;drein;ein;einzureihn;einzuweihn;entgegenschrein;entleihn;entweihn;erfreun;erschein’n;fein;fei'n;frei'n;freun;gemein;grein'n;herein;herunterschrein;hinein;hinzustreun;irgendein;jein;kastein;käu'n;kein;klein;klein’n;leih'n;mein;mein’n;neun;neu'n;nine;obendrein;querfeldein;rein;reihn;rein’n;sein;schein'n;scheun;schrein;spein;streun;streun'n;überein;ungemein;vernein;vernein'n;verstreun;verzeihn;vornherein;weih'n;wein'n;wiederkäun;zeihn;zusammenschrein;zusammensein;zuzusein;Anderssein;Äugelein;Augenschein;Badgastein;Bein;Beisammensein;Blümelein;Brüderlein;Burgfräulein;Christkindlein;Eselei’n;Feuerstein;im;Frei'n;Führerschein;Gänseklein;Gänsewein;Gebein;Gesangsverein;Gestein;Grafenstein;Hain;Hasenklein;Hein;Hinkebein;Hinkelstein;Hinterbein;Hühnerbein;Hühnerklein;Kämmerlein;Kathrein;Kegelverein;Kinderlein;Latein;Lein;line;Mägdelein;Main;Mieterverein;Mine (engl.);Moin (nordd.);Mütterlein;Nachhinein;Pein;Partei'n;Rehzicklein;Rhein;Schatzilein;Schatzkästlein;Schein;Schlüsselbein;Schrein;Schwein;Schwesterlein;Sein;Sonnenschein;Stein;Stelldichein;Töchterlein;Überbein;Urgestein;Verein;Vögelein;Vorhandensein;Waffenschein;Warzenschwein;Wein;Zipperlein;Zusammensein
 EINDLICH;arbeiterfeindlich;arbeiterfreundlich;bauernfeindlich;feindlich;franzosenfeindlich;frauenfeindlich;freundlich;friedensfeindlich;gemeindlich;katzenfreundlich;menschenfeindlich;regierungsfeindlich;regierungsfreundlich;vermeintlich
 EINDSCHAFT;Feindschaft;Freundschaft;Geeintschaft
 EINE;alleine;allgemeine;bescheine;beweine;bräune;deine;eine;entbeine;erscheine;feine;gemeine;greine;hundsgemeine;keine;kleine;lupenreine;meine;reine;scheine;seine;sortenreine;streune;vereine;verneine;weine;Beine;Bräune;Gebeine;Gesteine;Heine;Hosenbeine;Hundeleine;Leine;Lieferscheine;Neune;Peine;Reine;Rheine;Scheine;Scheune;Schreine;Schweine;Steine;Ukraine;Vereine;Weine;Zäune
@@ -2298,7 +1873,7 @@ ELBE;dasselbe;derselbe;dieselbe;gelbe;wölbe;Elbe;Gewölbe
 ELBEN;dieselben;gelben;selben;wölben;Gewölben
 ELBER;fälber;gelber;selber;Elba;Kälber;Pfirsich Melba
 ELBST;gelbst;selbst;wölbst
-ELCH;selch;welch;Blütenkelch;Elch;Gselch;Kelch
+ELCH;selch;welch;Blumenkelch;Blütenkelch;Elch;Gselch;Kelch
 ELCHE;selche;welche;Elche;Kelche
 ELCHEN;selchen;welchen;Aquarellchen;Bällchen;Bordellchen;Elchen;Felchen;Fellchen;Gesellchen;Hotelchen;Kelchen;Mamsellchen;Modellchen;Pimpernellchen;Quellchen;Ställchen;Wattebällchen;Zellchen
 ELDE;melde;vermelde;in Bälde;Gemälde
@@ -2501,7 +2076,7 @@ ERGE;berge;verberge;verzwerge;Berge;Herberge;Latwerge;Särge;Scherge;Zwerge
 ERGEN;bergen;hinterhergehn;hin-;und;hergehn;schwergehn;umhergehn;verbergen;verzwergen;Bergen;Särgen;Schergen;Zwergen
 ERGEND;bergend;verbergend;verzwergend
 ERGENS;Bergens;Verbergens;Verzwergen
-ERGISCH;allegisch;antiallegisch;bergisch;energisch;märkisch;württemberisch
+ERGISCH;allegisch;antiallegisch;bergisch;energisch;märkisch;württembergisch;zwergisch
 ERGO;Albergo;ergo
 ERICH;begehr ich;bekehr ich;belehr ich;beschwer ich;betör ich;-chörig;der ich;entbehr ich;entleer ich;ernähr ich;gärig;gehörig;gelehrig;hör ich;hörig;kehr ich;klär ich;leer ich;mehr ich;mehrig;-möhrig;obergärig;-öhrig;scher ich;schwör ich;stör ich?;teerig;ungehörig;untergärig;verehr ich;verkehr ich;vermehr ich;wär ich;verzehr ich;wär ich;zehr ich;Erich
 ÄRIG;bärig (bayr.);-chörig;gärig;gehörig;gelehrig;hörig;-jährig;mehrig;-möhrig;obergärig;-öhrig;teerig;ungehörig;untergärig;Eric;Generic
@@ -2868,7 +2443,7 @@ IIN;abzumühn;abzuziehn;affin;alpin;angespien;anzudien;anzusprühn;anzuziehn;and
 IKE;antike;büke;kieke (berlin.);pike;quieke;schnieke (berlin.);Antike;Katholike;Mendrike;Musike;Pike;Rike;Ulrike
 IKER;gütiger;-minütiger;Analytiker;Außenpolitiker;Bundestagspolitiker;Gütiger;Kritiker;Politiker;Psychoanalytiker
 ILBE;gilbe;vergilbe;Milbe;Silbe
-ILCH;Bilch;Buttermilch;Eselmilch;Gartenbilch;Hafermilch;Knilch;Kokosmilch;Magermilch;Mandelmilch;Milch;Muttermilch;Pferdemilch;Sauermilch;Stutenmilch;Trockenmilch;Ziegenmilch
+ILCH;Beutelbilch;Bilch;Buttermilch;Eselmilch;Gartenbilch;Hafermilch;Knilch;Kokosmilch;Magermilch;Mandelmilch;Milch;Muttermilch;Pferdemilch;Sauermilch;Stutenmilch;Trockenmilch;Ziegenmilch
 ILDER;bebilder;beschilder;milder;schilder;wilder;Bilder;Dildo;Filder;Hilda;Mathilda
 ILDERN;bebildern;beschildern;mildern;schildern;wildern;Bildern;Fildern
 ILDERS;Bebilderns;Beschilderns;Milderns;Schilderns;Wilderns
@@ -3064,7 +2639,7 @@ IRRT;abgeirrt;abgeschwirrt;angeschirrt;angeschwirrt;beirrt;bewirt;dürrt;entschw
 IRRUNG;Begriffsverwirrung;Beschirrung;Entwirrung;Geistesverwirrung;Geschwacksverirrung;Irrung;Kirrung;Sinnesverwirrung;Sprachverwirrung;Verirrung;Verwirrung;Wirrung
 IRSCH;wirsch;Edelhirsch;Giersch;Hirsch;Kirsch;Pirsch;Schaufelhirsch
 ISBET;Kiesbett;Lisbeth
-ISCH;ausbeuterisch;bayerisch;bildnerisch;bündnerisch;drisch;entwisch;erfrisch;erpresserisch;erwisch;frisch;gebieterisch;genießerisch;haushälterisch;hehlerisch;hetzerisch;heuchlerisch;hinterbänklerisch;köhlerisch;lügnerisch;misch;mörderisch;quälerisch;reißerisch;schmarotzerisch;schwätzerisch;schweizerisch;sektiererisch;spalterisch;tänzerisch;überfisch;untermisch;verdrisch;verführerisch;vermisch;verräterisch;wählerisch;zisch;zusammenmisch;Fisch;Gebüsch;Gemisch;Gezisch;Quiche;Tisch;Wisch
+ISCH;ausbeuterisch;bayerisch;bildnerisch;bündnerisch;drisch;entwisch;erfrisch;erpresserisch;erwisch;frisch;gebieterisch;genießerisch;haushälterisch;hehlerisch;hetzerisch;heuchlerisch;hinterbänklerisch;köhlerisch;lügnerisch;misch;mörderisch;quälerisch;reißerisch;schmarotzerisch;schwätzerisch;schweizerisch;sektiererisch;spalterisch;tänzerisch;überfisch;untermisch;verdrisch;verführerisch;vermisch;verräterisch;wählerisch;zisch;zusammenmisch;Adlerfisch;Anglerfisch;Babelfisch;Bananenfisch;Beistelltisch;Biiliardtisch;Bio-Fisch;Blauflossenthunfisch;Blätterfisch;Büchertisch;Dosenfisch;Dosenthunfisch;Drückerfisch;Edelfisch;Feuerfisch;Fisch;Fisch;Frühstückstisch;Gabentisch;Gartentisch;Gebüsch;Gefilte Fisch;Gemisch;Gezisch;Goldenfisch;Hasenkopf-Kugelfisch;Kaiserfisch;Killerfisch;Kletterfisch;Klippenfisch;Knochenfisch;Knorpelfisch;Kugelfisch;Kutterfisch;Lieblingsfisch;Mackefisch;Maienfisch;Meeresfisch;Monsterfisch;Nachbartisch;Nebentisch;Paletten-Doktorfisch;Panzerfisch;Petersfisch;Pokertisch;Putzerfisch;Quiche;Regenbogenfisch;Riemenfisch;Riesen-Fisch;Rotfeuerfisch;Räucherfisch;Schnäpperfisch;Speisefisch;Steckerlfisch;Sägefisch;Süßwasserfisch;Tiefkühlfisch;Tiefseefisch;Tintenfisch;Tisch;Trockenfisch;Wickeltisch;Wisch;Wohnzimmertisch;Zebrafisch;Zitterfisch
 ISCHE;ätherische;ausländische;bayerische;befische;bildnerische;bündnerische;entwische;erfrische;erpresserische;erwische;frische;gebieterische;genießerische;haushälterische;hetzerische;ketzerische;lügnerische;mische;mörderische;reißerische;schmarotzerische;schwätzerische;schweizerische;sektiererische;spalterische;tänzerische;überfische;untermische;verführerische;vermische;verwische;verräterische;wählerische;zische;zusammenmische;Büsche;Fische;Gebüsche;Gemische;Gezische;Tische;Wische
 ISCHEN;abzuwischen;abzuzischen;anzumischen;aufzutischen;auszuwischen;befischen;bildnerischen;büschen;dazwischen;einzumischen;entwischen;erfrischen;erwischen;fischen;frischen;gebieterischen;genießerischen;gekrischen;haushälterischen;hetzerischen;inzwischen;ketzerischen;krischen;lügnerischen;mischen;mörderischen;reißerischen;schmarotzerischen;schweizerischen;sektiererischen;spalterischen;tänzerischen;überfischen;umzutischen;untermischen;verführerischen;vermischen;verräterischen;verwischen;wählerischen;wischen;zischen;zusammenmischen;Addition  (engl.);Büschen;Coalition (engl.);Condition (engl.);Decision (engl.);Devision (engl.);Edition (engl.);Fischen;Gebüschen;Intermission (engl.);Mission (engl.);Permission (engl.);Politician (engl.);Position (engl.);Tischen;Trüschen;Vision (engl.)
 ISCHEND;befischend;entwischend;erfrischend;erwischend;fischend;mischend;überfischend;untermischend;vermischend;verwischend;wischend;zischend;zusammenmischend
@@ -3180,7 +2755,7 @@ OBST;angehopst;angerobbst;floppst;foppst;gehopst;gemopst;hopst;jobst;kloppst;mob
 OBT;angetobt;ausgelobt;eingeprobt;entlobt;erprobt;gelobt;geprobt;getobt;hobt;lobt;probt;schobt;schnobt;stobt;tobt;überhobt;überprobt;unterschobt;verlobt;verschobt;verwobt;wobt;zusammenschobt
 OBUNG;Angelobung;Beprobung;Blitz-Verlobung;Bodenbeprobung;Entlobung;Erprobung;Ex-Verlobung;Fahrerprobung;Felderprobung;Flugerprobung;Gelobung;Gewässerbeprobung;Kampferprobung;Sonderauslobung;Verlobung
 OBUS;Globus;O-Bus;Opus
-OCH;bekoch;beroch;doch;entgegenkroch;jedoch;koch;kroch;noch;poch;roch;unterjoch;verkoch;verkroch;zerkoch;Abflussloch;Ärmelloch;Baggerloch;Blankenloch;Bloch;Degerloch;Ehejoch;Einflugloch;Einschussloch;Fensterjoch;Fernsehkoch;Gogh;Haushaltsloch;Höllenloch;Hundeloch;Joch;Jungfraujoch;Kaninchenloch;Kanzlerjoch;Kellerloch;Koch;Leistungsloch;Loch;Mauseloch;Milliardenloch;Millionenloch;Moloch;Nabenloch;Nagelloch;Nasenloch;Nazijoch;Ofenloch;Piercingloch;Promikoch;Rattenloch;Regenloch;Riesenloch;Schloch;Schützenloch;Schwarzes Loch;Regenloch;Riesenloch;Schlüsselloch;Schuldenloch;Sommerloch;Sudelkoch;Türkenjoch;Tyrannenjoch;Wasserloch;Wetterloch;Zitteroch
+OCH;bekoch;beroch;doch;entgegenkroch;jedoch;koch;kroch;noch;poch;roch;unterjoch;verkoch;verkroch;zerkoch;Abflussloch;Abzugsloch;Ärmelloch;Baggerloch;Blankenloch;Bloch;Brunnenloch;Degerloch;Ehejoch;Einflugloch;Einschussloch;Fensterjoch;Fernsehkoch;Gogh;Haushaltsloch;Höllenloch;Hundeloch;Joch;Jungfraujoch;Kaninchenloch;Kanzlerjoch;Kellerloch;Koch;Leistungsloch;Loch;Mauseloch;Milliardenloch;Millionenloch;Moloch;Nabenloch;Nagelloch;Nasenloch;Nazijoch;Ofenloch;Piercingloch;Promikoch;Rattenloch;Regenloch;Riesenloch;Schloch;Schützenloch;Schwarzes Loch;Regenloch;Riesenloch;Schlüsselloch;Schuldenloch;Sommerloch;Sudelkoch;Türkenjoch;Tyrannenjoch;Wasserloch;Wetterloch;Zitteroch
 OCHE;joche;koche;kroche;loche;poche;überkoche;unterjoche;verkoche;zerkoche;zusammenkoche;Epoche;Flitterwoche;Gekoche;Geloche;Koche;Loche;Woche
 OCHEN;abgebrochen;abgesprochen;abgestochen;abzukochen;angekrochen;angestochen;aufgebrochen;aufgestochen;aufzukochen;ausgebrochen;ausgesprochen;ausgestochen;auszukochen;berochen;besprochen;bestochen;eingebrochen;eingesprochen;eingestochen;einzukochen;entknochen;erbrochen;gebrochen;gekrochen;gerochen;gesprochen;gestochen;herangekrochen;herausgebrochen;herausgekrochen;herausgestochen;herumgekrochen;herumgesprochen;hineingebrochen;hineingestochen;jochen;kochen;lochen;pochen;überkochen;überstochen;umgebrochen;ungebrochen;unterbrochen;unterjochen;unwidersprochen;verbrochen;verkochen;verkrochen;versprochen;verstochen;weggebrochen;weggekrochen;widersprochen;zerbrochen;zerstochen;zugesprochen;zugestochen;zusammengebrochen;zusammengestochen;Flitterwochen;Hundeknochen;Kalenderwochen;Kieferknochen;Knochen;Modewochen;Rochen;Schädelknochen;Wochen;Zitterrochen
 OCHEND;bekochend;kochend;lochend;pochend;unterjochend;verkochend
@@ -3228,7 +2803,7 @@ OGEL;kokel;mogel;Vogel;Wasservogel
 OGELN;drogeln;kogeln;logeln;mogeln
 OGEN;grogeln;abgeflogen;abgezogen;analogen;angeflogen;angelogen;angezogen;aufgebogen;aufgeflogen;aufgezogen;auseinanderzogen;ausgesogen;ausgewogen;ausgezogen;belogen;betrogen;bewogen;bezogen;eingebogen;eingeflogen;eingezogen;entflogen;entzogen;erlogen;erzogen;flogen;fortgeflogen;fortgezogen;gebogen;geflogen;gelogen;gepflogen;gesogen;getrogen;gewogen;gezogen;herabgeflogen;heruntergeflogen;logen;pflogen;trogen;umgebogen;umgezogen;ungezogen;verzogen;verbogen;verflogen;verlogen;vorgebogen;vorgeflogen;vorgelogen;vorgezogen;vorüberflogen;vorüberzogen;weggezogen;wogen;wohlerzogen;zogen;zugeflogen;zugezogen;zusammenzogen;Anthologen;Archäologen;Astrologen;Biologen;Bogen;Demagogen;Drogen;Ellenbogen;Elogen;Epilogen;Ethnologen;Flitzebogen;Geologen;Gepflogen-(heiten);Katologen;Monologen;Nekrologen;Neurologen;Ornithologen;Pädagogen;Pathologen;Philologen;Pirogen;Proktologen;Prologen;Psychologen;Regenbogen;Rogen;Technologen;Togen;Urologen;Wogen;Zoologen
 OGES;analoges;bezog es;betrog es;flog es;zog es;verbog es;verflog es;verzog es;Dialoges;Kataloges
-OGISCH;achronologisch;allergologisch;anthropologisch;archäologisch;astrologisch;bakteriologisch;befreiungstheologisch;biologisch;biotechnologisch;christologisch;chronologisch;demagogisch;dermatologisch;diabetologisch;dialogisch;epidemiologisch;epistemologisch;etymologisch;genealogisch;geologisch;gynäkologisch;heilpädagogisch;hirnphysiologisch;histologisch;hochtechnologisch;hydrologisch;idiologisch;immunologisch;kardiologisch;klimatologisch;kosmologisch;kriminologisch;küchenpsychologisch;logisch;medienpädagogisch;meteorologisch;methodologisch;mikrobiologisch;militärtechnologisch;morphologisch;mythologisch;neurologisch;ökologisch;ökotoxikologisch;onkologisch;ontologisch;ornithologisch;paläontologisch;pathologisch;pharmakologisch;philologisch;physiologisch;phänomenologisch;poetologisch;politisch-ideologisch;psychologisch;pädagogisch;radiologisch;reformpädagogisch;schulpsychologisch;seismologisch;sonderpädagogisch;sozialpädagogisch;sozialökologisch;soziologisch;tautologisch;technologisch;teleologisch;terminologisch;theologisch;tiefenpsychologisch;topologisch;toxikologisch;unchronologisch;unökologisch;urologisch;verkaufspsychologisch;virologisch;wildbiologisch;zoologisch
+OGISCH;achronologisch;allergologisch;analogisch;anthropologisch;archäologisch;astrologisch;bakteriologisch;befreiungstheologisch;biologisch;biotechnologisch;christologisch;chronologisch;demagogisch;dermatologisch;diabetologisch;dialogisch;epidemiologisch;epistemologisch;etymologisch;genealogisch;geologisch;graphologisch;gynäkologisch;heilpädagogisch;hirnphysiologisch;histologisch;hochtechnologisch;hydrologisch;ideologisch;immunologisch;kardiologisch;klimatologisch;kosmologisch;kriminologisch;küchenpsychologisch;lexikologisch;logisch;medienpädagogisch;meteorologisch;methodologisch;mikrobiologisch;mikrologisch;militärtechnologisch;morphologisch;mythologisch;neurologisch;ökologisch;ökotoxikologisch;onkologisch;ontologisch;ornithologisch;paläontologisch;pathologisch;pharmakologisch;philologisch;physiologisch;phänomenologisch;poetologisch;politisch-ideologisch;psychologisch;pädagogisch;radiologisch;reformpädagogisch;schulpsychologisch;seismologisch;serologisch;sonderpädagogisch;sozialpädagogisch;sozialökologisch;soziologisch;tautologisch;technologisch;teleologisch;terminologisch;theologisch;tiefenpsychologisch;topologisch;toxikologisch;unchronologisch;unökologisch;urologisch;verkaufspsychologisch;virologisch;wildbiologisch;zoologisch
 OGO;Firmenlogo;Logo;Pogo;Togo
 OHE;bedrohe;drohe;frohe;hohe;rohe;verrohe;Lohe;Oboe;Schlohe
 OHEN;anzudrohen;bedrohen;drohen;frohen;geflohen;hohen;rohen;verrohen;Cohen;Lohen;Oboen;Schlohen
@@ -3379,7 +2954,7 @@ OPFT;abgeklopft;abgetropft;angeklopft;aufgepfropft;ausgeklopft;ausgestopft;einge
 ÖPFT;abgeknöpft;abgeschöpft;ausgeschöpft;erschöpft;geköpft;geknöpft;geschröpft;knöpft;köpft;schöpft;schröpft
 OPFUNG;Betropfung;Pfropfung;Verkopfung;Verstopfung;Verzopfung;Zerklopfung
 ÖPFUNG;Erschöpfung;Köpfung;Knöpfung;Kröpfung;Schöpfung;Schröpfung
-OPHISCH;anthroposophisch;fußballphilosophisch;hochphilosophisch;hypertrophisch;philosophisch;pseudophilosophisch;sozialphilosophisch;strophisch;theosophisch
+OPHISCH;anthroposophisch;atrophisch;fußballphilosophisch;hochphilosophisch;hypertrophisch;philosophisch;pseudophilosophisch;sozialphilosophisch;strophisch;theosophisch
 OPPE;floppe;foppe;hoppe;jobbe;kloppe;mobbe;poppe;ploppe;robbe;shoppe;stoppe;toppe;verkloppe;Hoppe;Joppe;Koppe;Noppe
 OPPEL;doppel;hoppel;koppel;verdoppel;Doppel;Gehoppel;Goppel;Koppel;Moppel;Stoppel
 OPPELN;doppeln;hoppeln;koppeln;verdoppeln;Doppeln;Gehoppeln;Koppeln;Moppeln;Stoppeln
@@ -3478,7 +3053,7 @@ OTEN;angeboten;angedrohten;aufgeboten;aufzuknoten;auszubooten;bedrohten;benoten;
 OTER;angedrohter;bedrohter;devoter;gedrohter;roter;toter;verflohter;verrohter;Botha;Gotha;Idiota (ital.);Minnesota;Nota;Roter;Toter
 OTES;angedrohtes;bedrohtes;bedroht es;benot es;bot es;devotes;droht es;erbot es;entbot es;gebot es;rotes;totes;unterbot es;verflohtes;verrohtes;Angebotes;Aufgebotes;Bootes;Botes;Brotes;Gebotes;Schlotes;Schotes;Schrote;Totes
 OTIG;grottig;knotig;kotig;schotig;schrotig;schrottig;Backsteingotik;Antibiotik;Biotik;Büro-Tick;Erotik;Exotik;Gotik;Homoerotik;Hypnotik;Mikrorobotik;Motorenerotik;Motorenexotik;Neurotik;Robotik;Semiotik;Symbiotik;Vampir-Gotik
-ÖTIG;benötig;bestätig;betätig;erbötig;gnädig;grätig;knet ich;ledig;nötig;red ich;stetig;tät ich;tätig;unflätig;untätig;verstetig;vierpfötig;Ästhetik;Ethik;Phonetik
+ÄTICH;benötig;bestätig;betätig;erbötig;gnädig;grätig;knet ich;ledig;nötig;red ich;stetig;tät ich;tätig;unflätig;untätig;verstetig;vierpfötig;Ästhetik;Ethik;Phonetik
 OTIKER;Erotiker;Neurotiker;Psychiotiker;Robotiker;Semiotiker
 OTISCH;anekdotisch;asymptotisch;biotisch;böotisch;chaotisch;despotisch;erotisch;exotisch;gotisch;hypnotisch;idiotisch;laotisch;narkotisch;neurotisch;osmotisch;patriotisch;symbiotisch;zypriotisch;Bistrotisch;Bürotisch
 ÖTLICH;dekretlich;gesundheitsschädlich;rätlich;redlich;rötlich;schädlich;straftätlich;tätlich;tödlich;unredlich;unschädlich
@@ -3520,7 +3095,7 @@ UBELNS;Bejubelns;Bubelns;Doubelns;Jubelns;Verjubelns
 UBELT;bejubelt;bubelt;doubelt;jubelt;verjubelt
 ÜBELT;angedübelt;auseinanderzwiebelt;bübelt;dübelt;eingedübelt;gebübelt;gedübelt;gegrübelt;gekübelt;gezwiebelt;grübelt;kübelt;verdübelt;verübelt;zusammendübelt;zwiebelt
 ÜBLICH;außerbetrieblich;betrüblich;lieblich;betrieblich;handelsüblich;innerbetrieblich;landesüblich;ortsüblich;überbetrieblich;üblich;unaufschieblich;verschieblich;vertrieblich
-ÜBSCH;ei verbibsch (sächs.);hübsch
+ÜBSCH;ei verbibsch (sächs.);hübsch;wunderhübsch
 ÜBUNG;Schiebung;Übung;Trübung;Verliebung;Verschiebung;Zeitverschiebung
 UCH;huch!;uch!;Achsenbruch;Bruch;Ehebruch;Geruch;Mundgeruch;Oderbruch;Rippenbruch;Spruch;Zauberspruch
 UCHST;ausgefuchst;druckst;herunterschluckst;kuckst;muckst;schluckst;spuckst;verdruckst;verkuckst;verschluckst;zuckst;zusammenzuckst
@@ -3772,7 +3347,7 @@ UPST;loopst;pupst;schubst;stubst
 URBEL;kurbel;schwurbel;Geschwurbel;Kurbel
 URBEL;kurbeln;schwurbeln;Kurbeln
 ÜRDIG;-bürdig;ebenbürtig;-hürdig;würdig
-UREN;auseinanderfuhren;befuhren;einzuspuren;entfuhren;entgegenfuhren;erfuhren;fuhren;herunterfuhren;huren;luren;obskuren;puren;rumzuhuren;schluren;schnuren;schwuren;spuren;sturen;touren;überfuhren;verfuhren;zusammenfuhren;Amouren;Auguren;Blessuren;Buren;Figuren;Flexuren;Fluren;Frisuren;Glasuren;Gravuren;Huren;Klausuren;Koleraturen;Kontouren;Kulturen;Kuren;Lasuren;Lemuren;Massuren;Muren;Naturen;Panduren;Parcouren;Partituren;Professuren;Prozeduren;Rasuren;Schraffuren;Schuren;Spuren;Suren;Tonsuren;Torturen;Touren;Trubadouren;Uhren;Untertouren;Zäsuren;Zensuren
+UREN;auf Touren;auseinanderfuhren;befuhren;einzuspuren;entfuhren;entgegenfuhren;erfuhren;fuhren;herunterfuhren;huren;luren;obskuren;puren;rumzuhuren;schluren;schnuren;schwuren;spuren;sturen;touren;überfuhren;verfuhren;zusammenfuhren;Abenturen;Amouren;Aquakulturen;Architekturen;Armaturen;Aufbruchspuren;Apparaturen;Auguren;Außentemperaturen;Autoreparaturen;Autospuren;Bärenspuren;Bierzeltgarnituren;Blessuren;Bronzefiguren;Buren;Comicfiguren;Diktaturen;Einbruchspuren;Erkundungstouren;Fahrradtouren;Figuren;Filmfiguren;Flexuren;Fluren;Förderstrukturen;Fraturen;Frauenfiguren;Frisuren;Frohnaturen;Garnituren;Glasuren;Gravuren;Hauptfiguren;Holzskulpturen;Hundespuren;Huren;Infrastrukturen;Innentemperaturen;Kandidaturen;Karikaturen;Koloraturen;Kommandostrukturen;Konturen;Korrekturen;Kreaturen;Krippenfiguren;Kultfiguren;Kulturen;Kuren;Lasuren;Lemuren;Lufttemperaturen;Machtstrukturen;Mail-Signaturen;Manufakturen;Märchenfiguren;Massuren;Miniaturen;Monokulturen;Muren;Nachttemperaturen;Naturen;Nebenfiguren;Panduren;Parcouren;Parteistrukturen;Partituren;Plüschfiguren;Professuren;Prozeduren;Rasuren;Raumtemperaturen;Reifenspuren;Rekordtemperaturen;Retouren;Rezepturen;Romanfiguren;Schachfiguren;Schlüsselfiguren;Schraffuren;Schuren;Signaturen;Spielernaturen;Spielfiguren;Spuren;Stewinskulpturen;Stiefelspuren;Strukturen;Subkulturen;Suren;Symbolfiguren;Tagestouren;Tastaturen;Texturen;Tonsuren;Torturen;Touren;Trubadouren;Uhren;Untertouren;Vogelspuren;Wachsfiguren;Zäsuren;Zensuren
 ÜRFEN;dürfen;schlürfen;schürfen;verwürfen;würfen;Würfen
 ÜRGE;bürge;verbürge;würge;Ausfallbürge;Bürge;Gewürge
 ÜRGEN;bürgen;verbürgen;würgen;Bürgen;Jürgen
@@ -3894,7 +3469,7 @@ UULEND;bestuhlend;besuhlend;buhlend;herunterspulend;pulend;spulend;suhlend
 UULENS;Bestuhlens;Besuhlens;Buhlens;Herunterspulens;Pulens;Spulens;Suhlens
 UUM;Altertum;posthum;Bayerntum;Boom;Eigentum;Germanentum;Heldentum;Konsum;Ruhm;Zoom
 UUR;auseinanderfuhr;azur;befuhr;durchfuhr;entfuhr;entgegenfuhr;erfuhr;fuhr;herunterfuhr;nur;obskur;pur;retour;stur;toujour;überfuhr;umfuhr;verfuhr;zur;zusammenfuhr;Abitur;Agrikultur;Akupressur;Akupunktur;Amour;Amur;Architektur;Armatur;Armbanduhr;Augur;Azur;Blessur;Bodenkultur;Bravour;Cour;Dafour;Diebestour;Diktatur;Dressur;Dur;Fahrradspur;Fahrradtour;Faktur;Figur;Fissur;Flexur;Flur;Fraktur;Frisur;Frohnatur;Gallionsfigur;Garnitur;Gefängnisflur;Glasur;Gravur;Hur;Holzlasur;Holzskulptur;Intimrasur;Inventur;Jour;Junktur;Karikatur;Kirchturmuhr;Klausur;Klaviatur;Koloratur;Kommandantur;Konjunktur;Kontur;Korrektur;Kuckucksuhr;Kultur;Kur;Lasur;Lemur;Liebesschwur;Ligatur;Literatur;Magistratur;Makulatur;Mensur;Miniatur;Mixtur;Modefrisur;Montur;Müllabfuhr;Mur;Muskulatur;Nabelschnur;Natur;Niederflur;Obstkultur;Partitur;Politur;Positur;Präfektur;Professur;Prozedur;Parcour;Quadratur;Quästur;Rasur;Registratur;Reifenspur;Reinkultur;Reparatur;Rezeptur;Ruhr;Ruptur;Schnur;Schraffur;Schur;Schwur;Signatur;Singapur;Silur;Skulptur;Sonnenuhr;Spur;Statur;Stempeluhr;Struktur;Stuckatur;Tabulatur;Tambour;Tastatur;Tektur;Temperatur;Textur;Tinktur;Tonsur;Tortur;Tour;Troubadour;Uhr;Unkultur;Unnatur;Urnatur;Ur;Wagenspur;Weinkultur;Witzfigur;Zäsur;Zensur
-UURCH;durch;furch;hierdurch;hindurch;mittendurch;querdurch;wodurch;zerfurch;zwischendurch;Lurch
+UURCH;dadurch;durch;furch;hierdurch;hindurch;mittendurch;querdurch;wodurch;zerfurch;zwischendurch;Lurch
 UUS;abstrus;diffus;du's;konfus;loose;schmus;tu's;vertu's;who's;Buhs;Blues;Dessous;Filous;Fuß;Geschmus;Getus;Gnus;Grus;Gruß;Juice;Jus;Mus;Küchenruß;News;Nus;Ofenruß;Ragouts;Rendevous;Ruß;Schmus;Schuhs;Shampoos;Syrakus;Tabus
 UUSE;abstruse;du se;fuße;schmuse;tu se;vertu se;Bluse;Buße;Druse;Fluse;Fuße;Geschmuse;Kruse;Mabuse;Marcuse;Meduse;Muse;Muße;Pampelmuse;Suse;Uhse;Zuse
 UUSEN;abstrusen;fußen;glusen;rußen;schmusen;usen;verknusen;verrußen;Blusen;Busen;Drusen;Flusen;Leverkusen;Medusen;Musen
@@ -3989,14 +3564,15 @@ UZIEREND;induzierend;obduzierend;produzierend;reduzierend;reproduzierend`;
     function searchRhymes() {
       const inputElement = document.getElementById('searchInput');
       const rawInput = inputElement.value.replace(/"/g, '').trim();
-      const ignoreCase = false;
+      const ignoreCase = document.getElementById('ignoreCase').checked;
       const sortByEnding = document.getElementById('sortAlpha').checked;
       const status = document.getElementById('statusMessage');
       const container = document.getElementById('resultsContainer');
 
       if (!rawInput) {
         status.innerText = 'Reim oder Wort suchen.';
-        container.innerHTML = '';
+        container.innerHTML =
+          '<div class="empty-state">Gib oben einen Reim oder ein Wort ein.</div>';
         return;
       }
 
@@ -4231,108 +3807,15 @@ UZIEREND;induzierend;obduzierend;produzierend;reduzierend;reproduzierend`;
 
 <script>
 window.addEventListener('message', function(event) {
-  /* Nur Nachrichten des einbettenden Fensters akzeptieren.
-     Das funktioniert auch, wenn die Website mit oder ohne www geöffnet wird. */
-  if (event.source !== window.parent) return;
-
+  if (event.origin !== 'https://www.faltsch-wagoni.de') return;
   if (event.data === 'faltsch-wagoni-nach-oben') {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
-    return;
-  }
-
-  if (event.data && event.data.type === 'reimfinder-action') {
-    const actionButtons = {
-      browse: document.getElementById('browseButton'),
-      info: document.getElementById('infoButton'),
-      feedback: document.getElementById('feedbackButton')
-    };
-    const button = actionButtons[event.data.action];
-    if (button) button.click();
   }
 });
 </script>
 
 
-
-<style id="desktop-header-spacing-cleanup">
-/* Letzte gezielte Desktop-Korrektur: kompaktere Buttons und mehr Luft im Kopfbereich.
-   Regeln gelten nur am Desktop; die Mobilansicht bleibt unverändert. */
-@media (min-width: 601px) {
-  .header-row {
-    grid-template-columns: minmax(0, 1fr) 420px minmax(0, 1fr) 88px !important;
-    column-gap: 16px !important;
-    row-gap: 12px !important;
-    align-items: center !important;
-  }
-  .header-actions {
-    width: 420px !important;
-    gap: 8px !important;
-  }
-  .header-actions .browse-button,
-  .header-actions .info-button,
-  .header-actions .feedback-button {
-    width: 100% !important;
-    height: 42px !important;
-    min-height: 42px !important;
-    padding: 5px 6px !important;
-    font-size: .80rem !important;
-    line-height: 1.1 !important;
-  }
-  .rhyme-quote { margin: 8px 0 12px !important; }
-  header { margin-bottom: 18px !important; }
-  .wide-intro { margin-top: 12px !important; margin-bottom: 16px !important; }
-}
-</style>
-
-
-<style id="desktop-quote-buttons-centered-final">
-/* Desktop: Zitat und Buttonreihe bilden eine einzige, zentrierte Zeile. */
-@media (min-width: 601px) {
-  .header-row {
-    display: grid !important;
-    grid-template-columns: minmax(0, 1fr) 390px minmax(0, 1fr) !important;
-    align-items: center !important;
-    column-gap: 12px !important;
-    row-gap: 0 !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-  }
-  .header-row > a:not(.desktop-right-logo),
-  .header-row .header-text,
-  .header-row .desktop-right-logo { display: none !important; }
-  .rhyme-quote { display: contents !important; margin: 0 !important; }
-  .rhyme-quote .quote-first {
-    display: block !important; grid-column: 1 !important; grid-row: 1 !important;
-    justify-self: end !important; text-align: right !important; white-space: nowrap !important;
-    margin: 0 !important;
-  }
-  .header-actions {
-    grid-column: 2 !important; grid-row: 1 !important;
-    display: flex !important; width: 390px !important; max-width: 390px !important;
-    justify-content: center !important; gap: 8px !important; margin: 0 !important;
-  }
-  .header-actions .browse-button,
-  .header-actions .info-button,
-  .header-actions .feedback-button {
-    flex: 1 1 0 !important; width: auto !important; min-width: 0 !important;
-    height: 38px !important; min-height: 38px !important; padding: 4px 5px !important;
-    font-size: .78rem !important; line-height: 1.05 !important;
-  }
-  .rhyme-quote .quote-second {
-    display: block !important; grid-column: 3 !important; grid-row: 1 !important;
-    justify-self: start !important; text-align: left !important; white-space: nowrap !important;
-    margin: 0 !important;
-  }
-}
-
-/* Mehr Luft im Kopfbereich der Desktop-Version; Mobilansicht bleibt unverändert */
-@media (min-width: 601px) {
-  header { padding-top: 32px !important; padding-bottom: 26px !important; }
-  .header-row { margin-bottom: 14px !important; }
-  .rhyme-quote { padding-top: 8px !important; }
-}
-</style>
 </body>
 </html>
