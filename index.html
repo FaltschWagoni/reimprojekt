@@ -575,6 +575,32 @@ header { position: static !important; top: auto !important; }
 }
 </style>
 
+
+<style id="mobile-quote-final-override">
+/* Letzter, maßgeblicher Smartphone-Fix: Zitat auf die äußere Überschrift ausrichten und Überlappung verhindern. */
+@media (max-width: 600px) {
+  .header-row { display: flex !important; flex-wrap: wrap !important; gap: 8px 6px !important; }
+  .header-actions { order: 3 !important; flex: 1 1 100% !important; margin: 0 !important; }
+  .rhyme-quote {
+    display: block !important;
+    position: static !important;
+    order: 4 !important;
+    flex: 1 1 100% !important;
+    width: auto !important;
+    margin: 8px 0 8px 139px !important;
+    padding: 0 !important;
+    transform: none !important;
+    font-size: .75rem !important;
+    line-height: 1.25 !important;
+    text-align: left !important;
+  }
+  .rhyme-quote .quote-first,
+  .rhyme-quote .quote-second { display: inline !important; }
+  .rhyme-quote .quote-second::before { content: "\A"; white-space: pre; }
+  header { margin: 0 0 0 0 !important; padding-bottom: 8px !important; }
+  .search-section { position: relative !important; margin-top: 0 !important; transform: none !important; }
+}
+</style>
 </head>
 <body>
   <div class="container">
