@@ -4026,10 +4026,23 @@ UZIEREND;induzierend;obduzierend;produzierend;reduzierend;reproduzierend`;
 <script>
 window.addEventListener('message', function(event) {
   if (event.origin !== 'https://www.faltsch-wagoni.de') return;
+
   if (event.data === 'faltsch-wagoni-nach-oben') {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
+    return;
+  }
+
+  /* Die Buttons in Reimfinder.html lösen die vorhandenen Funktionen im iframe aus. */
+  if (event.data && event.data.type === 'reimfinder-action') {
+    const actionButtons = {
+      browse: document.getElementById('browseButton'),
+      info: document.getElementById('infoButton'),
+      feedback: document.getElementById('feedbackButton')
+    };
+    const button = actionButtons[event.data.action];
+    if (button) button.click();
   }
 });
 </script>
