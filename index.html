@@ -794,6 +794,21 @@ header { display: block !important; height: auto !important; min-height: 0 !impo
 }
 </style>
 
+
+<style id="desktop-buttons-compact-final">
+/* Desktop: Buttons kompakter, damit sie besser zwischen die roten Zitatteile passen. Mobil bleibt unverändert. */
+@media (min-width: 601px) {
+  .header-row { grid-template-columns: minmax(0, 1fr) 450px minmax(0, 1fr) 88px !important; }
+  .header-actions { width: 450px !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 8px !important; }
+  .header-actions .browse-button,
+  .header-actions .info-button,
+  .header-actions .feedback-button {
+    min-height: 36px !important; height: 36px !important; padding: 5px 7px !important;
+    font-size: .82rem !important; line-height: 1.1 !important;
+  }
+}
+</style>
+
 </head>
 <body>
   <div class="container">
