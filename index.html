@@ -593,6 +593,16 @@ header { margin-top: 0 !important; margin-bottom: 0 !important; padding-top: 0 !
 .search-section { margin-top: 0 !important; }
 </style>
 
+<style>
+/* Smartphone: auch mobil keinen zusätzlichen Leerraum über der Suchmaske lassen. */
+@media (max-width: 600px) {
+  body { padding-top: 0 !important; }
+  .container { padding-top: 0 !important; }
+  header { display: none !important; margin: 0 !important; padding: 0 !important; border: 0 !important; }
+  .search-section { margin-top: 0 !important; padding-top: 0 !important; }
+}
+</style>
+
 </head>
 <body>
   <div class="container">
