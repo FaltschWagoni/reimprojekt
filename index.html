@@ -605,6 +605,81 @@ header { margin-top: 0 !important; margin-bottom: 0 !important; padding-top: 0 !
 }
 </style>
 
+
+<style>
+/* Die drei Werkzeuge und das rote Goethe-Zitat stehen jetzt in index.html.
+   Nur diese Elemente werden an die bisherige äußere Gestaltung angepasst. */
+.header-row { display: block !important; }
+.header-row > a:not(.desktop-right-logo),
+.header-row .header-text { display: none !important; }
+.desktop-right-logo { display: none !important; }
+.header-actions {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 18px !important;
+  align-items: center !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+.header-actions .browse-button,
+.header-actions .info-button,
+.header-actions .feedback-button {
+  box-sizing: border-box !important;
+  width: min(100%, 180px) !important;
+  min-width: 0 !important;
+  min-height: 36px !important;
+  padding: 7px 12px !important;
+  border: 1px solid #279acb !important;
+  border-radius: 7px !important;
+  background: transparent !important;
+  color: #279acb !important;
+  font: inherit !important;
+  font-size: .88rem !important;
+  font-weight: 700 !important;
+  line-height: 1.15 !important;
+  cursor: pointer !important;
+  justify-self: center !important;
+}
+.header-actions .browse-button:hover,
+.header-actions .info-button:hover,
+.header-actions .feedback-button:hover {
+  background: #279acb !important;
+  color: #0f172a !important;
+}
+.rhyme-quote {
+  display: block !important;
+  margin: 12px 0 0 !important;
+  color: #dc6666 !important;
+  font-size: .88rem !important;
+  line-height: 1.3 !important;
+  font-style: italic !important;
+  text-align: left !important;
+}
+.rhyme-quote .quote-first,
+.rhyme-quote .quote-second { display: block !important; }
+@media (max-width: 600px) {
+  .header-actions {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+  .header-actions .browse-button,
+  .header-actions .info-button,
+  .header-actions .feedback-button {
+    width: 100% !important;
+    max-width: 180px !important;
+    min-height: 32px !important;
+    padding: 5px 8px !important;
+    font-size: .68rem !important;
+    line-height: 1.15 !important;
+    white-space: normal !important;
+  }
+  .rhyme-quote {
+    margin: 14px 0 0 0 !important;
+    font-size: .72rem !important;
+    line-height: 1.25 !important;
+  }
+}
+</style>
 </head>
 <body>
   <div class="container">
@@ -4048,11 +4123,6 @@ window.addEventListener('message', function(event) {
     if (button) button.click();
   }
 });
-
-/* Dem äußeren Dokument melden, dass die Aktionssteuerung bereit ist. */
-if (window.parent && window.parent !== window) {
-  window.parent.postMessage({ type: 'reimfinder-ready' }, '*');
-}
 </script>
 
 
