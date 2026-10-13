@@ -4255,5 +4255,36 @@ window.addEventListener('message', function(event) {
 </script>
 
 
+
+<style id="desktop-header-spacing-cleanup">
+/* Letzte gezielte Desktop-Korrektur: kompaktere Buttons und mehr Luft im Kopfbereich.
+   Regeln gelten nur am Desktop; die Mobilansicht bleibt unverändert. */
+@media (min-width: 601px) {
+  .header-row {
+    grid-template-columns: minmax(0, 1fr) 420px minmax(0, 1fr) 88px !important;
+    column-gap: 16px !important;
+    row-gap: 12px !important;
+    align-items: center !important;
+  }
+  .header-actions {
+    width: 420px !important;
+    gap: 8px !important;
+  }
+  .header-actions .browse-button,
+  .header-actions .info-button,
+  .header-actions .feedback-button {
+    width: 100% !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    padding: 5px 6px !important;
+    font-size: .80rem !important;
+    line-height: 1.1 !important;
+  }
+  .rhyme-quote { margin: 8px 0 12px !important; }
+  header { margin-bottom: 18px !important; }
+  .wide-intro { margin-top: 12px !important; margin-bottom: 16px !important; }
+}
+</style>
+
 </body>
 </html>
