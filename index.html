@@ -4027,10 +4027,9 @@ UZIEREND;induzierend;obduzierend;produzierend;reduzierend;reproduzierend`;
 
 <script>
 window.addEventListener('message', function(event) {
-  if (![
-    'https://www.faltsch-wagoni.de',
-    'https://faltsch-wagoni.de'
-  ].includes(event.origin)) return;
+  /* Nur Nachrichten des einbettenden Fensters akzeptieren.
+     Das funktioniert auch, wenn die Website mit oder ohne www geöffnet wird. */
+  if (event.source !== window.parent) return;
 
   if (event.data === 'faltsch-wagoni-nach-oben') {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
@@ -4039,7 +4038,6 @@ window.addEventListener('message', function(event) {
     return;
   }
 
-  /* Die Buttons in Reimfinder.html lösen die vorhandenen Funktionen im iframe aus. */
   if (event.data && event.data.type === 'reimfinder-action') {
     const actionButtons = {
       browse: document.getElementById('browseButton'),
