@@ -596,9 +596,11 @@ header { margin-top: 0 !important; margin-bottom: 0 !important; padding-top: 0 !
 <style>
 /* Smartphone: auch mobil keinen zusätzlichen Leerraum über der Suchmaske lassen. */
 @media (max-width: 600px) {
-  body { padding-top: 0 !important; }
-  .container { padding-top: 0 !important; }
-  header { display: none !important; margin: 0 !important; padding: 0 !important; border: 0 !important; }
+  /* Im iframe darf auf Smartphones kein Body-/Container-Rand vor der Suchmaske bleiben. */
+  html, body { margin: 0 !important; padding: 0 !important; }
+  .container { margin: 0 auto !important; padding: 0 10px !important; }
+  header { display: none !important; height: 0 !important; min-height: 0 !important; margin: 0 !important; padding: 0 !important; border: 0 !important; }
+  .wide-intro { display: none !important; height: 0 !important; margin: 0 !important; padding: 0 !important; border: 0 !important; }
   .search-section { margin-top: 0 !important; padding-top: 0 !important; }
 }
 </style>
@@ -4025,7 +4027,10 @@ UZIEREND;induzierend;obduzierend;produzierend;reduzierend;reproduzierend`;
 
 <script>
 window.addEventListener('message', function(event) {
-  if (event.origin !== 'https://www.faltsch-wagoni.de') return;
+  if (![
+    'https://www.faltsch-wagoni.de',
+    'https://faltsch-wagoni.de'
+  ].includes(event.origin)) return;
 
   if (event.data === 'faltsch-wagoni-nach-oben') {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
