@@ -735,6 +735,65 @@ header { display: block !important; height: auto !important; min-height: 0 !impo
 .search-section { margin-top: 10px !important; }
 </style>
 
+
+<style id="desktop-layout-final-correction">
+/* Desktop: drei gleich breite Buttons zwischen den beiden roten Zitatteilen.
+   Die Mobilansicht bleibt unverändert. */
+@media (min-width: 601px) {
+  .header-row {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 510px minmax(0, 1fr) 88px !important;
+    column-gap: 14px !important;
+    row-gap: 0 !important;
+    align-items: center !important;
+  }
+  .header-actions {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    width: 510px !important;
+    margin: 0 !important;
+  }
+  .header-actions .browse-button,
+  .header-actions .info-button,
+  .header-actions .feedback-button {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    min-height: 54px !important;
+    padding: 8px 10px !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    white-space: normal !important;
+    line-height: 1.15 !important;
+  }
+  .rhyme-quote {
+    display: contents !important;
+    margin: 0 !important;
+  }
+  .rhyme-quote .quote-first {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    justify-self: end !important;
+    text-align: right !important;
+    white-space: nowrap !important;
+  }
+  .rhyme-quote .quote-second {
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    justify-self: start !important;
+    text-align: left !important;
+    white-space: nowrap !important;
+  }
+}
+</style>
+
 </head>
 <body>
   <div class="container">
