@@ -559,15 +559,16 @@ header { position: static !important; top: auto !important; }
 @media (max-width: 600px) {
   .header-row { display: flex !important; flex-wrap: wrap !important; gap: 8px 6px !important; }
   .header-actions { order: 3 !important; flex: 1 1 100% !important; margin: 0 !important; }
+  /* Smartphone: Zitat normal im Dokumentfluss halten, damit es nicht von der Suchmaske überdeckt wird. */
   .rhyme-quote {
     display: block !important;
     order: 4 !important;
     flex: 1 1 100% !important;
-    /* Smartphone: bündig mit der äußeren Überschrift; Abstand zur Suchmaske an den oberen Abstand angleichen */
-    margin: 8px 0 -90px 39px !important;
+    margin: 8px 0 8px 70px !important;
     text-align: left !important;
     line-height: 1.25 !important;
   }
+  header { margin-bottom: 0 !important; padding-bottom: 0 !important; }
   .rhyme-quote .quote-first,
   .rhyme-quote .quote-second { display: inline !important; }
   .rhyme-quote .quote-second::before { content: "\A"; white-space: pre; }
