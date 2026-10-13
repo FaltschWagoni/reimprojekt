@@ -601,6 +601,13 @@ header { position: static !important; top: auto !important; }
   .search-section { position: relative !important; margin-top: 0 !important; transform: none !important; }
 }
 </style>
+
+<style>
+/* Buttons und Zitat liegen jetzt in Reimfinder.html; hier bleiben die Funktions-Panels. */
+.header-row .header-actions,
+.header-row .rhyme-quote { display: none !important; }
+</style>
+
 </head>
 <body>
   <div class="container">
@@ -4032,6 +4039,22 @@ window.addEventListener('message', function(event) {
 });
 </script>
 
+
+
+<script>
+window.addEventListener('message', function (event) {
+  if (event.origin !== 'https://www.faltsch-wagoni.de') return;
+  const actions = {
+    browse: 'browseButton',
+    info: 'infoButton',
+    feedback: 'feedbackButton'
+  };
+  if (!event.data || event.data.type !== 'reimfinder-action') return;
+  const id = actions[event.data.action];
+  const button = id && document.getElementById(id);
+  if (button) button.click();
+});
+</script>
 
 </body>
 </html>
