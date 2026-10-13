@@ -369,6 +369,446 @@
 
 
 
+
+<style>
+/* Mobile: Suchmaske direkt unter den Kopf-Buttons anzeigen. */
+@media (max-width: 600px) {
+  .wide-intro { display: none !important; }
+  .search-section {
+    margin-top: 0 !important;
+    margin-bottom: 10px !important;
+    padding: 10px !important;
+  }
+  .search-box { gap: 7px !important; }
+  .input-wrapper { min-width: 0 !important; flex: 1 1 100% !important; }
+  .search-section input[type="text"] {
+    padding: 10px 38px 10px 12px !important;
+    font-size: 1rem !important;
+  }
+  button.btn-search { width: 100%; padding: 10px 14px !important; }
+  .filter-options {
+    gap: 8px !important;
+    flex-wrap: wrap !important;
+    margin-top: 8px !important;
+    padding-top: 8px !important;
+    font-size: .78rem !important;
+  }
+}
+</style>
+
+
+
+<style>
+/* Mobile Kopfbereich: Logo und Titel bleiben beim Scrollen der Reimliste sichtbar. */
+.mobile-title, .mobile-slogan { display: none; }
+@media (max-width: 600px) {
+  header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 50 !important;
+    background: var(--bg-color, #0f172a) !important;
+    margin: 0 !important;
+    padding: 7px 0 8px !important;
+    border-bottom: 1px solid var(--border-color) !important;
+  }
+  .container { padding-left: 10px !important; padding-right: 10px !important; }
+  .header-row {
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 5px 10px !important;
+  }
+  .header-logo { width: 76px !important; max-width: 76px !important; }
+  .header-text {
+    display: block !important;
+    flex: 1 1 calc(100% - 90px) !important;
+    min-width: 0 !important;
+  }
+  .mobile-title {
+    display: block !important;
+    margin: 0 0 2px !important;
+    color: var(--primary-color) !important;
+    font-size: 1.08rem !important;
+    line-height: 1.12 !important;
+    font-weight: 700 !important;
+  }
+  .mobile-title .title-small { font-size: .88rem; font-weight: 600; }
+  .mobile-slogan {
+    display: block !important;
+    margin: 2px 0 0 !important;
+    color: #dc6666 !important;
+    font-size: .76rem !important;
+    font-style: italic !important;
+    line-height: 1.15 !important;
+  }
+  .header-actions {
+    order: 3 !important;
+    display: flex !important;
+    flex: 1 1 100% !important;
+    width: 100% !important;
+    margin: 2px 0 0 !important;
+    gap: 6px !important;
+    flex-wrap: nowrap !important;
+  }
+  .header-actions .browse-button,
+  .header-actions .info-button,
+  .header-actions .feedback-button {
+    box-sizing: border-box !important;
+    width: auto !important;
+    min-width: 0 !important;
+    flex: 1 1 0 !important;
+    min-height: 38px !important;
+    padding: 5px 3px !important;
+    font-size: .72rem !important;
+    line-height: 1.1 !important;
+  }
+  .rhyme-quote {
+    order: 4 !important;
+    flex: 1 1 100% !important;
+    margin: 1px 0 0 86px !important;
+    font-size: .75rem !important;
+    line-height: 1.2 !important;
+    text-align: left !important;
+  }
+  .wide-intro { display: none !important; }
+}
+
+/* Der feste Kopf mit Logo und Titel steht in Reimfinder.html. */
+.header-row > a:not(.desktop-right-logo),
+.header-row .header-text { display: none !important; }
+.info-button { border-width: 1px !important; }
+@media (max-width: 600px) {
+  .header-row { gap: 12px !important; align-items: center !important; }
+  .header-actions { margin-left: 0 !important; flex-wrap: wrap !important; gap: 8px !important; }
+  .rhyme-quote {
+    flex: 1 1 100% !important;
+    margin: 4px 0 0 86px !important;
+    text-align: left !important;
+  }
+  .empty-state { display: none !important; }
+}
+</style>
+
+
+<style>
+/* Der feste Kopf mit Logo und Titel liegt in Reimfinder.html.
+   In diesem iframe bleiben nur die Bedienknöpfe und das Zitat. */
+.header-row > a:not(.desktop-right-logo),
+.header-row .header-text { display: none !important; }
+header { position: static !important; top: auto !important; }
+.info-button { border-width: 1px !important; }
+.empty-state { display: none !important; }
+#statusMessage { display: none !important; }
+.rhyme-quote .quote-first,
+.rhyme-quote .quote-second { display: inline; }
+@media (min-width: 601px) {
+  .header-row { display: grid !important; grid-template-columns: 1fr auto 1fr; align-items: center !important; gap: 18px !important; }
+  .header-actions { grid-column: 2; margin-left: 0 !important; }
+  .rhyme-quote { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr auto 1fr; gap: 18px; margin: 0 !important; }
+  .rhyme-quote .quote-first { grid-column: 1; justify-self: end; text-align: right; }
+  .rhyme-quote .quote-second { grid-column: 3; justify-self: start; text-align: left; }
+}
+/* Die Suchanleitung und das leere Ergebnisfeld sind unnötig: Sucheingabe bleibt erhalten. */
+#statusMessage { display: none !important; }
+.empty-state { display: none !important; }
+#searchInput { }
+@media (max-width: 600px) {
+  header { position: static !important; top: auto !important; }
+  .empty-state { display: none !important; }
+}
+</style>
+
+
+
+<style>
+/* Desktop: erstes Zitat links, Buttons mittig, zweite Zitatzeile rechts – auf einer Höhe. */
+@media (min-width: 601px) {
+  .header-row {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) 88px !important;
+    align-items: center !important;
+    column-gap: 14px !important;
+    row-gap: 0 !important;
+  }
+  .header-row > a:not(.desktop-right-logo),
+  .header-row .header-text { display: none !important; }
+  .desktop-right-logo { display: block !important; grid-column: 4 !important; grid-row: 1 !important; width: 88px; align-self: center; }
+  .desktop-right-logo img { display: block; width: 100%; height: auto; }
+  .header-actions { grid-column: 2 !important; grid-row: 1 !important; margin: 0 !important; }
+  .rhyme-quote {
+    display: contents !important;
+    margin: 0 !important;
+  }
+  .rhyme-quote .quote-first {
+    display: block !important;
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    justify-self: end !important;
+    text-align: right !important;
+    white-space: nowrap;
+  }
+  .rhyme-quote .quote-second {
+    display: block !important;
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    justify-self: start !important;
+    text-align: left !important;
+    white-space: nowrap;
+  }
+}
+@media (max-width: 600px) {
+  .desktop-right-logo { display: none !important; }
+  .header-row { display: flex !important; flex-wrap: wrap !important; gap: 8px 6px !important; }
+  .header-actions { order: 3 !important; flex: 1 1 100% !important; margin: 0 !important; }
+  .rhyme-quote {
+    display: block !important;
+    order: 4 !important;
+    flex: 1 1 100% !important;
+    margin: 4px 0 0 86px !important;
+    padding: 0 !important;
+    text-align: left !important;
+    line-height: 1.0 !important;
+  }
+  .rhyme-quote .quote-first,
+  .rhyme-quote .quote-second { display: inline !important; line-height: 1.0 !important; margin: 0 !important; padding: 0 !important; }
+}
+</style>
+
+<style>
+/* Desktop: den Beschreibungstext näher an die Überschrift heranrücken */
+@media (min-width: 621px) {
+  header { margin-bottom: 12px !important; }
+  .wide-intro { margin-top: 0 !important; padding-top: 0 !important; }
+}
+</style>
+
+
+<style>
+/* Im eingebetteten Reimfinder keinen zweiten Kopfbereich reservieren.
+   Die Überschrift, Buttons und das Zitat stehen bereits in Reimfinder.html. */
+body { padding-top: 0 !important; }
+.container { padding-top: 0 !important; }
+header { margin-top: 0 !important; margin-bottom: 0 !important; padding-top: 0 !important; padding-bottom: 0 !important; border-bottom: 0 !important; }
+.header-row { display: none !important; }
+.search-section { margin-top: 0 !important; }
+</style>
+
+<style>
+/* Smartphone: auch mobil keinen zusätzlichen Leerraum über der Suchmaske lassen. */
+@media (max-width: 600px) {
+  /* Im iframe darf auf Smartphones kein Body-/Container-Rand vor der Suchmaske bleiben. */
+  html, body { margin: 0 !important; padding: 0 !important; }
+  .container { margin: 0 auto !important; padding: 0 10px !important; }
+  header { display: none !important; height: 0 !important; min-height: 0 !important; margin: 0 !important; padding: 0 !important; border: 0 !important; }
+  .wide-intro { display: none !important; height: 0 !important; margin: 0 !important; padding: 0 !important; border: 0 !important; }
+  .search-section { margin-top: 0 !important; padding-top: 0 !important; }
+}
+</style>
+
+
+<style>
+/* Die drei Werkzeuge und das rote Goethe-Zitat stehen jetzt in index.html.
+   Nur diese Elemente werden an die bisherige äußere Gestaltung angepasst. */
+.header-row { display: block !important; }
+.header-row > a:not(.desktop-right-logo),
+.header-row .header-text { display: none !important; }
+.desktop-right-logo { display: none !important; }
+.header-actions {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 18px !important;
+  align-items: center !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+.header-actions .browse-button,
+.header-actions .info-button,
+.header-actions .feedback-button {
+  box-sizing: border-box !important;
+  width: min(100%, 180px) !important;
+  min-width: 0 !important;
+  min-height: 36px !important;
+  padding: 7px 12px !important;
+  border: 1px solid #279acb !important;
+  border-radius: 7px !important;
+  background: transparent !important;
+  color: #279acb !important;
+  font: inherit !important;
+  font-size: .88rem !important;
+  font-weight: 700 !important;
+  line-height: 1.15 !important;
+  cursor: pointer !important;
+  justify-self: center !important;
+}
+.header-actions .browse-button:hover,
+.header-actions .info-button:hover,
+.header-actions .feedback-button:hover {
+  background: #279acb !important;
+  color: #0f172a !important;
+}
+.rhyme-quote {
+  display: block !important;
+  margin: 12px 0 0 !important;
+  color: #dc6666 !important;
+  font-size: .88rem !important;
+  line-height: 1.3 !important;
+  font-style: italic !important;
+  text-align: left !important;
+}
+.rhyme-quote .quote-first,
+.rhyme-quote .quote-second { display: block !important; }
+@media (max-width: 600px) {
+  .header-actions {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+  .header-actions .browse-button,
+  .header-actions .info-button,
+  .header-actions .feedback-button {
+    width: 100% !important;
+    max-width: 180px !important;
+    min-height: 32px !important;
+    padding: 5px 8px !important;
+    font-size: .68rem !important;
+    line-height: 1.15 !important;
+    white-space: normal !important;
+  }
+  .rhyme-quote {
+    margin: 14px 0 0 0 !important;
+    font-size: .72rem !important;
+    line-height: 1.25 !important;
+  }
+}
+</style>
+
+<style id="reimfinder-controls-visible-fix">
+/* Korrektur: Im iframe müssen die Bedienelemente sichtbar sein. */
+header { display: block !important; height: auto !important; min-height: 0 !important; margin: 0 0 8px !important; padding: 0 !important; border: 0 !important; }
+.header-row { display: grid !important; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) !important; align-items: center !important; gap: 12px !important; }
+.header-row > a:not(.desktop-right-logo),
+.header-row .header-text,
+.header-row .desktop-right-logo { display: none !important; }
+.header-actions { display: flex !important; visibility: visible !important; grid-column: 2 !important; grid-row: 1 !important; width: auto !important; margin: 0 !important; gap: 8px !important; flex-wrap: nowrap !important; }
+.header-actions button { display: inline-flex !important; visibility: visible !important; }
+.rhyme-quote { display: block !important; visibility: visible !important; grid-column: 1 / -1 !important; grid-row: 2 !important; margin: 4px 0 0 !important; text-align: center !important; color: #dc6666 !important; font-style: italic !important; }
+.rhyme-quote .quote-first,
+.rhyme-quote .quote-second { display: inline !important; white-space: normal !important; }
+@media (max-width: 600px) {
+  header { display: block !important; height: auto !important; margin: 0 0 8px !important; padding: 0 !important; }
+  .header-row { display: flex !important; flex-direction: column !important; align-items: stretch !important; gap: 5px !important; }
+  .header-actions { order: 1 !important; display: flex !important; width: 100% !important; gap: 6px !important; }
+  .header-actions button { flex: 1 1 0 !important; width: auto !important; min-width: 0 !important; min-height: 38px !important; padding: 5px 3px !important; font-size: .72rem !important; }
+  .rhyme-quote { order: 2 !important; display: block !important; width: 100% !important; margin: 2px 0 0 !important; text-align: center !important; font-size: .75rem !important; line-height: 1.25 !important; }
+  .rhyme-quote .quote-first, .rhyme-quote .quote-second { display: block !important; }
+}
+</style>
+
+<style id="rhyme-quote-tight-lines-fix">
+/* Jede Zitatzeile ist ein eigener Block; kein zusätzliches Pseudo-Zeilenende. */
+.rhyme-quote {
+  line-height: 1 !important;
+  margin: 2px 0 0 !important;
+  padding: 0 !important;
+}
+.rhyme-quote .quote-first,
+.rhyme-quote .quote-second {
+  display: block !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.rhyme-quote .quote-second::before {
+  content: none !important;
+}
+</style>
+
+<style id="equal-spacing-before-quote-and-search">
+/* Gewünschter zusätzlicher Abstand vor dem roten Zitat und vor der Suchmaske: jeweils 8 px. */
+.rhyme-quote { margin-top: 8px !important; }
+.search-section { margin-top: 8px !important; }
+</style>
+
+
+<style id="more-space-after-red-quote">
+/* Etwas mehr Abstand zwischen dem roten Zitat und der Suchmaske. */
+.rhyme-quote { margin-bottom: 10px !important; }
+.search-section { margin-top: 10px !important; }
+</style>
+
+
+<style id="desktop-layout-final-correction">
+/* Desktop: drei gleich breite Buttons zwischen den beiden roten Zitatteilen.
+   Die Mobilansicht bleibt unverändert. */
+@media (min-width: 601px) {
+  .header-row {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 510px minmax(0, 1fr) 88px !important;
+    column-gap: 14px !important;
+    row-gap: 0 !important;
+    align-items: center !important;
+  }
+  .header-actions {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    width: 510px !important;
+    margin: 0 !important;
+  }
+  .header-actions .browse-button,
+  .header-actions .info-button,
+  .header-actions .feedback-button {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    min-height: 54px !important;
+    padding: 8px 10px !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    white-space: normal !important;
+    line-height: 1.15 !important;
+  }
+  .rhyme-quote {
+    display: contents !important;
+    margin: 0 !important;
+  }
+  .rhyme-quote .quote-first {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    justify-self: end !important;
+    text-align: right !important;
+    white-space: nowrap !important;
+  }
+  .rhyme-quote .quote-second {
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    justify-self: start !important;
+    text-align: left !important;
+    white-space: nowrap !important;
+  }
+}
+</style>
+
+
+<style id="desktop-buttons-compact-final">
+/* Desktop: Buttons kompakter, damit sie besser zwischen die roten Zitatteile passen. Mobil bleibt unverändert. */
+@media (min-width: 601px) {
+  .header-row { grid-template-columns: minmax(0, 1fr) 450px minmax(0, 1fr) 88px !important; }
+  .header-actions { width: 450px !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 8px !important; }
+  .header-actions .browse-button,
+  .header-actions .info-button,
+  .header-actions .feedback-button {
+    min-height: 36px !important; height: 36px !important; padding: 5px 7px !important;
+    font-size: .82rem !important; line-height: 1.1 !important;
+  }
+}
+</style>
+
 </head>
 <body>
   <div class="container">
@@ -376,9 +816,12 @@
       <div class="header-row">
         <a href="https://www.faltsch-wagoni.de/" target="_top" aria-label="Zur Faltsch-Wagoni-Hauptseite"><img src="https://imgur.com/oYc2rIO.jpeg" alt="Faltsch Wagoni Logo" class="header-logo"></a>
         <div class="header-text">
-          <p class="rhyme-quote">Auf Teufel reimt sich nur der Zweifel<br>meint Goethe – er vergaß die Eifel</p>
+          <h1 class="mobile-title"><span class="title-small">Reime finden mit dem</span><br><span>Online-Reimfinder</span><br><span>von Faltsch Wagoni</span></h1>
+          <p class="mobile-slogan">Reim dich oder ich fress dich</p>
         </div>
         <div class="header-actions" data-nosnippet><button type="button" class="browse-button" id="browseButton">Reime entdecken</button><button type="button" class="info-button" id="infoButton">über den Reimfinder</button><button type="button" class="feedback-button" id="feedbackButton">Feedback</button></div>
+        <p class="rhyme-quote"><span class="quote-first">Auf Teufel reimt sich nur der Zweifel</span><span class="quote-second">meint Goethe – er vergaß die Eifel</span></p>
+        <a class="desktop-right-logo" href="https://www.faltsch-wagoni.de/" target="_top" aria-label="Zur Faltsch-Wagoni-Hauptseite"><img src="https://imgur.com/oYc2rIO.jpeg" alt="Faltsch Wagoni Logo"></a>
       </div>
 
       <div class="info-overlay" id="infoOverlay" data-nosnippet hidden><div class="info-dialog" role="dialog" aria-modal="true"><button type="button" class="info-x" id="infoX">×</button><h2>Über den Online-Reimfinder</h2><p>Der Online-Reimfinder von Faltsch Wagoni hilft bei der Suche nach reinen und unreinen Reimen für Gedichte und Songtexte.</p><ul><li>Dieser Reimfinder sucht Reime <strong>nicht nach gleicher Schreibweise, sondern nach Klang</strong>. Beispiel: „selig“ reimt sich auf „ölig“, auf „unzählig“ oder „mehlig“.</li><li>Je nach Aussprache kann es für identisch geschriebene Wörter <strong>zwei oder mehr Reimfamilien</strong> geben. Zum Beispiel findet man zum Suchwort „selig“ Wörter mit den Endungen <strong>ELICH</strong> und <strong>ELIG</strong>; „Gang“ findet man unter <strong>ANG</strong> und englisch ausgesprochen unter <strong>ENG</strong>.</li><li>Es tauchen auch <strong>Wortkreationen auf, die in keinem Wörterbuch stehen</strong>, als dichterische Anregung zum phantasievollen Umgang mit der Sprache. Beispiele: „Leichenwasser“, „Bäumefäller“ oder „Gewitterschädel“.</li></ul><p>Großgeschriebene Wörter werden vor den kleingeschriebenen angezeigt. Fremdsprachige Aussprachehinweise stehen kursiv in Klammern.</p><p>Ein Klick auf ein Reimwort kopiert es in die Zwischenablage.</p><p>Fehler, fehlende Reime und Verbesserungsvorschläge können über den <strong>Feedback-Button</strong> mitgeteilt werden.</p><button type="button" class="info-close" id="infoClose">Schließen</button></div></div><div class="browse-panel" id="browsePanel" hidden><div class="browse-head"><strong>Reimgruppen entdecken</strong><button type="button" id="browseClose">Schließen</button></div><div class="browse-letters" id="browseLetters"></div><div class="browse-groups" id="browseGroups"></div></div><div class="feedback-panel" id="feedbackPanel" hidden>
@@ -413,24 +856,21 @@
     <div class="search-section">
       <div class="search-box">
         <div class="input-wrapper">
-          <div class="search-input-wrap"><input type="text" id="searchInput" placeholder="Reim oder Wort suchen" autocomplete="off" onkeyup="if(event.key==='Enter') searchRhymes()"><button type="button" class="search-clear" id="searchClear" aria-label="Suchfeld löschen">×</button></div>
+          <div class="search-input-wrap"><input type="text" id="searchInput" placeholder="" autocomplete="off" onkeyup="if(event.key==='Enter') searchRhymes()"><button type="button" class="search-clear" id="searchClear" aria-label="Suchfeld löschen">×</button></div>
         </div>
         <button class="btn-search" onclick="searchRhymes()">Suchen</button>
       </div>
       <div class="filter-options">
         <label><input type="checkbox" id="sortAlpha" onchange="searchRhymes()"> Nach Wortenden sortieren</label>
-        <label><input type="checkbox" id="ignoreCase" onchange="searchRhymes()"> Groß-/Kleinschreibung ignorieren</label>
       </div>
     </div>
 
     <div class="status-bar" data-nosnippet>
-      <span id="statusMessage">Reim oder Wort suchen.</span>
+      <span id="statusMessage" aria-live="polite"></span>
       <span class="badge" id="wordCountBadge">0 Wörter geladen</span>
     </div>
 
-    <div id="resultsContainer">
-      <div class="empty-state" data-nosnippet>Gib oben einen Reim oder ein Wort ein.</div>
-    </div>
+    <div id="resultsContainer"></div>
     
 <div class="reimfinder-info-grid">
 <section class="reimfinder-suche" aria-labelledby="reimfinder-suche-titel">
@@ -465,22 +905,7 @@ Das würde ich auch gern mal sehn!
     // DIREKTE REIM-DATENBANK (KEINE EXTERNE CSV MEHR NÖTIG!)
     // Jede Zeile steht für eine Reim-Gruppe (mit Semikolon getrennt).
     // =========================================================================
-    const csvData = `ITMISCH;mitmisch;rhythmisch
-ACHISCH;bacchisch;eustachisch;kasachisch;walachisch
-INGISCH;karolingisch;lothringisch;thüringisch
-AGISCH;hämorrhagisch;magisch;pelagisch;tragisch
-ALZFISCH;Salzfisch;Schmalzfisch
-UBISCH;arubisch;kubisch;nubisch;tubisch
-ASTLOCH;Astloch;Knastloch;Mastloch
-ÜNDLOCH;Windloch;Zündloch
-AUSTELLE;Baustelle;Staustelle
-AUFLAUNE;Kauflaune;Rauflaune;Sauflaune
-EINMACHEN;allein machen;einmachen;hineinmachen;kleinmachen;reinmachen;Wein machen
-EINSTELLEN;einstellen;hereinstellen;hineinstellen;reinstellen;Bein stellen
-AUSGEBEN;ausgeben;herausgeben;rausgeben;Applaus geben
-AUSMACHEN;ausmachen;rausmachen;Garaus machen;Kakaos machen
-AUSBAUEN;ausbauen;Haus bauen
-IDSCHI;Fidschi;Lichi;Ritschi
+    const csvData = `IDSCHI;Fidschi;Lichi;Ritschi
 IDSCHIS;Fidschis;Lichis
 UCKKASTEN;Guckkasten;Schmuckkasten
 OCKHAUS;Blockhaus;Brockhaus
@@ -672,7 +1097,7 @@ ANKICH;bedank ich;dank ich;funkig;punkig;sank ich;schwank ich;stank ich;tank ich
 ESTRICH;ewiggestrig;gestrig;vorvorgestrig;Estrich;Westrich
 ATTRIG;flattrig;knattrig;tattrig;Hattrick
 A;ah;aha;da;et cetera;falleri und fallera;geschah;haha;halleluja;heisassa;hopsala;hopsassa;ja;himmelnah;juchheisassa;küstennah;na;nah;na ja;papperla;qua;sah;tja;trallala;Adria;Ägina;Afrika;Alaba;Alexandria;Algebra;Allotria;Altona;Amalia;Ambrosia;Amerika;Andromeda;Angela;Angelika;Ankara;Antibiotika;Arnika;Attika;Austria;Barbara;Basilika;Batavia;Bavaria;BH;Blablabla;Bogota;Cha-Cha-Cha;Charakteristika;Charisma;Cholera;Cinema;Claudia;Córdoba;Cornelia;Diaspora;Dilemmata;Domina;Doria;Edeka;Eklat;Elena;Enzyklika;Examina;Fatima;Florida;Fra;Gambia;Generika;Genua;Gerbera;Germania;Gisela;Golgatha;Großmama;Großpapa;Gundula;Halleluja;Helena;Herzegowina;Hiroshima;Hurra;Ibiza;Ilona;Ischia;Iswestija;Italia;Joshua;Josua;Jessica;Judika;Judoka;Julia;Kamera;Kanada;Kenia;Klimata;Kordula;Korsika;Laterna Macica;Lufthansa;Lydia;Mafia;Malaga;Malaria;Malaysia;Mamà;Maskera;Matala;Media;Modena;Monika;Musica (ital.);Namibia;Nicaragua;Nigeria;Nikola;Nokia;Nutria;Opera;Olivia;Olympia;Ostia;Ottawa;Panama;Papa;Paprika;Papua;Patina;Perestroika;Pergola;Pharmaka;Philadelphia;Philippika;Praktika;Prostata;Quechua;Razzia;Republika;Ricola;Rucola;Sambia;Saskia;Schah;Schemata;Sepia;Sofia;Sömmerda;Stevia;Stiefmama;Stiefpapa;Sylvia;Tempera;Themata;Tombola;Tonika;Tralala;Trara;Traumata;Troika;Tunika;Uppsala;Ursula;USA;Utopia;Valencia;Venezia;Veronika;Viktoria;Virginia;Vitamin A;Wikipedia;Wonderbra (engl.)
-A_ISCH;algebraisch;altaisch;archaisch;ghanaisch;keniaisch;mosaisch;obervoltaisch;panamaisch;paraguayisch;prosaisch;savoyisch;uruguayisch;voltaisch
+A_ISCH;algebraisch;altaisch;archaisch;ghanaisch;keniaisch;mosaisch;obervoltaisch;panamaisch;paraguayisch;prosaisch;savoyisch;uruguayisch
 Ä_ISCH;ägäisch;aramäisch;chaldäisch;elysäisch;eritreisch;europäisch;galiläisch;gesamteuropäisch;hebräisch;indoeuropäisch;kanaanäisch;mitteleuropäisch;nordeuropäisch;pharisäisch;ptolomäisch;pygmäisch;pyrenäisch;südeuropäisch;trochäisch;überseeisch;unterseeisch
 AAB;begab;begrab;ergab;hab;gab;gehab;grab;lab;schab;trab;übergab;überhab;umgab;untergrab;vergab;Grab;Indianertrab;Lab;Naab;Rab;Stab;Trab;Zauberstab
 AACH;auseinanderbrach;besprach;bestach;brach;demnach;entsprach;erbrach;gach (bayr.);gebrach;gemach;hernach;hintennach;nach;sonach;stach;unterbrach;verbrach;versprach;wonach;zerbrach;zerstach;zusammenstach;Brautgemach;Almanach;Gemach;Prunkgemach;Schlafgemach;Schmach;Sprach-;Ungemach;Wohngemach
@@ -924,7 +1349,7 @@ AKELND;hakelnd;kakelnd;makelnd;orakelnd;quakelnd;takelnd
 AKELNS;Hakelns;Kakelns;Makelns;Orakelns;Quakelns;Takelns
 AKELT;hakelt;kakelt;krakelt;makelt;quakelt;takelt;verhakelt
 AKEN;bequaken;erschraken;opaken;quaken;staken;verschraken;zusammenschraken;Baken;Haken;Interlaken;Kakerlaken;Kraken;Laken;Schnaken
-AKISCH;heliakisch;irakisch;kosakisch;kulakisch;sarawakisch;slowakisch;thrakisch;tschechoslowakisch
+AKISCH;heliakisch;irakisch;kosakisch;kulakisch;slowakisch;thrakisch;tschechoslowakisch
 AKTEN;abgehackten;abgepackten;abgesackten;abgeschmackten;abstrakten;angekackten;angepackten;aufgehackten;aufgeknackten;ausgepackten;bekackten;bepackten;eingepackten;eingesackten;exakten;flaggten;flackten;geflaggten;gehackten;gekackten;geknackten;gelackten;gepackten;gezackten;hackten;intakten;kackten;klackten;knackten;kompakten;lackten;nackten;packten;sackten;schnackten;verkackten;verknackten;versackten;verschlackten;vertrackten;zackten;Akten;Artefakten;Autodidakten;Didakten;Kontakten;Kontrakten;Pakten;Takten;Trakten
 AKTIEREN;aktieren;kontraktieren;paktieren;rumtaktieren;taktieren;traktieren
 AKTIEREND;aktierend;kontraktierend;paktierend;rumtaktierend;taktierend;traktierend
@@ -1122,7 +1547,7 @@ ANICH;bahn ich;-bahnig;mahn ich;sahnig;schwanig;tranig;zahnig;Jungfernkranich;Ra
 ANIEN;Albanien;Aquitanien;Balkanien;Bethanien;Geranien;Germanien;Großbritanien;Jordanien;Kastanien;Katalanien;Mauretanien;Molwanien;Okzitanien;Oranien;Ozeanien;Spanien;Tasmanien;Transsilvanien
 ANIEREN;flanieren;generalsanieren;onanieren;panieren;planieren;sanieren;schikanieren;totalsanieren;Manieren;Tischmanieren
 ANIK;-bahnig;sahnig;schwanig;tranig;zahnig;Botanik;Mechanik;Panik;Romanik;Titanic
-ANISCH;afghanisch;afrikanisch;albanisch;amerlikanisch;andorranisch;anglikanisch;anorganisch;arubanisch;bhutanisch;bolivianisch;botanisch;brasilianisch;birmanisch;brahmanisch;burmanisch;deutsch-amerikanisch;dominikanisch;elektrogalvanisch;friderizianisch;galvanisch;germanisch;grgorianisch;hegelianisch;honduranisch;indianisch;indogermanisch;iranisch;jamaikanisch;japanisch;javanisch;kambodschanisch;katalanisch;koreanisch;kostarikanisch;lateinamerikanisch;liberianisch;manisch;mauretanisch;mechanisch;megapanisch;muselmanisch;neapoletanisch;nigerianisch;nordafrikanisch;nordamerikanisch;nordkoreanisch;nymphomanisch;organisch;orkanisch;osmanisch;ostafrikanisch;ozeanisch;pakistanisch;panisch;pensylvanisch;peruanisch;puritanisch;republikanisch;romanisch;samoanisch;satanisch;spanisch;spartanisch;südafrikanisch;südamerikanisch;südkoreanisch;taiwanisch;titanisch;trojanisch;veganisch;venezianisch;vulkanisch;westafrikanisch;zentralafrikanisch;zyankalisch
+ANISCH;afghanisch;afrikanisch;albanisch;amerlikanisch;andorranisch;anglikanisch;anorganisch;bhutanisch;bolivianisch;botanisch;brasilianisch;birmanisch;brahmanisch;burmanisch;deutsch-amerikanisch;dominikanisch;elektrogalvanisch;friderizianisch;galvanisch;germanisch;grgorianisch;hegelianisch;honduranisch;indianisch;indogermanisch;iranisch;jamaikanisch;japanisch;javanisch;kambodschanisch;katalanisch;koreanisch;kostarikanisch;lateinamerikanisch;liberianisch;manisch;mauretanisch;mechanisch;megapanisch;muselmanisch;neapoletanisch;nigerianisch;nordafrikanisch;nordamerikanisch;nordkoreanisch;nymphomanisch;organisch;orkanisch;osmanisch;ostafrikanisch;ozeanisch;pakistanisch;panisch;pensylvanisch;peruanisch;puritanisch;republikanisch;romanisch;samoanisch;satanisch;spanisch;spartanisch;südafrikanisch;südamerikanisch;südkoreanisch;taiwanisch;titanisch;trojanisch;veganisch;venezianisch;vulkanisch;westafrikanisch;zentralafrikanisch;zyankalisch
 ÄNISCH;armenisch;athenisch;chilenisch;dänisch;eugenisch;hellenisch;höhnisch;hondurenisch;hygienisch;italienisch;neurasthenisch;ökumenisch;rumänisch;salvadorenisch;saraszenisch;slowenisch;szenisch;turkmenisch;tyrrhenisch;unhygienisch
 ANK;bedank;betank;betrank;blank;dank;erkrank;flank;frank;krank;prank;rank;sank;schank;schlagerkrank;schlank;schwank;stank;tank;trank;umrank;verdank;versank;verschlank;verstank;verzank;wank;zank;Bank;Dank;Funk;Gestank;Punk;Schank;Schrank;Schwank;Tank;Trank;Zank
 ANKE;bedanke;betanke;blanke;danke;erkranke;flanke;kranke;ranke;schlanke;schwanke;tanke;verdanke;verschlanke;wanke;zanke;Bezahlschranke;Blut-Hirn-Schranke;Eisenbahnschranke;Flanke;Franke;Gedanke;Grundgedanke;Hintergedanke;Krumme Lanke;Parkplatzschranke;Planke;Pranke;Ranke;Schranke;Solidaritätsgedanke;Tanke;Wunschgedanke
@@ -1296,7 +1721,7 @@ ARZEND;entharzend;farzend;harzend;knarzend;quarzend
 ARZENS;Entharzens;Farzens;Harzens;Knarzens;Quarzens
 ARZT;gefarzt;geharzt;geknarzt;harzt;knarzt;quarzt;wartst;verwahrtst;Arzt
 AS;aß;aufeinandersaß;beieinandersaß;bemaß;besaß;blas;das;ebendas;fraß;genas;herunterlas;irgendwas;las;maß;saß;überfraß;überlas;vergas;vergaß;verglas;verlas;vermaß;was;zerfraß;zusammensaß;Aas;Allahs;Augenmaß;Biogas;Ebenmaß;Eisenfraß;Fraß;Gas;Glas;Gras;Habermas;Has';Hinterglas;Maß;Nas;Opernglas;Sassafras;Spaß;Topas;Übermaß
-ASCH;asch;hasch;kasch;lasch;nasch;rasch;überrasch;vernasch;verwasch;wasch;Drasch;Hallimasch;Hasch;Pasch
+ASCH;asch;hasch;kasch;lasch;nasch;rasch;überrasch;vernasch;verwasch;wasch;Hallimasch;Hasch;Pasch
 ASCHE;asche;erhasche;hasche;kasche;lasche;nasche;rasche;überrasche;vernasche;verwasche;wasche;Asche;Badetasche;Flasche;Lasche;Masche;Tasche
 ASCHEN;abzuwaschen;aschen;auszuwaschen;erhaschen;gewaschen;haschen;kaschen;naschen;raschen;überraschen;ungewaschen;vernaschen;verwaschen;vorzuwaschen;waschen;Aschen;Flaschen;Laschen;Maschen;Maultaschen;Taschen
 ASCHEND;aschend;erhaschend;haschend;kaschend;naschend;überraschend;vernaschend;waschend
@@ -1314,7 +1739,7 @@ ASI;Hasi;quasi
 ASISCH;basich;eurasisch;kaukasich
 ASISCH;abchasisch;basisch;eurasisch;kaukasisch
 ASKE;Atemmaske;Baske;Corona-Maske;Maske;Totenmaske
-ASKISCH;alaskisch;baskisch;bergamaskisch
+ASKISCH;alaskisch;baskisch
 ASMEN;Fantasmen;Miasmen;Mykoplasmen;Orgasmen;Spasmen
 ASMUS;Bronchospasmus;Enthusiasmus;Erasmus;Ikonoklasmus;Miniorgasmus;Neoplasmus;Orgasmus;Radfahrorgasmus;Rasmus;Sarkasmus;Spasmus;Superorgasmus
 ASPELN;haspeln;raspeln;Raspeln
@@ -1642,7 +2067,7 @@ EGER;dröger;höker;integer;mega;schäker;schmöker;schräger;träger;verhöker;
 EGERN;integern;zögern;verzögern;Bettvorlegern;Erregern;Fegern;Fehlbelegern;Geldanlegern;Krankenpflegern;Negern;Nordnorwegern;Pflegern;Rechtsauslegern;Trägern;Verlegern
 EGIEREN;delegieren;durchregieren;legieren;mitregieren;negieren;regieren
 EGIEREND;delegierend;durchregierend;legierend;mitregierend;negierend;regierend
-EGISCH;elegisch;machtstrategisch;norwegisch;sakrilegisch;strategisch
+EGISCH;elegisch;machtstrategisch;norwegisch;strategisch
 EGLICH;abträglich;alltäglich;beweglich;dienstäglich;donnerstäglich;eklig;erträglich;feiertäglich;größtmöglich;höchstmöglich;jeglich;kläglich;möglich;montäglich;nachträglich;pfleglich;samstäglich;schnellstmöglich;täglich;tagtäglich;umweltverträglich;unbeweglich;uneinträglich;unerträglich;unmöglich;unsäglich;unverträglich;unwiderleglich;unzuträglich;verträglich;wennmöglich;werktäglich;widerleglich;womöglich;zuträglich
 EGNEN;abzuregnen;abzusegnen;begegnen;entgegnen;geleg’nen;herunterregnen;regnen;segnen;unterleg’nen;verregnen
 EGNEND;begegnend;entgegnend;herunterregnend;regnend;segnend;verregnend
@@ -1774,7 +2199,7 @@ EIGNER;Eigner;Leugner
 EIGS;beäug's;beug's;besteig's;bestreik's;bezeug's;ersteig's;erzeug's;feix;geig's;neig's;säug's;übersteig's;vergeig's;verschweig's;zeig's;zeug's;Deix;Likes;Schweiks;Streiks;Teichs;Teigs;Zeugs
 EIGST;äugst;beäugst;beugst;entsteigst;ersteigst;feigst;feixt;geigst;neigst;säugst;schweigst;steigst;übersteigst;vergeigst;verneigst;versteigst;zeigst;zeugst
 EIGT;abgeneigt;abgezweigt;angebeugt;angezeigt;aufgezeigt;ausgegeigt;ausgestreikt;äugt;beäugt;besteigt;bestreikt;beugt;bezeugt;entgegenneigt;entsteigt;ersteigt;erzeugt;geäugt;gebeugt;gegeigt;geigt;geliket;geneigt;gesäugt;gezeigt;gezeugt;hergebeugt;hergeneigt;herunterbeugt;heruntersteigt;hergezeigt;liket;neigt;säugt;schweigt;steigt;streikt;übersteigt;überzeugt;vergeigt;verneigt;verschweigt;versteigt;vorgebeugt;vorgeneigt;vorgezeigt;zeigt;zeugt;zugeneigt
-EIISCH;bruneiisch;malaiisch;parteiisch;überparteiisch;unparteiisch
+EIISCH;bruneiisch;malaiisch;parteiisch
 EIKEL;heikel;recicel;cicle (engl.);Michael (engl.);Wanne-Eickel
 EIKEN;biken;hiken;liken;streiken;Icon;Suleiken
 EIL;beeil;beeul;beul;derweil;enteil;erteil;fäul;feil;geil;heil;heul;keil;keul;oberaffengeil;steil;verbeul;verheil;verkeil;verteil;verweil;weil;zerteil;Beil;Braille;Geheul;Greu'l;Heil;Keil;Knäu'l;oil;Seil;Style;Teil;Zeil
@@ -1792,7 +2217,7 @@ EILUNG;Arbeitsteilung;Beeilung;Buchabteilung;Enteilung;Gewaltenteilung;Gradeinte
 EIMER;Beimer;Eimer;Hildesheimer;Hymer;Keimer;Laimer;Leimer;Räumer;Reimer;Schäumer;Schleimer;Träumer;Weimar;Zäumer
 EIMT;abgefeimt;abgeräumt;angeleimt;angeschleimt;aufgebäumt;aufgeräumt;aufgeschäumt;aufgezäumt;ausgekeimt;ausgeräumt;ausgeschäumt;ausgeschleimt;ausgeträumt;bäumt;eingeräumt;eingesäumt;eingeschäumt;eingeschleimt;entkeimt;erträumt;gekeimt;geleimt;geräumt;gereimt;gesäumt;geschleimt;getimet;geträumt;gezäumt;hingereimt;keimt;leimt;räumt;reimt;säumt;schäumt;schleimt;träumt;timet;überschäumt;umgeräumt;ungereimt;ungesäumt;verleimt;verräumt;versäumt;verschleimt;verträumt;zäumt;zugeschleimt;zusammenleimt
 EIMUNG;Keimung;Leimung;Räumung;Reimung;Umsäumung;Verleimung;Verräumung;Versäumung;Verschleimung;Zäumung
-EIN;abzuseihn;allein;allgemein;anzulein'n;anzuschrein;anzusein;anzuspein;aufzureihn;aufzusein;auszuschrein;auszusein;auszustreun;beleihn;bereun;beschrein;betreun;bewein;bewein'n;bräun;dabeizusein;darein;dazusein;dein;drein;ein;einzureihn;einzuweihn;entgegenschrein;entleihn;entweihn;erfreun;erschein’n;fein;fei'n;frei'n;freun;gemein;grein'n;herein;herunterschrein;hinein;hinzustreun;irgendein;jein;kastein;käu'n;kein;klein;klein’n;leih'n;mein;mein’n;neun;neu'n;nine;obendrein;querfeldein;rein;reihn;rein’n;sein;schein'n;scheun;schrein;spein;streun;streun'n;überein;ungemein;vernein;vernein'n;verstreun;verzeihn;vornherein;weih'n;wein'n;wiederkäun;zeihn;zusammenschrein;zusammensein;zuzusein;Anderssein;Äugelein;Augenschein;Badgastein;Bein;Beisammensein;Blümelein;Brüderlein;Burgfräulein;Christkindlein;Eselei’n;Feuerstein;im;Frei'n;Führerschein;Gänseklein;Gänsewein;Gebein;Gesangsverein;Gestein;Grafenstein;Hain;Hasenklein;Hein;Hinkebein;Hinkelstein;Hinterbein;Hühnerbein;Hühnerklein;Kämmerlein;Kathrein;Kegelverein;Kinderlein;Latein;Lein;line;Mägdelein;Main;Mieterverein;Mine (engl.);Moin (nordd.);Mütterlein;Nachhinein;Pein;Partei'n;Rehzicklein;Rhein;Schatzilein;Schatzkästlein;Schein;Schlüsselbein;Schrein;Schwein;Schwesterlein;Sein;Sonnenschein;Stein;Stelldichein;Töchterlein;Überbein;Urgestein;Verein;Vögelein;Vorhandensein;Waffenschein;Warzenschwein;Wein;Zipperlein;Zusammensein
+EIN;abzuseihn;allein;allgemein;anzulein'n;anzuschrein;anzusein;anzuspein;aufzureihn;aufzusein;auszuschrein;auszusein;auszustreun;beleihn;bereun;beschrein;betreun;bewein;bewein'n;bräun;dabeizusein;darein;dazusein;dein;drein;ein;einzureihn;einzuweihn;entgegenschrein;entleihn;entweihn;erfreun;erschein’n;fein;fei'n;frei'n;freun;gemein;grein'n;herein;herunterschrein;hinein;hinzustreun;irgendein;jein;kastein;käu'n;kein;klein;klein’n;leih'n;mein;mein’n;neun;neu'n;nine;obendrein;querfeldein;rein;reihn;rein’n;sein;schein'n;scheun;schrein;spein;streun;streun'n;überein;ungemein;vernein;vernein'n;verstreun;verzeihn;vornherein;weih'n;wein'n;wiederkäun;zeihn;zusammenschrein;zusammensein;zuzusein;Anderssein;Äugelein;Augenschein;Badgastein;Bein;Beisammensein;Blümelein;Brüderlein;Burgfräulein;Christkindlein;Eselei’n;Feuerstein;im;Frei'n;Führerschein;Gänseklein;Gänsewein;Gebein;Gesangsverein;Gestein;Grafenstein;Hain;Hasenklein;Hein;Hinkebein;Hinkelstein;Hinterbein;Hühnerbein;Hühnerklein;Kämmerlein;Kathrein;Kegelverein;Kinderlein;Latein;Lein;line;Mägdelein;Main;Mieterverein;mine;Moin;Mütterlein;Nachhinein;Pein;Partei'n;Rehzicklein;Rhein;Schatzilein;Schatzkästlein;Schein;Schlüsselbein;Schrein;Schwein;Schwesterlein;Sein;Sonnenschein;Stein;Stelldichein;Töchterlein;Überbein;Urgestein;Verein;Vögelein;Vorhandensein;Waffenschein;Warzenschwein;Wein;Zipperlein;Zusammensein
 EINDLICH;arbeiterfeindlich;arbeiterfreundlich;bauernfeindlich;feindlich;franzosenfeindlich;frauenfeindlich;freundlich;friedensfeindlich;gemeindlich;katzenfreundlich;menschenfeindlich;regierungsfeindlich;regierungsfreundlich;vermeintlich
 EINDSCHAFT;Feindschaft;Freundschaft;Geeintschaft
 EINE;alleine;allgemeine;bescheine;beweine;bräune;deine;eine;entbeine;erscheine;feine;gemeine;greine;hundsgemeine;keine;kleine;lupenreine;meine;reine;scheine;seine;sortenreine;streune;vereine;verneine;weine;Beine;Bräune;Gebeine;Gesteine;Heine;Hosenbeine;Hundeleine;Leine;Lieferscheine;Neune;Peine;Reine;Rheine;Scheine;Scheune;Schreine;Schweine;Steine;Ukraine;Vereine;Weine;Zäune
@@ -1873,7 +2298,7 @@ ELBE;dasselbe;derselbe;dieselbe;gelbe;wölbe;Elbe;Gewölbe
 ELBEN;dieselben;gelben;selben;wölben;Gewölben
 ELBER;fälber;gelber;selber;Elba;Kälber;Pfirsich Melba
 ELBST;gelbst;selbst;wölbst
-ELCH;selch;welch;Blumenkelch;Blütenkelch;Elch;Gselch;Kelch
+ELCH;selch;welch;Blütenkelch;Elch;Gselch;Kelch
 ELCHE;selche;welche;Elche;Kelche
 ELCHEN;selchen;welchen;Aquarellchen;Bällchen;Bordellchen;Elchen;Felchen;Fellchen;Gesellchen;Hotelchen;Kelchen;Mamsellchen;Modellchen;Pimpernellchen;Quellchen;Ställchen;Wattebällchen;Zellchen
 ELDE;melde;vermelde;in Bälde;Gemälde
@@ -2076,7 +2501,7 @@ ERGE;berge;verberge;verzwerge;Berge;Herberge;Latwerge;Särge;Scherge;Zwerge
 ERGEN;bergen;hinterhergehn;hin-;und;hergehn;schwergehn;umhergehn;verbergen;verzwergen;Bergen;Särgen;Schergen;Zwergen
 ERGEND;bergend;verbergend;verzwergend
 ERGENS;Bergens;Verbergens;Verzwergen
-ERGISCH;allegisch;antiallegisch;bergisch;energisch;märkisch;württembergisch;zwergisch
+ERGISCH;allegisch;antiallegisch;bergisch;energisch;märkisch;württemberisch
 ERGO;Albergo;ergo
 ERICH;begehr ich;bekehr ich;belehr ich;beschwer ich;betör ich;-chörig;der ich;entbehr ich;entleer ich;ernähr ich;gärig;gehörig;gelehrig;hör ich;hörig;kehr ich;klär ich;leer ich;mehr ich;mehrig;-möhrig;obergärig;-öhrig;scher ich;schwör ich;stör ich?;teerig;ungehörig;untergärig;verehr ich;verkehr ich;vermehr ich;wär ich;verzehr ich;wär ich;zehr ich;Erich
 ÄRIG;bärig (bayr.);-chörig;gärig;gehörig;gelehrig;hörig;-jährig;mehrig;-möhrig;obergärig;-öhrig;teerig;ungehörig;untergärig;Eric;Generic
@@ -2443,7 +2868,7 @@ IIN;abzumühn;abzuziehn;affin;alpin;angespien;anzudien;anzusprühn;anzuziehn;and
 IKE;antike;büke;kieke (berlin.);pike;quieke;schnieke (berlin.);Antike;Katholike;Mendrike;Musike;Pike;Rike;Ulrike
 IKER;gütiger;-minütiger;Analytiker;Außenpolitiker;Bundestagspolitiker;Gütiger;Kritiker;Politiker;Psychoanalytiker
 ILBE;gilbe;vergilbe;Milbe;Silbe
-ILCH;Beutelbilch;Bilch;Buttermilch;Eselmilch;Gartenbilch;Hafermilch;Knilch;Kokosmilch;Magermilch;Mandelmilch;Milch;Muttermilch;Pferdemilch;Sauermilch;Stutenmilch;Trockenmilch;Ziegenmilch
+ILCH;Bilch;Buttermilch;Eselmilch;Gartenbilch;Hafermilch;Knilch;Kokosmilch;Magermilch;Mandelmilch;Milch;Muttermilch;Pferdemilch;Sauermilch;Stutenmilch;Trockenmilch;Ziegenmilch
 ILDER;bebilder;beschilder;milder;schilder;wilder;Bilder;Dildo;Filder;Hilda;Mathilda
 ILDERN;bebildern;beschildern;mildern;schildern;wildern;Bildern;Fildern
 ILDERS;Bebilderns;Beschilderns;Milderns;Schilderns;Wilderns
@@ -2639,7 +3064,7 @@ IRRT;abgeirrt;abgeschwirrt;angeschirrt;angeschwirrt;beirrt;bewirt;dürrt;entschw
 IRRUNG;Begriffsverwirrung;Beschirrung;Entwirrung;Geistesverwirrung;Geschwacksverirrung;Irrung;Kirrung;Sinnesverwirrung;Sprachverwirrung;Verirrung;Verwirrung;Wirrung
 IRSCH;wirsch;Edelhirsch;Giersch;Hirsch;Kirsch;Pirsch;Schaufelhirsch
 ISBET;Kiesbett;Lisbeth
-ISCH;ausbeuterisch;bayerisch;bildnerisch;bündnerisch;drisch;entwisch;erfrisch;erpresserisch;erwisch;frisch;gebieterisch;genießerisch;haushälterisch;hehlerisch;hetzerisch;heuchlerisch;hinterbänklerisch;köhlerisch;lügnerisch;misch;mörderisch;quälerisch;reißerisch;schmarotzerisch;schwätzerisch;schweizerisch;sektiererisch;spalterisch;tänzerisch;überfisch;untermisch;verdrisch;verführerisch;vermisch;verräterisch;wählerisch;zisch;zusammenmisch;Adlerfisch;Anglerfisch;Babelfisch;Bananenfisch;Beistelltisch;Biiliardtisch;Bio-Fisch;Blauflossenthunfisch;Blätterfisch;Büchertisch;Dosenfisch;Dosenthunfisch;Drückerfisch;Edelfisch;Feuerfisch;Fisch;Fisch;Frühstückstisch;Gabentisch;Gartentisch;Gebüsch;Gefilte Fisch;Gemisch;Gezisch;Goldenfisch;Hasenkopf-Kugelfisch;Kaiserfisch;Killerfisch;Kletterfisch;Klippenfisch;Knochenfisch;Knorpelfisch;Kugelfisch;Kutterfisch;Lieblingsfisch;Mackefisch;Maienfisch;Meeresfisch;Monsterfisch;Nachbartisch;Nebentisch;Paletten-Doktorfisch;Panzerfisch;Petersfisch;Pokertisch;Putzerfisch;Quiche;Regenbogenfisch;Riemenfisch;Riesen-Fisch;Rotfeuerfisch;Räucherfisch;Schnäpperfisch;Speisefisch;Steckerlfisch;Sägefisch;Süßwasserfisch;Tiefkühlfisch;Tiefseefisch;Tintenfisch;Tisch;Trockenfisch;Wickeltisch;Wisch;Wohnzimmertisch;Zebrafisch;Zitterfisch
+ISCH;ausbeuterisch;bayerisch;bildnerisch;bündnerisch;drisch;entwisch;erfrisch;erpresserisch;erwisch;frisch;gebieterisch;genießerisch;haushälterisch;hehlerisch;hetzerisch;heuchlerisch;hinterbänklerisch;köhlerisch;lügnerisch;misch;mörderisch;quälerisch;reißerisch;schmarotzerisch;schwätzerisch;schweizerisch;sektiererisch;spalterisch;tänzerisch;überfisch;untermisch;verdrisch;verführerisch;vermisch;verräterisch;wählerisch;zisch;zusammenmisch;Fisch;Gebüsch;Gemisch;Gezisch;Quiche;Tisch;Wisch
 ISCHE;ätherische;ausländische;bayerische;befische;bildnerische;bündnerische;entwische;erfrische;erpresserische;erwische;frische;gebieterische;genießerische;haushälterische;hetzerische;ketzerische;lügnerische;mische;mörderische;reißerische;schmarotzerische;schwätzerische;schweizerische;sektiererische;spalterische;tänzerische;überfische;untermische;verführerische;vermische;verwische;verräterische;wählerische;zische;zusammenmische;Büsche;Fische;Gebüsche;Gemische;Gezische;Tische;Wische
 ISCHEN;abzuwischen;abzuzischen;anzumischen;aufzutischen;auszuwischen;befischen;bildnerischen;büschen;dazwischen;einzumischen;entwischen;erfrischen;erwischen;fischen;frischen;gebieterischen;genießerischen;gekrischen;haushälterischen;hetzerischen;inzwischen;ketzerischen;krischen;lügnerischen;mischen;mörderischen;reißerischen;schmarotzerischen;schweizerischen;sektiererischen;spalterischen;tänzerischen;überfischen;umzutischen;untermischen;verführerischen;vermischen;verräterischen;verwischen;wählerischen;wischen;zischen;zusammenmischen;Addition  (engl.);Büschen;Coalition (engl.);Condition (engl.);Decision (engl.);Devision (engl.);Edition (engl.);Fischen;Gebüschen;Intermission (engl.);Mission (engl.);Permission (engl.);Politician (engl.);Position (engl.);Tischen;Trüschen;Vision (engl.)
 ISCHEND;befischend;entwischend;erfrischend;erwischend;fischend;mischend;überfischend;untermischend;vermischend;verwischend;wischend;zischend;zusammenmischend
@@ -2755,7 +3180,7 @@ OBST;angehopst;angerobbst;floppst;foppst;gehopst;gemopst;hopst;jobst;kloppst;mob
 OBT;angetobt;ausgelobt;eingeprobt;entlobt;erprobt;gelobt;geprobt;getobt;hobt;lobt;probt;schobt;schnobt;stobt;tobt;überhobt;überprobt;unterschobt;verlobt;verschobt;verwobt;wobt;zusammenschobt
 OBUNG;Angelobung;Beprobung;Blitz-Verlobung;Bodenbeprobung;Entlobung;Erprobung;Ex-Verlobung;Fahrerprobung;Felderprobung;Flugerprobung;Gelobung;Gewässerbeprobung;Kampferprobung;Sonderauslobung;Verlobung
 OBUS;Globus;O-Bus;Opus
-OCH;bekoch;beroch;doch;entgegenkroch;jedoch;koch;kroch;noch;poch;roch;unterjoch;verkoch;verkroch;zerkoch;Abflussloch;Abzugsloch;Ärmelloch;Baggerloch;Blankenloch;Bloch;Brunnenloch;Degerloch;Ehejoch;Einflugloch;Einschussloch;Fensterjoch;Fernsehkoch;Gogh;Haushaltsloch;Höllenloch;Hundeloch;Joch;Jungfraujoch;Kaninchenloch;Kanzlerjoch;Kellerloch;Koch;Leistungsloch;Loch;Mauseloch;Milliardenloch;Millionenloch;Moloch;Nabenloch;Nagelloch;Nasenloch;Nazijoch;Ofenloch;Piercingloch;Promikoch;Rattenloch;Regenloch;Riesenloch;Schloch;Schützenloch;Schwarzes Loch;Regenloch;Riesenloch;Schlüsselloch;Schuldenloch;Sommerloch;Sudelkoch;Türkenjoch;Tyrannenjoch;Wasserloch;Wetterloch;Zitteroch
+OCH;bekoch;beroch;doch;entgegenkroch;jedoch;koch;kroch;noch;poch;roch;unterjoch;verkoch;verkroch;zerkoch;Abflussloch;Ärmelloch;Baggerloch;Blankenloch;Bloch;Degerloch;Ehejoch;Einflugloch;Einschussloch;Fensterjoch;Fernsehkoch;Gogh;Haushaltsloch;Höllenloch;Hundeloch;Joch;Jungfraujoch;Kaninchenloch;Kanzlerjoch;Kellerloch;Koch;Leistungsloch;Loch;Mauseloch;Milliardenloch;Millionenloch;Moloch;Nabenloch;Nagelloch;Nasenloch;Nazijoch;Ofenloch;Piercingloch;Promikoch;Rattenloch;Regenloch;Riesenloch;Schloch;Schützenloch;Schwarzes Loch;Regenloch;Riesenloch;Schlüsselloch;Schuldenloch;Sommerloch;Sudelkoch;Türkenjoch;Tyrannenjoch;Wasserloch;Wetterloch;Zitteroch
 OCHE;joche;koche;kroche;loche;poche;überkoche;unterjoche;verkoche;zerkoche;zusammenkoche;Epoche;Flitterwoche;Gekoche;Geloche;Koche;Loche;Woche
 OCHEN;abgebrochen;abgesprochen;abgestochen;abzukochen;angekrochen;angestochen;aufgebrochen;aufgestochen;aufzukochen;ausgebrochen;ausgesprochen;ausgestochen;auszukochen;berochen;besprochen;bestochen;eingebrochen;eingesprochen;eingestochen;einzukochen;entknochen;erbrochen;gebrochen;gekrochen;gerochen;gesprochen;gestochen;herangekrochen;herausgebrochen;herausgekrochen;herausgestochen;herumgekrochen;herumgesprochen;hineingebrochen;hineingestochen;jochen;kochen;lochen;pochen;überkochen;überstochen;umgebrochen;ungebrochen;unterbrochen;unterjochen;unwidersprochen;verbrochen;verkochen;verkrochen;versprochen;verstochen;weggebrochen;weggekrochen;widersprochen;zerbrochen;zerstochen;zugesprochen;zugestochen;zusammengebrochen;zusammengestochen;Flitterwochen;Hundeknochen;Kalenderwochen;Kieferknochen;Knochen;Modewochen;Rochen;Schädelknochen;Wochen;Zitterrochen
 OCHEND;bekochend;kochend;lochend;pochend;unterjochend;verkochend
@@ -2803,7 +3228,7 @@ OGEL;kokel;mogel;Vogel;Wasservogel
 OGELN;drogeln;kogeln;logeln;mogeln
 OGEN;grogeln;abgeflogen;abgezogen;analogen;angeflogen;angelogen;angezogen;aufgebogen;aufgeflogen;aufgezogen;auseinanderzogen;ausgesogen;ausgewogen;ausgezogen;belogen;betrogen;bewogen;bezogen;eingebogen;eingeflogen;eingezogen;entflogen;entzogen;erlogen;erzogen;flogen;fortgeflogen;fortgezogen;gebogen;geflogen;gelogen;gepflogen;gesogen;getrogen;gewogen;gezogen;herabgeflogen;heruntergeflogen;logen;pflogen;trogen;umgebogen;umgezogen;ungezogen;verzogen;verbogen;verflogen;verlogen;vorgebogen;vorgeflogen;vorgelogen;vorgezogen;vorüberflogen;vorüberzogen;weggezogen;wogen;wohlerzogen;zogen;zugeflogen;zugezogen;zusammenzogen;Anthologen;Archäologen;Astrologen;Biologen;Bogen;Demagogen;Drogen;Ellenbogen;Elogen;Epilogen;Ethnologen;Flitzebogen;Geologen;Gepflogen-(heiten);Katologen;Monologen;Nekrologen;Neurologen;Ornithologen;Pädagogen;Pathologen;Philologen;Pirogen;Proktologen;Prologen;Psychologen;Regenbogen;Rogen;Technologen;Togen;Urologen;Wogen;Zoologen
 OGES;analoges;bezog es;betrog es;flog es;zog es;verbog es;verflog es;verzog es;Dialoges;Kataloges
-OGISCH;achronologisch;allergologisch;analogisch;anthropologisch;archäologisch;astrologisch;bakteriologisch;befreiungstheologisch;biologisch;biotechnologisch;christologisch;chronologisch;demagogisch;dermatologisch;diabetologisch;dialogisch;epidemiologisch;epistemologisch;etymologisch;genealogisch;geologisch;graphologisch;gynäkologisch;heilpädagogisch;hirnphysiologisch;histologisch;hochtechnologisch;hydrologisch;ideologisch;immunologisch;kardiologisch;klimatologisch;kosmologisch;kriminologisch;küchenpsychologisch;lexikologisch;logisch;medienpädagogisch;meteorologisch;methodologisch;mikrobiologisch;mikrologisch;militärtechnologisch;morphologisch;mythologisch;neurologisch;ökologisch;ökotoxikologisch;onkologisch;ontologisch;ornithologisch;paläontologisch;pathologisch;pharmakologisch;philologisch;physiologisch;phänomenologisch;poetologisch;politisch-ideologisch;psychologisch;pädagogisch;radiologisch;reformpädagogisch;schulpsychologisch;seismologisch;serologisch;sonderpädagogisch;sozialpädagogisch;sozialökologisch;soziologisch;tautologisch;technologisch;teleologisch;terminologisch;theologisch;tiefenpsychologisch;topologisch;toxikologisch;unchronologisch;unökologisch;urologisch;verkaufspsychologisch;virologisch;wildbiologisch;zoologisch
+OGISCH;achronologisch;allergologisch;anthropologisch;archäologisch;astrologisch;bakteriologisch;befreiungstheologisch;biologisch;biotechnologisch;christologisch;chronologisch;demagogisch;dermatologisch;diabetologisch;dialogisch;epidemiologisch;epistemologisch;etymologisch;genealogisch;geologisch;gynäkologisch;heilpädagogisch;hirnphysiologisch;histologisch;hochtechnologisch;hydrologisch;idiologisch;immunologisch;kardiologisch;klimatologisch;kosmologisch;kriminologisch;küchenpsychologisch;logisch;medienpädagogisch;meteorologisch;methodologisch;mikrobiologisch;militärtechnologisch;morphologisch;mythologisch;neurologisch;ökologisch;ökotoxikologisch;onkologisch;ontologisch;ornithologisch;paläontologisch;pathologisch;pharmakologisch;philologisch;physiologisch;phänomenologisch;poetologisch;politisch-ideologisch;psychologisch;pädagogisch;radiologisch;reformpädagogisch;schulpsychologisch;seismologisch;sonderpädagogisch;sozialpädagogisch;sozialökologisch;soziologisch;tautologisch;technologisch;teleologisch;terminologisch;theologisch;tiefenpsychologisch;topologisch;toxikologisch;unchronologisch;unökologisch;urologisch;verkaufspsychologisch;virologisch;wildbiologisch;zoologisch
 OGO;Firmenlogo;Logo;Pogo;Togo
 OHE;bedrohe;drohe;frohe;hohe;rohe;verrohe;Lohe;Oboe;Schlohe
 OHEN;anzudrohen;bedrohen;drohen;frohen;geflohen;hohen;rohen;verrohen;Cohen;Lohen;Oboen;Schlohen
@@ -2954,7 +3379,7 @@ OPFT;abgeklopft;abgetropft;angeklopft;aufgepfropft;ausgeklopft;ausgestopft;einge
 ÖPFT;abgeknöpft;abgeschöpft;ausgeschöpft;erschöpft;geköpft;geknöpft;geschröpft;knöpft;köpft;schöpft;schröpft
 OPFUNG;Betropfung;Pfropfung;Verkopfung;Verstopfung;Verzopfung;Zerklopfung
 ÖPFUNG;Erschöpfung;Köpfung;Knöpfung;Kröpfung;Schöpfung;Schröpfung
-OPHISCH;anthroposophisch;atrophisch;fußballphilosophisch;hochphilosophisch;hypertrophisch;philosophisch;pseudophilosophisch;sozialphilosophisch;strophisch;theosophisch
+OPHISCH;anthroposophisch;fußballphilosophisch;hochphilosophisch;hypertrophisch;philosophisch;pseudophilosophisch;sozialphilosophisch;strophisch;theosophisch
 OPPE;floppe;foppe;hoppe;jobbe;kloppe;mobbe;poppe;ploppe;robbe;shoppe;stoppe;toppe;verkloppe;Hoppe;Joppe;Koppe;Noppe
 OPPEL;doppel;hoppel;koppel;verdoppel;Doppel;Gehoppel;Goppel;Koppel;Moppel;Stoppel
 OPPELN;doppeln;hoppeln;koppeln;verdoppeln;Doppeln;Gehoppeln;Koppeln;Moppeln;Stoppeln
@@ -3051,22 +3476,22 @@ OSTISCH;diagnostisch;gnostisch;ostisch
 OTE;angedrohte;bedrohte;devote;drohte;entbote;erbote;gebote;gedrohte;hellrote;karminrote;knote;lohte;lote;mausetote;rote;schrote;tote;verbote;verflohte;verknote;verrohte;verschrote;zerschrote;zinnoberrote;zusammenknote;zwote;Achtelnote;Anekdote;Angebote;Aufgebote;Boote;Bote;Brote;Despote;Echolote;Exote;Frauenquote;Friedensbote;Gebote;Gote;Götterbote;Hasenpfote;Helote;Hinterpfote;Hundepfote;Katzenpfote;Kojote;Kote;Liebesbote;Nepote;Note;Paprikaschote;Pfefferschote;Pfote;Quote;Rote;Schlote;Schote;Tote;Verbote;Viertelnote;Vorderpfote;Zelote;Zote;Zuckerschote;Zypriote;Zwote
 OTEN;angeboten;angedrohten;aufgeboten;aufzuknoten;auszubooten;bedrohten;benoten;devoten;drohten;entboten;erboten;geboten;gedrohten;gelohten;knoten;koten;lohten;loten;roten;schroten;überboten;unterboten;verboten;verflohten;verknoten;verrohten;verschroten;zerschroten;zinnoberroten;zuzuknoten;Achtelnoten;Anekdoten;Angeboten;Antidoten;Aufgeboten;Booten;Boten;Broten;Chaoten;Despoten;Echoloten;Erbsenschoten;Eroten;Exoten;Friedensboten;Geboten;Goten;Götterboten;Hasenpfoten;Heloten;Hinterpfoten;Hundepfoten;Idioten;Katzenpfoten;Klothen;Knoten;Kojoten;Koten;Liebesboten;Loten;Nepoten;Nervenknoten;Noten;Paprikaschoten;Patrioten;Pfoten;Piloten;Quoten;Roten;Schloten;Schoten;Seemannsknoten;Toten;Verboten;Viertelnoten;Vorderpfoten;Voten;Weberknoten;Zeloten;Zoten;Zyprioten
 OTER;angedrohter;bedrohter;devoter;gedrohter;roter;toter;verflohter;verrohter;Botha;Gotha;Idiota (ital.);Minnesota;Nota;Roter;Toter
-OTES;angedrohtes;bedrohtes;bedroht es;benot es;bot es;devotes;droht es;erbot es;entbot es;gebot es;rotes;totes;unterbot es;verflohtes;verrohtes;zwotes;Aufgebotes;Bootes;Botes;Brotes;Gebotes;Schlotes;Schotes;Schrote;Totes
-OTIG;grottig;knotig;kotig;schotig;schrotig;schrottig;Backsteingotik;Antibiotik;Biotik;Büro-Tick;Erotik;Exotik;Gotik;Homoerotik;Hypnotik;Angebotes;Motorenerotik;Motorenexotik;Neurotik;Robotik;Semiotik;Symbiotik;Vampir-Gotik
-ÄTICH;benötig;bestätig;betätig;erbötig;gnädig;grätig;knet ich;ledig;nötig;red ich;stetig;tät ich;tätig;unflätig;untätig;Mikrorobotik;vierpfötig;Ästhetik;Ethik;Phonetik
-OTIKER;Erotiker;Neurotiker;Psychiotiker;Robotiker;Semiotiker;verstetig
-OTISCH;anekdotisch;asymptotisch;biotisch;böotisch;chaotisch;despotisch;erotisch;exotisch;gotisch;hypnotisch;idiotisch;laotisch;narkotisch;neurotisch;osmotisch;symbiotisch;zypriotisch;Bistrotisch;Bürotisch
-ÖTLICH;dekretlich;gesundheitsschädlich;rätlich;redlich;rötlich;schädlich;straftätlich;tätlich;tödlich;unredlich;unschädlich;patriotisch
+OTES;angedrohtes;bedrohtes;bedroht es;benot es;bot es;devotes;droht es;erbot es;entbot es;gebot es;rotes;totes;unterbot es;verflohtes;verrohtes;Angebotes;Aufgebotes;Bootes;Botes;Brotes;Gebotes;Schlotes;Schotes;Schrote;Totes
+OTIG;grottig;knotig;kotig;schotig;schrotig;schrottig;Backsteingotik;Antibiotik;Biotik;Büro-Tick;Erotik;Exotik;Gotik;Homoerotik;Hypnotik;Mikrorobotik;Motorenerotik;Motorenexotik;Neurotik;Robotik;Semiotik;Symbiotik;Vampir-Gotik
+ÖTIG;benötig;bestätig;betätig;erbötig;gnädig;grätig;knet ich;ledig;nötig;red ich;stetig;tät ich;tätig;unflätig;untätig;verstetig;vierpfötig;Ästhetik;Ethik;Phonetik
+OTIKER;Erotiker;Neurotiker;Psychiotiker;Robotiker;Semiotiker
+OTISCH;anekdotisch;asymptotisch;biotisch;böotisch;chaotisch;despotisch;erotisch;exotisch;gotisch;hypnotisch;idiotisch;laotisch;narkotisch;neurotisch;osmotisch;patriotisch;symbiotisch;zypriotisch;Bistrotisch;Bürotisch
+ÖTLICH;dekretlich;gesundheitsschädlich;rätlich;redlich;rötlich;schädlich;straftätlich;tätlich;tödlich;unredlich;unschädlich
 OTO;in toto;Foto;Kyoto;Toto
 OTSEN;Bozen;Lotsen;Sozen
-OTT;bankrott;bigott;flott;hot;hühott;kapott;lot (engl.);not (engl.);polyglott;rott;sapperlot;sott;spott;trott;verrott;zusammenrott;Aeroflot;Autoschrott;Bankrott;Boykott;Dot;Elektroschrott;Fagott;Feuergott;Foxtrott;Fürchtegott;Fußballgott;Gott;HJ;Hottentott;Hugenott;Ischariot;Jot;Kirschkompott;Komplott;Kompott;Obstkompott;Pott;Schafott;Schamott;Schott;Schrott;Spott;Staatsbankrott;Trott;Wettergott
-OTTE;bankrotte;bigotte;entmotte;flotte;hotte;plotte;polyglotte;rotte;schotte;schrotte;sotte;spotte;tarotte;trotte;verrotte;verspott;verspotte;zusammenrotte;Bankrotte;Charlotte;Filmklamotte;Flotte;Gehotte;Gesotte;Grotte;Hottentotte;Hugenotte;Kalotte;Karotte;Klamotte;Komplotte;Kompotte;Marotte;Motte;Rotte;Schafotte;Schotte;Sprotte
-OTTEL;Bottle (engl.);Globetrottel;Model;Trottel;Zottel;verschrotte
-OTTEN;abzuhotten;abzuschotten;auszurotten;bankrotten;bigotten;einzumotten;entmotten;flotten;gesotten;hotten;plotten;polyglotten;rotten;schotten;schrotten;spotten;trotten;verrotten;verschrotten;verspotten;zusammenrotten;Bergamotten;Flotten;Grotten;Hottentotten;Hugenotten;Kalotten;Karotten;Klamotten;Komplotten;Kompotten;Marotten;Motten;Rotten;Schafotten;Schotten;Sprotten;Zotten
-OTTEND;entmottend;hottend;plottend;rottend;schottend;schrottend;sottend;spottend;trottend;verrottend;verschrottend;verspottend;zusammenrottend;sotten
+OTT;bankrott;bigott;flott;hot;hühott;kapott;lot (engl.);not (engl.);polyglott;rott;sapperlot;sott;spott;trott;verrott;verspott;zusammenrott;Aeroflot;Autoschrott;Bankrott;Boykott;Dot;Elektroschrott;Fagott;Feuergott;Foxtrott;Fürchtegott;Fußballgott;Gott;HJ;Hottentott;Hugenott;Ischariot;Jot;Kirschkompott;Komplott;Kompott;Obstkompott;Pott;Schafott;Schamott;Schott;Schrott;Spott;Staatsbankrott;Trott;Wettergott
+OTTE;bankrotte;bigotte;entmotte;flotte;hotte;plotte;polyglotte;rotte;schotte;schrotte;sotte;spotte;tarotte;trotte;verrotte;verschrotte;verspotte;zusammenrotte;Bankrotte;Charlotte;Filmklamotte;Flotte;Gehotte;Gesotte;Grotte;Hottentotte;Hugenotte;Kalotte;Karotte;Klamotte;Komplotte;Kompotte;Marotte;Motte;Rotte;Schafotte;Schotte;Sprotte
+OTTEL;Bottle (engl.);Globetrottel;Model;Trottel;Zottel
+OTTEN;abzuhotten;abzuschotten;auszurotten;bankrotten;bigotten;einzumotten;entmotten;flotten;gesotten;hotten;plotten;polyglotten;rotten;schotten;schrotten;sotten;spotten;trotten;verrotten;verschrotten;verspotten;zusammenrotten;Bergamotten;Flotten;Grotten;Hottentotten;Hugenotten;Kalotten;Karotten;Klamotten;Komplotten;Kompotten;Marotten;Motten;Rotten;Schafotten;Schotten;Sprotten;Zotten
+OTTEND;entmottend;hottend;plottend;rottend;schottend;schrottend;sottend;spottend;trottend;verrottend;verschrottend;verspottend;zusammenrottend
 OTTENS;Entmottens;Hottens;Plottens;Rottens;Schottens;Schrottens;Sottens;Spottens;Trottens;Verrottens;Verschrottens;Verspottens;Zusammenrottens
-OTTER;flotter;lotter;polyglotter;schnodder;schlotter;stotter;verlotter;Dotter;Geschlotter;Gestotter;Globetrotter;Lotta;Otter;Plotter;Potter;Schmodder;Schotter;Schrotter;Verschrotter
-OTTERN;flotter’n;lottern;schlottern;schottern;stottern;verlottern;Dottern;Globetrottern;Ottern;Schottern;Schalotten
+OTTER;flotter;lotter;polyglotter;schnodder;schlotter;stotter;verlotter;Dotter;Geschlotter;Gestotter;Globetrotter;Lotta;Otter;Plotter;Potter;Schalotten;Schmodder;Schotter;Schrotter;Verschrotter
+OTTERN;flotter’n;lottern;schlottern;schottern;stottern;verlottern;Dottern;Globetrottern;Ottern;Schottern
 OTTERND;lotternd;schlotternd;schotternd;stotternd;verlotternd
 OTTERNS;Lotterns;Schlotterns;Schotterns;Stotterns;Verlotterns
 OTTERT;lottert;schlottert;schottert;stottert;verlottert
@@ -3074,18 +3499,18 @@ OTTIG;grottig;schrottig;Agrarrobotik;Allzweckrobotik;Biorobotik;Cobotik;Gartenro
 ÖTTISCH;göttisch;lettisch;spöttisch
 OTTO;Flötotto;Giotto;Lotto;Motto;Otto;Risotto
 OTUS;FLOTUS;Lotus;POTUS
-OTZ;dotz;fotz;glotz;klotz;kotz;motz;plotz;protz;rotz;schlotz;schmotz;trotz;verkotz;verrotz;verschmotz;Bankrotts;Boykotts;Dots;Dauerglotz;Fagotts;Foxtrotts;Gotts;Hottentotts;Hotzenplotz;Hugenotts;Ischariots;Jots;Klotz;Komplotts;Kompotts;Potts;Protz;Rotz;Schafotts;Schamotts;Schotts;Schrotts;Shots (engl.);Spots;Trotts;Trotz
-OTZE;dotze;fotze;glotze;klotze;kotze;motze;plotze;protze;rotze;schlotze;schmotze;strotz;trotze;verkotze;verrotze;Autoschrotts;Fotze;Geglotze;Geklotze;Gekotze;Gemotze;Geschmotze;Glotze;Kotze;Protze;Rotze;Schmotze
-OTZEN;abzutrotzen;anzuglotzen;aufzumotzen;auszurotzen;dotzen;fotzen;glotzen;hinzuklotzen;hinzukotzen;klotzen;kotzen;motzen;plotzen;protzen;rotzen;verschmotze;schmotzen;strotzen;trotzen;verkotzen;verrotzen;verschmotzen;zuzuklotzen;Fotzen;Glotzen;Protzen;Watson
-OTZEND;dotzend;fotzend;glotzend;klotzend;kotzend;motzend;plotzend;protzend;rotzend;schlotzend;schmotzend;strotzed;trotzend;verkotzend;verrotzend;schlotzen
-OTZENS;Dotzens;Fotzens;Glotzens;Klotzens;Kotzens;Motzens;Plotzens;Protzens;Rotzens;Schlotzens;Schmotzens;Strotzes;Trotzens;Verkotzens;Verrotzens;verschmotzend
-OTZT;abgetrotzt;angedotzt;angeglotzt;angekotzt;aufgemotzt;ausgekotzt;fotzt;gefotzt;geklotzt;gemotzt;geprotzt;gerotzt;geschlotzt;geschmotzt;getrotzt;Verschmotzens;hingeklotzt;hingekotzt;klotzt;kotzt;motzt;plotzt;protzt;rotzt;schlotzt;schmotzt;verkotzt;verschmotzt
-ÖWE;Löwe;Kleve;Möwe;REWE;Töwe;Zeh weh;glotzt
+OTZ;dotz;fotz;glotz;klotz;kotz;motz;plotz;protz;rotz;schlotz;schmotz;trotz;verkotz;verrotz;verschmotz;Autoschrotts;Bankrotts;Boykotts;Dots;Dauerglotz;Fagotts;Foxtrotts;Gotts;Hottentotts;Hotzenplotz;Hugenotts;Ischariots;Jots;Klotz;Komplotts;Kompotts;Potts;Protz;Rotz;Schafotts;Schamotts;Schotts;Schrotts;Shots (engl.);Spots;Trotts;Trotz
+OTZE;dotze;fotze;glotze;klotze;kotze;motze;plotze;protze;rotze;schlotze;schmotze;strotz;trotze;verkotze;verrotze;verschmotze;Fotze;Geglotze;Geklotze;Gekotze;Gemotze;Geschmotze;Glotze;Kotze;Protze;Rotze;Schmotze
+OTZEN;abzutrotzen;anzuglotzen;aufzumotzen;auszurotzen;dotzen;fotzen;glotzen;hinzuklotzen;hinzukotzen;klotzen;kotzen;motzen;plotzen;protzen;rotzen;schlotzen;schmotzen;strotzen;trotzen;verkotzen;verrotzen;verschmotzen;zuzuklotzen;Fotzen;Glotzen;Protzen;Watson
+OTZEND;dotzend;fotzend;glotzend;klotzend;kotzend;motzend;plotzend;protzend;rotzend;schlotzend;schmotzend;strotzed;trotzend;verkotzend;verrotzend;verschmotzend
+OTZENS;Dotzens;Fotzens;Glotzens;Klotzens;Kotzens;Motzens;Plotzens;Protzens;Rotzens;Schlotzens;Schmotzens;Strotzes;Trotzens;Verkotzens;Verrotzens;Verschmotzens
+OTZT;abgetrotzt;angedotzt;angeglotzt;angekotzt;aufgemotzt;ausgekotzt;fotzt;gefotzt;geklotzt;gemotzt;geprotzt;gerotzt;geschlotzt;geschmotzt;getrotzt;glotzt;hingeklotzt;hingekotzt;klotzt;kotzt;motzt;plotzt;protzt;rotzt;schlotzt;schmotzt;verkotzt;verschmotzt
+ÖWE;Löwe;Kleve;Möwe;REWE;Töwe;Zeh weh
 UB;hup;pup;Bub;Hub;Schub;Soup (engl.);Troup (engl.)
 UBE;Bube;Grube;Schube;Stube;Tube
 UBEL;bejubel;bubel;doubel;jubel;verjubel;Bubel;Double;Gejubel;Jubel;Rubel;Trubel
-ÜBEL;bekübel;bübel;comestibel;disponibel;dübel;grübel;inkompatibel;kompatibel;kompostibel;kübel;penibel;übel;verübel;Bibel;Dübel;Giebel;Kübel;People;Stübl;Übel;Zwiebel
-UBELN;bejubeln;bubeln;doubeln;jubeln;verjubeln;Doublen;Gejubel;Rubeln;Trubeln;Fibel
+ÜBEL;bekübel;bübel;comestibel;disponibel;dübel;grübel;inkompatibel;kompatibel;kompostibel;kübel;penibel;übel;verübel;Bibel;Dübel;Fibel;Giebel;Kübel;People;Stübl;Übel;Zwiebel
+UBELN;bejubeln;bubeln;doubeln;jubeln;verjubeln;Doublen;Gejubel;Rubeln;Trubeln
 ÜBELN;andübeln;bübeln;dübeln;kübeln;verdübeln;verübeln;zwiebeln;Bibeln;Dübeln;Fibeln;Giebeln;Kübeln;Übeln;Zwiebeln
 UBELND;bejubelnd;bubelnd;doubelnd;jubelnd;verjubelnd
 ÜBELND;andübelnd;bübelnd;dübelnd;kübelnd;verdübelnd;verübelnd;zwiebelnd
@@ -3093,37 +3518,37 @@ UBELNS;Bejubelns;Bubelns;Doubelns;Jubelns;Verjubelns
 ÜBELNS;Andübelns;Bübelns;Dübelns;Kübelns;Verdübelns;Verübelns;Zwiebelns
 ÜBELS;dübel’s;kübel's;verübel’s;Dübels;Giebels;Kübels;Übels
 UBELT;bejubelt;bubelt;doubelt;jubelt;verjubelt
-ÜBELT;angedübelt;auseinanderzwiebelt;bübelt;dübelt;eingedübelt;gebübelt;gedübelt;gegrübelt;gekübelt;gezwiebelt;grübelt;kübelt;verdübelt;verübelt;zusammendübelt
-ÜBLICH;außerbetrieblich;betrüblich;lieblich;betrieblich;handelsüblich;innerbetrieblich;landesüblich;ortsüblich;überbetrieblich;üblich;unaufschieblich;verschieblich;vertrieblich;zwiebelt
-ÜBSCH;ei verbibsch (sächs.);hübsch;wunderhübsch
+ÜBELT;angedübelt;auseinanderzwiebelt;bübelt;dübelt;eingedübelt;gebübelt;gedübelt;gegrübelt;gekübelt;gezwiebelt;grübelt;kübelt;verdübelt;verübelt;zusammendübelt;zwiebelt
+ÜBLICH;außerbetrieblich;betrüblich;lieblich;betrieblich;handelsüblich;innerbetrieblich;landesüblich;ortsüblich;überbetrieblich;üblich;unaufschieblich;verschieblich;vertrieblich
+ÜBSCH;ei verbibsch (sächs.);hübsch
 ÜBUNG;Schiebung;Übung;Trübung;Verliebung;Verschiebung;Zeitverschiebung
 UCH;huch!;uch!;Achsenbruch;Bruch;Ehebruch;Geruch;Mundgeruch;Oderbruch;Rippenbruch;Spruch;Zauberspruch
 UCHST;ausgefuchst;druckst;herunterschluckst;kuckst;muckst;schluckst;spuckst;verdruckst;verkuckst;verschluckst;zuckst;zusammenzuckst
-UCHT;Blumenzucht;Bucht;Fahrerflucht;Felsenbucht;Flucht;Frucht;Gartenfrucht;Gegenwucht;Hühnerzucht;Hundezucht;Klosterzucht;Kürbisfrucht;Landesflucht;Lügenfrucht;Meeresbucht;Rinderzucht;Schalenfrucht;Schlucht;Schweinezucht;Sonnenfrucht;Sucht;Taubenzucht;Wassersucht;Wucht;Zimmerflucht;Zucht
-UCHTEN;buchten;fruchten;wuchten;Buchten;Fluchten;Schluchten;Zuchten;Pferdezucht
+UCHT;Blumenzucht;Bucht;Fahrerflucht;Felsenbucht;Flucht;Frucht;Gartenfrucht;Gegenwucht;Hühnerzucht;Hundezucht;Klosterzucht;Kürbisfrucht;Landesflucht;Lügenfrucht;Meeresbucht;Pferdezucht;Rinderzucht;Schalenfrucht;Schlucht;Schweinezucht;Sonnenfrucht;Sucht;Taubenzucht;Wassersucht;Wucht;Zimmerflucht;Zucht
+UCHTEN;buchten;fruchten;wuchten;Buchten;Fluchten;Schluchten;Zuchten
 UCHTEND;buchtend;fruchtend;wuchtend
 UCHTENS;Buchtens;Fruchtens;Wuchtens
 UCHTET;buchtet;fruchtet;wuchtet
 UCHUNG;Betuchung;Blutuntersuchung;Buchung;Durchsuchung;Untersuchung;Verbuchung;Versuchung
 UCHZ;juchz;schluchz;sucht's;verbucht's;wucht's
-UCK;gluck;hauruck;hugh;juck;kuck;ruckzuck;verkuck;zuck;Brugg;Duck;Druck;Gluck;Look;Mameluk;Muck;Puck;Ruck;Schmuck;Schluck;Struck;Stuck
-UCKE;drucke;gucke;kucke;mucke;rucke;schlucke;spucke;zucke;Drucke;Mucke;Rucke;Schlucke;Spucke;Tucke;Muckefuck
+UCK;gluck;hauruck;hugh;juck;kuck;ruckzuck;verkuck;zuck;Brugg;Duck;Druck;Gluck;Look;Mameluk;Muck;Muckefuck;Puck;Ruck;Schmuck;Schluck;Struck;Stuck
+UCKE;drucke;gucke;kucke;mucke;rucke;schlucke;spucke;zucke;Drucke;Mucke;Rucke;Schlucke;Spucke;Tucke
 UCKEL;Buckel;Geruckel;juckel;nuckel;ruckel;Schnuckel;tuckel;zuckel
 UCKELN;buckeln;juckeln;nuckeln;ruckeln;tuckeln;zuckeln
 UCKELND;buckelnd;juckelnd;nuckelnd;ruckelnd;tuckelnd;zuckelnd
 UCKELNS;Buckelns;Juckelns;Nuckelns;Ruckelns;Tuckelns;Zuckelns
-UCKEN;abzudrucken;abzukucken;anzukucken;aufzudrucken;aufzumucken;auszudrucken;drucken;ducken;einzudrucken;glucken;herunterkucken;jucken;kucken;mucken;rucken;schlucken;schmucken;spucken;überdrucken;umzukucken;verdrucken;verkucken;verschlucken;zucken;zusammenzucken;zuzukucken;Felucken;Glucken;Mamelukken;Molukken;Mucken;Schnucken;Schulterzucken
-ÜCKEN;abzudrücken;abzuknicken;abzunicken;abzupflücken;abzurücken;abzuschicken;abzuzwicken;aneinanderdrücken;aneinanderrücken;anzublicken;anzudrücken;anzuklicken;anzurücken;aufzublicken;aufzudrücken;runterschlucken;aufzusticken;auseinanderdrücken;auseinanderpflücken;auseinanderrücken;auszudrücken;auszurücken;auszuschicken;auszuschmücken;bedrücken;beglücken;berücken;beschicken;besticken;bestricken;bestücken;blicken;bücken;dicken;drücken;einzublicken;einzudrücken;einzuknicken;einzurücken;einzunicken;einzuschicken;entrücken;entzücken;erblicken;erdrücken;erquicken;ersticken;ficken;flicken;fortzuschicken;glücken;herunterblicken;herunterdrücken;hineinzudrücken;glücken;kicken;klicken;knicken;nachzublicken;nachzurücken;nicken;pflücken;picken;picknicken;quicken;rücken;schicken;schlicken;schmücken;spicken;sticken;stricken;ticken;überblicken;überbrücken;umzudrücken;umzublicken;umzuknicken;unterdrücken;verdicken;verdrücken;verrücken;verschicken;verstricken;verticken;verzücken;vorauszublicken;vorzurücken;vorzuschicken;wegzublicken;wegzurücken;zerdrücken;zerpflücken;zerknicken;zicken;zücken;zusammendrücken;zusammenrücken;zusammenzwicken;zuzudrücken;zwicken;Augenblicken;Blicken;Brücken;Flicken;Genicken;Geschicken;Knicken;Krücken;Kuchenstücken;Küken;Lücken;Mücken;Ricken;Rücken;Schlücken;Stricken;Stücken;Theaterstücken;Tücken;Wicken;Zicken
-UCKEND;druckend;duckend;gluckend;herunterkuckend;juckend;kuckend;muckend;ruckend;runterschluckend;schluckend;spuckend;überdruckend;umzukuckend;verdruckend;verkuckend;aufzurücken;zuckend;zusammenzuckend
-ÜCKEND;bedrückend;beglückend;berückend;beschickend;bestückend;blickend;bückend;drückend;entrückend;entzückend;erblickend;erdrückend;erquickend;fickend;flickend;verschluckend;herunterdrückend;kickend;klickend;nickend;pickend;pflückend;rückend;schickend;schmückend;stickend;überbrückend;verdrückend;verschickend;verzückend;zerdrückend;zickend;zückend;zusammenrückend;zwickend
-UCKENS;Druckens;Duckens;Gluckens;Herunterkuckens;Juckens;Kuckens;Muckens;Ruckens;Runterschluckens;Schluckens;Spuckens;Überdruckens;Umzukuckens;Verdruckens;Verkuckens;glückend;Zuckens;Zusammenzuckens
-ÜCKENS;Bedrückens;Beglückens;Berückens;Beschickens;Bestückens;Blickens;Bückens;Drückens;Entrückens;Entzückens;Erblickens;Erdrückens;Erquickens;Fickens;Flickens;Verschluckens;Herunterdrückens;Kickens;Klickens;Nickens;Pickens;Pflückens;Rückens;Schickens;Schmückens;Stickens;Überbrückens;Verdrückens;Verschickens;Verzückens;Zerdrückens;Zickens;Zückens;Zusammenrückens;Zwickens
-UCKER;schmucker;Kucker;Brucker;Drucker;Ducker;Fugger;Gucker;Lucca;Rucker;Schlucker;Unterzucker;Zucker;Glückens
+UCKEN;abzudrucken;abzukucken;anzukucken;aufzudrucken;aufzumucken;auszudrucken;drucken;ducken;einzudrucken;glucken;herunterkucken;jucken;kucken;mucken;rucken;runterschlucken;schlucken;schmucken;spucken;überdrucken;umzukucken;verdrucken;verkucken;verschlucken;zucken;zusammenzucken;zuzukucken;Felucken;Glucken;Mamelukken;Molukken;Mucken;Schnucken;Schulterzucken
+ÜCKEN;abzudrücken;abzuknicken;abzunicken;abzupflücken;abzurücken;abzuschicken;abzuzwicken;aneinanderdrücken;aneinanderrücken;anzublicken;anzudrücken;anzuklicken;anzurücken;aufzublicken;aufzudrücken;aufzurücken;aufzusticken;auseinanderdrücken;auseinanderpflücken;auseinanderrücken;auszudrücken;auszurücken;auszuschicken;auszuschmücken;bedrücken;beglücken;berücken;beschicken;besticken;bestricken;bestücken;blicken;bücken;dicken;drücken;einzublicken;einzudrücken;einzuknicken;einzurücken;einzunicken;einzuschicken;entrücken;entzücken;erblicken;erdrücken;erquicken;ersticken;ficken;flicken;fortzuschicken;glücken;herunterblicken;herunterdrücken;hineinzudrücken;glücken;kicken;klicken;knicken;nachzublicken;nachzurücken;nicken;pflücken;picken;picknicken;quicken;rücken;schicken;schlicken;schmücken;spicken;sticken;stricken;ticken;überblicken;überbrücken;umzudrücken;umzublicken;umzuknicken;unterdrücken;verdicken;verdrücken;verrücken;verschicken;verstricken;verticken;verzücken;vorauszublicken;vorzurücken;vorzuschicken;wegzublicken;wegzurücken;zerdrücken;zerpflücken;zerknicken;zicken;zücken;zusammendrücken;zusammenrücken;zusammenzwicken;zuzudrücken;zwicken;Augenblicken;Blicken;Brücken;Flicken;Genicken;Geschicken;Knicken;Krücken;Kuchenstücken;Küken;Lücken;Mücken;Ricken;Rücken;Schlücken;Stricken;Stücken;Theaterstücken;Tücken;Wicken;Zicken
+UCKEND;druckend;duckend;gluckend;herunterkuckend;juckend;kuckend;muckend;ruckend;runterschluckend;schluckend;spuckend;überdruckend;umzukuckend;verdruckend;verkuckend;verschluckend;zuckend;zusammenzuckend
+ÜCKEND;bedrückend;beglückend;berückend;beschickend;bestückend;blickend;bückend;drückend;entrückend;entzückend;erblickend;erdrückend;erquickend;fickend;flickend;glückend;herunterdrückend;kickend;klickend;nickend;pickend;pflückend;rückend;schickend;schmückend;stickend;überbrückend;verdrückend;verschickend;verzückend;zerdrückend;zickend;zückend;zusammenrückend;zwickend
+UCKENS;Druckens;Duckens;Gluckens;Herunterkuckens;Juckens;Kuckens;Muckens;Ruckens;Runterschluckens;Schluckens;Spuckens;Überdruckens;Umzukuckens;Verdruckens;Verkuckens;Verschluckens;Zuckens;Zusammenzuckens
+ÜCKENS;Bedrückens;Beglückens;Berückens;Beschickens;Bestückens;Blickens;Bückens;Drückens;Entrückens;Entzückens;Erblickens;Erdrückens;Erquickens;Fickens;Flickens;Glückens;Herunterdrückens;Kickens;Klickens;Nickens;Pickens;Pflückens;Rückens;Schickens;Schmückens;Stickens;Überbrückens;Verdrückens;Verschickens;Verzückens;Zerdrückens;Zickens;Zückens;Zusammenrückens;Zwickens
+UCKER;schmucker;Kucker;Brucker;Drucker;Ducker;Fugger;Gucker;Lucca;Rucker;Schlucker;Unterzucker;Zucker
 ÜCKLICH;augenblicklich;ausdrücklich;dicklich;erquicklich;geschicklich;glücklich;kreuzunglücklich;nicklig;picklig;pricklig;schicklich;überglücklich;ungeschicklich;unerquicklich
-UCKS;bedruck's;bekuck's;drucks;ertrug's;flugs;frug's;glucks;verdrucks;verfug's;vertrug's;Betrugs;Bewuchs;Bezugs;Blumenschmucks;Bugs;Bux;Cooks;Ducks;Flugs;Fuchs;Fürstenfeldbrucks;Jux;Krugs;Krux;Luchs;Mucks;Pucks;Riesenwuchs;Rucks;Schlucks;Stucks;Suks;Verzugs;Vollzugs;Wuchs;Wüstenfuchs;Zucks;Zugs;Zwergenwuchs
-UCKT;abgedruckt;abgekuckt;angekuckt;angespuckt;aufgedruckt;aufgemuckt;ausgedruckt;ausgeschluckt;ausgespuckt;beschuckt;druckt;duckt;eingedruckt;gedruckt;geduckt;Bruggs;gekuckt;geschluckt;geschuckt;gespuckt;gezuckt;gluckt;herunterkuckt;juckt;kuckt;lugt;muckt;ruckt;schluckt;spuckt;spukt;überdruckt;umgekuckt;unbedruckt;verdruckt;verfuckt;verkuckt;verschluckt;zuckt;zusammenzuckt;Aquädukt;Konstrukt;Produkt;Viadukt
-UCKTE;abgedruckte;abgekuckte;angekuckte;angespuckte;aufgedruckte;aufgemuckte;ausgedruckte;ausgespuckte;bedruckte;duckte;eingedruckte;geschuckte;gluckte;herunterkuckte;juckte;gejuckt;lugte;muckte;ruckte;schluckte;spuckte;spukte;verdruckte;verkuckte;verschluckte;zuckte;zusammenzuckte;Aquädukte;Geschuckte;Kleingedruckte;Konstrukte;Produkte;Viadukte
-UCKUCK;Kuckuck;ruckzuck;zukuck;kuckte
+UCKS;bedruck's;bekuck's;drucks;ertrug's;flugs;frug's;glucks;verdrucks;verfug's;vertrug's;Betrugs;Bewuchs;Bezugs;Blumenschmucks;Bugs;Bruggs;Bux;Cooks;Ducks;Flugs;Fuchs;Fürstenfeldbrucks;Jux;Krugs;Krux;Luchs;Mucks;Pucks;Riesenwuchs;Rucks;Schlucks;Stucks;Suks;Verzugs;Vollzugs;Wuchs;Wüstenfuchs;Zucks;Zugs;Zwergenwuchs
+UCKT;abgedruckt;abgekuckt;angekuckt;angespuckt;aufgedruckt;aufgemuckt;ausgedruckt;ausgeschluckt;ausgespuckt;beschuckt;druckt;duckt;eingedruckt;gedruckt;geduckt;gejuckt;gekuckt;geschluckt;geschuckt;gespuckt;gezuckt;gluckt;herunterkuckt;juckt;kuckt;lugt;muckt;ruckt;schluckt;spuckt;spukt;überdruckt;umgekuckt;unbedruckt;verdruckt;verfuckt;verkuckt;verschluckt;zuckt;zusammenzuckt;Aquädukt;Konstrukt;Produkt;Viadukt
+UCKTE;abgedruckte;abgekuckte;angekuckte;angespuckte;aufgedruckte;aufgemuckte;ausgedruckte;ausgespuckte;bedruckte;duckte;eingedruckte;geschuckte;gluckte;herunterkuckte;juckte;kuckte;lugte;muckte;ruckte;schluckte;spuckte;spukte;verdruckte;verkuckte;verschluckte;zuckte;zusammenzuckte;Aquädukte;Geschuckte;Kleingedruckte;Konstrukte;Produkte;Viadukte
+UCKUCK;Kuckuck;ruckzuck;zukuck
 UDE;krude;Bude;Buxtehude;Drude;Jude;Lude;Trude;Ude
 UDEL;hudel;nudel;sudel;verhudel;Nudel;Pudel;Rudel
 UDELN;hudeln;nudeln;sudeln;verhudeln;Pudeln;Nudeln;Rudeln;Schinkennudeln
@@ -3148,43 +3573,43 @@ UFFER;uffa!;Bluffer;Puffer
 UFFIG;Schluffi;Suffi
 UFFIG;fluffig;knuffig;muffig;schluffig
 ÜFFIG;griffig;pfiffig;siffig;süffig;übergriffig
-UFFT;ausgebufft;blufft;geblufft;geknufft;knufft;pufft;verpufft;Duft;Felsenkluft;Gruft;Höhenluft;Kluft;Luft;Räucherduft;Schuft;Zauberduft
-UFFTE;ausgebuffte;dufte;knuffte;schufte;verpuffte;Schufte;Soldatenkluft
+UFFT;ausgebufft;blufft;geblufft;geknufft;knufft;pufft;verpufft;Duft;Felsenkluft;Gruft;Höhenluft;Kluft;Luft;Räucherduft;Schuft;Soldatenkluft;Zauberduft
+UFFTE;ausgebuffte;dufte;knuffte;schufte;verpuffte;Schufte
 UFFTEN;ausgebufften;duften;knufften;schuften;verpufften;Gruften;Lederkluften;Schuften
 UFFTEND;duftend;schuftend
 UFFTENS;Duftens;Schuftens
 UFFTET;duftet;schuftet
 UFTEN;abgestuften;behuften;gestuften;moveten;ruften;stuften
-ÜFTEN;abzudriften;anzustiften;bekifften;belüften;beschriften;driften;entgiften;giften;kifften;liften;lüften;schifften;sifften;stiften;vergiften;versifften;zerklüften;Düften;Giften;Hüften;Klüften;Liften;Lüften;Schriften;Stiften
-ÜFTEND;belüftend;beschriftend;driftend;entgiftend;giftend;liftend;lüftend;stiftend;vergiftend;zerklüftend;verschifften
+ÜFTEN;abzudriften;anzustiften;bekifften;belüften;beschriften;driften;entgiften;giften;kifften;liften;lüften;schifften;sifften;stiften;vergiften;verschifften;versifften;zerklüften;Düften;Giften;Hüften;Klüften;Liften;Lüften;Schriften;Stiften
+ÜFTEND;belüftend;beschriftend;driftend;entgiftend;giftend;liftend;lüftend;stiftend;vergiftend;zerklüftend
 ÜFTENS;Belüftens;Beschriftens;Driftens;Entgiftens;Giftens;Liftens;Lüftens;Stiftens;Vergiftens;Zerklüftens
 ÜFTET;belüftet;beschriftet;driftet;entgiftet;giftet;liftet;lüftet;stiftet;vergiftet;zerklüftet
 UFTIG;Grufti;Mufti
 UFTIG;duftig;gruftig;kluftig;luftig;schuftig
 UFTLER;Buschenschuftler;Freizeitgruftler;Gruftler;Schuftler
-UG;befug;beschlug;betrug;erschlug;genug;gerneklug;klug;lebensklug;neunmalklug;schlug;superklug;überklug;überschlug;unterschlug;verschlug;zusammenschlug;Abendzug;Ackerpflug;Alpenzug;Aschenkrug;Asylzuzug;Atemzug;Bartanflug;Bauaufzug;Befug;Betriebsausflug;Betrug;Bettbezug;Beutezug;Bezug;Bienenflug;Buchauszug;Bug;Bummelzug;Charakterzug;Dauerflug;Dienstanzug;Doppelpflug;Drogenentzug;Ehebetrug;Entzug;Extrazug;Fackelzug;Festaufzug;Feuerpflug;Flaschenzug;Flug;Freiheitsentzug;Fug;Funkenflug;Gasabzug;Gegenzug;Gehaltsabzug;Geistesflug;Gewichtsabzug;Glockenzug;Grabenpflug;Gummizug;Güterzug;Haftvollzug;Hausanzug;Heldenzug;Henkelkrug;Hochzeitsflug;Höhenflug;Höhenzug;Honigkrug;Honorarabzug;Jagdanzug;Kettenzug;Kissenüberzug;Klavierauszug;Klingelzug;Korrekturabzug;Krug;Lederüberzug;Leichenzug;Lohnabzug;Lucky Luke;Lug und Trug;Luk;Luxuszug;Maschinenpflug;Maßanzug;Massenbetrug;Möbelüberzug;Moog;Münzbetrug;Namenszug;Neuzuzug;Ofenzug;Pendelzug;Personenzug;Pflug;Polsterüberzug;Probeflug;Rauchabzug;Reisezug;Rohabzug;Rostanflug;Scheibenpflug;Scheinrückzug;Schlafanzug;Schneeanzug;Schonbezug;Schulausflug;Schutzanzug;Schwimmanzug;Segelflug;Selbstbetrug;Siegeszug;Sonderzug;Sportanzug;Spuk;Strafvollzug;Straßenzug;Tarnanzug;Traktorenpflug;Trauerzug;Überflug;Überzug;Übungsflug;Verzug;Vogelflug;Vogelzug;Volksbetrug;Vorderbug;Vorortzug;Wachaufzug;Wagenzug;Wärmeentzug;Wasserkrug;Wechselbetrug;Wendepflug;Winkelzug;Wolkenzug;Zielanflug;Zirkelzug;Zivilanzug;Zug
-UGEND;fugend;lugend;Fußballjugend;Jugend;Tugend;zerschlug
+UG;befug;beschlug;betrug;erschlug;genug;gerneklug;klug;lebensklug;neunmalklug;schlug;superklug;überklug;überschlug;unterschlug;verschlug;zerschlug;zusammenschlug;Abendzug;Ackerpflug;Alpenzug;Aschenkrug;Asylzuzug;Atemzug;Bartanflug;Bauaufzug;Befug;Betriebsausflug;Betrug;Bettbezug;Beutezug;Bezug;Bienenflug;Buchauszug;Bug;Bummelzug;Charakterzug;Dauerflug;Dienstanzug;Doppelpflug;Drogenentzug;Ehebetrug;Entzug;Extrazug;Fackelzug;Festaufzug;Feuerpflug;Flaschenzug;Flug;Freiheitsentzug;Fug;Funkenflug;Gasabzug;Gegenzug;Gehaltsabzug;Geistesflug;Gewichtsabzug;Glockenzug;Grabenpflug;Gummizug;Güterzug;Haftvollzug;Hausanzug;Heldenzug;Henkelkrug;Hochzeitsflug;Höhenflug;Höhenzug;Honigkrug;Honorarabzug;Jagdanzug;Kettenzug;Kissenüberzug;Klavierauszug;Klingelzug;Korrekturabzug;Krug;Lederüberzug;Leichenzug;Lohnabzug;Lucky Luke;Lug und Trug;Luk;Luxuszug;Maschinenpflug;Maßanzug;Massenbetrug;Möbelüberzug;Moog;Münzbetrug;Namenszug;Neuzuzug;Ofenzug;Pendelzug;Personenzug;Pflug;Polsterüberzug;Probeflug;Rauchabzug;Reisezug;Rohabzug;Rostanflug;Scheibenpflug;Scheinrückzug;Schlafanzug;Schneeanzug;Schonbezug;Schulausflug;Schutzanzug;Schwimmanzug;Segelflug;Selbstbetrug;Siegeszug;Sonderzug;Sportanzug;Spuk;Strafvollzug;Straßenzug;Tarnanzug;Traktorenpflug;Trauerzug;Überflug;Überzug;Übungsflug;Verzug;Vogelflug;Vogelzug;Volksbetrug;Vorderbug;Vorortzug;Wachaufzug;Wagenzug;Wärmeentzug;Wasserkrug;Wechselbetrug;Wendepflug;Winkelzug;Wolkenzug;Zielanflug;Zirkelzug;Zivilanzug;Zug
+UGEND;fugend;lugend;Fußballjugend;Jugend;Tugend
 UGENS;Fugens;Lugens;Jugends
-ÜGICH;besieg ich;bestieg ich;betrüg ich;bieg ich;entstieg ich;ertrüg ich;gefügig;krieg ich;lieg ich;lüg ich;schwieg ich;stieg ich;trüg ich;unterlieg ich;verbieg ich;verschwieg ich;verstieg ich;vertrüg ich;ziegig;zügig
-UGT;befugt;beschlugt;bukt;erschlugt;fugt;gefugt;gelugt;gespukt;lugt;unbefugt;schlugt;spukt;verfugt;verschlugt;zusammenschlugt;verfüg ich
-UH;ab und zu;beaucoup (franz.);blue (engl.);dazu;du;geradezu;herzu;hinzu;immerzu;juchhu;juhu;me too (engl.);muh;nahezu;nanu;per du;puh;schubidu;tabu;too (engl.);true (engl.);tu;vertu;wozu;you (engl.);zu;zusammentu;Amour Fou (franz.);Babalu;Balu;Bidla Buh;Bijou (frnaz.);Blindekuh;Buntekuh;CDU;Chouchou (franz.);Clou (franz.);Coup (franz.);Crew;CSU;Damenschuh;Elefantenkuh;Filou;Frauenschuh;Gesù (ital.);Getu;Gnu;Hautgout;Herrenschuh;Interview;IQ;Kakadu;Känguru;Kanu;Katmandu;Kazoo;KPDSU;Kinderschuh;Kotzebue;Kuh;Lederschuh;Lizerazu;LMU;Lulu;Malibu;Manitu;Marabu;Mary Lou;Nu;Passepartout;Peru;Pompidou;Q;Ragout;Rendezvous;Ruh;Schmu;Schnabelschuh;Schuh;Shampoo;Sou;Stöckelschuh;Tabu;Tattoo;Tiramisu;Tutu;Uhu;Wanderschuh;Waterloo;Who-is-who;Xanadu;Zoo (engl.)
-UHE;abtue;antue;beruhe;buhe;geruhe;hintue;muhe;ruhe;tue;umtue;vertue;zue;zusammentue;zutue;Gebuhe;partout;Ruhe;Schuhe;Truhe
-ÜHE;beliehe;bemühe;beziehe;entfliehe;entliehe;entziehe;erglühe;erziehe;fliehe;frühe;gediehe;glühe;hinterziehe;knie;liehe;Getue;überziehe;unterziehe;verblühe;verbrühe;verglühe;verliehe;verziehe;ziehe;zusammenziehe;Brühe;Frühe;Kniee;Kühe;Mariä;Mühe
-UHEN;abzutuen;anzutuen;aufzutuen;auszuruhen;beruhen;geruhen;muhen;ruhen;tuen;vertuen;zutuen;siehe
+ÜGICH;besieg ich;bestieg ich;betrüg ich;bieg ich;entstieg ich;ertrüg ich;gefügig;krieg ich;lieg ich;lüg ich;schwieg ich;stieg ich;trüg ich;unterlieg ich;verbieg ich;verfüg ich;verschwieg ich;verstieg ich;vertrüg ich;ziegig;zügig
+UGT;befugt;beschlugt;bukt;erschlugt;fugt;gefugt;gelugt;gespukt;lugt;unbefugt;schlugt;spukt;verfugt;verschlugt;zusammenschlugt
+UH;ab und zu;beaucoup (franz.);blue (engl.);dazu;du;geradezu;herzu;hinzu;immerzu;juchhu;juhu;me too (engl.);muh;nahezu;nanu;partout;per du;puh;schubidu;tabu;too (engl.);true (engl.);tu;vertu;wozu;you (engl.);zu;zusammentu;Amour Fou (franz.);Babalu;Balu;Bidla Buh;Bijou (frnaz.);Blindekuh;Buntekuh;CDU;Chouchou (franz.);Clou (franz.);Coup (franz.);Crew;CSU;Damenschuh;Elefantenkuh;Filou;Frauenschuh;Gesù (ital.);Getu;Gnu;Hautgout;Herrenschuh;Interview;IQ;Kakadu;Känguru;Kanu;Katmandu;Kazoo;KPDSU;Kinderschuh;Kotzebue;Kuh;Lederschuh;Lizerazu;LMU;Lulu;Malibu;Manitu;Marabu;Mary Lou;Nu;Passepartout;Peru;Pompidou;Q;Ragout;Rendezvous;Ruh;Schmu;Schnabelschuh;Schuh;Shampoo;Sou;Stöckelschuh;Tabu;Tattoo;Tiramisu;Tutu;Uhu;Wanderschuh;Waterloo;Who-is-who;Xanadu;Zoo (engl.)
+UHE;abtue;antue;beruhe;buhe;geruhe;hintue;muhe;ruhe;tue;umtue;vertue;zue;zusammentue;zutue;Gebuhe;Getue;Ruhe;Schuhe;Truhe
+ÜHE;beliehe;bemühe;beziehe;entfliehe;entliehe;entziehe;erglühe;erziehe;fliehe;frühe;gediehe;glühe;hinterziehe;knie;liehe;siehe;überziehe;unterziehe;verblühe;verbrühe;verglühe;verliehe;verziehe;ziehe;zusammenziehe;Brühe;Frühe;Kniee;Kühe;Mariä;Mühe
+UHEN;abzutuen;anzutuen;aufzutuen;auszuruhen;beruhen;geruhen;muhen;ruhen;tuen;vertuen;zutuen
 UHEND;beruhend;geruhend;muhend;ruhend;tuend;vertuend
 UHENS;Beruhens;Geruhens;Muhens;Ruhens;Tuens;Vertuens
 ÜHLUNG;Dielung;Erspielung;Fühlung;Kühlung;Spülung;Unterkühlung;Unterspülung;Unterwühlung;Verkühlung;Wasserkühlung
 ÜHMLICH;altertümlich;eigentümlich;landestümlich;rühmlich;ureigentümlich;ziemlich
 ÜHMT;beamt;berühmt;gebeamt;geblümt;gerühmt;gestreamt;geziemt;mimt;rühmt;streamt;unverblümt;ziemt
-ÜHREN;abzuführen;aneinanderschnüren;anzuführen;anzurühren;aufzuführen;aufzurühren;aufzuspüren;auseinanderführen;auszuführen;berühren;einzuführen;einzuschüren;einzuschnüren;entführen;erführen;erspüren;gebühren;führen;herbeizuführen;herumzuführen;herumzurühren;herumzuschnüren;hineinzuspüren;küren;maniküren;rühren;schüren;schnüren;spüren;überführen;umzurühren;umzuschnüren;unterführen;verführen;verschnüren;verspüren;vorauszuspüren;vorzuführen;vorzuspüren;zurückzuführen;zusammenführen;zusammenschnüren;zuzuführen;zuzuschnüren;Allüren;Außentüren;Bordüren;Düren;Frittüren;Gebühren;Geschwüren;Hosentüren;Lyren;Schwüren;Starallüren;Türen
-ÜHREND;aneinanderschnürend;auseinanderführend;berührend;entführend;erkürend;erspürend;gebührend;führend;kürend;manikürend;rührend;schürend;schnürend;spürend;überführend;erküren;verführend;verschnürend;verspürend;zusammenführend;zusammenschnürend
-ÜHRENS;Aneinanderschnürens;Auseinanderführens;Berührens;Entführens;Erkürens;Erspürens;Gebührens;Führens;Kürens;Manikürens;Rührens;Schürens;Schnürens;Spürens;Überführens;unterführend;Verführens;Verschnürens;Verspürens;Zusammenführens;Zusammenschnürens
-ÜHRT;abgeführt;abgeschnürt;angeführt;angerührt;aufgerührt;ausgeführt;berührt;broschürt;durchgeführt;eingeführt;entführt;erkürt;fortgeführt;führt;gebührt;Unterführens;gekürt;gerührt;geschnürt;geschürt;gespürt;herunterführt;kürt;schnürt;schürt;spürt;überführt;umgerührt;ungerührt;unterführt;verführt;verrührt;verspürt;zurückgeführt;zusammenführt;zusammenrührt;zusammenschnürt
-ÜHRTER;abgeführter;abgeschmierter;abgeschnürter;absorbierter;abstrahierter;affektierter;agiert er;alarmierter;amputierter;amüsierter;angeschmierter;animierter;antiquierter;apostrophierter;applaudiert er;geführt;artikuliert er;asphaltierter;assimilierter;attackierter;avisierter;blanchierter;bornierter;broschürt er;brüskierter;dekantierter;demolierter;demontierter;entführter;erkürter;experimentiert er;exponierter;fabrizierter;frottierter;frustrierter;führt er;funktioniert er;gebiert er;geführter;gekürter;geriert er;gerührter;geschmierter;geschnürter;geschürter;gespürter;giert er;halbierter;hantiert er;hofierter;imitierter;indoktrinierter;induzierter;infiltrierter;insisitierter;irritierter;isolierter;kapiert er;karierter;kaschierter;kastrierter;kodierter;kollidierter;konsternierter;kontrollierter;kopierter;kopuliert er;kuvertierer;kürt er;laboriert er;lädierter;lamentiert er;linierter;livrierter;logiert er;manifestierter;manipulierter;manirierter;massakrierter;massierter;modellierter;modulierter;monierter;montierter;parkiert er;parriert er;passiert er;pikierter;polierter;postierter;probiert er;provoziert er;pürriert er;radiert er;raffinierter;ramponierter;rasiert er;reformierter;regiert er;registrierter;regulierter;relativierter;retouchierter;resignierter;revidierter;revoltiert er;riskiert er;rotiert er;ruiniert er;schmiert er;schnürt er;schürt er;sinniert er;sondiert er;spekuliert er;spürt er;stiert er;sublimierter;substantivierter;suspendierter;überführter;ungerührter;variiert er;verführt er;verliert er;versierter;verspürt er;verschmiert er;wattierter;zirkuliert er
-UIEREN;akzentuieren;desavouieren;eruieren;evakuieren;evaluieren;delinquieren;destruieren;distribuieren;fluktuieren;graduieren;insinuieren;konstruieren;instruieren;menstruieren;nachkonstruieren;arrivierter;prostituieren;rekonstruieren;restituieren;situieren;statuieren;substituieren
-UIEREND;akzentuierend;desavouierend;eruierend;evakuierend;evaluierend;delinquierend;destruierend;distribuierend;fluktuierend;graduierend;insinuierend;konstruierend;instruierend;menstruierend;nachkonstruierend;perpetuieren;prostituierend;rekonstruierend;restituierend;situierend;statuierend;substituierend
-ULD;abgestrullt;adult;angestrullt;eingelullt;erduld;gelullt;gepullt;gestrullt;lullt;pullt;schuld;strullt;verschuld;Dult;Geduld;perpetuierend;Kult;Pult;Ungeduld
-ULDE;Mulde;schulde;dulde;erdulde;hulde;Huld
+ÜHREN;abzuführen;aneinanderschnüren;anzuführen;anzurühren;aufzuführen;aufzurühren;aufzuspüren;auseinanderführen;auszuführen;berühren;einzuführen;einzuschüren;einzuschnüren;entführen;erführen;erküren;erspüren;gebühren;führen;herbeizuführen;herumzuführen;herumzurühren;herumzuschnüren;hineinzuspüren;küren;maniküren;rühren;schüren;schnüren;spüren;überführen;umzurühren;umzuschnüren;unterführen;verführen;verschnüren;verspüren;vorauszuspüren;vorzuführen;vorzuspüren;zurückzuführen;zusammenführen;zusammenschnüren;zuzuführen;zuzuschnüren;Allüren;Außentüren;Bordüren;Düren;Frittüren;Gebühren;Geschwüren;Hosentüren;Lyren;Schwüren;Starallüren;Türen
+ÜHREND;aneinanderschnürend;auseinanderführend;berührend;entführend;erkürend;erspürend;gebührend;führend;kürend;manikürend;rührend;schürend;schnürend;spürend;überführend;unterführend;verführend;verschnürend;verspürend;zusammenführend;zusammenschnürend
+ÜHRENS;Aneinanderschnürens;Auseinanderführens;Berührens;Entführens;Erkürens;Erspürens;Gebührens;Führens;Kürens;Manikürens;Rührens;Schürens;Schnürens;Spürens;Überführens;Unterführens;Verführens;Verschnürens;Verspürens;Zusammenführens;Zusammenschnürens
+ÜHRT;abgeführt;abgeschnürt;angeführt;angerührt;aufgerührt;ausgeführt;berührt;broschürt;durchgeführt;eingeführt;entführt;erkürt;fortgeführt;führt;gebührt;geführt;gekürt;gerührt;geschnürt;geschürt;gespürt;herunterführt;kürt;schnürt;schürt;spürt;überführt;umgerührt;ungerührt;unterführt;verführt;verrührt;verspürt;zurückgeführt;zusammenführt;zusammenrührt;zusammenschnürt
+ÜHRTER;abgeführter;abgeschmierter;abgeschnürter;absorbierter;abstrahierter;affektierter;agiert er;alarmierter;amputierter;amüsierter;angeschmierter;animierter;antiquierter;apostrophierter;applaudiert er;arrivierter;artikuliert er;asphaltierter;assimilierter;attackierter;avisierter;blanchierter;bornierter;broschürt er;brüskierter;dekantierter;demolierter;demontierter;entführter;erkürter;experimentiert er;exponierter;fabrizierter;frottierter;frustrierter;führt er;funktioniert er;gebiert er;geführter;gekürter;geriert er;gerührter;geschmierter;geschnürter;geschürter;gespürter;giert er;halbierter;hantiert er;hofierter;imitierter;indoktrinierter;induzierter;infiltrierter;insisitierter;irritierter;isolierter;kapiert er;karierter;kaschierter;kastrierter;kodierter;kollidierter;konsternierter;kontrollierter;kopierter;kopuliert er;kuvertierer;kürt er;laboriert er;lädierter;lamentiert er;linierter;livrierter;logiert er;manifestierter;manipulierter;manirierter;massakrierter;massierter;modellierter;modulierter;monierter;montierter;parkiert er;parriert er;passiert er;pikierter;polierter;postierter;probiert er;provoziert er;pürriert er;radiert er;raffinierter;ramponierter;rasiert er;reformierter;regiert er;registrierter;regulierter;relativierter;retouchierter;resignierter;revidierter;revoltiert er;riskiert er;rotiert er;ruiniert er;schmiert er;schnürt er;schürt er;sinniert er;sondiert er;spekuliert er;spürt er;stiert er;sublimierter;substantivierter;suspendierter;überführter;ungerührter;variiert er;verführt er;verliert er;versierter;verspürt er;verschmiert er;wattierter;zirkuliert er
+UIEREN;akzentuieren;desavouieren;eruieren;evakuieren;evaluieren;delinquieren;destruieren;distribuieren;fluktuieren;graduieren;insinuieren;konstruieren;instruieren;menstruieren;nachkonstruieren;perpetuieren;prostituieren;rekonstruieren;restituieren;situieren;statuieren;substituieren
+UIEREND;akzentuierend;desavouierend;eruierend;evakuierend;evaluierend;delinquierend;destruierend;distribuierend;fluktuierend;graduierend;insinuierend;konstruierend;instruierend;menstruierend;nachkonstruierend;perpetuierend;prostituierend;rekonstruierend;restituierend;situierend;statuierend;substituierend
+ULD;abgestrullt;adult;angestrullt;eingelullt;erduld;gelullt;gepullt;gestrullt;lullt;pullt;schuld;strullt;verschuld;Dult;Geduld;Huld;Kult;Pult;Ungeduld
+ULDE;Mulde;schulde;dulde;erdulde;hulde
 ULDEN;dulden;erdulden;gedulden;schulden;verschulden;Gulden;Mulden;Schulden
 ULDEND;duldend;erduldend;geduldend;schuldend;verschuldend
 ULDENS;Duldens;Erduldens;Geduldens;Schuldens;Verschuldens
@@ -3196,9 +3621,9 @@ ULDIGENS;Beschuldigens;Entschuldigens;Huldigens
 ULDUNG;Duldung;Erduldung;Entschuldung;Überschuldung;Verschuldung
 ULI;Kuli;Muli
 ÜLICH;deal ich;fühl ich;gefühlig;kühl ich;schiel ich;spiel ich;wühl ich;Jülich
-ULIEREN;akumulieren;annulieren;artikulieren;ausformulieren;fabulieren;formulieren;gestikulieren;gratulieren;immatrikulieren;kalkulieren;kapitulieren;kondulieren;kopulieren;kumulieren;manipulieren;ondulieren;postulieren;schnabulieren;simulieren;spekulieren;stimulieren;strangulieren;titulieren;umformulieren;verklausulieren;zirkulieren
-ULIEREND;akumulierend;annulierend;artikulierend;ausformulierend;fabulierend;formulierend;gestikulierend;gratulierend;immatrikulierend;kalkulierend;kapitulierend;kondulierend;kopulierend;kumulierend;manipulierend;okkulieren;ondulierend;postulierend;schnabulierend;simulierend;spekulierend;stimulierend;strangulierend;titulierend;umformulierend;verklausulierend;zirkulierend
-ULISCH;apulisch;herkulisch;schulisch;okkulierend
+ULIEREN;akumulieren;annulieren;artikulieren;ausformulieren;fabulieren;formulieren;gestikulieren;gratulieren;immatrikulieren;kalkulieren;kapitulieren;kondulieren;kopulieren;kumulieren;manipulieren;okkulieren;ondulieren;postulieren;schnabulieren;simulieren;spekulieren;stimulieren;strangulieren;titulieren;umformulieren;verklausulieren;zirkulieren
+ULIEREND;akumulierend;annulierend;artikulierend;ausformulierend;fabulierend;formulierend;gestikulierend;gratulierend;immatrikulierend;kalkulierend;kapitulierend;kondulierend;kopulierend;kumulierend;manipulierend;okkulierend;ondulierend;postulierend;schnabulierend;simulierend;spekulierend;stimulierend;strangulierend;titulierend;umformulierend;verklausulierend;zirkulierend
+ULISCH;apulisch;herkulisch;schulisch
 ULL;null;full;pull;strull;Bull;Felix Krull;Mull;Null
 ULLE;lulle;pulle;strulle;Ampulle;Bulle;Butterstulle;Gelulle;Käsestulle;Pulle;Schatulle;Schrulle;Stulle;Volle Pulle;Wullebulle
 ULLEN;einzulullen;lullen;pullen;strullen;Ampullen;Börsenbullen;Bullen;Elefantenbullen;Nullen;Pullen;Schatullen;Schrullen;Stullen
@@ -3215,8 +3640,8 @@ ULLIG;bullig;schrullig
 ULPE;Nulpe;Stulpe;Tulpe
 ULS;Bulls;Felix;Krulls;Impuls;Mulls;Nulls;Puls
 ULVER;verpulver;Bouelvard;Kaffeepulver;Matchapulver;Pulver;Rattenpulver;Vulva
-UM;andersrum;außenrum;bumm;darum;dumm;herum;hintenrum;hinwiederum;krumm;kurzum;linksum;medium;punktum;rechtsum;reihum;rum;rundum;summ;stumm;um;vornerum;warum;worum;zum;Aluminium;Ambulatorium;Ammonium;Anthropozoikum;Aquarium;Archaikum;Atrium;Bakterium;Baltikum;Basilikum;Brimborium;Cadmium;Cäsium;Delirium;Direktorium;Euphonium;Elysium;Evangelium;Gaudium;Gebrumm;Gesumm;Gremium;Gymnasium;Harmonium;Heidi Klum;Helium;Herbarium;Imperium;Inventarium;Kadmium;Kalzium;Kambrium;Kawumm;Klinikum;Kollegium;Kolophonium;Konsortium;Krematorium;Kriterium;Laboratorium;Lithium;Magnesium;Martyrium;Matrimonium;Maximum;Medium;Mesozoikum;Millenium;Minimum;Ministerium;Mirakolum;Moratorium;Morphium;Mumm;Mysterium;Narkotikum;Natrium;Odium;Opium;Optimum;Oratorium;Ordinarium;Paläozoikum;Palladium;Patrimonium;Petroleum;Planetarium;Plumbum;Plutonium;Podium;Polyphonium;Politechnikum;Polizeipräsidium;Praktikum;Präludium;Prämium;Präsidium;Prätoritum;Privilegium;Proszenium;Provisorium;Publikum;Refektorium;Refugium;Rum;Sammelsurium;Sanatorium;Schwumm;Silenzium;Silizium;Sodium;Solarium;Stadium;Stipendium;Studium;Spezifikum;Strontium;Symposium;Szenarium;Technikum;Tellurium;Terrarium;Territorium;Testimonium;Titanium;Tritium;Trumm;Tschingderassabum;Tuskulum;Tutorium;Unikum;Uranium;Vakuum;Valium;Vanadium;Vokabularium;Wumm
-UMBA;La Cumbia;Lumumba;Rumba;Zumba;ringsum
+UM;andersrum;außenrum;bumm;darum;dumm;herum;hintenrum;hinwiederum;krumm;kurzum;linksum;medium;punktum;rechtsum;reihum;ringsum;rum;rundum;summ;stumm;um;vornerum;warum;worum;zum;Aluminium;Ambulatorium;Ammonium;Anthropozoikum;Aquarium;Archaikum;Atrium;Bakterium;Baltikum;Basilikum;Brimborium;Cadmium;Cäsium;Delirium;Direktorium;Euphonium;Elysium;Evangelium;Gaudium;Gebrumm;Gesumm;Gremium;Gymnasium;Harmonium;Heidi Klum;Helium;Herbarium;Imperium;Inventarium;Kadmium;Kalzium;Kambrium;Kawumm;Klinikum;Kollegium;Kolophonium;Konsortium;Krematorium;Kriterium;Laboratorium;Lithium;Magnesium;Martyrium;Matrimonium;Maximum;Medium;Mesozoikum;Millenium;Minimum;Ministerium;Mirakolum;Moratorium;Morphium;Mumm;Mysterium;Narkotikum;Natrium;Odium;Opium;Optimum;Oratorium;Ordinarium;Paläozoikum;Palladium;Patrimonium;Petroleum;Planetarium;Plumbum;Plutonium;Podium;Polyphonium;Politechnikum;Polizeipräsidium;Praktikum;Präludium;Prämium;Präsidium;Prätoritum;Privilegium;Proszenium;Provisorium;Publikum;Refektorium;Refugium;Rum;Sammelsurium;Sanatorium;Schwumm;Silenzium;Silizium;Sodium;Solarium;Stadium;Stipendium;Studium;Spezifikum;Strontium;Symposium;Szenarium;Technikum;Tellurium;Terrarium;Territorium;Testimonium;Titanium;Tritium;Trumm;Tschingderassabum;Tuskulum;Tutorium;Unikum;Uranium;Vakuum;Valium;Vanadium;Vokabularium;Wumm
+UMBA;La Cumbia;Lumumba;Rumba;Zumba
 ÜMCHEN;Blümchen;Krümchen;Riemchen;Ungetümchen
 UME;boome;zoome;Blume;Krume;Mume;Ruhme
 UMME;brumme;dumme;krumme;summe;stumme;umme;verdumme;Gebrumme;Lumme;Summe
@@ -3226,9 +3651,9 @@ UMMELND;befummelnd;beschummelnd;brummelnd;bummelnd;fummelnd;grummelnd;schummelnd
 UMMELNS;Befummelns;Beschummelns;Brummelns;Bummelns;Fummelns;Grummelns;Schummelns;Tummelns;Verbummelns
 UMMELST;befummelst;beschummelst;brummelst;bummelst;fummelst;grummelst;schummelst;tummelst;verbummelst
 UMMELT;befummelt;beschummelt;brummelt;bummelt;fummelt;grummelt;schummelt;tummelt;verbummelt
-UMMEN;aufzubrummen;brummen;dummen;geschwummen;krummen;schwummen;summen;stummen;verdummen;vermummen;verstummen;Lummen;Milliardensummen;Motorbrummen;Riesensummen;Schadensummen;Summen;Trottellummen;woman;Wuchtbrummen
-UMMER;dummer;krummer;stummer;übeldummer;wummer;Brummer;Diebeskummer;Dummer;Gewummer;Halbschlafschlummer;Hummer;Kummer;Liebesschlummer;Lummer;Mozartsummer;Schädelbrummen;Scherbenhummer;Schiebenummer;Schlummer;Summer;Stummer;Überzeugungskummer
-UMMERN;dummer’n;krummer’n;schlummern;stummer’n;wummern;Brummern;Hummern;Nummern;Summern;Nummer
+UMMEN;aufzubrummen;brummen;dummen;geschwummen;krummen;schwummen;summen;stummen;verdummen;vermummen;verstummen;Lummen;Milliardensummen;Motorbrummen;Riesensummen;Schädelbrummen;Schadensummen;Summen;Trottellummen;woman;Wuchtbrummen
+UMMER;dummer;krummer;stummer;übeldummer;wummer;Brummer;Diebeskummer;Dummer;Gewummer;Halbschlafschlummer;Hummer;Kummer;Liebesschlummer;Lummer;Mozartsummer;Nummer;Scherbenhummer;Schiebenummer;Schlummer;Summer;Stummer;Überzeugungskummer
+UMMERN;dummer’n;krummer’n;schlummern;stummer’n;wummern;Brummern;Hummern;Nummern;Summern
 UMMERS;Brummers;Hummers;Kummers;Lummers;Schlummers;Summers
 UMMT;abgebrummt;angebrummt;brummt;eingemummt;gebrummt;gemummt;gesummt;summt;verdummt;vermummt;verstummt
 UMMUNG;Verdummung;Vermummung;Verstummung
@@ -3249,23 +3674,23 @@ UMPFEND;schlumpfend;stumpfend;trumpfend;übertrumpfend
 UMPFENS;Schlumpfens;Stumpfens;Trumpfens;Übertrumpfens
 UMPFUNG;Entsumpfung;Leberschrumpfung;Magenschrumpfung;Nierenschrumpfung;Schrumpfung;Verstumpfung;Versumpfung
 UMPT;aufgepumpt;geklumpt;gelumpt;gepumpt;klumpt;lumpt;pumpt;verklumpt;verlumpt
-UMS;bums;dumm’s;krumm’s;stumm’s;ums;Aquariums;Atriums;Bakteriums;Baltikums;Basilikums;Brumms;Deliriums;Gaudiums;Gremiums;Gymnasiums;Herbariums;Imperiums;Kaliums;Kawumms;Klinikums;Laboratoriums;Martyriums;Maximums;Mediums;Minimums;Ministeriums;Mumms;Mysteriums;Natriums;Opiums;Optimums;Oratoriums;Petroleums;Plumbums;Politechnikums;Praktikums;Präsidiums;Provisoriums;Publikums;Refugiums;Rums;Sammelsuriums;Schwumms;Stadiums;Stipendiums;Studiums;Spezifikums;Summs;Szenariums;Technikums;Territoriums;Trumms;Tschingderassabums;Tuskulums;Unikums;Vakuums;Valiums;Wumms
-UMST;behumpst;behumst;bumst;dummst;gebumst;gemummst;geplumpst;gerummst;klumpst;krummst;mummst;plumpst;pumpst;rummst;schlumpfst;Heliums;stumpfst;summst;sumpfst;trumpfst;übertrumpfst;verdummst;verklumpst;versumpfst;verstumpfst;zusammenschrumpfst
-UN;abzutun;anzutun;aufzutun;auszuruh’n;dun;gleichzutun;herübertun;herumzutun;hineinzutun;immun;kundzutun;nun;opportun;nachzutun;ruh'n;schrumpfst;tun;umzutun;vertun;weitertun;zusammentun;balloon;Biohuhn;Cartoon;clown;Gabun;Haselhuhn;High Noon;Huhn;Kamerun;Monsun;moon;Neptun;racoon;Schuh'n;Suppenhuhn;Taifun;Truh'n;Tutenchamun;Volkstribun
-ÜNCHEN;lynchen;tünchen;übertünchen;Brünnchen;Gewinnchen;Hündchen;Kaninchen;Kindchen;Kinnchen;München;Spinnchen;soon
+UMS;bums;dumm’s;krumm’s;stumm’s;ums;Aquariums;Atriums;Bakteriums;Baltikums;Basilikums;Brumms;Deliriums;Gaudiums;Gremiums;Gymnasiums;Heliums;Herbariums;Imperiums;Kaliums;Kawumms;Klinikums;Laboratoriums;Martyriums;Maximums;Mediums;Minimums;Ministeriums;Mumms;Mysteriums;Natriums;Opiums;Optimums;Oratoriums;Petroleums;Plumbums;Politechnikums;Praktikums;Präsidiums;Provisoriums;Publikums;Refugiums;Rums;Sammelsuriums;Schwumms;Stadiums;Stipendiums;Studiums;Spezifikums;Summs;Szenariums;Technikums;Territoriums;Trumms;Tschingderassabums;Tuskulums;Unikums;Vakuums;Valiums;Wumms
+UMST;behumpst;behumst;bumst;dummst;gebumst;gemummst;geplumpst;gerummst;klumpst;krummst;mummst;plumpst;pumpst;rummst;schlumpfst;schrumpfst;stumpfst;summst;sumpfst;trumpfst;übertrumpfst;verdummst;verklumpst;versumpfst;verstumpfst;zusammenschrumpfst
+UN;abzutun;anzutun;aufzutun;auszuruh’n;dun;gleichzutun;herübertun;herumzutun;hineinzutun;immun;kundzutun;nun;opportun;nachzutun;ruh'n;soon;tun;umzutun;vertun;weitertun;zusammentun;balloon;Biohuhn;Cartoon;clown;Gabun;Haselhuhn;High Noon;Huhn;Kamerun;Monsun;moon;Neptun;racoon;Schuh'n;Suppenhuhn;Taifun;Truh'n;Tutenchamun;Volkstribun
+ÜNCHEN;lynchen;tünchen;übertünchen;Brünnchen;Gewinnchen;Hündchen;Kaninchen;Kindchen;Kinnchen;München;Spinnchen
 ÜNCHEND;lynchend;tünchend;übertünchend
 ÜNCHENS;Brünnchens;Lynchens;Münchens;Tünchens;Übertünchens
-UND;bekund;bunt;drunt;erkund;gesund;kugelrund;kund;kunterbunt;moribund;profund;rund;und;ungesund;verwund;wund;Befund;Bund;Fund;Gerund;Grund;Höllenhund;Hund;Lund;Mund;Pfund;Rund;Schlund;Schweinehund;Schwund;Schrund;Schund;Sigismund;Spund;Stund;Untergrund;Vagabund;Verbund
-UNDE;bekunde;erkunde;gesunde;munde;runde;umrunde;ungesunde;verwunde;zugrunde;Befunde;Bunde;Eiterwunde;Funde;Geisterstunde;Gesunde;zugrund;Häkelfunde;Hunde;Hüstelstunde;Kunde;Kunigunde;Meisterstunde;Munde;Pfunde;Pieselrunde;Prosamunde;Rotunde;Runde;Schlunde;Schrunde;Sekunde;Stunde;Tafelrunde;Vagabunde;Verbunde;Verschaukelkunde;Wunde
-ÜNDEL;beschwindel;bündel;gründel;schwindel;zündel;Bündel;Gesindel;Kindl;Mündel;Schindel;Schwindel;Spindel;Windel;Grunde
+UND;bekund;bunt;drunt;erkund;gesund;kugelrund;kund;kunterbunt;moribund;profund;rund;und;ungesund;verwund;wund;zugrund;Befund;Bund;Fund;Gerund;Grund;Höllenhund;Hund;Lund;Mund;Pfund;Rund;Schlund;Schweinehund;Schwund;Schrund;Schund;Sigismund;Spund;Stund;Untergrund;Vagabund;Verbund
+UNDE;bekunde;erkunde;gesunde;munde;runde;umrunde;ungesunde;verwunde;zugrunde;Befunde;Bunde;Eiterwunde;Funde;Geisterstunde;Gesunde;Grunde;Häkelfunde;Hunde;Hüstelstunde;Kunde;Kunigunde;Meisterstunde;Munde;Pfunde;Pieselrunde;Prosamunde;Rotunde;Runde;Schlunde;Schrunde;Sekunde;Stunde;Tafelrunde;Vagabunde;Verbunde;Verschaukelkunde;Wunde
+ÜNDEL;beschwindel;bündel;gründel;schwindel;zündel;Bündel;Gesindel;Kindl;Mündel;Schindel;Schwindel;Spindel;Windel
 ÜNDELN;beschwindeln;bündeln;gründeln;schwindeln;zündeln;Bündeln;Kindln;Mündeln;Schindeln;Schwindeln;Spindeln;Windeln
 ÜNDELND;beschwindelnd;bündelnd;gründelnd;schwindelnd;zündelnd
 ÜNDELNS;Beschwindelns;Bündelns;Gründelns;Schwindelns;Zündelns
 ÜNDELS;Bündels;Gesindels;Kindls;Mündels;Schwindels
 ÜNDELT;beschwindelt;bündelt;gebündelt;gegründelt;geschwindelt;gezündelt;gründelt;schwindelt;zündelt
-UNDEN;bekunden;erkunden;gesunden;munden;runden;umrunden;ungesunden;verwunden;Befunden;Eiterwunden;Funden;Gesunden;Hunden;Kunden;Pfunden;Rotunden;Runden;Schrunden;Sekunden;Stunden;Tafelrunden;Vagabunden;Verbunden;Verschaukelkunden;Wunden
-UNDEN;abgebunden;abgefunden;abzurunden;angebunden;aufgebunden;aufgefunden;aufzurunden;befunden;bekunden;eingebunden;eingefunden;entbunden;entwunden;erfunden;erkunden;Pieselrunden;gebunden;gefunden;geschunden;geschwunden;gesunden;gewunden;herausgefunden;kunden;munden;ortsgebunden;profunden;runden;stattgefunden;stunden;überrunden;überwunden;umgebunden;umrunden;umwunden;ungesunden;unterbunden;unumwunden;verbunden;verschwunden;verwunden;vorgefunden;zerschunden;zugebunden;zusammengebunden;zusammengefunden;Befunden;Gesunden;Hunden;Kunden;Munden;Pfunden;Rotunden;Runden;Schrunden;Sekunden;Stunden;Sunden;Tafelrunden;Überstunden;Vagabunden;Verbunden;Wunden
-UNDEND;bekundend;erkundend;gesundend;mundend;rundend;umrundend;verwundend;festgebunden
+UNDEN;bekunden;erkunden;gesunden;munden;runden;umrunden;ungesunden;verwunden;Befunden;Eiterwunden;Funden;Gesunden;Hunden;Kunden;Pfunden;Pieselrunden;Rotunden;Runden;Schrunden;Sekunden;Stunden;Tafelrunden;Vagabunden;Verbunden;Verschaukelkunden;Wunden
+UNDEN;abgebunden;abgefunden;abzurunden;angebunden;aufgebunden;aufgefunden;aufzurunden;befunden;bekunden;eingebunden;eingefunden;entbunden;entwunden;erfunden;erkunden;festgebunden;gebunden;gefunden;geschunden;geschwunden;gesunden;gewunden;herausgefunden;kunden;munden;ortsgebunden;profunden;runden;stattgefunden;stunden;überrunden;überwunden;umgebunden;umrunden;umwunden;ungesunden;unterbunden;unumwunden;verbunden;verschwunden;verwunden;vorgefunden;zerschunden;zugebunden;zusammengebunden;zusammengefunden;Befunden;Gesunden;Hunden;Kunden;Munden;Pfunden;Rotunden;Runden;Schrunden;Sekunden;Stunden;Sunden;Tafelrunden;Überstunden;Vagabunden;Verbunden;Wunden
+UNDEND;bekundend;erkundend;gesundend;mundend;rundend;umrundend;verwundend
 UNDENS;Bekundens;Erkundens;Gesundens;Mundens;Rundens;Umrundens;Verwundens
 UNDER;bewunder;runder;verwunder;wunder;Bekunder;Bommelunder;Erkunder;Flunder;Holunder;Plunder;Pollunder;Wunder;Zunder
 UNDERN;bewundern;runder’n;verwundern;wundern;Flundern;Hollundern;Pollundern;Wundern
@@ -3274,13 +3699,13 @@ UNDERNS;Bewunderns;Verwunderns;Wunderns
 UNDERT;bewundert;hundert;verwundert;wundert;Hundert
 UNDIG;aktenkundig;kundig;offenkundig;pfundig;schrundig;mundig;Grundig
 UNDLICH;rundlich;stammeskundlich;völkerkundlich
-UNDS;brunz;funz;grunz;schlunz;tun’s;uns;verhunz;Befunds;Bunds;Funds;Gabuns;Gottseibeiuns;Grunds;Hinz und Kunz;Huhns;Kameruns;Lunds;Monsuns;Munds;Muttermunds;Pfunds;Schlunds;Schunds;Schweinehunds;Schwunds;Spunds;Sunds;Taifuns;Verbunds;Vertuns
-UNER;una (ital.);Autotuner;Kameruner;Kapruner;Luna;Poona;Thuner;Tuner;Hunds
+UNDS;brunz;funz;grunz;schlunz;tun’s;uns;verhunz;Befunds;Bunds;Funds;Gabuns;Gottseibeiuns;Grunds;Hinz und Kunz;Huhns;Hunds;Kameruns;Lunds;Monsuns;Munds;Muttermunds;Pfunds;Schlunds;Schunds;Schweinehunds;Schwunds;Spunds;Sunds;Taifuns;Verbunds;Vertuns
+UNER;una (ital.);Autotuner;Kameruner;Kapruner;Luna;Poona;Thuner;Tuner
 UNFT;Brunft;Narrenzunft;Niederkunft;Unterkunft;Unvernunft;Vernunft;Zunft;Zusammenkunft
 ÜNFTIG;grundvernünftig;künftig;unvernünftig;vernünftig;zünftig
 UNGE;junge;Dunge;Junge;Lunge;Schwunge;Zunge
-UNGEN;abgeklungen;abgerungen;abgeschwungen;angeklungen;aufgezwungen;ausbedungen;ausgeklungen;ausgerungen;besungen;bezwungen;eingedrungen;entrungen;erzwungen;fortgeschwungen;gedrungen;geklungen;gelungen;gerungen;geschwungen;gesungen;gezwungen;jungen;mitgesungen;mitgeschwungen;sungen;umgeschwungen;umschlungen;verklungen;versungen;verzwungen;Belästigungen;Beleidigungen;Beschädigungen;Bescheinigungen;Beseitigungen;Besserungen;Betätigungen;Bevölkerungen;Darstellungen;Entwurzelungen;Erinnerungen;Erweiterungen;Jungen;Lungen;Maserungen;Mitwirkungen;Sicherungen;Speicherungen;Verkabelungen;Verschandelungen;Verschönerungen;Verstümmelungen;Verteuerungen;Zungen
-UNGER;hunger;junger;lunger;verhunger;Bärenhunger;Hunger;Junger;gedungen
+UNGEN;abgeklungen;abgerungen;abgeschwungen;angeklungen;aufgezwungen;ausbedungen;ausgeklungen;ausgerungen;besungen;bezwungen;eingedrungen;entrungen;erzwungen;fortgeschwungen;gedrungen;gedungen;geklungen;gelungen;gerungen;geschwungen;gesungen;gezwungen;jungen;mitgesungen;mitgeschwungen;sungen;umgeschwungen;umschlungen;verklungen;versungen;verzwungen;Belästigungen;Beleidigungen;Beschädigungen;Bescheinigungen;Beseitigungen;Besserungen;Betätigungen;Bevölkerungen;Darstellungen;Entwurzelungen;Erinnerungen;Erweiterungen;Jungen;Lungen;Maserungen;Mitwirkungen;Sicherungen;Speicherungen;Verkabelungen;Verschandelungen;Verschönerungen;Verstümmelungen;Verteuerungen;Zungen
+UNGER;hunger;junger;lunger;verhunger;Bärenhunger;Hunger;Junger
 UNGERN;hungern;lungern;verhungern
 UNGERND;hungernd;lungernd;verhungernd
 UNGERNS;Hungerns;Lungerns;Verhungerns
@@ -3293,8 +3718,8 @@ UNKELN;dunkeln;funkeln;munkeln;schunkeln;verdunkeln;Dunkeln;Furunkeln
 UNKELND;dunkelnd;funkelnd;munkelnd;schunkelnd;verdunkelnd
 UNKELNS;Dunkelns;Funkelns;Munkelns;Schunkelns;Verdunkelns
 UNKELT;dunkelt;gedunkelt;gefunkelt;gemunkelt;geschunkelt;munkelt;schunkelt;verdunkelt
-UNKEN;abgestunken;abgesunken;abgewunken;angestunken;angetrunken;ausgestunken;ausgetrunken;betrunken;eingesunken;erstunken;funken;gesunken;gestunken;gewunken;hingesunken;sunken;stunken;trunken;tunken;umgesunken;unken;verstunken;versunken;wunken;zugewunken;Dschunken;Funken;Halunken;Spelunken;Unken
-UNKEND;funkend;prunkend;tunkend;unkend;prunken
+UNKEN;abgestunken;abgesunken;abgewunken;angestunken;angetrunken;ausgestunken;ausgetrunken;betrunken;eingesunken;erstunken;funken;gesunken;gestunken;gewunken;hingesunken;prunken;sunken;stunken;trunken;tunken;umgesunken;unken;verstunken;versunken;wunken;zugewunken;Dschunken;Funken;Halunken;Spelunken;Unken
+UNKEND;funkend;prunkend;tunkend;unkend
 UNKENS;Funkens;Prunkens;Tunkens;Unkens
 UNKER;bunker;flunker;klunker;Bunker;Funker;Junker;Klunker;Unker
 UNKERN;bunkern;flunkern;klunkern;Bunkern;Funkern;Junkern;Klunkern;Unkern
@@ -3304,8 +3729,8 @@ UNKERS;Bunkers;Funkers;Junkers;Klunkers;Unkers
 UNKERT;bunkert;flunkert;gebunkert;geflunkert;geklunkert;klunkert
 UNKS;Funks;Prunks;Punks;Strunks;Stunks;Trunks
 UNKST;funkst;prunkst;tunkst;unkst;untertunkst
-UNKT;angefunkt;eingetunkt;funkt;gefunkt;geprunkt;getunkt;geunkt;prunkt;tunkt;unkt;untergetunkt;Adjunkt;Angelpunkt;Anklagepunkt;Ansatzpunkt;Doppelpunkt;Gipfelpunkt;Haltepunkt;Hauptstützpunkt;Höhepunkt;Kontrapunkt;Kostenpunkt;Landepunkt;Mittelpunkt;Punkt;Sammelpunkt;Scheitelpunkt;Wendepunkt
-UNKTEN;funkten;gefunkten;getunkten;prunkten;punkten;tunkten;unkten;Punkten;Ausgangspunkt
+UNKT;angefunkt;eingetunkt;funkt;gefunkt;geprunkt;getunkt;geunkt;prunkt;tunkt;unkt;untergetunkt;Adjunkt;Angelpunkt;Anklagepunkt;Ansatzpunkt;Ausgangspunkt;Doppelpunkt;Gipfelpunkt;Haltepunkt;Hauptstützpunkt;Höhepunkt;Kontrapunkt;Kostenpunkt;Landepunkt;Mittelpunkt;Punkt;Sammelpunkt;Scheitelpunkt;Wendepunkt
+UNKTEN;funkten;gefunkten;getunkten;prunkten;punkten;tunkten;unkten;Punkten
 ÜNLICH;dienlich;grünlich;kühnlich
 UNNEN;Brunnen;Hunnen;Mineralwasserbrunnen;Schwefelbrunnen
 UNSCH;Eierpunsch;Flunsch;Geburtstagswunsch;Herzenswunsch;Kinderpunsch;Kinderwunsch;Neujahrswunsch;Punsch;Weihnachtswunsch;Wunsch
@@ -3316,16 +3741,16 @@ UNTEN;bunten;drunten;kunterbunten;unten;Lunten;Tunten
 UNTER;bunter;darunter;drunter;herunter;hinunter;kunterbunter;mitunter;munter;runter;unter;Gunther
 UPEL;Quadrupel;Skrupel
 UPF;hupf;lupf;rupf;stupf;tupf;Unterschlupf
-UPFEN;abzutupfen;anzulupfen;anzustupfen;auszurupfen;auszutupfen;auszuzupfen;betupfen;lupfen;rupfen;schupfen (südd.);stupfen;tupfen;verschnupfen;zerrupfen;zupfen;Schnupfen;Schupfen;Tupfen
-ÜPFEN;anzuknüpfen;aufzuknüpfen;aufzulüpfen;auszuschlüpfen;hüpfen;knüpfen;lüpfen;schlüpfen;verknüpfen;Rupfen
+UPFEN;abzutupfen;anzulupfen;anzustupfen;auszurupfen;auszutupfen;auszuzupfen;betupfen;lupfen;rupfen;schupfen (südd.);stupfen;tupfen;verschnupfen;zerrupfen;zupfen;Rupfen;Schnupfen;Schupfen;Tupfen
+ÜPFEN;anzuknüpfen;aufzuknüpfen;aufzulüpfen;auszuschlüpfen;hüpfen;knüpfen;lüpfen;schlüpfen;verknüpfen
 UPFEND;betupfend;lupfend;rupfend;schupfend (südd.);stupfend;tupfend;zerrupfend;zupfend
 ÜPFEND;hüpfend;knüpfend;lüpfend;schlüpfend;verknüpfend
 UPFENS;Betupfens;Lupfens;Rupfens;Schupfens (südd.);Stupfens;Tupfens;Zerrupfens;Zupfens
 ÜPFENS;Hüpfens;Knüpfens;Lüpfens;Schlüpfens;Verknüpfens
 UPFER;Deckellupfer;Hupfer;Kieselkupfer;Kokaschnupfer;Kupfer;Lupfer;Ofenschlupfer;Sahnetupfer;Schlupfer;Schnurrbartzupfer;Schnupfer;Stupfer;Tabakschnupfer;Zwiebelzupfer
 ÜPFER;Hüpfer;Schlüpfer
-UPFT;angelupft;angeschupft;angetupft;betupft;getupft;gelupft;gerupft;geschupft (südd.);gestupft;getupft;gezupft;lupft;rupft;schupft (südd.);stupft;zerrupft;zupft
-ÜPFT;angeknüft;gehüpft;geknüpft;gelüpft;geschlüpft;hüpft;knüpft;lüpft;schlüpft;verknüpft;tupft
+UPFT;angelupft;angeschupft;angetupft;betupft;getupft;gelupft;gerupft;geschupft (südd.);gestupft;getupft;gezupft;lupft;rupft;schupft (südd.);stupft;tupft;zerrupft;zupft
+ÜPFT;angeknüft;gehüpft;geknüpft;gelüpft;geschlüpft;hüpft;knüpft;lüpft;schlüpft;verknüpft
 ÜPFUNG;Hüpfung;Knüpfung;Schlüpfung;Verknüpfung
 UPIEREN;gruppieren;kupieren;toupieren;soupieren;umgruppieren
 UPIEREND;gruppierend;kupierend;toupierend;soupierend;umgruppierend
@@ -3347,8 +3772,8 @@ UPST;loopst;pupst;schubst;stubst
 URBEL;kurbel;schwurbel;Geschwurbel;Kurbel
 URBEL;kurbeln;schwurbeln;Kurbeln
 ÜRDIG;-bürdig;ebenbürtig;-hürdig;würdig
-UREN;auf Touren;auseinanderfuhren;befuhren;einzuspuren;entfuhren;entgegenfuhren;erfuhren;fuhren;herunterfuhren;huren;luren;obskuren;puren;rumzuhuren;schluren;schwuren;spuren;sturen;touren;überfuhren;verfuhren;zusammenfuhren;Abenturen;Amouren;Aquakulturen;Architekturen;Armaturen;Aufbruchspuren;Apparaturen;Auguren;Außentemperaturen;Autoreparaturen;Autospuren;Bärenspuren;Bierzeltgarnituren;Blessuren;Bronzefiguren;Buren;Comicfiguren;Diktaturen;Einbruchspuren;Erkundungstouren;Fahrradtouren;Figuren;Filmfiguren;Flexuren;Fluren;Förderstrukturen;Fraturen;Frauenfiguren;Frisuren;Frohnaturen;Garnituren;Glasuren;Gravuren;Hauptfiguren;Holzskulpturen;Hundespuren;Huren;Infrastrukturen;Innentemperaturen;Kandidaturen;Karikaturen;Koloraturen;Kommandostrukturen;Konturen;Korrekturen;Kreaturen;Krippenfiguren;Kultfiguren;Kulturen;Kuren;Lasuren;Lemuren;Lufttemperaturen;Machtstrukturen;Mail-Signaturen;Manufakturen;Märchenfiguren;Massuren;Miniaturen;Monokulturen;Muren;Nachttemperaturen;Naturen;Nebenfiguren;Panduren;Parcouren;Parteistrukturen;Partituren;Plüschfiguren;Professuren;Prozeduren;Rasuren;Raumtemperaturen;Reifenspuren;Rekordtemperaturen;Retouren;Rezepturen;Romanfiguren;Schachfiguren;Schlüsselfiguren;Schraffuren;Schuren;Signaturen;Spielernaturen;Spielfiguren;Spuren;Stewinskulpturen;Stiefelspuren;Strukturen;Subkulturen;Suren;Symbolfiguren;Tagestouren;Tastaturen;Texturen;Tonsuren;Torturen;Touren;Trubadouren;Uhren;Untertouren;Vogelspuren;Wachsfiguren;Zäsuren;Zensuren
-ÜRFEN;dürfen;schlürfen;schürfen;verwürfen;würfen;Würfen;schnuren
+UREN;auseinanderfuhren;befuhren;einzuspuren;entfuhren;entgegenfuhren;erfuhren;fuhren;herunterfuhren;huren;luren;obskuren;puren;rumzuhuren;schluren;schnuren;schwuren;spuren;sturen;touren;überfuhren;verfuhren;zusammenfuhren;Amouren;Auguren;Blessuren;Buren;Figuren;Flexuren;Fluren;Frisuren;Glasuren;Gravuren;Huren;Klausuren;Koleraturen;Kontouren;Kulturen;Kuren;Lasuren;Lemuren;Massuren;Muren;Naturen;Panduren;Parcouren;Partituren;Professuren;Prozeduren;Rasuren;Schraffuren;Schuren;Spuren;Suren;Tonsuren;Torturen;Touren;Trubadouren;Uhren;Untertouren;Zäsuren;Zensuren
+ÜRFEN;dürfen;schlürfen;schürfen;verwürfen;würfen;Würfen
 ÜRGE;bürge;verbürge;würge;Ausfallbürge;Bürge;Gewürge
 ÜRGEN;bürgen;verbürgen;würgen;Bürgen;Jürgen
 ÜRGEND;bürgend;verbürgend;würgend
@@ -3356,11 +3781,11 @@ UREN;auf Touren;auseinanderfuhren;befuhren;einzuspuren;entfuhren;entgegenfuhren;
 ÜRGER;Bürger;Würger
 ÜRGET;bürget;türket;verbürget;wirket;würget
 URGISCH;brandenburgisch;chirurgisch;dramaturgisch;liturgisch;luxemburgisch;mecklenburgisch;metallurgisch
-URIEREN;auskurieren;auszukurieren;denaturieren;durchzustrukturieren;fakturieren;figurieren;herumkurieren;jurieren;konfigurieren;konturieren;kurieren;maturieren;pürieren;rekonfigurieren;renaturieren;restrukturieren;saturieren;strukturieren;texturieren;thesaurieren;umkonfigurieren;umstrukturieren;umzustrukturieren;vorkonfigurieren;zensurieren;Drogenkurieren;Fahrradkurieren;Geldkurieren;Kurieren;Lieferkurieren
-URIEREND;auskurierend;denaturierend;fakturierend;figurierend;herumkurierend;jurierend;konfigurierend;konturierend;kurierend;maturierend;pürierend;rekonfigurierend;renaturierend;restaurierend;restrukturierend;restaurieren;strukturierend;texturierend;thesaurierend;umkonfigurierend;umstrukturierend;umzustrukturierend;vorkonfigurierend;zensurierend
-URIS;obskur is;stur is;Fury's;Huris;Kultur is;Schluris;Touris;saturierend
-ÜRLICH;ausführlich;begierlich;despektierlich;figürlich;gebührlich;kontinuierlich;manierlich;natürlich;pläsierlich;perpetuierlich;possierlich;quirlig;respektierlich;übernatürlich;ungebührlich;unnatürlich;unwillkürlich;widernatürlich;willkürlich;zierlich
-URM;Regenwurm;Sturm;Tatensturm;Tatzelwurm;Turm;Wurm;unmanierlich
+URIEREN;auskurieren;auszukurieren;denaturieren;durchzustrukturieren;fakturieren;figurieren;herumkurieren;jurieren;konfigurieren;konturieren;kurieren;maturieren;pürieren;rekonfigurieren;renaturieren;restaurieren;restrukturieren;saturieren;strukturieren;texturieren;thesaurieren;umkonfigurieren;umstrukturieren;umzustrukturieren;vorkonfigurieren;zensurieren;Drogenkurieren;Fahrradkurieren;Geldkurieren;Kurieren;Lieferkurieren
+URIEREND;auskurierend;denaturierend;fakturierend;figurierend;herumkurierend;jurierend;konfigurierend;konturierend;kurierend;maturierend;pürierend;rekonfigurierend;renaturierend;restaurierend;restrukturierend;saturierend;strukturierend;texturierend;thesaurierend;umkonfigurierend;umstrukturierend;umzustrukturierend;vorkonfigurierend;zensurierend
+URIS;obskur is;stur is;Fury's;Huris;Kultur is;Schluris;Touris
+ÜRLICH;ausführlich;begierlich;despektierlich;figürlich;gebührlich;kontinuierlich;manierlich;natürlich;pläsierlich;perpetuierlich;possierlich;quirlig;respektierlich;übernatürlich;ungebührlich;unmanierlich;unnatürlich;unwillkürlich;widernatürlich;willkürlich;zierlich
+URM;Regenwurm;Sturm;Tatensturm;Tatzelwurm;Turm;Wurm
 URN;herumturn;turn;Saturn;Solothurn
 URNE;herumturnen;turne;Geturne;Urne
 URNEN;herumturnen;turnen;Abstimmungsurnen;Bodenturnen;Urnen
@@ -3370,50 +3795,50 @@ URREN;gurren;knurren;murren;Schnurren;schnurren;zurren
 URREND;gurrend;knurrend;murrend
 URRENS;Gurrens;Knurrens;Murrens
 URS;erfuhr’s;zurr’s;Dollarkurs;Durs;Konkurs;Kurs;Mathekurs;Ressource;Schwurs;Tours;Urs
-URST;auseinanderfuhrst;entgegenfuhrst;erfuhrst;fuhrst;gurrst;hurst;ineinanderfuhrst;knurrst;kurst;lurst;murrst;schnurrst;spurst;sturst;tourst;verfuhrst;verzurrst;zurrst;zusammenfuhrst;Durst;Menschendurst;Scheibenwurst;Whiskydurst;Wurst
-ÜRSTE;animierste;berührste;bürste;dürste;entwirrste;erfrierste;erkürste;frierste;gebierste;gierste;irrste;rührste;schmierste;schnürste;schürste;überfuhrst;verlierste;verrührste;verschmierste;verzierste;wirrste;wirste;zierste;Bürste;Firste;Fürste;Würste
-ÜRSTEN;abzubürsten;bürsten;dürsten;Bürsten;Firsten;Fürsten;Würsten;verdürste
+URST;auseinanderfuhrst;entgegenfuhrst;erfuhrst;fuhrst;gurrst;hurst;ineinanderfuhrst;knurrst;kurst;lurst;murrst;schnurrst;spurst;sturst;tourst;überfuhrst;verfuhrst;verzurrst;zurrst;zusammenfuhrst;Durst;Menschendurst;Scheibenwurst;Whiskydurst;Wurst
+ÜRSTE;animierste;berührste;bürste;dürste;entwirrste;erfrierste;erkürste;frierste;gebierste;gierste;irrste;rührste;schmierste;schnürste;schürste;verdürste;verlierste;verrührste;verschmierste;verzierste;wirrste;wirste;zierste;Bürste;Firste;Fürste;Würste
+ÜRSTEN;abzubürsten;bürsten;dürsten;Bürsten;Firsten;Fürsten;Würsten
 ÜRSTEND;bürstend;dürstend
 ÜRSTENS;Bürstens;Dürstens
-URT;angeknurrt;angezurrt;festgezurrt;gegurrt;geknurrt;gemurrt;geschnurrt;gezurrt;gurrt;knurrt;murrt;schnurrt;spurt;surrt;zusammengeschnurrt;Furt;Gurt;Kurt;Lourdes;Spurt
-URTE;angeknurrte;festgezurrte;gegurrte;geknurrte;gemurrte;geschnurrte;gesurrte;gezurrte;gurrte;knurrte;murrte;schnurrte;spurte;surrte;zurrte;zusammenschnurrt;zusammenschnurrte;Gurte;Jurte
-ÜRTEL;Außengürtel;Blaulichtviertel;Gürtel;Ledergürtel;Rotlichtviertel;Viertel;zusammengeschnurrte
+URT;angeknurrt;angezurrt;festgezurrt;gegurrt;geknurrt;gemurrt;geschnurrt;gezurrt;gurrt;knurrt;murrt;schnurrt;spurt;surrt;zusammengeschnurrt;zusammenschnurrt;Furt;Gurt;Kurt;Lourdes;Spurt
+URTE;angeknurrte;festgezurrte;gegurrte;geknurrte;gemurrte;geschnurrte;gesurrte;gezurrte;gurrte;knurrte;murrte;schnurrte;spurte;surrte;zurrte;zusammengeschnurrte;zusammenschnurrte;Gurte;Jurte
+ÜRTEL;Außengürtel;Blaulichtviertel;Gürtel;Ledergürtel;Rotlichtviertel;Viertel
 URVEN;Hulturfan;Kurven;Naturfan;schlurfen
 URZ;furz;knurrt’s;kurz;murrt’s;schnurrt’s;schnurz;Furz;Schurz;Spurts;Sturz;Wurz
-ÜRZE;auseinanderstürze;bestürze;bezirze;herunterstürze;kürze;schürze;stürze;überstürze;überwürze;verkürze;verwürze;würze;zirze;zusammenkürze;zusammenstürze;Fürze;Gewürze;Schürze;Stürze;Würze
-URZEL;herunterpurzel;purzel;übereinanderpurzel;wurzel;Ingwerwurzel;Nasenwurzel;Schnurzel;Wurzel;Zauberwurzel;Circe
+ÜRZE;auseinanderstürze;bestürze;bezirze;herunterstürze;kürze;schürze;stürze;überstürze;überwürze;verkürze;verwürze;würze;zirze;zusammenkürze;zusammenstürze;Circe;Fürze;Gewürze;Schürze;Stürze;Würze
+URZEL;herunterpurzel;purzel;übereinanderpurzel;wurzel;Ingwerwurzel;Nasenwurzel;Schnurzel;Wurzel;Zauberwurzel
 URZELN;herunterpurzeln;purzeln;übereinanderpurzeln;wurzeln;Ingwerwurzeln;Nasenwurzeln;Wurzeln;Zauberwurzeln
 URZELND;herunterpurzelnd;purzelnd;übereinanderpurzelnd;wurzelnd
 URZELNS;Herunterpurzelns;Purzelns;Übereinanderpurzelns;Wurzelns
 URZELT;gepurzelt;gewurzelt;herunterpurzelt;übereinanderpurzelt;wurzelt
 URZEN;furzen;kurzen;Wurzen
-ÜRZEN;abzukürzen;abzustürzen;auseinanderstürzen;bestürzen;bezirzen;einzustürzen;herunterstürzen;kürzen;schürzen;stürzen;überstürzen;überwürzen;umzustürzen;verkürzen;verwürzen;zusammenkürzen;zusammenstürzen;Circen;Fürzen;Gewürzen;Schürzen;Stürzen
-ÜRZEND;auseinanderstürzend;bestürzend;bezirzend;kürzend;schürzend;stürzend;überstürzend;überwürzend;verkürzend;verwürzend;würzend;zusammenkürzend;zusammenstürzend;würzen
+ÜRZEN;abzukürzen;abzustürzen;auseinanderstürzen;bestürzen;bezirzen;einzustürzen;herunterstürzen;kürzen;schürzen;stürzen;überstürzen;überwürzen;umzustürzen;verkürzen;verwürzen;würzen;zusammenkürzen;zusammenstürzen;Circen;Fürzen;Gewürzen;Schürzen;Stürzen
+ÜRZEND;auseinanderstürzend;bestürzend;bezirzend;kürzend;schürzend;stürzend;überstürzend;überwürzend;verkürzend;verwürzend;würzend;zusammenkürzend;zusammenstürzend
 ÜRZENS;Auseinanderstürzens;Bestürzens;Bezirzens;Kürzens;Schürzens;Stürzens;Überstürzens;Überwürzens;Verkürzens;Verwürzens;Würzens;Zusammenkürzens;Zusammenstürzens
-ÜRZT;abgekürzt;auseinanderstürzt;bestürzt;bezirzt;eingestürzt;entgegenstürzt;gekürzt;gewürzt;gestürzt;hereingestürzt;herunterstürzt;kürzt;schürzt;stürzt;überstürzt;umgestürzt;ungekürzt;ungewürzt;verkürzt;verwürzt;würzt;zurückgekürzt;zusammenstürzt
-USCH;dusch;husch;kusch;pfusch;push;tusch;verhusch;verpfusch;vertusch;wusch;Busch;Bush;Gepfusch;Hindukusch;la mouche;überwürzt;Push;Tusch;Wusch
-USCHE;dusche;husche;kusche;pfusche;pushe;tusche;verhusche;verpfusche;vertusche;wusche;Busche;Dusche;Kartusche;Lusche;Tusche;Pfusch
+ÜRZT;abgekürzt;auseinanderstürzt;bestürzt;bezirzt;eingestürzt;entgegenstürzt;gekürzt;gewürzt;gestürzt;hereingestürzt;herunterstürzt;kürzt;schürzt;stürzt;überstürzt;überwürzt;umgestürzt;ungekürzt;ungewürzt;verkürzt;verwürzt;würzt;zurückgekürzt;zusammenstürzt
+USCH;dusch;husch;kusch;pfusch;push;tusch;verhusch;verpfusch;vertusch;wusch;Busch;Bush;Gepfusch;Hindukusch;la mouche;Pfusch;Push;Tusch;Wusch
+USCHE;dusche;husche;kusche;pfusche;pushe;tusche;verhusche;verpfusche;vertusche;wusche;Busche;Dusche;Kartusche;Lusche;Tusche
 USCHEL;kuschel;nuschel;tuschel;verwuschel;Genuschel;Getuschel;Muschel;Puschel;Wuschel
 USCHELN;kuscheln;nuscheln;tuscheln;verwuscheln;Muscheln
 USCHELND;kuschelnd;nuschelnd;tuschelnd;verwuschelnd
 USCHELNS;Kuschelns;Nuschelns;Tuschelns;Verwuschelns
 USCHELT;gekuschelt;genuschelt;getuschelt;gewuschelt;kuschelt;nuschelt;tuschelt;verwuschelt;zusammenkuschelt
-USCHEN;abzuduschen;duschen;huschen;kuschen;pfuschen;pushen;tuschen;verhuschen;verpfuschen;vertuschen;wuschen;Duschen;Evolution (engl.);Fusion (engl.);Luschen
-USCHER;Champagnerduscher;Duscher;Kuscher;Pfuscher;Profipfuscher;Pusher;Schmerzvertuscher;Vertuscher;Puschen
+USCHEN;abzuduschen;duschen;huschen;kuschen;pfuschen;pushen;tuschen;verhuschen;verpfuschen;vertuschen;wuschen;Duschen;Evolution (engl.);Fusion (engl.);Luschen;Puschen
+USCHER;Champagnerduscher;Duscher;Kuscher;Pfuscher;Profipfuscher;Pusher;Schmerzvertuscher;Vertuscher
 USCHT;duscht;geduscht;gekuscht;gepfuscht;gepusht;huscht;kuscht;pfuscht;pusht;tuscht;verhuscht;verpfuscht;vertuscht
 USISCH;andalusisch;musisch
 USO;Caruso;Juso;tu so;Uso
-USS;muss;plus;Autobus;Beschuss;Bluterguss;Bosporus;Bus;Celsius;Cerberus;Christopherus;Daktylus;Darmverschluss;Exitus;Exodus;Famulus;Fidibus;Gallefluss;Genius;Genuss;Guss;Habitus;Impetus;Inkubus;Intimus;Julius;Kaukasus;Koitus;Konfuzius;Kopernikus;Kosinus;Kuss;Lazarus;Luftikus;Mauritius;Musikus;Nukleus;Nunzius;Nuss;Obolus;Ödipus;Oktopus;Omnibus;Physikus;Pfiffikus;Plus;Politikus;Radius;Rhizinus;Russ';Schluss;Schuss;Sirius;Sisiphus;Spartakus;Spekulatius;Spiritus;Stimulus;Stuss;Sukkubus;Tacitus;Terminus;Tetanus;Tinitus;Überdruss;Überfluss;Überschuss;Uranus;Verdruss;Verschluss;Vilnius;Wuterguss;Zerberus
-USSE;muss se;Autobusse;Busse;Fidibusse;Koitusse;Kusse;Luftikusse;Musikusse;Nunziusse;Obolusse;Oktopusse;Pfiffikusse;Russe;Tinnitusse;Zerberusse;Fluss
+USS;muss;plus;Autobus;Beschuss;Bluterguss;Bosporus;Bus;Celsius;Cerberus;Christopherus;Daktylus;Darmverschluss;Exitus;Exodus;Famulus;Fluss;Fidibus;Gallefluss;Genius;Genuss;Guss;Habitus;Impetus;Inkubus;Intimus;Julius;Kaukasus;Koitus;Konfuzius;Kopernikus;Kosinus;Kuss;Lazarus;Luftikus;Mauritius;Musikus;Nukleus;Nunzius;Nuss;Obolus;Ödipus;Oktopus;Omnibus;Physikus;Pfiffikus;Plus;Politikus;Radius;Rhizinus;Russ';Schluss;Schuss;Sirius;Sisiphus;Spartakus;Spekulatius;Spiritus;Stimulus;Stuss;Sukkubus;Tacitus;Terminus;Tetanus;Tinitus;Überdruss;Überfluss;Überschuss;Uranus;Verdruss;Verschluss;Vilnius;Wuterguss;Zerberus
+USSE;muss se;Autobusse;Busse;Fidibusse;Koitusse;Kusse;Luftikusse;Musikusse;Nunziusse;Obolusse;Oktopusse;Pfiffikusse;Russe;Tinnitusse;Zerberusse
 ÜSSEL;bissel;Brüssel;Grissel;Rüssel;Schüssel;Schlüssel;Stissel
 ÜSSELN;Rüsseln;Schüsseln;Schlüsseln;Stisseln
 USSEN;Autobussen;Bussen;Fidibussen;Hussen;Koitussen;Luftikussen;Musikussen;Nunziussen;Obolussen;Oktopussen;Pfiffikussen;Russen;Tinnitussen;Tussen;Zerberussen
-ÜSSIG;abschüssig;augenflüssig;bissig;dickflüssig;flüssig;hiss ich;is sich;küss ich;piss ich;nissig;pissig;rissig;schlüssig;schmissig;splissig;überdrüssig;überflüssig;überschüssig;vermiss ich;vielwissig
-ÜSSLING;Büßling;Füßling;Genüßling;Süßling;syphilissig
-USST;bewusst;gemusst;gewusst;just;musst;pflichtbewusst;robust;schuldbewusst;selbstbewusst;siegesbewusst;unbewusst;unterbewusst;verantwortungsbewusst;August;Brust;Heldenbrust;Hühnerbrust;Kaufverlust;Lust;Sangeslust;Verlust
-USSTE;bewusste;musste;pflichtbewusste;robuste;schuldbewusste;selbstbewusste;unbewusste;unterbewusste;wusste;Auguste;Fruste;Kruste;Verluste;Frust
-ÜSSTE;angepisste;befriste;bemisste;bist’de;brüste;disst’de;disste;entrüste;frisst’de;friste;gedisste;gehisste;geküsste;gepisste;gesplisste;isst’de;küsste;miste;müsste;pisste;rüste;splisste;triste;twiste;überliste;vergisst’de;vermisste;verpisste;wüsste;Brüste;Büste;Christe;Fleischeslüste;Gelüste;Gerüste;Kiste;Küste;Liste;Lüste;Piste;Riste;Vermisste;Zwiste;Zyste
-USSTEN;bewussten;gemussten;gewussten;mussten;pflichtbewussten;robusten;selbstbewussten;unbewussten;unterbewussten;Augusten;Frusten;Verlusten;hisste
+ÜSSIG;abschüssig;augenflüssig;bissig;dickflüssig;flüssig;hiss ich;is sich;küss ich;piss ich;nissig;pissig;rissig;schlüssig;schmissig;splissig;syphilissig;überdrüssig;überflüssig;überschüssig;vermiss ich;vielwissig
+ÜSSLING;Büßling;Füßling;Genüßling;Süßling
+USST;bewusst;gemusst;gewusst;just;musst;pflichtbewusst;robust;schuldbewusst;selbstbewusst;siegesbewusst;unbewusst;unterbewusst;verantwortungsbewusst;August;Brust;Frust;Heldenbrust;Hühnerbrust;Kaufverlust;Lust;Sangeslust;Verlust
+USSTE;bewusste;musste;pflichtbewusste;robuste;schuldbewusste;selbstbewusste;unbewusste;unterbewusste;wusste;Auguste;Fruste;Kruste;Verluste
+ÜSSTE;angepisste;befriste;bemisste;bist’de;brüste;disst’de;disste;entrüste;frisst’de;friste;gedisste;gehisste;geküsste;gepisste;gesplisste;hisste;isst’de;küsste;miste;müsste;pisste;rüste;splisste;triste;twiste;überliste;vergisst’de;vermisste;verpisste;wüsste;Brüste;Büste;Christe;Fleischeslüste;Gelüste;Gerüste;Kiste;Küste;Liste;Lüste;Piste;Riste;Vermisste;Zwiste;Zyste
+USSTEN;bewussten;gemussten;gewussten;mussten;pflichtbewussten;robusten;selbstbewussten;unbewussten;unterbewussten;Augusten;Frusten;Verlusten
 USTERN;aufzuplustern;dustern;mustern;plustern;schustern;verdustern;zusammenschustern;Hustern;Ligustern;Mustern;Prustern;Schustern
 USTERND;musternd;plusternd;schusternd;verdusternd;zusammenschusternd
 USTERNS;Musterns;Plusterns;Schusterns;Verdusterns;Zusammenschusterns
@@ -3429,32 +3854,32 @@ UTSCH;flutsch;futsch;lutsch;Kutsch’;Putsch;Rutsch
 UTSCHE;Elefantenrutsche;Familienkutsche;flutsche;futsche;lutsche;Kutsche;putsche;Putsche;Rutscher;rutsche;Wasserrutsche;Pferdekutsche
 UTSCHER;butcher;future;Knutscher;Lutscher;Putscher;Rutscher
 UTT;kaputt;wat mutt dat mutt;Butt;hood;Perlmutt;Schutt;Talmud;Wood
-ÜTTELN;betütteln;bitteln;dritteln;ermitteln;knitteln;knütteln;kritteln;mitteln;rütteln;schütteln;tütteln;übermitteln;vergitteln;vermitteln;zerknitteln;Kitteln;Mitteln
-ÜTTELND;betüttelnd;bittelnd;drittelnd;ermittelnd;knittelnd;knüttelnd;krittelnd;mittelnd;rüttelnd;schüttelnd;tüttelnd;übermittelnd;vergittelnd;vermittelnd;zerknittelnd;Bütteln
+ÜTTELN;betütteln;bitteln;dritteln;ermitteln;knitteln;knütteln;kritteln;mitteln;rütteln;schütteln;tütteln;übermitteln;vergitteln;vermitteln;zerknitteln;Bütteln;Kitteln;Mitteln
+ÜTTELND;betüttelnd;bittelnd;drittelnd;ermittelnd;knittelnd;knüttelnd;krittelnd;mittelnd;rüttelnd;schüttelnd;tüttelnd;übermittelnd;vergittelnd;vermittelnd;zerknittelnd
 UTTEN;Edelnutten;Kutten;Nutten;Putten
-UTTER;bemutter;butter;futter;kaputter;unterbutter;verbutter;Ärmelfutter;Augenfutter;Bärenmutter;Bienenfutter;Butter;Dosenfutter;Dreifach-Mutter;Drillingsmutter;Eiweißfutter;Erdnussbutter;Ergänzungsfutter;Familienmutter;Fertigfutter;Fischfangkutter;Futter;Gottesmutter;Hasenfutter;Haustierfutter;Herbergsmutter;Hühnerfutter;Hundefutter;Innenfutter;Insektenfutter;Jackenfutter;Juristenfutter;Kakaobutter;Kalkutta;Kanonenfutter;Katzenfutter;Katzenmutter;Kindesmutter;Koblauchbutter;Königslutter;Körnerfutter;Krabbenkutter;Kräuterbutter;Kutter;Landesmutter;Lebendfutter;Lesefutter;Löwenmutter;Luther;Mantelfutter;Markenbutter;Mutter;Nervenfutter;Nordsee-Krabbenkutter;Nordseekutter;Pferdefutter;Rabenmutter;Raubtierfutter;Salbeibutter;Schmerzensmutter;Schraubenmutter;Schweinefutter;Schwiegermutter;Seelenfutter;Silofutter;Sojafutter;Studentenfutter;Tagesmutter;Trockenfutter;Übermutter;Urgroßmutter;Vierfach-Mutter;Vierkantmutter;Vogelfutter;Wahlkampffutter;Weidebutter;Welpenfutter;Zukunftskutter;Zusatzfutter;Zwillingsmutter
-UTTERN;anzufuttern;auszubuttern;bemuttern;buttern;durchzufuttern;futtern;nachzufuttern;reinbuttern;unterbuttern;verbuttern;wegzufuttern;zuzubuttern;Bio-Futtern;Fischerkuttern;Flügelmuttern;Entenmutter;Kuttern;Muttern;Nordsee-Krabbenkuttern;Schraubenmuttern;Sechskantschraubenmuttern;Vierkantmuttern
-UTTERND;bemutternd;butternd;futternd;unterbutternd;verbutternd;Krabbenkuttern
+UTTER;bemutter;butter;futter;kaputter;unterbutter;verbutter;Ärmelfutter;Augenfutter;Bärenmutter;Bienenfutter;Butter;Dosenfutter;Dreifach-Mutter;Drillingsmutter;Eiweißfutter;Entenmutter;Erdnussbutter;Ergänzungsfutter;Familienmutter;Fertigfutter;Fischfangkutter;Futter;Gottesmutter;Hasenfutter;Haustierfutter;Herbergsmutter;Hühnerfutter;Hundefutter;Innenfutter;Insektenfutter;Jackenfutter;Juristenfutter;Kakaobutter;Kalkutta;Kanonenfutter;Katzenfutter;Katzenmutter;Kindesmutter;Koblauchbutter;Königslutter;Körnerfutter;Krabbenkutter;Kräuterbutter;Kutter;Landesmutter;Lebendfutter;Lesefutter;Löwenmutter;Luther;Mantelfutter;Markenbutter;Mutter;Nervenfutter;Nordsee-Krabbenkutter;Nordseekutter;Pferdefutter;Rabenmutter;Raubtierfutter;Salbeibutter;Schmerzensmutter;Schraubenmutter;Schweinefutter;Schwiegermutter;Seelenfutter;Silofutter;Sojafutter;Studentenfutter;Tagesmutter;Trockenfutter;Übermutter;Urgroßmutter;Vierfach-Mutter;Vierkantmutter;Vogelfutter;Wahlkampffutter;Weidebutter;Welpenfutter;Zukunftskutter;Zusatzfutter;Zwillingsmutter
+UTTERN;anzufuttern;auszubuttern;bemuttern;buttern;durchzufuttern;futtern;nachzufuttern;reinbuttern;unterbuttern;verbuttern;wegzufuttern;zuzubuttern;Bio-Futtern;Fischerkuttern;Flügelmuttern;Krabbenkuttern;Kuttern;Muttern;Nordsee-Krabbenkuttern;Schraubenmuttern;Sechskantschraubenmuttern;Vierkantmuttern
+UTTERND;bemutternd;butternd;futternd;unterbutternd;verbutternd
 UTTERNS;Bemutterns;Butterns;Futterns;Unterbutterns;Verbutterns
 ÜTUNG;Anerbietung;Behütung;Ehrerbietung;Vergütung;Verhütung;Vermietung;Vernietung
-UTZ;benutz;beschmutz;nutz;putz;schmutz;stutz;trutz (alt);verdutz;verputz;verschmutz;Eigennutz;Lutz;Nutz;Putz;Schmutz;Stutz;Trutz;Verbraucherschutz;Wutz
-UTZEN;abzunutzen;abzuputzen;benutzen;beschmutzen;mitbenutzen;nutzen;putzen;schmutzen;stutzen;trutzen (alt);umzunutzen;verputzen;verschmutzen;wegzuputzen;Butzen;Schutz;Nettonutzen;Nutzen;Stutzen
-UTZEND;benutzend;beschmutzend;mitbenutzend;nutzend;putzend;schmutzend;stutzend;trutzend (alt);verputzend;verschmutzend;Fußballstutzen
+UTZ;benutz;beschmutz;nutz;putz;schmutz;stutz;trutz (alt);verdutz;verputz;verschmutz;Eigennutz;Lutz;Nutz;Putz;Schmutz;Schutz;Stutz;Trutz;Verbraucherschutz;Wutz
+UTZEN;abzunutzen;abzuputzen;benutzen;beschmutzen;mitbenutzen;nutzen;putzen;schmutzen;stutzen;trutzen (alt);umzunutzen;verputzen;verschmutzen;wegzuputzen;Butzen;Fußballstutzen;Nettonutzen;Nutzen;Stutzen
+UTZEND;benutzend;beschmutzend;mitbenutzend;nutzend;putzend;schmutzend;stutzend;trutzend (alt);verputzend;verschmutzend
 UTZENS;Benutzens;Beschmutzens;Mitbenutzens;Nutzens;Putzens;Schmutzens;Stutzens;Trutzens (alt);Verputzens;Verschmutzens
 UTZER;Benutzer;Luftverschmutzer;Nutzer;Putzer;Stutzer;Verschmutzer
 ÜTZER;glitzer;gnitzer;spitzer;Besitzer;Blitzer;Erhitzer;Flitzer;Schlitzer;Schnitzer;Schwitzer;Siebensitzer;Spitzer;Spritzer
 UTZIG;putzig;schmutzig;stutzig;trutzig
 ÜTZLICH;brizzlig;fitzlig;kitzlig;kritzlig;nützlich
 UTZT;benutzt;beschmutzt;genutzt;geputzt;geschmutzt;gestutzt;getrutzt (alt);nutzt;putzt;schmutzt;stutzt;trutzt (alt);verdutzt;verputzt;verschmutzt
-UUCHEN;abzusuchen;aufzusuchen;auszusuchen;besuchen;buchen;ersuchen;fluchen;suchen;überbuchen;umzubuchen;untersuchen;verbuchen;verfluchen;versuchen;Buchen;Kuchen;Schuhchen
-UUCHEND;besuchend;buchend;ersuchend;fluchend;suchend;überbuchend;untersuchend;verbuchend;verfluchend;versuchend;Eunuchen
+UUCHEN;abzusuchen;aufzusuchen;auszusuchen;besuchen;buchen;ersuchen;fluchen;suchen;überbuchen;umzubuchen;untersuchen;verbuchen;verfluchen;versuchen;Buchen;Eunuchen;Kuchen;Schuhchen
+UUCHEND;besuchend;buchend;ersuchend;fluchend;suchend;überbuchend;untersuchend;verbuchend;verfluchend;versuchend
 UUCHENS;Besuchens;Buchens;Ersuchens;Fluchens;Suchens;Überbuchens;Untersuchens;Verbuchens;Verfluchens;Versuchens
 UUCHER;Bucher;Flucher;Sucher;Tucher;Versucher;Wucher
 UUCHERN;wuchern;Buchern;Fluchern;Suchern;Tuchern;Versuchern;Wuchern
 UUCHS;besuch's;verfluch's;versuch's;Besuchs;Bruchs;Fluchs;Geruchs;Gesuchs;Huchs;Tuchs
-UUCHT;abgebucht;abgesucht;angeflucht;aufgesucht;ausgebucht;ausgeflucht;ausgesucht;besucht;betucht;bucht;ersucht;flucht;gebucht;geflucht;gesucht;überbucht;umgebucht;untersucht;verbucht;verflucht;verrucht;versucht;zurückgebucht;zusammensucht
-UUCHTEN;abgebuchten;abgesuchten;aufgesuchten;ausgebuchten;ausgefluchten;ausgesuchten;besuchten;betuchten;buchten;ersuchten;fluchten;gebuchten;gefluchten;gesuchten;suchten;sucht;umgebuchten;untersuchten;verbuchten;verfluchten;verruchten;versuchten;zurückgebuchten;zusammensuchten
-UUF;beschuf;kuf;ruf;schuf;stuf;verschuf;Behuf;Beruf;Groove;Huf;Luv;überbuchten
+UUCHT;abgebucht;abgesucht;angeflucht;aufgesucht;ausgebucht;ausgeflucht;ausgesucht;besucht;betucht;bucht;ersucht;flucht;gebucht;geflucht;gesucht;sucht;überbucht;umgebucht;untersucht;verbucht;verflucht;verrucht;versucht;zurückgebucht;zusammensucht
+UUCHTEN;abgebuchten;abgesuchten;aufgesuchten;ausgebuchten;ausgefluchten;ausgesuchten;besuchten;betuchten;buchten;ersuchten;fluchten;gebuchten;gefluchten;gesuchten;suchten;überbuchten;umgebuchten;untersuchten;verbuchten;verfluchten;verruchten;versuchten;zurückgebuchten;zusammensuchten
+UUF;beschuf;kuf;ruf;schuf;stuf;verschuf;Behuf;Beruf;Groove;Huf;Luv
 UUFE;abberufe;berufe;einberufe;groove;luve;rufe;Behufe;Berufe;Hufe;Kufe;Stufe
 UUFEN;abberufen;aufgerufen;ausgerufen;berufen;einberufen;grooven;luven;rufen;schufen;stufen;Berufen;Hufen;Kufen;Stufen
 UUFEND;berufend;einberufend;groovend;luvend;rufend;stufend
@@ -3462,38 +3887,38 @@ UUFENS;Berufens;Einberufens;Groovens;Luvens;Rufens;Stufens
 UUFER;schuf er;verschuf er;Groover;Hufer;Rufer;Schufa;Subwoover;Ufer
 UUFST;berufst;einberufst;groovst;luvst;movst;rufst;stufst
 UUFT;abgestuft;behuft;beruft;einberuft;gegroovt;gemovet;groovt;luvt;movet;kuft;ruft;stuft
-UUL;azul (span.);beautiful (engl.);cool;buhl;puhl;schwul;somnambul;suhl;Boule;Buhl’;Fool (engl.);Großmogul;Istanbul;Joule;Kabul;Modul;Mogul;Moules (franz.);Pfuhl;Pool;Rule (engl.);Schmul;Schul';Scool (engl.);Seoul;Stambul;Stuhl;Sündenpfuhl;Tool;Swimmingpool;Wool (engl.)
-UULE;coole;buhle;puhle;schwule;somnambule;suhle;Bambule;Buhle;Großmogule;Jule;Konsule;Module;Mogule;Pfuhle;Schule;Konsul;Sündenpfuhle;Thule
-UULEN;abzuspulen;aufzuspulen;bestuhlen;besuhlen;buhlen;coolen;einzuschulen;herunterspulen;pulen;spulen;suhlen;vorzuspulen;zurückzuspulen;Bambulen;Knabenschulen;Stuhle;Mädchenschulen;Modulen;Mogulen;Oberschulen;Pfuhlen;Poolen;Schulen;Sündenpfuhlen;Uhlen (altdeutsch)
-UULEND;bestuhlend;besuhlend;buhlend;herunterspulend;pulend;spulend;suhlend;Konsulen
+UUL;azul (span.);beautiful (engl.);cool;buhl;puhl;schwul;somnambul;suhl;Boule;Buhl’;Fool (engl.);Großmogul;Istanbul;Joule;Kabul;Konsul;Modul;Mogul;Moules (franz.);Pfuhl;Pool;Rule (engl.);Schmul;Schul';Scool (engl.);Seoul;Stambul;Stuhl;Sündenpfuhl;Tool;Swimmingpool;Wool (engl.)
+UULE;coole;buhle;puhle;schwule;somnambule;suhle;Bambule;Buhle;Großmogule;Jule;Konsule;Module;Mogule;Pfuhle;Schule;Stuhle;Sündenpfuhle;Thule
+UULEN;abzuspulen;aufzuspulen;bestuhlen;besuhlen;buhlen;coolen;einzuschulen;herunterspulen;pulen;spulen;suhlen;vorzuspulen;zurückzuspulen;Bambulen;Knabenschulen;Konsulen;Mädchenschulen;Modulen;Mogulen;Oberschulen;Pfuhlen;Poolen;Schulen;Sündenpfuhlen;Uhlen (altdeutsch)
+UULEND;bestuhlend;besuhlend;buhlend;herunterspulend;pulend;spulend;suhlend
 UULENS;Bestuhlens;Besuhlens;Buhlens;Herunterspulens;Pulens;Spulens;Suhlens
 UUM;Altertum;posthum;Bayerntum;Boom;Eigentum;Germanentum;Heldentum;Konsum;Ruhm;Zoom
-UUR;auseinanderfuhr;azur;befuhr;durchfuhr;entfuhr;entgegenfuhr;erfuhr;fuhr;herunterfuhr;nur;obskur;pur;retour;stur;toujour;umfuhr;verfuhr;zur;zusammenfuhr;Abitur;Agrikultur;Akupressur;Akupunktur;Amour;Amur;Architektur;Armatur;Armbanduhr;Augur;Azur;Blessur;Bodenkultur;Bravour;Cour;Dafour;Diebestour;Diktatur;Dressur;Dur;Fahrradspur;Fahrradtour;Faktur;Figur;Fissur;Flexur;Flur;Fraktur;Frisur;Frohnatur;Gallionsfigur;Garnitur;Gefängnisflur;Glasur;Gravur;Hur;Holzlasur;Holzskulptur;Intimrasur;Inventur;Jour;Junktur;Karikatur;Kirchturmuhr;Klausur;Klaviatur;Koloratur;Kommandantur;Konjunktur;Kontur;Korrektur;Kuckucksuhr;Kultur;Kur;Lasur;Lemur;Liebesschwur;Ligatur;Literatur;Magistratur;Makulatur;Mensur;Miniatur;Mixtur;Modefrisur;Montur;Müllabfuhr;Mur;Muskulatur;Nabelschnur;Natur;Niederflur;Obstkultur;Partitur;Politur;Positur;Präfektur;Professur;Prozedur;Parcour;Quadratur;Quästur;Rasur;Registratur;Reifenspur;Reinkultur;Reparatur;Rezeptur;Ruhr;Ruptur;Schnur;Schraffur;Schur;Schwur;Signatur;Singapur;Silur;Skulptur;Sonnenuhr;Spur;Statur;Stempeluhr;Struktur;Stuckatur;Tabulatur;Tambour;Tastatur;Tektur;Temperatur;Textur;Tinktur;Tonsur;Tortur;Tour;Troubadour;Uhr;Unkultur;Unnatur;Urnatur;Ur;Wagenspur;Weinkultur;Witzfigur;Zäsur;Zensur
-UURCH;dadurch;durch;furch;hierdurch;hindurch;mittendurch;querdurch;wodurch;zerfurch;zwischendurch;Lurch;überfuhr
-UUS;abstrus;diffus;du's;konfus;loose;schmus;tu's;vertu's;who's;Buhs;Blues;Dessous;Filous;Fuß;Geschmus;Gnus;Grus;Gruß;Juice;Jus;Mus;Küchenruß;News;Nus;Ofenruß;Ragouts;Rendevous;Ruß;Schmus;Schuhs;Shampoos;Syrakus;Tabus
-UUSE;abstruse;du se;fuße;schmuse;tu se;vertu se;Bluse;Buße;Druse;Fluse;Fuße;Geschmuse;Kruse;Mabuse;Marcuse;Getus;Muse;Muße;Pampelmuse;Suse;Uhse;Zuse
-UUSEN;abstrusen;fußen;glusen;rußen;schmusen;usen;verknusen;verrußen;Blusen;Busen;Drusen;Flusen;Leverkusen;Medusen;Musen;Meduse
+UUR;auseinanderfuhr;azur;befuhr;durchfuhr;entfuhr;entgegenfuhr;erfuhr;fuhr;herunterfuhr;nur;obskur;pur;retour;stur;toujour;überfuhr;umfuhr;verfuhr;zur;zusammenfuhr;Abitur;Agrikultur;Akupressur;Akupunktur;Amour;Amur;Architektur;Armatur;Armbanduhr;Augur;Azur;Blessur;Bodenkultur;Bravour;Cour;Dafour;Diebestour;Diktatur;Dressur;Dur;Fahrradspur;Fahrradtour;Faktur;Figur;Fissur;Flexur;Flur;Fraktur;Frisur;Frohnatur;Gallionsfigur;Garnitur;Gefängnisflur;Glasur;Gravur;Hur;Holzlasur;Holzskulptur;Intimrasur;Inventur;Jour;Junktur;Karikatur;Kirchturmuhr;Klausur;Klaviatur;Koloratur;Kommandantur;Konjunktur;Kontur;Korrektur;Kuckucksuhr;Kultur;Kur;Lasur;Lemur;Liebesschwur;Ligatur;Literatur;Magistratur;Makulatur;Mensur;Miniatur;Mixtur;Modefrisur;Montur;Müllabfuhr;Mur;Muskulatur;Nabelschnur;Natur;Niederflur;Obstkultur;Partitur;Politur;Positur;Präfektur;Professur;Prozedur;Parcour;Quadratur;Quästur;Rasur;Registratur;Reifenspur;Reinkultur;Reparatur;Rezeptur;Ruhr;Ruptur;Schnur;Schraffur;Schur;Schwur;Signatur;Singapur;Silur;Skulptur;Sonnenuhr;Spur;Statur;Stempeluhr;Struktur;Stuckatur;Tabulatur;Tambour;Tastatur;Tektur;Temperatur;Textur;Tinktur;Tonsur;Tortur;Tour;Troubadour;Uhr;Unkultur;Unnatur;Urnatur;Ur;Wagenspur;Weinkultur;Witzfigur;Zäsur;Zensur
+UURCH;durch;furch;hierdurch;hindurch;mittendurch;querdurch;wodurch;zerfurch;zwischendurch;Lurch
+UUS;abstrus;diffus;du's;konfus;loose;schmus;tu's;vertu's;who's;Buhs;Blues;Dessous;Filous;Fuß;Geschmus;Getus;Gnus;Grus;Gruß;Juice;Jus;Mus;Küchenruß;News;Nus;Ofenruß;Ragouts;Rendevous;Ruß;Schmus;Schuhs;Shampoos;Syrakus;Tabus
+UUSE;abstruse;du se;fuße;schmuse;tu se;vertu se;Bluse;Buße;Druse;Fluse;Fuße;Geschmuse;Kruse;Mabuse;Marcuse;Meduse;Muse;Muße;Pampelmuse;Suse;Uhse;Zuse
+UUSEN;abstrusen;fußen;glusen;rußen;schmusen;usen;verknusen;verrußen;Blusen;Busen;Drusen;Flusen;Leverkusen;Medusen;Musen
 UUSEND;fußend;glusend;rußend;schmusend;verknusend;verrußend
 UUSENS;Fußens;Glusens;Rußens;Schmusens;Verknusens;Verrußens
 UUSER;abstruser;Blueser;Lampedusa;Looser;Medusa;Schmuser;User
-UUST;cruiset;entrußt;fußt;geschmust;hust;prust;pust;rumgeschmust;rußt;schmust;tust;vermust;verrußt;verschmust;vertust;Knust;Proust;Wust
-UUSTE;fußte;huste;pruste;puste;rußte;schmuste;tuste;verknuste;verrußte;verschmuste;vertuste;Gehuste;Knuste;Puste;Wuste;zusammentust
-UUSTEN;abzuhusten;anzupusten;auszupusten;fußten;husten;prusten;pusten;rußten;schmusten;umzupusten;verknusten;vermusten;verrußten;verschmusten;Husten
-UUSTEND;hustend;prustend;pustend;Schnitzelhusten
+UUST;cruiset;entrußt;fußt;geschmust;hust;prust;pust;rumgeschmust;rußt;schmust;tust;vermust;verrußt;verschmust;vertust;zusammentust;Knust;Proust;Wust
+UUSTE;fußte;huste;pruste;puste;rußte;schmuste;tuste;verknuste;verrußte;verschmuste;vertuste;Gehuste;Knuste;Puste;Wuste
+UUSTEN;abzuhusten;anzupusten;auszupusten;fußten;husten;prusten;pusten;rußten;schmusten;umzupusten;verknusten;vermusten;verrußten;verschmusten;Husten;Schnitzelhusten
+UUSTEND;hustend;prustend;pustend
 UUSTENS;Hustens;Prustens;Pustens
 UUSTER;duster;illuster;musst er;pluster;verduster;wusst er;Booster;Huster;Liguster;Muster;Pruster;Puszta;rooster;Schuster;Worcester
 UUSTET;fußtet;hustet;prustet;pustet;rußtet;schmustet;verrußtet
-UUT;absolut;akut;ausgebuht;ausgeruht;beruht;beschuht;buht;flut;frohgemut;gebuht;gemuht;geruht;gut;muht;resolut;tut;vermut;vertut;Aluhut;Azimut;Beirut;Bilderflut;Blaubeerblut;Blut;Blutarmut;Brut;Damenhut;Disput;Flut;Food;Glut;Gut;Herrenhut;Hut;Institut;Kanut;Knut;Konvolut;Luxusgut;Mut;Nut;Rekrut;Salut;Schnut;Schut;Skorbut;Statut;Sud;Tribut;Tunichtgut;Übermut;Wagemut;Wankelmut;Wut;Zuckerhut;Zylinderhut
-UUTE;absolute;akute;ausgebuhte;ausgeruhte;beruhte;beschuhte;buhte;flute;frohgemute;gebuhte;gemuhte;geruhte;gute;muhte;mute;ruht;ruhte;tute;vermute;Attribute;Blute;Dispute;Hute;Institute;Kanute;Knute;Konvolute;Minute;Mute;Nute;Pute;Rekrute;Route;Rute;Salute;Schnute;Statute;Tribute;Stute;Tunichtgute;Tute
-UUTEN;absoluten;akuten;ausgebuhten;ausgeruhten;beruhten;beschuhten;bluten;buhten;fluten;frohgemuten;gebuhten;gemuhten;guten;knuten;muhten;resolute;resoluten;routen;sputen;tuten;überfluten;verbluten;vermuten;Attributen;Disputen;Fluten;Gluten;Instituten;Jakuten;Juten;Kanuten;Knuten;Konvoluten;Lebensfluten;Minuten;Nasenbluten;Nuten;Puten;Redouten;Rekruten;Routen;Ruten;Schnuten;Statuten;Stuten;Substituten;Tributen;Tunichtguten;Tuten;Veduten;Valuten;Voluten
-UUTEND;bluten;flutend;knutend;mutend;routend;sputend;tutend;überflutend;verblutend;vermutend;muten
+UUT;absolut;akut;ausgebuht;ausgeruht;beruht;beschuht;buht;flut;frohgemut;gebuht;gemuht;geruht;gut;muht;resolut;ruht;tut;vermut;vertut;Aluhut;Azimut;Beirut;Bilderflut;Blaubeerblut;Blut;Blutarmut;Brut;Damenhut;Disput;Flut;Food;Glut;Gut;Herrenhut;Hut;Institut;Kanut;Knut;Konvolut;Luxusgut;Mut;Nut;Rekrut;Salut;Schnut;Schut;Skorbut;Statut;Sud;Tribut;Tunichtgut;Übermut;Wagemut;Wankelmut;Wut;Zuckerhut;Zylinderhut
+UUTE;absolute;akute;ausgebuhte;ausgeruhte;beruhte;beschuhte;buhte;flute;frohgemute;gebuhte;gemuhte;geruhte;gute;muhte;mute;resolute;ruhte;tute;vermute;Attribute;Blute;Dispute;Hute;Institute;Kanute;Knute;Konvolute;Minute;Mute;Nute;Pute;Rekrute;Route;Rute;Salute;Schnute;Statute;Tribute;Stute;Tunichtgute;Tute
+UUTEN;absoluten;akuten;ausgebuhten;ausgeruhten;beruhten;beschuhten;bluten;buhten;fluten;frohgemuten;gebuhten;gemuhten;guten;knuten;muhten;muten;resoluten;routen;sputen;tuten;überfluten;verbluten;vermuten;Attributen;Disputen;Fluten;Gluten;Instituten;Jakuten;Juten;Kanuten;Knuten;Konvoluten;Lebensfluten;Minuten;Nasenbluten;Nuten;Puten;Redouten;Rekruten;Routen;Ruten;Schnuten;Statuten;Stuten;Substituten;Tributen;Tunichtguten;Tuten;Veduten;Valuten;Voluten
+UUTEND;bluten;flutend;knutend;mutend;routend;sputend;tutend;überflutend;verblutend;vermutend
 UUTENS;Blutens;Flutens;Knutens;Mutens;Routens;Sputens;Tutens;Überflutens;Verblutens;Vermutens
-UUTER;absoluter;akuter;ausgebuhter;ausgeruhter;beschuhter;buht er;frohgemuter;guter;ruht er;tut er;vertut er;Autoscooter;Bluter;Computer;Ego-Shooter;Puter;Router;Scooter;Shooter;Suter
-UUTERN;Autoscootern;Blutern;Computern;Flutern;Putern;Routern;Scootern;Shootern;Fluter
-UUTES;absolutes;akutes;ausgebuhtes;ausgeruhtes;beruht es;beschuhtes;buht es;frohgemutes;gebuhtes;gemuhtes;gutes;muht es;ruht es;tut es;vermut es;Blutes;Hutes;Institutes;Konvolutes;Mutes;Statutes
-UUTEST;beruhtest;blutest;akutest;geruhtest;knutest;muhtest;ruhtest;sputest;tutest;vermutest;Bluttest;Schuhtest;vertut es
-UUTET;ausgeblutet;blutet;flutet;geblutet;geflutet;geknutet;geroutet;gesputet;getutet;knutet;muhtet;mutet;sputet;tutet;überflutet;verblutet;vermutet;zugemutet
-UUVIE;groovy;Goofy;movie;unvermutet
+UUTER;absoluter;akuter;ausgebuhter;ausgeruhter;beschuhter;buht er;frohgemuter;guter;ruht er;tut er;vertut er;Autoscooter;Bluter;Computer;Ego-Shooter;Fluter;Puter;Router;Scooter;Shooter;Suter
+UUTERN;Autoscootern;Blutern;Computern;Flutern;Putern;Routern;Scootern;Shootern
+UUTES;absolutes;akutes;ausgebuhtes;ausgeruhtes;beruht es;beschuhtes;buht es;frohgemutes;gebuhtes;gemuhtes;gutes;muht es;ruht es;tut es;vermut es;vertut es;Blutes;Hutes;Institutes;Konvolutes;Mutes;Statutes
+UUTEST;beruhtest;blutest;akutest;geruhtest;knutest;muhtest;ruhtest;sputest;tutest;vermutest;Bluttest;Schuhtest
+UUTET;ausgeblutet;blutet;flutet;geblutet;geflutet;geknutet;geroutet;gesputet;getutet;knutet;muhtet;mutet;sputet;tutet;überflutet;unvermutet;verblutet;vermutet;zugemutet
+UUVIE;groovy;Goofy;movie
 UZE;duze;ruht se;tut se;uze;Geduze;Kapuze
 UZIEREN;induzieren;obduzieren;produzieren;reduzieren;reproduzieren
 UZIEREND;induzierend;obduzierend;produzierend;reduzierend;reproduzierend`;
@@ -3564,15 +3989,14 @@ UZIEREND;induzierend;obduzierend;produzierend;reduzierend;reproduzierend`;
     function searchRhymes() {
       const inputElement = document.getElementById('searchInput');
       const rawInput = inputElement.value.replace(/"/g, '').trim();
-      const ignoreCase = document.getElementById('ignoreCase').checked;
+      const ignoreCase = false;
       const sortByEnding = document.getElementById('sortAlpha').checked;
       const status = document.getElementById('statusMessage');
       const container = document.getElementById('resultsContainer');
 
       if (!rawInput) {
         status.innerText = 'Reim oder Wort suchen.';
-        container.innerHTML =
-          '<div class="empty-state">Gib oben einen Reim oder ein Wort ein.</div>';
+        container.innerHTML = '';
         return;
       }
 
@@ -3807,15 +4231,108 @@ UZIEREND;induzierend;obduzierend;produzierend;reduzierend;reproduzierend`;
 
 <script>
 window.addEventListener('message', function(event) {
-  if (event.origin !== 'https://www.faltsch-wagoni.de') return;
+  /* Nur Nachrichten des einbettenden Fensters akzeptieren.
+     Das funktioniert auch, wenn die Website mit oder ohne www geöffnet wird. */
+  if (event.source !== window.parent) return;
+
   if (event.data === 'faltsch-wagoni-nach-oben') {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
+    return;
+  }
+
+  if (event.data && event.data.type === 'reimfinder-action') {
+    const actionButtons = {
+      browse: document.getElementById('browseButton'),
+      info: document.getElementById('infoButton'),
+      feedback: document.getElementById('feedbackButton')
+    };
+    const button = actionButtons[event.data.action];
+    if (button) button.click();
   }
 });
 </script>
 
 
+
+<style id="desktop-header-spacing-cleanup">
+/* Letzte gezielte Desktop-Korrektur: kompaktere Buttons und mehr Luft im Kopfbereich.
+   Regeln gelten nur am Desktop; die Mobilansicht bleibt unverändert. */
+@media (min-width: 601px) {
+  .header-row {
+    grid-template-columns: minmax(0, 1fr) 420px minmax(0, 1fr) 88px !important;
+    column-gap: 16px !important;
+    row-gap: 12px !important;
+    align-items: center !important;
+  }
+  .header-actions {
+    width: 420px !important;
+    gap: 8px !important;
+  }
+  .header-actions .browse-button,
+  .header-actions .info-button,
+  .header-actions .feedback-button {
+    width: 100% !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    padding: 5px 6px !important;
+    font-size: .80rem !important;
+    line-height: 1.1 !important;
+  }
+  .rhyme-quote { margin: 8px 0 12px !important; }
+  header { margin-bottom: 18px !important; }
+  .wide-intro { margin-top: 12px !important; margin-bottom: 16px !important; }
+}
+</style>
+
+
+<style id="desktop-quote-buttons-centered-final">
+/* Desktop: Zitat und Buttonreihe bilden eine einzige, zentrierte Zeile. */
+@media (min-width: 601px) {
+  .header-row {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 390px minmax(0, 1fr) !important;
+    align-items: center !important;
+    column-gap: 12px !important;
+    row-gap: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .header-row > a:not(.desktop-right-logo),
+  .header-row .header-text,
+  .header-row .desktop-right-logo { display: none !important; }
+  .rhyme-quote { display: contents !important; margin: 0 !important; }
+  .rhyme-quote .quote-first {
+    display: block !important; grid-column: 1 !important; grid-row: 1 !important;
+    justify-self: end !important; text-align: right !important; white-space: nowrap !important;
+    margin: 0 !important;
+  }
+  .header-actions {
+    grid-column: 2 !important; grid-row: 1 !important;
+    display: flex !important; width: 390px !important; max-width: 390px !important;
+    justify-content: center !important; gap: 8px !important; margin: 0 !important;
+  }
+  .header-actions .browse-button,
+  .header-actions .info-button,
+  .header-actions .feedback-button {
+    flex: 1 1 0 !important; width: auto !important; min-width: 0 !important;
+    height: 38px !important; min-height: 38px !important; padding: 4px 5px !important;
+    font-size: .78rem !important; line-height: 1.05 !important;
+  }
+  .rhyme-quote .quote-second {
+    display: block !important; grid-column: 3 !important; grid-row: 1 !important;
+    justify-self: start !important; text-align: left !important; white-space: nowrap !important;
+    margin: 0 !important;
+  }
+}
+
+/* Mehr Luft im Kopfbereich der Desktop-Version; Mobilansicht bleibt unverändert */
+@media (min-width: 601px) {
+  header { padding-top: 32px !important; padding-bottom: 26px !important; }
+  .header-row { margin-bottom: 14px !important; }
+  .rhyme-quote { padding-top: 8px !important; }
+}
+</style>
 </body>
 </html>
