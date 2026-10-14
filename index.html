@@ -809,6 +809,25 @@ header { display: block !important; height: auto !important; min-height: 0 !impo
 }
 </style>
 
+
+<style id="hide-rhyme-quote-on-mobile">
+/* Smartphone: das Goethe-Zitat ausblenden; Desktop bleibt unverändert. */
+@media (max-width: 600px) {
+  .rhyme-quote { display: none !important; }
+}
+</style>
+
+
+<style id="more-top-space-before-buttons">
+/* Mehr Abstand zwischen oberer Kante und den drei Buttons – Desktop und Smartphone. */
+@media (min-width: 601px) {
+  .header-row { padding-top: 18px !important; }
+}
+@media (max-width: 600px) {
+  .header-row { padding-top: 18px !important; }
+}
+</style>
+
 </head>
 <body>
   <div class="container">
