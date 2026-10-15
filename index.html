@@ -4375,5 +4375,45 @@ window.addEventListener('message', function(event) {
   }
 }
 </style>
+
+<style id="hide-rhyme-quote-on-mobile">
+/* Smartphone: das Goethe-Zitat ausblenden; Desktop bleibt unverändert. */
+@media (max-width: 600px) {
+  .rhyme-quote { display: none !important; }
+}
+</style>
+
+<style id="more-top-space-before-buttons">
+/* Mehr Abstand zwischen oberer Kante und den drei Buttons – Desktop und Smartphone. */
+@media (min-width: 601px) {
+  .header-row { padding-top: 18px !important; }
+}
+@media (max-width: 600px) {
+  .header-row { padding-top: 18px !important; }
+}
+</style>
+
+<style id="mobile-three-buttons-equal-height">
+/* Nur Smartphone: alle drei Kopf-Buttons exakt gleich hoch. */
+@media (max-width: 600px) {
+  .header-actions {
+    align-items: stretch !important;
+  }
+  .header-actions .browse-button,
+  .header-actions .info-button,
+  .header-actions .feedback-button {
+    box-sizing: border-box !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    max-height: 42px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1.1 !important;
+    padding: 4px 3px !important;
+  }
+}
+</style>
+
 </body>
 </html>
