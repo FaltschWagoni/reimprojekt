@@ -811,7 +811,7 @@ header { display: block !important; height: auto !important; min-height: 0 !impo
 
 
 <style id="mobile-back-to-top-style">
-  /* Smartphone: erst nach dem Scrollen anzeigen; Desktop bleibt unverändert. */
+  /* Auf Desktop und Smartphone erst nach dem Scrollen anzeigen. */
   #reimfinderBackToTop {
     display: none;
     position: fixed;
@@ -832,7 +832,71 @@ header { display: block !important; height: auto !important; min-height: 0 !impo
     justify-content: center;
   }
   #reimfinderBackToTop.visible { display: flex; }
-  @media (min-width: 601px) { #reimfinderBackToTop { display: none !important; } }
+  @media (min-width: 601px) {
+    #reimfinderBackToTop { width: 42px; height: 42px; right: 24px; bottom: 24px; font-size: 21px; }
+  }
+</style>
+
+
+<style id="group-overview-layout">
+/* Kompakte Statusfelder: Wortanzahl links, Treffergruppen rechts. */
+.status-bar {
+  display: grid !important;
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+  gap: 8px;
+  align-items: stretch !important;
+  margin-bottom: 14px;
+}
+.status-bar .badge,
+#groupOverview {
+  width: 100%;
+  min-width: 0;
+  min-height: 30px;
+  padding: 5px 8px;
+  border-radius: 9px;
+  font-size: .68rem;
+  line-height: 1.2;
+  box-sizing: border-box;
+  text-align: center;
+}
+.status-bar .badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+#groupOverview {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3px 8px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+}
+#groupOverview.has-links { display: flex; }
+#groupOverview a {
+  color: var(--primary-color);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+#groupOverview a:hover,
+#groupOverview a:focus-visible {
+  color: #fff;
+}
+#groupOverview .overview-label {
+  color: var(--text-muted);
+  font-size: inherit;
+}
+.status-bar:not(.has-overview) .badge { grid-column: 1 / -1; }
+#statusMessage { display: none !important; }
+@media (max-width: 420px) {
+  .status-bar { gap: 6px; }
+  .status-bar .badge { padding: 4px 3px; font-size: .58rem; letter-spacing: -0.02em; }
+  #groupOverview { padding: 4px 5px; font-size: .68rem; }
+}
 </style>
 
 </head>
@@ -892,8 +956,9 @@ header { display: block !important; height: auto !important; min-height: 0 !impo
     </div>
 
     <div class="status-bar" data-nosnippet>
-      <span id="statusMessage" aria-live="polite"></span>
       <span class="badge" id="wordCountBadge">0 Wörter geladen</span>
+      <div id="groupOverview" aria-live="polite"></div>
+      <span id="statusMessage" aria-live="polite"></span>
     </div>
 
     <div id="resultsContainer"></div>
@@ -923,7 +988,7 @@ Das würde ich auch gern mal sehn!
 
 </div>
 
-<footer data-nosnippet>Reimlexikon – Version 2.29<br>© Faltsch Wagoni 2026</footer>
+<footer data-nosnippet>Reimlexikon – Version 2.47<br>© Faltsch Wagoni 2026</footer>
   </div>
 
   <script>
@@ -4187,6 +4252,30 @@ UZIEREND;induzierend;obduzierend;produzierend;reduzierend;reproduzierend`;
       return safe.replace(/(\([^)]*\))/g, '<em>$1</em>');
     }
 
+
+    function updateGroupOverview(groups) {
+      const overview = document.getElementById('groupOverview');
+      const statusBar = document.querySelector('.status-bar');
+      if (!overview || !statusBar) return;
+      overview.innerHTML = '';
+      overview.classList.remove('has-links');
+      statusBar.classList.remove('has-overview');
+      if (!groups || groups.length < 2) return;
+
+      // Nur ein Link zur zweiten gefundenen Reimgruppe anzeigen.
+      const link = document.createElement('a');
+      link.href = '#rhyme-group-2';
+      link.textContent = 'Zur 2. Reimgruppe: -' + groups[1].name.toLocaleLowerCase('de');
+      link.addEventListener('click', function (event) {
+        event.preventDefault();
+        const target = document.getElementById('rhyme-group-2');
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+      overview.appendChild(link);
+      overview.classList.add('has-links');
+      statusBar.classList.add('has-overview');
+    }
+
     function searchRhymes() {
       const inputElement = document.getElementById('searchInput');
       const rawInput = inputElement.value.replace(/"/g, '').trim();
@@ -4194,6 +4283,7 @@ UZIEREND;induzierend;obduzierend;produzierend;reduzierend;reproduzierend`;
       const sortByEnding = document.getElementById('sortAlpha').checked;
       const status = document.getElementById('statusMessage');
       const container = document.getElementById('resultsContainer');
+      updateGroupOverview([]);
 
       if (!rawInput) {
         status.innerText = 'Reim oder Wort suchen.';
@@ -4228,6 +4318,8 @@ UZIEREND;induzierend;obduzierend;produzierend;reduzierend;reproduzierend`;
         );
       }
 
+      updateGroupOverview(selectedGroups);
+
       if (selectedGroups.length === 0) {
         status.innerText = `Keine Treffer für „${rawInput}“`;
         container.innerHTML =
@@ -4239,7 +4331,7 @@ UZIEREND;induzierend;obduzierend;produzierend;reduzierend;reproduzierend`;
 
       let totalWords = 0;
 
-      selectedGroups.forEach(group => {
+      selectedGroups.forEach((group, groupIndex) => {
         // Innerhalb jeder Reimgruppe doppelte Schreibweisen nur einmal anzeigen.
         const matches = new Map();
         group.words.forEach(word => {
@@ -4269,6 +4361,7 @@ UZIEREND;induzierend;obduzierend;produzierend;reduzierend;reproduzierend`;
 
         const section = document.createElement('section');
         section.className = 'group-result';
+        section.id = 'rhyme-group-' + (groupIndex + 1);
 
         const heading = document.createElement('div');
         heading.className = 'group-heading';
@@ -4575,7 +4668,7 @@ window.addEventListener('message', function(event) {
   var button = document.getElementById('reimfinderBackToTop');
   if (!button) return;
   function updateButton() {
-    if (window.innerWidth <= 600 && (window.scrollY || document.documentElement.scrollTop || document.body.scrollTop) > 180) {
+    if ((window.scrollY || document.documentElement.scrollTop || document.body.scrollTop) > 180) {
       button.classList.add('visible');
     } else {
       button.classList.remove('visible');
