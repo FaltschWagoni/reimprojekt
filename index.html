@@ -946,7 +946,7 @@ header { display: block !important; height: auto !important; min-height: 0 !impo
     <div class="search-section">
       <div class="search-box">
         <div class="input-wrapper">
-          <div class="search-input-wrap"><input type="text" id="searchInput" placeholder="" autocomplete="off" onkeyup="if(event.key==='Enter') searchRhymes()"><button type="button" class="search-clear" id="searchClear" aria-label="Suchfeld löschen">×</button></div>
+          <div class="search-input-wrap"><input type="text" id="searchInput" placeholder="" autocomplete="off"><button type="button" class="search-clear" id="searchClear" aria-label="Suchfeld löschen">×</button></div>
         </div>
         <button class="btn-search" onclick="searchRhymes()">Suchen</button>
       </div>
@@ -4533,6 +4533,15 @@ UZIEREND;induzierend;obduzierend;produzierend;reduzierend;reproduzierend`;
     }
 
     initDatabase();
+
+    // Suchwort kann beim Aufruf über die Strato-Seite per URL übergeben werden.
+    (function() {
+      const uebergebenesWort = new URLSearchParams(window.location.search).get('wort');
+      if (uebergebenesWort) {
+        const feld = document.getElementById('searchInput');
+        if (feld) { feld.value = uebergebenesWort; searchRhymes(); }
+      }
+    })();
   
     async function copyRhymingWord(word, card) {
       let copied = false;
@@ -4793,5 +4802,43 @@ window.addEventListener('message', function(event) {
 })();
 </script>
 
+<script id="strato-search-bridge">
+// Direkter Aufruf der GitHub-Seite: Suche an die Strato-Seite übergeben.
+// Innerhalb des Strato-iframes bleibt die Suche wie bisher lokal.
+function starteStratoSuche() {
+  const feld = document.getElementById('searchInput');
+  const wort = feld ? feld.value.trim() : '';
+  if (!wort) {
+    if (window.top !== window.self) searchRhymes();
+    else feld && feld.focus();
+    return;
+  }
+  if (window.top !== window.self) {
+    searchRhymes();
+    return;
+  }
+  const ziel = 'https://www.faltsch-wagoni.de/seiten/Reimfinder.html?wort=' + encodeURIComponent(wort);
+  window.location.href = ziel;
+}
+
+// Die Strato-Seite übermittelt das Suchwort an das eingebettete Fenster.
+window.addEventListener('message', function(event) {
+  if (event.origin !== 'https://www.faltsch-wagoni.de') return;
+  if (!event.data || event.data.type !== 'faltsch-wagoni-suche') return;
+  const feld = document.getElementById('searchInput');
+  if (!feld) return;
+  feld.value = event.data.wort || '';
+  searchRhymes();
+});
+
+(function() {
+  const feld = document.getElementById('searchInput');
+  const knopf = document.querySelector('.btn-search');
+  if (knopf) knopf.onclick = starteStratoSuche;
+  if (feld) feld.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') { event.preventDefault(); starteStratoSuche(); }
+  });
+})();
+</script>
 </body>
 </html>
