@@ -1010,6 +1010,81 @@ footer{max-width:900px;margin:50px auto 0;border-color:rgba(255,255,255,.25);col
 }
 </style>
 
+
+<style id="reimfinder-header-buttons-final-fix">
+/* Drei Hauptbuttons: orange Kontur, beim Hover orange Fläche und schwarze Schrift */
+.header-actions button#browseButton,
+.header-actions button#infoButton,
+.header-actions button#feedbackButton {
+  background: transparent !important;
+  color: #f07824 !important;
+  border: 2px solid #f07824 !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+.header-actions button#browseButton:hover,
+.header-actions button#infoButton:hover,
+.header-actions button#feedbackButton:hover,
+.header-actions button#browseButton:focus-visible,
+.header-actions button#infoButton:focus-visible,
+.header-actions button#feedbackButton:focus-visible {
+  background: #f07824 !important;
+  color: #000000 !important;
+  border-color: #f07824 !important;
+}
+</style>
+
+<style id="search-clear-visibility-fix">
+/* Deutlich sichtbares Kreuz zum Leeren des Suchfelds */
+.search-input-wrap #searchClear {
+  color: #555555 !important;
+  font-size: 2rem !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  width: 34px !important;
+  height: 34px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+  z-index: 2 !important;
+}
+.search-input-wrap #searchClear:hover,
+.search-input-wrap #searchClear:focus-visible {
+  color: #333333 !important;
+  background: rgba(0,0,0,0.08) !important;
+  border-radius: 50% !important;
+}
+</style>
+
+
+<style id="final-clear-and-intro-spacing">
+/* Suchfeld-Kreuz: gut sichtbar, aber nicht pechschwarz */
+.search-input-wrap #searchClear { color: #555 !important; }
+.search-input-wrap #searchClear:hover,
+.search-input-wrap #searchClear:focus-visible { color: #333 !important; }
+/* Den Textbereich näher an die Wörteranzeige heranrücken */
+.reimfinder-info-grid { margin-top: 20px !important; }
+@media (max-width: 700px) {
+  .reimfinder-info-grid { margin-top: 18px !important; }
+}
+</style>
+
+
+<style id="reimfinder-poem-orange">
+/* Gedichtbeispiel: orange Fläche, schwarze Schrift */
+blockquote.reim-beispiel {
+  background: #f07824 !important;
+  color: #111111 !important;
+  border-color: #f07824 !important;
+}
+blockquote.reim-beispiel,
+blockquote.reim-beispiel * {
+  color: #111111 !important;
+}
+</style>
+
 </head>
 <body>
   <div class="container">
@@ -1085,8 +1160,11 @@ footer{max-width:900px;margin:50px auto 0;border-color:rgba(255,255,255,.25);col
     
 <div class="reimfinder-info-grid">
 <section class="reimfinder-suche" aria-labelledby="reimfinder-suche-titel">
-<h2 id="reimfinder-suche-titel">Reime finden – für Gedichte und Songtexte</h2>
-<p>Der Online-Reimfinder ist eine Reimsuche und Reimmaschine für alle, die deutsche Reime und ungewöhnliche Reimwörter suchen. Er eignet sich als Reim-Tool für Dichter, Songwriter und Songschreiber – vom einzelnen Reim bis zur Arbeit an Gedichten, Liedtexten und anderen kreativen Texten. Er ist vollständig kostenlos und frei von Werbung und anderem Schnickschnack.</p>
+<h2 id="reimfinder-suche-titel">Reimen ist keine Kunst</h2>
+<p>Meint der „wahre“ Lyriker. Er sieht im Reim ein minderwertiges Mittel der Dichtkunst, das die oberflächliche Form über die inhaltliche Tiefe stellt. Und wenn dann auch noch eine Reimhilfe zu Rate gezogen wird, ist für den Puristen Schluss mit lustig.</p>
+<p><strong>Unsinn, sage ich.</strong> Die Einschränkung durch den Reim ist doch geradezu die höchste Herausforderung für den wahren Dichter. Wer nicht reimen will, soll das bleiben lassen. Jeder darf dichten wie er will, aber der Reim gibt der Poesie Rhythmus und Schwung und wenn dann noch der Inhalt stimmt, ist sie für mich das Nonplusultra.</p>
+<p>Natürlich gibt es gute und schlechte Reime. Ein schlechter Reimer kann schlecht ein guter Lyriker sein. Und weil die Suche nach dem einzig wahren und richtigen Reim so mühsam und zeitraubend ist, kann eine Reimhilfe eine große Erleichterung darstellen.</p>
+<p>Letztlich kommt es doch darauf an, in welchem inhaltlichen Kontext gereimt wird, und ob der Rhythmus stimmt, oder?</p>
 </section>
 <section class="reimfinder-besonderheit" aria-labelledby="reimfinder-besonderheit-titel">
 <h2 id="reimfinder-besonderheit-titel">Was dieser Reimfinder anders macht</h2>
@@ -1104,6 +1182,8 @@ Meint dazu: ach, du Gütiger<br>
 Das würde ich auch gern mal sehn!
 </blockquote>
 <p><strong>Loren – Neopren – gehn</strong> und <strong>Psychoanalytiker – Gütiger</strong> zeigen: Beim Reimen zählen Klang, Betonung und sprachlicher Rhythmus – nicht ein starres Schema.</p>
+<p><strong>Reime finden – für Gedichte und Songtexte</strong></p>
+<p>Der Online-Reimfinder ist eine Reimsuche und Reimmaschine für alle, die deutsche Reime und ungewöhnliche Reimwörter suchen. Er eignet sich als Reim-Tool für Dichter, Songwriter und Songschreiber – vom einzelnen Reim bis zur Arbeit an Gedichten, Liedtexten und anderen kreativen Texten. Er ist vollständig kostenlos und frei von Werbung und anderem Schnickschnack.</p>
 </section>
 
 </div>
@@ -4960,6 +5040,33 @@ window.addEventListener('message', function(event) {
   });
 })();
 </script>
+
+<style id="sort-checkbox-typography-fix">
+/* Sortieroption: gleiche Leseschrift wie der übrige Fließtext und gut sichtbares Kästchen */
+.filter-options,
+.filter-options label {
+  font-family: 'Jost', Arial, sans-serif !important;
+  font-size: 0.88rem !important;
+  line-height: 1.5 !important;
+  font-weight: 400 !important;
+}
+.filter-options label {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+.filter-options input[type="checkbox"] {
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+  margin: 0 2px 0 0 !important;
+  accent-color: #f07824 !important;
+  flex: 0 0 18px !important;
+  cursor: pointer;
+}
+</style>
+
 </body>
 </html>
 
