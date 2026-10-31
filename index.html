@@ -1214,6 +1214,41 @@ blockquote.reim-beispiel * {
 }
 </style>
 
+
+<style id="reimfinder-exact-column-alignment">
+@media (min-width: 900px) {
+  .author-intro {
+    grid-template-columns: 240px minmax(0, 1fr) !important;
+    column-gap: 65px !important;
+  }
+  .author-portrait {
+    width: 240px !important;
+    max-width: 240px !important;
+  }
+  /* The two editorial text columns below start at the same content axis. */
+  .reimfinder-info-grid {
+    box-sizing: border-box !important;
+    width: calc(100% - 305px) !important;
+    max-width: none !important;
+    margin: 42px 0 18px 305px !important;
+    padding: 0 !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    gap: 28px !important;
+  }
+  .reimfinder-suche,
+  .reimfinder-besonderheit {
+    min-width: 0 !important;
+  }
+}
+@media (max-width: 899px) {
+  .reimfinder-info-grid {
+    width: auto !important;
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+  }
+}
+</style>
+
 </head>
 <body>
   <div class="container">
