@@ -922,9 +922,12 @@ header p{color:#fff}
 .header-actions{width:100%;justify-content:center;margin:8px 0 0;gap:12px}
 .header-actions .browse-button,.header-actions .info-button,.header-actions .feedback-button{
  width:auto;min-width:145px;min-height:44px;padding:10px 18px;border:1px solid var(--rf-orange);
- border-radius:3px;background:var(--rf-orange);color:#fff;font:600 1rem 'Jost',Arial,sans-serif;
+ border-radius:3px;background:transparent;color:var(--rf-orange);font:600 1rem 'Jost',Arial,sans-serif;
+ transition:background-color .18s ease,color .18s ease,border-color .18s ease;
 }
-.header-actions .browse-button:hover,.header-actions .info-button:hover,.header-actions .feedback-button:hover,
+.header-actions .browse-button:hover,.header-actions .info-button:hover,.header-actions .feedback-button:hover{
+ background:var(--rf-orange);border-color:var(--rf-orange);color:#111;
+}
 button.btn-search:hover,.feedback-submit:hover,.info-close:hover{background:#f18a43;color:#fff}
 .author-intro{display:grid;grid-template-columns:minmax(180px,270px) 1fr;gap:clamp(24px,4vw,52px);align-items:center;
  max-width:900px;margin:22px auto 34px;padding:0 10px}
