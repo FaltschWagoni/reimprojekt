@@ -4959,3 +4959,60 @@ window.addEventListener('message', function(event) {
 </script>
 </body>
 </html>
+
+
+<style id="layout-spacing-color-width-final">
+/* Feinschliff nach Sichtprüfung: kompaktere Abstände, Orange und einheitliche Breite. */
+:root { --accent-orange: #f47721; }
+.container {
+  width: min(100% - 48px, 1300px) !important;
+  max-width: 1300px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.wide-intro, .search-section, .status-bar, #resultsContainer {
+  max-width: 1300px !important;
+}
+.wide-intro p { line-height: 1.55 !important; }
+.wide-intro { margin-bottom: 12px !important; padding-bottom: 10px !important; }
+.header-row { padding-bottom: 10px !important; }
+.rhyme-quote, .rhyme-quote .quote-first, .rhyme-quote .quote-second {
+  color: #f47721 !important;
+}
+.group-heading { color: #f47721 !important; }
+.filter-options { margin-top: 5px !important; margin-bottom: 0 !important; line-height: 1.25 !important; }
+.status-bar {
+  margin-top: 6px !important;
+  margin-bottom: 10px !important;
+}
+.status-bar .badge, #groupOverview, #wordCountBadge {
+  font-size: .88rem !important;
+  line-height: 1.25 !important;
+}
+.search-section { margin-bottom: 14px !important; }
+.search-box { gap: 9px !important; }
+.search-input-wrap #searchInput, input[type="text"] {
+  min-height: 48px !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  font-size: 1rem !important;
+}
+button.btn-search {
+  min-height: 48px !important;
+  padding-top: 9px !important;
+  padding-bottom: 9px !important;
+}
+@media (max-width: 600px) {
+  .container {
+    width: calc(100% - 20px) !important;
+    max-width: none !important;
+  }
+  .search-input-wrap #searchInput, input[type="text"] {
+    min-height: 44px !important;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+  }
+  button.btn-search { min-height: 44px !important; }
+  .status-bar { margin-top: 4px !important; margin-bottom: 8px !important; }
+}
+</style>
