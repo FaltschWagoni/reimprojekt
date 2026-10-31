@@ -1156,6 +1156,64 @@ blockquote.reim-beispiel * {
 /* Auf kleineren Displays bleibt die bisherige mobile Anordnung erhalten. */
 </style>
 
+
+<style id="reimfinder-two-column-desktop">
+@media (min-width: 900px) {
+  body { padding: 20px 60px !important; }
+  .container { width: 100% !important; max-width: none !important; margin: 0 !important; }
+  header { width: 100% !important; margin: 0 0 18px !important; padding: 0 0 12px !important; }
+  /* Die Buttons stehen auf der gemeinsamen rechten Spaltenachse. */
+  .header-row { display: block !important; }
+  .header-actions {
+    display: flex !important;
+    width: max-content !important;
+    margin: 0 0 0 305px !important;
+    gap: 10px !important;
+    justify-content: flex-start !important;
+  }
+  .wide-intro,
+  .search-section,
+  .status-bar,
+  #resultsContainer {
+    box-sizing: border-box !important;
+    width: calc(100% - 305px) !important;
+    max-width: none !important;
+    margin-left: 305px !important;
+    margin-right: 0 !important;
+  }
+  .wide-intro { padding: 0 !important; margin-top: 12px !important; margin-bottom: 14px !important; text-align: left !important; }
+  .search-section { padding: 0 !important; margin-top: 0 !important; margin-bottom: 8px !important; }
+  .search-section .search-box { width: 100% !important; }
+  .search-section .input-wrapper { flex: 1 1 auto !important; min-width: 0 !important; }
+  .search-section .btn-search { flex: 0 0 auto !important; }
+  .search-section .filter-options { margin-top: 5px !important; }
+  .status-bar { margin-top: 7px !important; margin-bottom: 12px !important; }
+  #resultsContainer { margin-top: 0 !important; }
+  /* Linke Spalte: Foto. Rechte Spalte beginnt exakt bei 365 px im Viewport. */
+  .author-intro {
+    display: grid !important;
+    grid-template-columns: 240px minmax(0, 1fr) !important;
+    column-gap: 65px !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 18px 0 28px !important;
+    padding: 0 !important;
+  }
+  .author-portrait {
+    width: 240px !important;
+    max-width: 240px !important;
+    height: auto !important;
+    aspect-ratio: 3 / 4 !important;
+    object-fit: cover !important;
+  }
+  .author-copy { min-width: 0 !important; }
+}
+@media (max-width: 899px) {
+  .header-actions { margin-left: 0 !important; }
+}
+</style>
+
 </head>
 <body>
   <div class="container">
