@@ -1114,6 +1114,48 @@ blockquote.reim-beispiel * {
 }
 </style>
 
+
+<style id="reimfinder-alignment-desktop">
+/* Gemeinsame Textachse: Kopftext, Buttons, Erklärung und Suchbereich */
+@media (min-width: 900px) {
+  .wide-intro,
+  .search-section,
+  .status-bar,
+  #resultsContainer {
+    width: calc(100% - 410px) !important;
+    max-width: none !important;
+    margin-left: 330px !important;
+    margin-right: 80px !important;
+  }
+  .wide-intro {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    text-align: left !important;
+  }
+  .search-section {
+    margin-top: 14px !important;
+    margin-bottom: 12px !important;
+  }
+  .search-section .filter-options {
+    margin-top: 6px !important;
+  }
+  .status-bar {
+    margin-top: 8px !important;
+    margin-bottom: 14px !important;
+  }
+  #resultsContainer {
+    margin-top: 0 !important;
+  }
+  /* Buttons beginnen auf derselben Linie wie der Kopftext */
+  .header-actions {
+    margin-left: 250px !important;
+    margin-right: auto !important;
+    justify-content: flex-start !important;
+  }
+}
+/* Auf kleineren Displays bleibt die bisherige mobile Anordnung erhalten. */
+</style>
+
 </head>
 <body>
   <div class="container">
@@ -1125,7 +1167,6 @@ blockquote.reim-beispiel * {
           <p class="mobile-slogan">Reim dich oder ich fress dich</p>
         </div>
         <div class="header-actions" data-nosnippet><button type="button" class="browse-button" id="browseButton">Reime entdecken</button><button type="button" class="info-button" id="infoButton">über den Reimfinder</button><button type="button" class="feedback-button" id="feedbackButton">Feedback</button></div>
-        <p class="rhyme-quote"><span class="quote-first">Auf Teufel reimt sich nur der Zweifel</span><span class="quote-second">meint Goethe – er vergaß die Eifel</span></p>
         <a class="desktop-right-logo" href="https://www.faltsch-wagoni.de/" target="_top" aria-label="Zur Faltsch-Wagoni-Hauptseite"><img src="https://imgur.com/oYc2rIO.jpeg" alt="Faltsch Wagoni Logo"></a>
       </div>
 
