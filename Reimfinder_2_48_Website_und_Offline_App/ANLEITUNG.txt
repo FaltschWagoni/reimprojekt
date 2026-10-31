@@ -1,0 +1,29 @@
+ONLINE-REIMFINDER 2.48 – WEBSITE UND OFFLINE-APP
+
+Gemeinsame Datenbasis:
+- reime.csv enthält die Reim-Datenbank.
+- reimlexikon_builder_2_48.py erzeugt Website und App aus derselben CSV.
+
+Nach jeder Änderung:
+1. reime.csv und reimlexikon_builder_2_48.py in denselben Ordner legen.
+2. Im Terminal in diesen Ordner wechseln.
+3. python3 reimlexikon_builder_2_48.py ausführen.
+4. Die erzeugten Dateien auf GitHub Pages hochladen/ersetzen:
+   index.html, app.html, manifest.webmanifest, service-worker.js und icons/.
+
+Dateien:
+- index.html: normale Website; Suche führt wie bisher zur Strato-Seite.
+- app.html: installierte App; Suche bleibt lokal auf dem Gerät.
+- manifest.webmanifest: Name, Symbol und Startadresse der App.
+- service-worker.js: Offline-Speicherung und Versionsprüfung.
+- icons/: App-Symbole.
+
+Installation:
+- Android/Chrome: Website öffnen und „App installieren“ wählen.
+- iPhone/iPad: in Safari öffnen > Teilen > Zum Home-Bildschirm > Hinzufügen.
+
+Offline:
+Die App muss nach dem Upload einmal online vollständig geladen werden.
+Danach wird app.html samt eingebetteter Reim-Datenbank lokal gespeichert.
+Beim nächsten Online-Start wird auf eine neue Version geprüft.
+Die Strato-Seite bleibt unverändert.
