@@ -1300,6 +1300,82 @@ blockquote.reim-beispiel * {
 }
 </style>
 
+
+<style id="reimfinder-single-page-grid">
+@media (min-width: 900px) {
+  :root { --rf-left-col: 240px; --rf-gap: 65px; --rf-right-start: 305px; }
+  body { padding: 14px 60px 40px !important; }
+  .container { width: 100% !important; max-width: none !important; margin: 0 !important; }
+  header { width: 100% !important; margin: 0 0 18px !important; padding: 0 !important; }
+  .header-row {
+    display: grid !important;
+    grid-template-columns: var(--rf-left-col) minmax(0,1fr) !important;
+    grid-template-rows: auto auto !important;
+    column-gap: var(--rf-gap) !important;
+    row-gap: 16px !important;
+    align-items: start !important;
+    padding: 0 !important;
+  }
+  /* Restore the real header logo/title here; the wrapper no longer duplicates them. */
+  .header-row > a:not(.desktop-right-logo) {
+    display: block !important;
+    grid-column: 1 !important; grid-row: 1 / span 2 !important;
+    width: var(--rf-left-col) !important; margin: 0 !important;
+  }
+  .header-logo {
+    display: block !important; width: var(--rf-left-col) !important;
+    max-width: var(--rf-left-col) !important; height: auto !important;
+  }
+  .header-text {
+    display: block !important; grid-column: 2 !important; grid-row: 1 !important;
+    min-width: 0 !important; margin: 0 !important;
+  }
+  .header-actions {
+    display: flex !important; grid-column: 2 !important; grid-row: 2 !important;
+    width: max-content !important; max-width: 100% !important;
+    margin: 0 !important; padding: 0 !important;
+    justify-content: flex-start !important; justify-self: start !important;
+    gap: 10px !important; transform: none !important;
+  }
+  .desktop-right-logo { display: none !important; }
+  .wide-intro, .search-section, .status-bar, #resultsContainer {
+    box-sizing: border-box !important;
+    width: calc(100% - var(--rf-right-start)) !important;
+    max-width: none !important;
+    margin-left: var(--rf-right-start) !important;
+    margin-right: 0 !important;
+  }
+  .wide-intro { padding: 0 !important; text-align: left !important; margin-top: 12px !important; }
+  .search-section { padding: 0 !important; margin-top: 0 !important; }
+  .search-section .search-box { width: 100% !important; }
+  .search-section .input-wrapper { min-width: 0 !important; }
+  .status-bar { margin-top: 7px !important; }
+  #resultsContainer { margin-top: 0 !important; }
+  .author-intro {
+    display: grid !important;
+    grid-template-columns: var(--rf-left-col) minmax(0,1fr) !important;
+    column-gap: var(--rf-gap) !important;
+    width: 100% !important; max-width: none !important;
+    margin: 18px 0 28px !important; padding: 0 !important;
+  }
+  .author-portrait {
+    display: block !important; width: var(--rf-left-col) !important;
+    max-width: var(--rf-left-col) !important; height: auto !important;
+  }
+  .reimfinder-info-grid {
+    box-sizing: border-box !important;
+    width: calc(100% - var(--rf-right-start)) !important;
+    max-width: none !important;
+    margin: 35px 0 18px var(--rf-right-start) !important;
+    padding: 0 !important;
+  }
+}
+@media (max-width: 899px) {
+  /* Keep the existing mobile header and mobile layout rules. */
+  .desktop-right-logo { display: none !important; }
+}
+</style>
+
 </head>
 <body>
   <div class="container">
