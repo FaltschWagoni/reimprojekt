@@ -1400,6 +1400,17 @@ blockquote.reim-beispiel * {
 }
 </style>
 
+
+<style id="desktop-portrait-position-correction">
+/* Desktop: Das Porträt bleibt gleich groß und wird nur optisch nach oben versetzt. */
+@media (min-width: 900px) {
+  .author-intro > .author-portrait {
+    position: relative !important;
+    top: -115px !important;
+    transform: none !important;
+  }
+}
+</style>
 </head>
 <body>
   <div class="container">
@@ -5469,11 +5480,3 @@ button.btn-search {
 </style>
 
 
-<style id="desktop-portrait-move-up-100px">
-/* Nur das Porträt auf dem Desktop um 100 px nach oben verschieben. */
-@media (min-width: 900px) {
-  .author-portrait {
-    transform: translateY(-100px) !important;
-  }
-}
-</style>
