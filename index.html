@@ -1404,29 +1404,32 @@ blockquote.reim-beispiel * {
 
 <style id="desktop-author-spacing-final">
 @media (min-width: 900px) {
-  /* Mehr Luft zwischen Wortanzeige und Autorenüberschrift; Mobil bleibt unberührt. */
+  /* Abstand zur Wortanzeige bleibt erhalten. */
   .author-intro {
     margin-top: 32px !important;
-    margin-bottom: -28px !important;
+    margin-bottom: 0 !important;
     align-items: start !important;
   }
-  /* Foto bleibt 240 px breit und wird nur sichtbar 28 px höher gesetzt. */
+  /* Porträt etwas höher, unverändert 240 x 320 px. */
   .author-intro > .author-portrait {
     position: relative !important;
-    top: -28px !important;
+    top: -40px !important;
     width: 240px !important;
     max-width: 240px !important;
-    height: auto !important;
+    height: 320px !important;
+    object-fit: cover !important;
     transform: none !important;
   }
-  /* Überschrift erhält Abstand zur Wortanzeige, ohne das Foto abzusenken. */
+  /* Überschrift und Beschreibung behalten ihren Abstand zur Wortanzeige. */
   .author-intro > .author-copy {
     padding-top: 18px !important;
     min-width: 0 !important;
   }
-  /* Nächster Textabschnitt folgt 12 px unter dem sichtbaren Foto. */
+  /* Die beiden Infotexte beginnen rechts neben dem unteren Fotobereich,
+     direkt nach dem Autoren-Text statt erst unterhalb der ganzen Bildhöhe. */
   .reimfinder-info-grid {
-    margin-top: 12px !important;
+    margin-top: -140px !important;
+    margin-bottom: 18px !important;
   }
 }
 </style>
