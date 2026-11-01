@@ -1402,6 +1402,30 @@ blockquote.reim-beispiel * {
 
 
 
+<style id="desktop-author-info-spacing-correction">
+@media (min-width: 900px) {
+  /* Keep the portrait in normal flow at its existing 240px width. */
+  .author-intro {
+    position: static !important;
+    margin-top: 18px !important;
+    margin-bottom: 28px !important;
+    align-items: start !important;
+  }
+  .author-intro > .author-portrait {
+    position: static !important;
+    top: auto !important;
+    transform: none !important;
+    width: 240px !important;
+    max-width: 240px !important;
+    height: auto !important;
+  }
+  /* The two text columns sit below the author copy, alongside the portrait. */
+  .reimfinder-info-grid {
+    position: relative !important;
+    margin-top: -273px !important;
+  }
+}
+</style>
 </head>
 <body>
   <div class="container">
@@ -5470,50 +5494,4 @@ button.btn-search {
 }
 </style>
 
-<style id="desktop-author-spacing-correction">
-/* Desktop: Autorenbereich bleibt im normalen Dokumentfluss.
-   Keine negative Margin und keine optische Einzelverschiebung des Fotos. */
-@media (min-width: 900px) {
-  .status-bar {
-    margin-bottom: 8px !important;
-  }
-  .author-intro {
-    position: static !important;
-    display: grid !important;
-    grid-template-columns: 240px minmax(0, 1fr) !important;
-    column-gap: 65px !important;
-    align-items: start !important;
-    width: 100% !important;
-    max-width: none !important;
-    margin: 10px 0 0 !important;
-    padding: 0 !important;
-  }
-  .author-intro > .author-portrait {
-    position: static !important;
-    inset: auto !important;
-    top: auto !important;
-    transform: none !important;
-    display: block !important;
-    width: 240px !important;
-    max-width: 240px !important;
-    height: auto !important;
-    aspect-ratio: 3 / 4 !important;
-    object-fit: cover !important;
-    margin: 0 !important;
-  }
-  .author-intro > .author-copy {
-    position: static !important;
-    min-width: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-  .reimfinder-info-grid {
-    position: static !important;
-    width: calc(100% - 305px) !important;
-    max-width: none !important;
-    margin: 12px 0 18px 305px !important;
-    padding: 0 !important;
-  }
-}
-</style>
 
