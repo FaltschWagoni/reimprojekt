@@ -5446,15 +5446,23 @@ window.addEventListener('message', function(event) {
 </style>
 
 
-<style id="desktop-button-surrounding-spacing">
+
+
+<style id="desktop-header-button-spacing-correction">
+/* Desktop: Abstand direkt um die drei Kopfbuttons verkleinern.
+   Die Smartphone-Regeln bleiben vollständig unangetastet. */
 @media (min-width: 900px) {
-  /* Nur in der Desktop-Ansicht: weniger Luft oberhalb und unterhalb der drei Buttons. */
-  body { padding-top: 8px !important; }
-  header { margin-bottom: 8px !important; padding-bottom: 0 !important; }
-  .author-intro { margin-top: 18px !important; }
+  body { padding-top: 6px !important; }
+  header {
+    padding-top: 6px !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  .wide-intro {
+    margin-top: 0 !important;
+  }
 }
 </style>
-
 </body>
 </html>
 
