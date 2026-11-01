@@ -1402,12 +1402,30 @@ blockquote.reim-beispiel * {
 
 
 <style id="desktop-portrait-position-correction">
-/* Desktop: Porträt bleibt im normalen Layoutfluss; keine optische Einzelverschiebung. */
+/* Desktop: Das Porträt bleibt gleich groß und wird nur optisch nach oben versetzt. */
 @media (min-width: 900px) {
+  .author-intro > .author-portrait {
+    position: relative !important;
+    top: -115px !important;
+    transform: none !important;
+  }
+}
+</style>
+<style id="desktop-author-layout-flow-correction">
+/* Desktop: Autorenbereich im normalen Layoutfluss nach oben holen. */
+@media (min-width: 900px) {
+  .author-intro {
+    margin-top: -117px !important;
+    margin-bottom: 14px !important;
+    align-items: start !important;
+  }
   .author-intro > .author-portrait {
     position: static !important;
     top: auto !important;
     transform: none !important;
+  }
+  .reimfinder-info-grid {
+    margin-top: 12px !important;
   }
 }
 </style>
@@ -5480,28 +5498,3 @@ button.btn-search {
 </style>
 
 
-
-
-<style id="desktop-author-spacing-structural-fix">
-/* Desktop: Autorenbereich kompakter aufbauen, ohne das Foto zu beschneiden oder zu verkleinern. */
-@media (min-width: 900px) {
-  .author-intro {
-    align-items: start !important;
-    margin-top: -30px !important;
-    margin-bottom: 0 !important;
-  }
-  .author-intro > .author-portrait {
-    position: static !important;
-    top: auto !important;
-    transform: none !important;
-    width: 240px !important;
-    max-width: 240px !important;
-    height: auto !important;
-    aspect-ratio: 3 / 4 !important;
-    object-fit: cover !important;
-  }
-  .reimfinder-info-grid {
-    margin-top: -90px !important;
-  }
-}
-</style>
