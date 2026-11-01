@@ -5296,12 +5296,12 @@ window.addEventListener('message', function(event) {
 </style>
 
 <style id="more-top-space-before-buttons">
-/* Mehr Abstand zwischen oberer Kante und den drei Buttons – Desktop und Smartphone. */
+/* Kompakterer Abstand oberhalb der drei Buttons – Desktop und Smartphone. */
 @media (min-width: 601px) {
-  .header-row { padding-top: 18px !important; }
+  .header-row { padding-top: 8px !important; }
 }
 @media (max-width: 600px) {
-  .header-row { padding-top: 18px !important; }
+  .header-row { padding-top: 8px !important; }
 }
 </style>
 
@@ -5442,6 +5442,16 @@ window.addEventListener('message', function(event) {
     margin-top: 0 !important;
     transform: none !important;
   }
+}
+</style>
+
+
+<style id="desktop-button-surrounding-spacing">
+@media (min-width: 900px) {
+  /* Nur in der Desktop-Ansicht: weniger Luft oberhalb und unterhalb der drei Buttons. */
+  body { padding-top: 8px !important; }
+  header { margin-bottom: 8px !important; padding-bottom: 0 !important; }
+  .author-intro { margin-top: 18px !important; }
 }
 </style>
 
