@@ -5431,39 +5431,16 @@ window.addEventListener('message', function(event) {
 </style>
 
 
-<style id="mobile-status-bar-overview-fix">
-/* Smartphone: Wortanzahl und Link zur zweiten Reimgruppe teilen sich die Zeile,
-   ohne dass die Wortanzahl abgeschnitten wird. */
+<style id="mobile-author-photo-top-alignment">
+/* Smartphone: Foto oben am Autorenbereich ausrichten statt vertikal mittig. */
 @media (max-width: 700px) {
-  .status-bar.has-overview {
-    display: grid !important;
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.35fr) !important;
-    gap: 6px !important;
-    align-items: stretch !important;
-    width: 100% !important;
+  .author-intro {
+    align-items: start !important;
   }
-  .status-bar.has-overview #wordCountBadge {
-    min-width: 0 !important;
-    width: 100% !important;
-    padding: 5px 4px !important;
-    font-size: 0.70rem !important;
-    line-height: 1.2 !important;
-    letter-spacing: 0 !important;
-    white-space: normal !important;
-    overflow-wrap: anywhere !important;
-    text-align: center !important;
-  }
-  .status-bar.has-overview #groupOverview {
-    min-width: 0 !important;
-    width: 100% !important;
-    padding: 5px 6px !important;
-    font-size: 0.76rem !important;
-    line-height: 1.2 !important;
-    overflow-wrap: anywhere !important;
-    text-align: center !important;
-  }
-  .status-bar.has-overview #groupOverview a {
-    white-space: normal !important;
+  .author-intro > .author-portrait {
+    align-self: start !important;
+    margin-top: 0 !important;
+    transform: none !important;
   }
 }
 </style>
