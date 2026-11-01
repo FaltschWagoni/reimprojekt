@@ -1249,6 +1249,57 @@ blockquote.reim-beispiel * {
 }
 </style>
 
+
+<style id="reimfinder-final-axis-fix">
+@media (min-width: 900px) {
+  :root { --rf-image-width: 240px; --rf-column-gap: 65px; --rf-axis: 365px; }
+  body { padding-left: 60px !important; padding-right: 60px !important; }
+  .container { width: 100% !important; max-width: none !important; margin: 0 !important; }
+  header { width: 100% !important; }
+  /* All functional controls and explanatory copy share one exact left edge. */
+  .header-row { display: block !important; }
+  .header-actions {
+    position: relative !important;
+    left: calc(var(--rf-axis) - 60px) !important;
+    width: max-content !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    justify-content: flex-start !important;
+    transform: none !important;
+  }
+  .wide-intro, .search-section, .status-bar, #resultsContainer, .reimfinder-info-grid {
+    box-sizing: border-box !important;
+    width: calc(100% - (var(--rf-axis) - 60px)) !important;
+    max-width: none !important;
+    margin-left: calc(var(--rf-axis) - 60px) !important;
+    margin-right: 0 !important;
+  }
+  .wide-intro { padding-left: 0 !important; padding-right: 0 !important; }
+  .search-section { padding-left: 0 !important; padding-right: 0 !important; }
+  .search-section .search-box { width: 100% !important; }
+  .search-section .input-wrapper { min-width: 0 !important; }
+  .status-bar { width: calc(100% - (var(--rf-axis) - 60px)) !important; }
+  #resultsContainer { width: calc(100% - (var(--rf-axis) - 60px)) !important; }
+  .author-intro {
+    display: grid !important;
+    grid-template-columns: var(--rf-image-width) minmax(0,1fr) !important;
+    column-gap: var(--rf-column-gap) !important;
+    width: 100% !important; max-width: none !important;
+    margin: 18px 0 28px !important; padding: 0 !important;
+  }
+  .author-portrait {
+    width: var(--rf-image-width) !important;
+    max-width: var(--rf-image-width) !important;
+    height: auto !important;
+  }
+  .reimfinder-info-grid {
+    margin-top: 35px !important;
+    padding: 0 !important;
+    /* retain its existing two-column editorial layout */
+  }
+}
+</style>
+
 </head>
 <body>
   <div class="container">
