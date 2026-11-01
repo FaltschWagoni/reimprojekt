@@ -5444,21 +5444,13 @@ button.btn-search {
 </style>
 
 
-<style id="desktop-buttons-align-to-container-final">
-/* Desktop: Buttons beginnen an derselben linken Kante wie Suchbereich und übriger Inhalt. */
+<style id="desktop-buttons-share-content-axis">
 @media (min-width: 900px) {
-  .header-row {
-    display: block !important;
-    width: 100% !important;
-  }
   .header-actions {
-    display: flex !important;
-    width: auto !important;
-    max-width: none !important;
-    justify-content: flex-start !important;
-    justify-self: start !important;
-    margin: 8px 0 0 0 !important;
-    padding: 0 !important;
+    position: relative !important;
+    left: var(--rf-content-left) !important;
+    top: 0 !important;
+    margin: 0 !important;
     transform: none !important;
   }
 }
