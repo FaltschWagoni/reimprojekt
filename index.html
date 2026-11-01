@@ -1400,20 +1400,6 @@ blockquote.reim-beispiel * {
 }
 </style>
 
-
-<style id="reimfinder-buttons-axis-correction-20261101">
-/* Desktop: Buttons exakt auf dieselbe linke Achse wie Einleitung und Suchfeld setzen.
-   --rf-content-left ist in diesem Dokument selbst definiert (305px). */
-@media (min-width: 900px) {
-  .header-actions {
-    position: relative !important;
-    left: var(--rf-content-left) !important;
-    margin: 0 !important;
-    transform: none !important;
-    justify-content: flex-start !important;
-  }
-}
-</style>
 </head>
 <body>
   <div class="container">
@@ -5454,5 +5440,32 @@ button.btn-search {
   }
   button.btn-search { min-height: 44px !important; }
   .status-bar { margin-top: 4px !important; margin-bottom: 8px !important; }
+}
+</style>
+
+
+<style id="desktop-button-axis-final-verified-by-cascade">
+/* Desktop: Buttonreihe auf dieselbe linke Achse wie Einleitung und Suchfeld setzen.
+   --rf-content-left ist in diesem iframe definiert (305px). */
+@media (min-width: 900px) {
+  .header-row {
+    display: block !important;
+    width: 100% !important;
+  }
+  .header-actions {
+    display: flex !important;
+    position: relative !important;
+    left: var(--rf-content-left, 305px) !important;
+    right: auto !important;
+    transform: none !important;
+    float: none !important;
+    width: max-content !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    justify-content: flex-start !important;
+    justify-self: auto !important;
+    gap: 10px !important;
+  }
 }
 </style>
