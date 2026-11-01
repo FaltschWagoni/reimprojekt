@@ -5443,25 +5443,23 @@ button.btn-search {
 }
 </style>
 
-
-<style id="desktop-button-axis-final-verified-by-cascade">
-/* Desktop: Buttonreihe auf dieselbe linke Achse wie Einleitung und Suchfeld setzen.
-   --rf-content-left ist in diesem iframe definiert (305px). */
+<style id="desktop-button-axis-single-source">
+/* Eine verbindliche Desktop-Regel: Buttons und Suchbereich beginnen auf derselben Achse. */
 @media (min-width: 900px) {
   .header-row {
     display: block !important;
     width: 100% !important;
   }
   .header-actions {
-    display: flex !important;
-    position: relative !important;
-    left: var(--rf-content-left, 305px) !important;
+    position: static !important;
+    left: auto !important;
     right: auto !important;
     transform: none !important;
     float: none !important;
+    display: flex !important;
     width: max-content !important;
     max-width: none !important;
-    margin: 0 !important;
+    margin: 0 0 0 305px !important;
     padding: 0 !important;
     justify-content: flex-start !important;
     justify-self: auto !important;
