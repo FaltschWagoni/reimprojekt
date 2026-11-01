@@ -5416,6 +5416,20 @@ window.addEventListener('message', function(event) {
 }
 </style>
 
+
+<style id="desktop-portrait-position-correction">
+/* Desktop: Porträt weiter nach oben setzen, Größe unverändert lassen. */
+@media (min-width: 900px) {
+  .author-intro > .author-portrait {
+    top: -90px !important;
+    width: 240px !important;
+    max-width: 240px !important;
+    height: 320px !important;
+    object-fit: cover !important;
+  }
+}
+</style>
+
 </body>
 </html>
 
