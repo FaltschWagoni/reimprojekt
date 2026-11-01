@@ -1167,7 +1167,7 @@ blockquote.reim-beispiel * {
   .header-actions {
     display: flex !important;
     width: max-content !important;
-    margin: 0 0 0 305px !important;
+    margin: 0 0 0 145px !important;
     gap: 10px !important;
     justify-content: flex-start !important;
   }
@@ -1214,6 +1214,225 @@ blockquote.reim-beispiel * {
 }
 </style>
 
+
+<style id="reimfinder-exact-column-alignment">
+@media (min-width: 900px) {
+  .author-intro {
+    grid-template-columns: 240px minmax(0, 1fr) !important;
+    column-gap: 65px !important;
+  }
+  .author-portrait {
+    width: 240px !important;
+    max-width: 240px !important;
+  }
+  /* The two editorial text columns below start at the same content axis. */
+  .reimfinder-info-grid {
+    box-sizing: border-box !important;
+    width: calc(100% - 305px) !important;
+    max-width: none !important;
+    margin: 42px 0 18px 305px !important;
+    padding: 0 !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    gap: 28px !important;
+  }
+  .reimfinder-suche,
+  .reimfinder-besonderheit {
+    min-width: 0 !important;
+  }
+}
+@media (max-width: 899px) {
+  .reimfinder-info-grid {
+    width: auto !important;
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+  }
+}
+</style>
+
+
+<style id="reimfinder-final-axis-fix">
+@media (min-width: 900px) {
+  :root { --rf-image-width: 240px; --rf-column-gap: 65px; --rf-axis: 365px; }
+  body { padding-left: 60px !important; padding-right: 60px !important; }
+  .container { width: 100% !important; max-width: none !important; margin: 0 !important; }
+  header { width: 100% !important; }
+  /* All functional controls and explanatory copy share one exact left edge. */
+  .header-row { display: block !important; }
+  .header-actions {
+    position: relative !important;
+    left: calc(var(--rf-axis) - 60px) !important;
+    width: max-content !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    justify-content: flex-start !important;
+    transform: none !important;
+  }
+  .wide-intro, .search-section, .status-bar, #resultsContainer, .reimfinder-info-grid {
+    box-sizing: border-box !important;
+    width: calc(100% - (var(--rf-axis) - 60px)) !important;
+    max-width: none !important;
+    margin-left: calc(var(--rf-axis) - 60px) !important;
+    margin-right: 0 !important;
+  }
+  .wide-intro { padding-left: 0 !important; padding-right: 0 !important; }
+  .search-section { padding-left: 0 !important; padding-right: 0 !important; }
+  .search-section .search-box { width: 100% !important; }
+  .search-section .input-wrapper { min-width: 0 !important; }
+  .status-bar { width: calc(100% - (var(--rf-axis) - 60px)) !important; }
+  #resultsContainer { width: calc(100% - (var(--rf-axis) - 60px)) !important; }
+  .author-intro {
+    display: grid !important;
+    grid-template-columns: var(--rf-image-width) minmax(0,1fr) !important;
+    column-gap: var(--rf-column-gap) !important;
+    width: 100% !important; max-width: none !important;
+    margin: 18px 0 28px !important; padding: 0 !important;
+  }
+  .author-portrait {
+    width: var(--rf-image-width) !important;
+    max-width: var(--rf-image-width) !important;
+    height: auto !important;
+  }
+  .reimfinder-info-grid {
+    margin-top: 35px !important;
+    padding: 0 !important;
+    /* retain its existing two-column editorial layout */
+  }
+}
+</style>
+
+
+<style id="reimfinder-precise-shared-grid">
+@media (min-width: 900px) {
+  :root {
+    --rf-page-left: 36px;
+    --rf-image-width: 240px;
+    --rf-gap: 65px;
+    --rf-text-axis: 365px;
+    --rf-content-left: 305px;
+  }
+  body { padding-left: var(--rf-page-left) !important; padding-right: 60px !important; }
+  .container { width: 100% !important; max-width: none !important; margin: 0 !important; }
+  /* In the iframe, the wrapper owns the logo and heading. Keep only the action row. */
+  .header-row { display: block !important; padding: 0 !important; }
+  .header-row > a:not(.desktop-right-logo),
+  .header-text,
+  .desktop-right-logo { display: none !important; }
+  .header-actions {
+    display: flex !important;
+    position: relative !important;
+    left: var(--rf-content-left) !important;
+    top: 0 !important;
+    width: max-content !important;
+    max-width: calc(100% - var(--rf-content-left)) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    justify-content: flex-start !important;
+    justify-self: start !important;
+    transform: none !important;
+    gap: 10px !important;
+  }
+  .wide-intro, .search-section, .status-bar, #resultsContainer {
+    box-sizing: border-box !important;
+    width: calc(100% - var(--rf-content-left)) !important;
+    max-width: none !important;
+    margin-left: var(--rf-content-left) !important;
+    margin-right: 0 !important;
+  }
+  .wide-intro { padding: 0 !important; text-align: left !important; }
+  .search-section { padding: 0 !important; }
+  .search-section .search-box { width: 100% !important; }
+  .search-section .input-wrapper { min-width: 0 !important; }
+  .status-bar { margin-top: 7px !important; }
+  #resultsContainer { margin-top: 0 !important; }
+  .author-intro {
+    position: static !important;
+    left: auto !important;
+    display: grid !important;
+    grid-template-columns: var(--rf-image-width) minmax(0,1fr) !important;
+    column-gap: var(--rf-gap) !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 18px 0 28px !important;
+    padding: 0 !important;
+  }
+  .author-portrait {
+    display: block !important;
+    width: var(--rf-image-width) !important;
+    max-width: var(--rf-image-width) !important;
+    height: auto !important;
+    margin: 0 !important;
+  }
+  .author-copy { min-width: 0 !important; }
+  .reimfinder-info-grid {
+    position: static !important;
+    left: auto !important;
+    box-sizing: border-box !important;
+    width: calc(100% - var(--rf-content-left)) !important;
+    max-width: none !important;
+    margin: 35px 0 18px var(--rf-content-left) !important;
+    padding: 0 !important;
+  }
+}
+</style>
+
+
+<style id="reimfinder-header-buttons-axis-final">
+@media (min-width: 900px) {
+  /* The three buttons must start exactly at the same content axis as the title. */
+  .header-row { display: block !important; }
+  .header-actions {
+    display: flex !important;
+    position: static !important;
+    inset: auto !important;
+    float: none !important;
+    transform: none !important;
+    width: max-content !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    justify-content: flex-start !important;
+    justify-self: auto !important;
+    align-self: auto !important;
+    text-align: left !important;
+    gap: 10px !important;
+  }
+}
+</style>
+
+
+
+<style id="desktop-author-spacing-final">
+@media (min-width: 900px) {
+  /* Abstand zur Wortanzeige bleibt erhalten. */
+  .author-intro {
+    margin-top: 32px !important;
+    margin-bottom: 0 !important;
+    align-items: start !important;
+  }
+  /* Porträt etwas höher, unverändert 240 x 320 px. */
+  .author-intro > .author-portrait {
+    position: relative !important;
+    top: -40px !important;
+    width: 240px !important;
+    max-width: 240px !important;
+    height: 320px !important;
+    object-fit: cover !important;
+    transform: none !important;
+  }
+  /* Überschrift und Beschreibung behalten ihren Abstand zur Wortanzeige. */
+  .author-intro > .author-copy {
+    padding-top: 18px !important;
+    min-width: 0 !important;
+  }
+  /* Die beiden Infotexte beginnen rechts neben dem unteren Fotobereich,
+     direkt nach dem Autoren-Text statt erst unterhalb der ganzen Bildhöhe. */
+  .reimfinder-info-grid {
+    margin-top: -140px !important;
+    margin-bottom: 18px !important;
+  }
+}
+</style>
 </head>
 <body>
   <div class="container">
@@ -5077,12 +5296,12 @@ window.addEventListener('message', function(event) {
 </style>
 
 <style id="more-top-space-before-buttons">
-/* Mehr Abstand zwischen oberer Kante und den drei Buttons – Desktop und Smartphone. */
+/* Kompakterer Abstand oberhalb der drei Buttons – Desktop und Smartphone. */
 @media (min-width: 601px) {
-  .header-row { padding-top: 18px !important; }
+  .header-row { padding-top: 8px !important; }
 }
 @media (max-width: 600px) {
-  .header-row { padding-top: 18px !important; }
+  .header-row { padding-top: 8px !important; }
 }
 </style>
 
@@ -5197,6 +5416,45 @@ window.addEventListener('message', function(event) {
 }
 </style>
 
+
+<style id="desktop-portrait-position-correction">
+/* Desktop: Porträt weiter nach oben setzen, Größe unverändert lassen. */
+@media (min-width: 900px) {
+  .author-intro > .author-portrait {
+    top: -90px !important;
+    width: 240px !important;
+    max-width: 240px !important;
+    height: 320px !important;
+    object-fit: cover !important;
+  }
+}
+</style>
+
+
+<style id="mobile-author-photo-top-alignment">
+/* Smartphone: Foto oben am Autorenbereich ausrichten statt vertikal mittig. */
+@media (max-width: 700px) {
+  .author-intro {
+    align-items: start !important;
+  }
+  .author-intro > .author-portrait {
+    align-self: start !important;
+    margin-top: 0 !important;
+    transform: none !important;
+  }
+}
+</style>
+
+
+<style id="desktop-button-surrounding-spacing">
+@media (min-width: 900px) {
+  /* Nur in der Desktop-Ansicht: weniger Luft oberhalb und unterhalb der drei Buttons. */
+  body { padding-top: 8px !important; }
+  header { margin-bottom: 8px !important; padding-bottom: 0 !important; }
+  .author-intro { margin-top: 18px !important; }
+}
+</style>
+
 </body>
 </html>
 
@@ -5256,3 +5514,30 @@ button.btn-search {
   .status-bar { margin-top: 4px !important; margin-bottom: 8px !important; }
 }
 </style>
+
+<style id="desktop-button-axis-single-source">
+/* Eine verbindliche Desktop-Regel: Buttons und Suchbereich beginnen auf derselben Achse. */
+@media (min-width: 900px) {
+  .header-row {
+    display: block !important;
+    width: 100% !important;
+  }
+  .header-actions {
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    float: none !important;
+    display: flex !important;
+    width: max-content !important;
+    max-width: none !important;
+    margin: 0 0 0 305px !important;
+    padding: 0 !important;
+    justify-content: flex-start !important;
+    justify-self: auto !important;
+    gap: 10px !important;
+  }
+}
+</style>
+
+
