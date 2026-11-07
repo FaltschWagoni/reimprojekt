@@ -16,7 +16,7 @@ MAX_VERWANDT = 16
 
 SEITEN = [
   {
-    'wort': 'Hochzeit', 'datei': 'reime-auf-hochzeit.html',
+    'wort': 'Hochzeit', 'datei': 'reime-auf-hochzeit.html', 'aktiv': False,  # vorerst nicht veröffentlicht
     'beschreibung': 'Was reimt sich auf Hochzeit? Reime auf Hochzeit und auf Braut, Paar, Ringe, Kuss und Treue – mit Tipps und Gedicht für Hochzeitsgedichte, Hochzeitslieder und Reden.',
     'intro': ['„Hochzeit“ ist ein tückisches Wort. Die Betonung liegt auf <em>Hoch</em>, und damit bleiben nur Reime, die auf <em>-och-Zeit</em> enden. Das sind nicht viele.',
               'Wer ein Hochzeitsgedicht, ein Lied für das Brautpaar oder eine gereimte Rede schreibt, braucht das Wort aber ständig. Hier sind die Reime, die wirklich funktionieren – und Wörter rund um die Hochzeit, auf die sich viel leichter reimen lässt.'],
@@ -34,12 +34,12 @@ SEITEN = [
   },
   {
     'wort': 'Monat', 'datei': 'reime-auf-monat.html',
-    'beschreibung': 'Was reimt sich auf Monat? Klangbasierte Reime auf Monat und auf die Monatsnamen Januar, März, April, Mai, Juli, August und Oktober – mit Tipps und Gedicht.',
+    'beschreibung': 'Was reimt sich auf Monat? Klangbasierte Reime auf Monat und auf die Monatsnamen von Januar bis Dezember – mit Tipps und Gedicht.',
     'intro': ['„Monat“ gilt als eines der Wörter, auf die sich nichts reimt. Stimmt nicht ganz. Die Betonung liegt auf <em>Mo-</em>, und das <em>-nat</em> danach klingt fast wie „hat“.',
               'Wer das ausnutzt, findet Reime aus zwei Wörtern: „Lohn hat“, „schon hat“, „davon hat“. Dazu die Reime auf die Monatsnamen – bei einigen wird es überraschend leicht, bei anderen bleibt es eine Herausforderung.'],
     'tipp': 'Reime aus zwei Wörtern sind kein Notbehelf, sondern ein Klassiker des Kabaretts. Sie wirken oft witziger als ein glatter Reim, weil der Zuhörer die Pointe nicht kommen sieht. Achten Sie darauf, dass beim Sprechen die Betonung stimmt: <em>MO-nat</em> – <em>Tradi-ti-ON hat</em>.',
     'vers': ['Und zwar, weil das so ist', 'und allseits Tradition hat,', 'jahraus, jahrein am gleichen Tag', 'im immergleichen Monat.'],
-    'verwandt': ['Januar', 'März', 'April', 'Mai', 'Juli', 'August', 'Oktober'],
+    'verwandt': ['Januar / Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September / November / Dezember', 'Oktober'],
   },
   {
     'wort': 'Abend', 'datei': 'reime-auf-abend.html',
@@ -70,6 +70,19 @@ GEDICHT = [
   ['Da musst du durch mit Haut und Haar,', 'auch wenn du denkst: Au weia!', 'Ich bin zu alt für den Bohei –', 'wir schmeißen dir ’ne Feier.'],
   ['Altersmüde und frustriert,', 'sich zu Haus vergrabend,', 'kannst du später immer noch –', 'doch heut ist FEIERabend.'],
 ]
+
+SEITEN.append({
+    'wort': 'Feier', 'datei': 'reime-auf-feier.html',
+    'beschreibung': 'Was reimt sich auf Feier? Reime auf Feier wie Abenteuer, Befreier und „au weia“ sowie auf Fest, Gäste, Sekt, Prost und Sause – mit Tipps und Gedicht für Einladungen, Toasts und Feiergedichte.',
+    'intro': ['„Feier“ ist ein dankbares Wort. Die Endung <em>-eier</em> teilt es mit Befreier, Betreuer, Leier und Schleier – nach Klang sogar mit „Abenteuer“ und „au weia“.',
+              'Für Einladungen, Trinksprüche und Gedichte zum Fest ist das ein Glück. Hier finden Sie die Reime auf „Feier“ und auf Wörter, die zu jeder Feier gehören.'],
+    'tipp': 'Bei „Feier“ ist die Auswahl groß – umso mehr lohnt es sich, nicht den erstbesten Reim zu nehmen. Ein Ausruf wie „au weia“ oder ein Klangreim wie „Abenteuer“ macht den Vers lebendiger als die naheliegende „Leier“.',
+    'vers': ['Da musst du durch mit Haut und Haar,', 'auch wenn du denkst: Au weia!', 'Ich bin zu alt für den Bohei –', 'wir schmeißen dir ’ne Feier.'],
+    'verwandt': ['Fest', 'Gäste', 'Sekt', 'Prost', 'tanzen', 'Sause'],
+})
+REIHENFOLGE = ['Geburtstag', 'Monat', 'Jubiläum', 'Feier', 'Abend', 'Hochzeit']  # wie im Gedicht
+SEITEN.sort(key=lambda x: REIHENFOLGE.index(x['wort']) if x['wort'] in REIHENFOLGE else 99)
+SEITEN = [x for x in SEITEN if x.get('aktiv', True)]
 
 
 def lese_gruppen(pfad):
@@ -199,8 +212,8 @@ SKRIPT = '''
     var h=finde(gr,KONFIG.wort),el=document.getElementById('hauptliste');
     if(h&&el){var w=sortiert(h.words,KONFIG.wort);el.innerHTML=w.map(wortHtml).join('');
       var a=document.getElementById('hauptanzahl');if(a)a.textContent=zahl(w.length)+(w.length===1?' Reimwort':' Reimwörter')+' in der Reimgruppe -'+h.name.toLocaleLowerCase('de');}
-    KONFIG.verwandt.forEach(function(v,i){var g=finde(gr,v),ul=document.getElementById('verwandt-'+i);if(!g||!ul)return;
-      var w=sortiert(g.words,v);ul.innerHTML=w.slice(0,%d).map(wortHtml).join('');
+    KONFIG.verwandt.forEach(function(v,i){var t=v.split(' / '),g=finde(gr,t[0]),ul=document.getElementById('verwandt-'+i);if(!g||!ul)return;
+      var w=sortiert(g.words,t[0]).filter(function(x){return t.every(function(n){return ohne(x).toLocaleLowerCase('de')!==n.toLocaleLowerCase('de');});});ul.innerHTML=w.slice(0,%d).map(wortHtml).join('');
       var m=document.getElementById('verwandt-mehr-'+i);if(m)m.textContent='alle '+zahl(w.length)+' Reime auf „'+v+'“ im Reimfinder →';});
   }
   function decode(buf){try{return new TextDecoder('utf-8',{fatal:true}).decode(buf);}catch(e){return new TextDecoder('windows-1252').decode(buf);}}
@@ -226,14 +239,16 @@ def seite(s, gruppen, alle):
 
     verwandt_html = []
     for i, v in enumerate(s['verwandt']):
-        g = finde_gruppe(gruppen, v)
+        # "September / November / Dezember": Wörter mit derselben Reimgruppe zusammenfassen
+        teile = v.split(' / ')
+        g = finde_gruppe(gruppen, teile[0])
         if not g:
             sys.exit(f'Keine Reimgruppe für {v} in reime.csv')
-        w = sortiert(g['words'], v)
+        w = [x for x in sortiert(g['words'], teile[0]) if ohne_hinweis(x).lower() not in {t.lower() for t in teile}]
         verwandt_html.append(
             f'<section><h3>Reime auf {html.escape(v)}</h3>'
             f'<ul class="reime" id="verwandt-{i}">{liste_html(w[:MAX_VERWANDT])}</ul>'
-            f'<a class="mehr" id="verwandt-mehr-{i}" href="{link_reimfinder(v)}">alle {f"{len(w):,}".replace(",", ".")} Reime auf „{html.escape(v)}“ im Reimfinder →</a></section>')
+            f'<a class="mehr" id="verwandt-mehr-{i}" href="{link_reimfinder(teile[0])}">alle {f"{len(w):,}".replace(",", ".")} Reime auf „{html.escape(v)}“ im Reimfinder →</a></section>')
 
     weitere = ''.join(f'<li><a href="{x["datei"]}">Reime auf {html.escape(x["wort"])}</a></li>'
                       for x in alle if x is not s)
