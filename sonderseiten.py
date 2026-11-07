@@ -17,16 +17,15 @@ MAX_VERWANDT = 16
 SEITEN = [
   {
     'wort': 'Hochzeit', 'datei': 'reime-auf-hochzeit.html',
-    'beschreibung': 'Was reimt sich auf Hochzeit? Reime auf Hochzeit und auf Braut, Paar, Ringe, Kuss und Treue – mit Tipps und Beispielvers für Hochzeitsgedichte, Hochzeitslieder und Reden.',
+    'beschreibung': 'Was reimt sich auf Hochzeit? Reime auf Hochzeit und auf Braut, Paar, Ringe, Kuss und Treue – mit Tipps und Gedicht für Hochzeitsgedichte, Hochzeitslieder und Reden.',
     'intro': ['„Hochzeit“ ist ein tückisches Wort. Die Betonung liegt auf <em>Hoch</em>, und damit bleiben nur Reime, die auf <em>-och-Zeit</em> enden. Das sind nicht viele.',
               'Wer ein Hochzeitsgedicht, ein Lied für das Brautpaar oder eine gereimte Rede schreibt, braucht das Wort aber ständig. Hier sind die Reime, die wirklich funktionieren – und Wörter rund um die Hochzeit, auf die sich viel leichter reimen lässt.'],
     'tipp': 'Stell „Hochzeit“ nicht ans Zeilenende, sondern in die Mitte des Verses – und reime auf ein Wort, das leichter zu bedienen ist: Braut, Paar, Ring, Kuss. „Heute ist die Hochzeit, alle sind gekommen, / die Braut hat sich den Bräutigam genommen.“',
-    'vers': ['Für Kinder, sagt er, ist noch Zeit,', 'jetzt kommt erst mal die Hochzeit.', 'Sie denkt: Nach dieser Hochzeit', 'beginnt für ihn die Kochzeit.'],
     'verwandt': ['Braut', 'Paar', 'Ringe', 'Kuss', 'Treue', 'Flitterwochen'],
   },
   {
     'wort': 'Geburtstag', 'datei': 'reime-auf-geburtstag.html',
-    'beschreibung': 'Was reimt sich auf Geburtstag? Reime auf Geburtstag und auf Kerzen, Torte, Kuchen, Geschenk und Party – mit Tipps und Beispielvers für Geburtstagsgedichte und Glückwunschkarten.',
+    'beschreibung': 'Was reimt sich auf Geburtstag? Reime auf Geburtstag und auf Kerzen, Torte, Kuchen, Geschenk und Party – mit Tipps und Gedicht für Geburtstagsgedichte und Glückwunschkarten.',
     'intro': ['Für eine Geburtstagskarte reimt so gut wie jeder einmal im Jahr. Und dann merkt man: Auf „Geburtstag“ reimt sich fast nichts. Die Betonung liegt auf <em>-burts-</em>, und da muss der Reim mitgehen.',
               'Ein paar Reime gibt es trotzdem – nicht alle salonfähig. Weiter unten finden Sie Wörter rund um den Geburtstag, mit denen sich ein Glückwunschgedicht viel leichter reimen lässt.'],
     'tipp': 'Verstecken Sie „Geburtstag“ in der Zeile und reimen Sie auf das, was dazugehört: „Zum Geburtstag nur das Beste, / Kerzen, Kuchen, viele Gäste.“ Auch die Zahl selbst hilft: „Heute wirst du fünfzig Jahre – / und hast immer noch Haare.“',
@@ -35,7 +34,7 @@ SEITEN = [
   },
   {
     'wort': 'Monat', 'datei': 'reime-auf-monat.html',
-    'beschreibung': 'Was reimt sich auf Monat? Klangbasierte Reime auf Monat und auf die Monatsnamen Januar, März, April, Mai, Juli, August und Oktober – mit Tipps und Beispielvers.',
+    'beschreibung': 'Was reimt sich auf Monat? Klangbasierte Reime auf Monat und auf die Monatsnamen Januar, März, April, Mai, Juli, August und Oktober – mit Tipps und Gedicht.',
     'intro': ['„Monat“ gilt als eines der Wörter, auf die sich nichts reimt. Stimmt nicht ganz. Die Betonung liegt auf <em>Mo-</em>, und das <em>-nat</em> danach klingt fast wie „hat“.',
               'Wer das ausnutzt, findet Reime aus zwei Wörtern: „Lohn hat“, „schon hat“, „davon hat“. Dazu die Reime auf die Monatsnamen – bei einigen wird es überraschend leicht, bei anderen bleibt es eine Herausforderung.'],
     'tipp': 'Reime aus zwei Wörtern sind kein Notbehelf, sondern ein Klassiker des Kabaretts. Sie wirken oft witziger als ein glatter Reim, weil der Zuhörer die Pointe nicht kommen sieht. Achten Sie darauf, dass beim Sprechen die Betonung stimmt: <em>MO-nat</em> – <em>Tradi-ti-ON hat</em>.',
@@ -44,7 +43,7 @@ SEITEN = [
   },
   {
     'wort': 'Abend', 'datei': 'reime-auf-abend.html',
-    'beschreibung': 'Was reimt sich auf Abend? Reime auf Abend, Feierabend und Polterabend sowie auf Nacht, Mond, Sterne, Ruh und Wein – mit Tipps und Beispielvers für Gedichte und Liedtexte.',
+    'beschreibung': 'Was reimt sich auf Abend? Reime auf Abend, Feierabend und Polterabend sowie auf Nacht, Mond, Sterne, Ruh und Wein – mit Tipps und Gedicht für Gedichte und Liedtexte.',
     'intro': ['Der Abend ist eines der großen Themen der Lyrik – vom Abendlied bis zum Feierabend. Gereimt wird darauf meistens mit Partizipien: labend, trabend, grabend.',
               'Das klingt schnell altmodisch, kann aber gerade deshalb reizvoll sein. Hier finden Sie die Reime auf „Abend“ und auf Wörter, die zum Abend gehören.'],
     'tipp': 'Partizipien wie „labend“ oder „trabend“ wirken feierlich – oder komisch, je nachdem, wie man sie einsetzt. Wer es moderner mag, reimt auf das, was am Abend passiert: Nacht, Mond, Sterne, Wein, Bett.',
@@ -53,7 +52,7 @@ SEITEN = [
   },
   {
     'wort': 'Jubiläum', 'datei': 'reime-auf-jubilaeum.html',
-    'beschreibung': 'Was reimt sich auf Jubiläum? Reime auf Jubiläum wie Museum und Mausoleum sowie auf Jahre, Treue, Dank, Ehre und Kollegen – mit Tipps und Beispielvers für Reden und Gedichte zum Firmenjubiläum.',
+    'beschreibung': 'Was reimt sich auf Jubiläum? Reime auf Jubiläum wie Museum und Mausoleum sowie auf Jahre, Treue, Dank, Ehre und Kollegen – mit Tipps und Gedicht für Reden und Gedichte zum Firmenjubiläum.',
     'intro': ['Für ein Firmen- oder Dienstjubiläum wird gern gereimt – in der Rede, im Gedicht, auf der Karte. Die Reime auf „Jubiläum“ allerdings haben es in sich: Museum, Mausoleum, Tedeum.',
               'Das ist nichts für eine feierliche Rede, aber perfekt für eine humorvolle. Hier finden Sie die Reime auf „Jubiläum“ und auf Wörter, die zu jedem Jubiläum passen.'],
     'tipp': 'Ein Reim wie „Jubiläum – Museum“ funktioniert nur mit einem Augenzwinkern. Oft hilft ein Reim aus zwei Wörtern: „Tee um – Jubiläum“. Setzen Sie ihn bewusst als Pointe ans Ende. Für die ernsten Passagen reimen Sie lieber auf Treue, Dank, Jahre und Ehre.',
@@ -157,11 +156,10 @@ ul.reime li em{font-size:.85em;color:var(--leise)}
 .anzahl{margin:10px 0 0;color:var(--leise);font-size:.95rem}
 .tipp,.vers{background:var(--card);border-left:4px solid var(--orange);padding:16px 20px;margin:0}
 .vers{border-left-color:var(--rot);font-style:italic;font-size:1.12rem;line-height:1.75}
-.gedicht{margin-top:14px}
-.gedicht summary{cursor:pointer;color:var(--orange);font-weight:600}
-.gedicht p{margin:12px 0 0 20px;font-style:italic;line-height:1.7}
-.gedicht .gedicht-titel{font-style:normal;font-weight:600;margin-left:0}
-.gedicht .gedicht-autor{font-style:normal;color:var(--leise);font-size:.95rem}
+.vers p{margin:0 0 16px;padding-left:12px;border-left:3px solid transparent}
+.vers p.passend{border-left-color:var(--orange);font-weight:500}
+.vers .gedicht-titel{font-style:normal;font-weight:600;padding-left:0;border:0}
+.vers .gedicht-autor{margin:0;font-style:normal;color:var(--leise);font-size:.95rem;padding-left:0;border:0}
 .verwandt{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
 .verwandt ul.reime{grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:6px}
 .verwandt ul.reime li{padding:6px 8px;font-size:.95rem}
@@ -239,14 +237,11 @@ def seite(s, gruppen, alle):
 
     weitere = ''.join(f'<li><a href="{x["datei"]}">Reime auf {html.escape(x["wort"])}</a></li>'
                       for x in alle if x is not s)
-    vers = '<br>\n'.join(html.escape(z) for z in s['vers'])
-    if s['vers'] in GEDICHT:
-        strophen = ''.join('<p>' + '<br>'.join(html.escape(z) for z in st) + '</p>' for st in GEDICHT)
-        gedicht = (f'<details class="gedicht"><summary>Das ganze Gedicht lesen</summary>'
-                   f'<p class="gedicht-titel">{html.escape(GEDICHT_TITEL)}</p>{strophen}'
-                   f'<p class="gedicht-autor">– Faltsch Wagoni</p></details>')
-    else:
-        gedicht = ''
+    strophen = []
+    for st in GEDICHT:
+        klasse = ' class="passend"' if st == s.get('vers') else ''
+        strophen.append(f'<p{klasse}>' + '<br>\n'.join(html.escape(z) for z in st) + '</p>')
+    gedicht = ''.join(strophen)
     konfig = json.dumps({'wort': wort, 'verwandt': s['verwandt'], 'csv': CSV_URL}, ensure_ascii=False)
     schema = json.dumps({
         '@context': 'https://schema.org', '@type': 'WebPage', 'name': f'Reime auf {wort}', 'url': url,
@@ -310,9 +305,12 @@ def seite(s, gruppen, alle):
     </section>
 
     <section>
-      <h2>Beispielvers</h2>
-      <p class="vers">{vers}</p>
-      {gedicht}
+      <h2>Ein Gedicht für fünf Anlässe</h2>
+      <div class="vers">
+        <p class="gedicht-titel">Geburtstag, Monat, Jubiläum, Feier, Abend</p>
+        {gedicht}
+        <p class="gedicht-autor">– Faltsch Wagoni</p>
+      </div>
     </section>
 
     <section>
