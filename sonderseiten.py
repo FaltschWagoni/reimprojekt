@@ -33,7 +33,7 @@ SEITEN = [
     'verwandt': ['Kerzen', 'Torte', 'Kuchen', 'Geschenk', 'feiern', 'Party'],
   },
   {
-    'wort': 'Monat', 'datei': 'reime-auf-monat.html',
+    'wort': 'Monat', 'datei': 'reime-auf-monat.html', 'gruppe': 'ONAT',
     'beschreibung': 'Was reimt sich auf Monat? Klangbasierte Reime auf Monat und auf die Monatsnamen von Januar bis Dezember – mit Tipps und Gedicht.',
     'intro': ['„Monat“ gilt als eines der Wörter, auf die sich nichts reimt. Stimmt nicht ganz. Die Betonung liegt auf <em>Mo-</em>, und das <em>-nat</em> danach klingt fast wie „hat“.',
               'Wer das ausnutzt, findet Reime aus zwei Wörtern: „Lohn hat“, „schon hat“, „davon hat“. Dazu die Reime auf die Monatsnamen – bei einigen wird es überraschend leicht, bei anderen bleibt es eine Herausforderung.'],
@@ -62,7 +62,7 @@ SEITEN = [
 ]
 
 
-GEDICHT_TITEL = 'Ein Gedicht für fünf Anlässe: Geburtstag, Monat, Jubiläum, Feier, Abend'
+GEDICHT_TITEL = 'Beispiel für ein Geburtstagsgedicht'
 GEDICHT = [
   ['Die Nacht war lang und finster,', 'dann aber endlich wurd’s Tag.', 'Du wachtest auf und stelltest fest:', 'Ich habe heut Geburtstag!'],
   ['Und zwar, weil das so ist', 'und allseits Tradition hat,', 'jahraus, jahrein am gleichen Tag', 'im immergleichen Monat.'],
@@ -171,6 +171,7 @@ ul.reime li em{font-size:.85em;color:var(--leise)}
 .vers{border-left-color:var(--rot);font-style:italic;font-size:1.12rem;line-height:1.75}
 .vers p{margin:0 0 16px;padding-left:12px;border-left:3px solid transparent}
 .vers p.passend{border-left-color:var(--orange);font-weight:500}
+.gedicht-erklaerung{margin:0 0 14px}
 .vers .gedicht-titel{font-style:normal;font-weight:600;padding-left:0;border:0}
 .vers .gedicht-autor{margin:0;font-style:normal;color:var(--leise);font-size:.95rem;padding-left:0;border:0}
 .verwandt{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
@@ -209,9 +210,9 @@ SKRIPT = '''
     var kl=l.filter(function(w){var c=w.charAt(0);return c===c.toLocaleLowerCase('de');});return g.concat(kl);}
   function zahl(n){return n.toLocaleString('de-DE');}
   function aktualisiere(gr){
-    var h=finde(gr,KONFIG.wort),el=document.getElementById('hauptliste');
+    var h=finde(gr,KONFIG.wort);if(KONFIG.gruppe){for(var j=0;j<gr.length;j++){if(gr[j].name===KONFIG.gruppe){h=gr[j];break;}}}var el=document.getElementById('hauptliste');
     if(h&&el){var w=sortiert(h.words,KONFIG.wort);el.innerHTML=w.map(wortHtml).join('');
-      var a=document.getElementById('hauptanzahl');if(a)a.textContent=zahl(w.length)+(w.length===1?' Reimwort':' Reimwörter')+' in der Reimgruppe -'+h.name.toLocaleLowerCase('de');}
+      var a=document.getElementById('hauptanzahl');if(a)a.innerHTML=zahl(w.length)+(w.length===1?' Reimwort':' Reimwörter')+' in der Reimgruppe <a href="Reimfinder.html?wort='+encodeURIComponent(h.name)+'">-'+esc(h.name.toLocaleLowerCase('de'))+'</a>';}
     KONFIG.verwandt.forEach(function(v,i){var t=v.split(' / '),g=finde(gr,t[0]),ul=document.getElementById('verwandt-'+i);if(!g||!ul)return;
       var w=sortiert(g.words,t[0]).filter(function(x){return t.every(function(n){return ohne(x).toLocaleLowerCase('de')!==n.toLocaleLowerCase('de');});});ul.innerHTML=w.slice(0,%d).map(wortHtml).join('');
       var m=document.getElementById('verwandt-mehr-'+i);if(m)m.textContent='alle '+zahl(w.length)+' Reime auf „'+v+'“ im Reimfinder →';});
@@ -232,10 +233,13 @@ def seite(s, gruppen, alle):
     titel = f'Reime auf {wort} – was reimt sich auf {wort}? | Faltsch Wagoni'
     url = BASIS + s['datei']
     h = finde_gruppe(gruppen, wort)
+    if s.get('gruppe'):
+        h = next((g for g in gruppen if g['name'] == s['gruppe']), None) or h
     if not h:
         sys.exit(f'Keine Reimgruppe für {wort} in reime.csv')
     haupt = sortiert(h['words'], wort)
-    anzahl = f"{len(haupt)} {'Reimwort' if len(haupt) == 1 else 'Reimwörter'} in der Reimgruppe -{h['name'].lower()}"
+    anzahl = (f"{len(haupt)} {'Reimwort' if len(haupt) == 1 else 'Reimwörter'} in der Reimgruppe "
+              f'<a href="{link_reimfinder(h["name"])}">-{html.escape(h["name"].lower())}</a>')
 
     verwandt_html = []
     for i, v in enumerate(s['verwandt']):
@@ -257,7 +261,8 @@ def seite(s, gruppen, alle):
         klasse = ' class="passend"' if st == s.get('vers') else ''
         strophen.append(f'<p{klasse}>' + '<br>\n'.join(html.escape(z) for z in st) + '</p>')
     gedicht = ''.join(strophen)
-    konfig = json.dumps({'wort': wort, 'verwandt': s['verwandt'], 'csv': CSV_URL}, ensure_ascii=False)
+    markiert = f' Die Strophe mit „{html.escape(wort)}“ ist markiert.' if s.get('vers') in GEDICHT else ''
+    konfig = json.dumps({'wort': wort, 'gruppe': s.get('gruppe', ''), 'verwandt': s['verwandt'], 'csv': CSV_URL}, ensure_ascii=False)
     schema = json.dumps({
         '@context': 'https://schema.org', '@type': 'WebPage', 'name': f'Reime auf {wort}', 'url': url,
         'inLanguage': 'de', 'description': s['beschreibung'],
@@ -320,9 +325,8 @@ def seite(s, gruppen, alle):
     </section>
 
     <section>
-      <h2>Ein Gedicht für fünf Anlässe</h2>
+      <h2>Beispiel für ein Geburtstagsgedicht</h2>
       <div class="vers">
-        <p class="gedicht-titel">Geburtstag, Monat, Jubiläum, Feier, Abend</p>
         {gedicht}
         <p class="gedicht-autor">– Faltsch Wagoni</p>
       </div>
