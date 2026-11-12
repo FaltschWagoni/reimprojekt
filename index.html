@@ -1551,7 +1551,7 @@ Das würde ich auch gern mal sehn!
 
 </div>
 
-<footer data-nosnippet>Reimlexikon – Version 2.50<br>© Faltsch Wagoni 2026</footer>
+<footer data-nosnippet>Reimlexikon – Version 2.51<br>© Faltsch Wagoni 2026</footer>
   </div>
 
   <script>
@@ -5182,6 +5182,38 @@ AMMSTEN;am klammsten;am strammsten
       statusBar.classList.add('has-overview');
     }
 
+    // Wort für den Vergleich: Anmerkungen in Klammern entfernen, z. B.
+    // „cool (engl.)“ → „cool“ und „(am) liebsten“ → „liebsten“.
+    function kernwort(word) {
+      return normalizeWord(word.replace(/\([^)]*\)/gu, ' '), true)
+        .replace(/\s+/gu, ' ')
+        .trim();
+    }
+
+    function letzterWortteil(text) {
+      const teile = text.split(/[\s\-‐–]+/u).filter(Boolean);
+      return teile.length ? teile[teile.length - 1] : '';
+    }
+
+    function sucheUeberLetztesWort(suchwort) {
+      const letztesSuchwort = letzterWortteil(suchwort);
+      const gruppen = rhymeGroups.filter(group =>
+        group.words.some(word => {
+          const kern = kernwort(word);
+          // Eintrag besteht aus mehreren Wörtern und endet auf das Suchwort
+          if (kern !== suchwort && letzterWortteil(kern) === suchwort) return true;
+          // Suche besteht aus mehreren Wörtern, Eintrag ist das letzte davon
+          return letztesSuchwort !== suchwort && kern === letztesSuchwort;
+        })
+      );
+      gruppen.sort((a, b) => {
+        const sizeDiff = a.words.length - b.words.length;
+        if (sizeDiff !== 0) return sizeDiff;
+        return a.name.localeCompare(b.name, 'de');
+      });
+      return gruppen;
+    }
+
     function searchRhymes() {
       const inputElement = document.getElementById('searchInput');
       const rawInput = inputElement.value.replace(/"/g, '').trim();
@@ -5204,7 +5236,7 @@ AMMSTEN;am klammsten;am strammsten
       // Worttreffer werden immer unabhängig von Groß-/Kleinschreibung gefunden.
       // Ein Wort darf absichtlich in mehreren Reimgruppen vorkommen.
       let selectedGroups = rhymeGroups.filter(group =>
-        group.words.some(word => normalizeWord(wordWithoutNote(word), true) === normalizedWordInput)
+        group.words.some(word => kernwort(word) === normalizedWordInput)
       );
 
       // Wenn ein Wort in mehreren Reimgruppen vorkommt,
@@ -5222,6 +5254,13 @@ AMMSTEN;am klammsten;am strammsten
         selectedGroups = rhymeGroups.filter(group =>
           normalizeWord(group.name, true) === normalizedWordInput
         );
+      }
+
+      // 3. Falls immer noch nichts gefunden wurde: Wortgruppen berücksichtigen.
+      // „liebsten“ findet so auch „am liebsten“ (letzter Wortteil nach
+      // Leerzeichen oder Bindestrich), und „am liebsten“ findet „liebsten“.
+      if (selectedGroups.length === 0) {
+        selectedGroups = sucheUeberLetztesWort(normalizedWordInput);
       }
 
       updateGroupOverview(selectedGroups);
