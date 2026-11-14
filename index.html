@@ -1446,6 +1446,31 @@ blockquote.reim-beispiel * {
     });
   }
   </script>
+<style id="lowercase-jump">
+/* Sprung-Button von den Substantiven zu den kleingeschriebenen Wörtern */
+.lowercase-jump {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: -4px 0 12px 2px;
+  padding: 6px 12px;
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 9px;
+  color: #1558b0;
+  font: inherit;
+  font-size: .88rem;
+  line-height: 1.25;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+.lowercase-jump:hover,
+.lowercase-jump:focus-visible { color: #d00000; }
+@media (max-width: 600px) {
+  .lowercase-jump { width: calc(100% - 2px); justify-content: center; padding: 8px 10px; }
+}
+</style>
 </head>
 <body>
   <div class="container">
@@ -1551,7 +1576,7 @@ Das würde ich auch gern mal sehn!
 
 </div>
 
-<footer data-nosnippet>Reimlexikon – Version 2.51<br>© Faltsch Wagoni 2026</footer>
+<footer data-nosnippet>Reimlexikon – Version 2.52<br>© Faltsch Wagoni 2026</footer>
   </div>
 
   <script>
@@ -5279,6 +5304,18 @@ EIDEST;bekleidest;beneidest;beschneidest;entscheidest;erleidest;leidest;kleidest
       return gruppen;
     }
 
+    // Scrollt zum Beginn der kleingeschriebenen Wörter. Der auf dem Handy
+    // oben fixierte Kopfbereich wird dabei berücksichtigt.
+    function springeZuKleinschreibung(id) {
+      const ziel = document.getElementById(id);
+      if (!ziel) return;
+      const kopf = document.querySelector('header');
+      const kopfFest = kopf && getComputedStyle(kopf).position === 'sticky';
+      const abstand = (kopfFest ? kopf.getBoundingClientRect().height : 0) + 8;
+      const y = ziel.getBoundingClientRect().top + window.pageYOffset - abstand;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    }
+
     function searchRhymes() {
       const inputElement = document.getElementById('searchInput');
       const rawInput = inputElement.value.replace(/"/g, '').trim();
@@ -5379,6 +5416,18 @@ EIDEST;bekleidest;beneidest;beschneidest;entscheidest;erleidest;leidest;kleidest
           `Reim auf -${group.name.toLocaleLowerCase('de')} · ${results.length.toLocaleString('de-DE')} Reimwörter`;
         section.appendChild(heading);
 
+        // Button, der direkt zu den kleingeschriebenen Wörtern springt
+        const lowercaseAnchorId = 'kleinschreibung-' + (groupIndex + 1);
+        if (uppercaseWords.length > 0 && lowercaseWords.length > 0) {
+          const jump = document.createElement('button');
+          jump.type = 'button';
+          jump.className = 'lowercase-jump';
+          jump.textContent =
+            `↓ Zu den kleingeschriebenen Wörtern (${lowercaseWords.length.toLocaleString('de-DE')})`;
+          jump.addEventListener('click', () => springeZuKleinschreibung(lowercaseAnchorId));
+          section.appendChild(jump);
+        }
+
         const grid = document.createElement('div');
         grid.className = 'results-grid';
 
@@ -5407,6 +5456,7 @@ EIDEST;bekleidest;beneidest;beschneidest;entscheidest;erleidest;leidest;kleidest
         if (uppercaseWords.length > 0 && lowercaseWords.length > 0) {
           const separator = document.createElement('div');
           separator.className = 'case-separator';
+          separator.id = lowercaseAnchorId;
           separator.setAttribute('aria-hidden', 'true');
           grid.appendChild(separator);
         }
