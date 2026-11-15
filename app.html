@@ -1587,7 +1587,7 @@ Das würde ich auch gern mal sehn!
     // DIREKTE REIM-DATENBANK (KEINE EXTERNE CSV MEHR NÖTIG!)
     // Jede Zeile steht für eine Reim-Gruppe (mit Semikolon getrennt).
     // =========================================================================
-    const csvData = `EISSEL;geißel;kreisel;meißel;säusel;umkreisel;weißel;Beisl (österr.);Geisel;Geißel;Häusl (österr.);Kreisel;Meißel
+    let csvData = `EISSEL;geißel;kreisel;meißel;säusel;umkreisel;weißel;Beisl (österr.);Geisel;Geißel;Häusl (österr.);Kreisel;Meißel
 EISSELN;geißeln;kreiseln;meißeln;säuseln;umkreiseln;weißeln;Beisln (österr.);Geiseln;Geißeln;Häusln (österr.);Kreiseln;Meißeln
 EISSELND;geißelnd;kreiselnd;meißelnd;säuselnd;umkreiselnd;weißelnd
 EISSELNS;Geißelns;Kreiselns;Meißelns;Säuselns;Umkreiselns;Weißelns
@@ -5189,6 +5189,32 @@ UZIEREND;induzierend;obduzierend;produzierend;reduzierend;reproduzierend`;
 
     initDatabase();
 
+    // Aktuelle Reime aus reime.csv nachladen. Die eingebetteten Daten dienen
+    // nur noch als Notreserve, falls weder Netz noch Zwischenspeicher helfen.
+    (async function aktuelleReimeLaden() {
+      try {
+        const antwort = await fetch('./reime.csv', { cache: 'no-cache' });
+        if (!antwort.ok) return;
+        const puffer = await antwort.arrayBuffer();
+        let text;
+        try { text = new TextDecoder('utf-8', { fatal: true }).decode(puffer); }
+        catch (e) { text = new TextDecoder('windows-1252').decode(puffer); }
+        text = text.replace(/^\uFEFF/, '');
+        const sicherung = { gruppen: rhymeGroups, woerter: uniqueWordSet, daten: csvData };
+        csvData = text;
+        initDatabase();
+        if (!rhymeGroups.length) {
+          rhymeGroups = sicherung.gruppen; uniqueWordSet = sicherung.woerter; csvData = sicherung.daten;
+          initDatabase();
+          return;
+        }
+        const feld = document.getElementById('searchInput');
+        if (feld && feld.value.trim()) searchRhymes();
+      } catch (fehler) {
+        console.warn('Aktuelle Reime nicht geladen, eingebettete Daten werden genutzt:', fehler);
+      }
+    })();
+
     // Suchwort kann beim Aufruf über die Strato-Seite per URL übergeben werden.
     (function() {
       const uebergebenesWort = new URLSearchParams(window.location.search).get('wort');
@@ -5582,6 +5608,32 @@ window.addEventListener('message', function(event) {
     } else {
       alert('In Chrome: rechts oben das Drei-Punkte-Menü öffnen und „App installieren“ oder „Installieren“ wählen.');
     }
+  });
+})();
+</script>
+<script id="app-aktualisieren">
+// Installierte Apps bleiben auf dem Handy oft tagelang im Hintergrund geöffnet
+// und laden sich dann nie neu. War die App länger als 30 Minuten im
+// Hintergrund, wird sie beim Zurückkehren neu geladen, damit neue Reime und
+// neue Funktionen ankommen. Das aktuelle Suchwort bleibt dabei erhalten.
+(function () {
+  var PAUSE_MS = 30 * 60 * 1000;
+  var verstecktSeit = null;
+  function neuLaden() {
+    var feld = document.getElementById('searchInput');
+    var wort = feld ? feld.value.trim() : '';
+    var url = new URL(window.location.href);
+    url.hash = '';
+    if (wort) url.searchParams.set('wort', wort); else url.searchParams.delete('wort');
+    window.location.replace(url.toString());
+  }
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) { verstecktSeit = Date.now(); return; }
+    if (verstecktSeit && Date.now() - verstecktSeit > PAUSE_MS) neuLaden();
+    verstecktSeit = null;
+  });
+  window.addEventListener('pageshow', function (event) {
+    if (event.persisted) neuLaden();
   });
 })();
 </script>
