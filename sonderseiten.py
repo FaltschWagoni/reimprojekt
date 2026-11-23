@@ -341,7 +341,7 @@ def seite(s, gruppen, alle):
 
     <section class="weiter">
       <h2>Weitere knifflige Reime</h2>
-      <ul>{weitere}<li><a href="Reimfinder.html">Zum Online-Reimfinder – über 70.000 deutsche Reimwörter</a></li></ul>
+      <ul>{weitere}<li><a href="warum-dieser-reimfinder.html">Lieber kein Reim als ein schlechter – was diesen Reimfinder anders macht</a></li><li><a href="Reimfinder.html">Zum Online-Reimfinder – über 70.000 deutsche Reimwörter</a></li></ul>
     </section>
 
     <footer>© Faltsch Wagoni · <a href="https://www.faltsch-wagoni.de/">faltsch-wagoni.de</a></footer>
@@ -354,7 +354,7 @@ def seite(s, gruppen, alle):
 
 
 def sitemap(alle):
-    urls = ['Reimfinder.html'] + [s['datei'] for s in alle]
+    urls = ['Reimfinder.html', 'warum-dieser-reimfinder.html'] + [s['datei'] for s in alle]
     eintraege = ''.join(f'  <url><loc>{BASIS}{u}</loc></url>\n' for u in urls)
     return f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{eintraege}</urlset>\n'
 
